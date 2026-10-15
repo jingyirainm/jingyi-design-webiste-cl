@@ -116,7 +116,7 @@
     const num = head.querySelector('.number');
     const titleEl = units[1] ? units[1].cloneNode(true) : null;
     let soon = false;
-    if (titleEl) titleEl.querySelectorAll('span').forEach(sp => { if (/in progress/i.test(sp.textContent)) { soon = true; sp.remove(); } });
+    if (titleEl) titleEl.querySelectorAll('span').forEach(sp => { if (/in progress|nda/i.test(sp.textContent)) { soon = true; sp.remove(); } });
     const full = titleEl ? tidy(titleEl.textContent) : '';
     const cut = full.search(/\s*[—–]\s*/);
     const name = cut > 0 ? full.slice(0, cut).trim() : full;
@@ -127,7 +127,7 @@
     if (num) { const n = num.cloneNode(true); n.removeAttribute('href'); h.appendChild(n.tagName === 'A' ? Object.assign(document.createElement('span'), { className: n.className, innerHTML: n.innerHTML, style: n.getAttribute('style') }) : n); }
     const nm = document.createElement(link ? 'a' : 'span'); nm.className = 'wk-nm'; nm.textContent = name; if (link) nm.href = link.getAttribute('href');
     h.appendChild(nm);
-    if (soon) { const b = document.createElement('span'); b.className = 'wk-soon'; b.textContent = 'In progress'; h.appendChild(b); }
+    if (soon) { const b = document.createElement('span'); b.className = 'wk-soon'; b.textContent = 'NDA'; h.appendChild(b); }
     it.prepend(h);
     if (type) {
       const t = document.createElement('div'); t.className = 'wk-g wk-type';

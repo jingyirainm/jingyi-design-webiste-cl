@@ -60,7 +60,7 @@
       mi.classList.remove('zoomable'); mi.removeAttribute('data-full');
       // Remove the old image-only link so each card has one native link and one tab stop.
       frame.querySelectorAll('a.mi-link').forEach(a => a.replaceWith(...a.childNodes));
-      const caption = `<div class="ic-cap"><b>${esc(p.n)}</b><i>${esc(p.m)}${p.href ? '' : ' · Case study in progress'}</i></div>`;
+      const caption = `<div class="ic-cap"><b>${esc(p.n)}</b><i>${esc(p.m)}${p.href ? '' : ' · NDA'}</i></div>`;
       if (p.href) {
         frame.insertAdjacentHTML('beforeend', `<a class="ic-link" href="${p.href}" aria-label="${esc(p.n)}, ${esc(p.m)}">${caption}</a>`);
       } else {
