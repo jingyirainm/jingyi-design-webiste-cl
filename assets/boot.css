@@ -1,0 +1,29 @@
+/* First-paint guard.
+   Keeps the un-initialised (Cargo-era) markup from showing while scripts build the real UI.
+   Every rule here is scoped to a class that only JavaScript adds, so with JS disabled the page stays fully visible. */
+
+/* 1. Project pages that always forward to menu/?project=…: nothing is shown while the redirect runs.
+      (is-embedded = the page is loaded inside the Project page; rs-show = 3s failsafe) */
+html.rs-redirect:not(.is-embedded):not(.rs-show){visibility:hidden}
+
+/* 2. Embedded project page (inside the iframe on the Project page).
+      Same result case.js used to apply at the end of the page; applied from the first paint instead. */
+html.is-embedded{font-size:16px!important}
+html.is-embedded,html.is-embedded body{min-height:0!important;height:auto!important;overflow:hidden!important}
+html.is-embedded .pin,html.is-embedded .cm-back,html.is-embedded .cm-nav,html.is-embedded .cm-sheet,html.is-embedded .cm-next,html.is-embedded .cm-progress,html.is-embedded .bk-bar{display:none!important}
+html.is-embedded body .main:not(#e){padding:0!important;margin:0!important;min-height:0!important}
+html.is-embedded body .main>.page:not(#e){padding:0!important;width:100%!important;min-height:0!important;justify-content:center!important}
+html.is-embedded body .main .page-layout:not(#e){width:100%!important;max-width:1054px!important;padding:16px!important;margin:0 auto!important;min-height:0!important}
+html.is-embedded body .main .page-content:not(#e){width:100%!important;padding:0!important}
+html.is-embedded body .main :is(.dz,.cm-r){opacity:1!important;filter:none!important;transform:none!important}
+
+/* 3. Regions that scripts rebuild: side bar, mobile bars, and the grids on Home / Project / Work.
+      rs-boot is added in <head> and removed once the scripts have run (or after 1.5s at the latest). */
+.pin-left .page-content,.pin-mtop bodycopy,.pin-mbottom bodycopy{transition:opacity .28s ease}
+html.rs-boot .pin-left .page-content,html.rs-boot .pin-mtop bodycopy,html.rs-boot .pin-mbottom bodycopy{opacity:0}
+body.page-homepage-desktop-1 .main .page-content,body.page-menu .main .page-content,body.page-work .main .page-content{transition:opacity .28s ease}
+html.rs-boot body.page-homepage-desktop-1 .main .page-content,html.rs-boot body.page-menu .main .page-content,html.rs-boot body.page-work .main .page-content{opacity:0}
+
+@media (prefers-reduced-motion:reduce){
+  .pin-left .page-content,.pin-mtop bodycopy,.pin-mbottom bodycopy,body .main .page-content{transition:none!important}
+}

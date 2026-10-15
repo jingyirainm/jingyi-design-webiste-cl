@@ -179,6 +179,9 @@
     const href=it.dataset.plHref;
     if(href){
       const frame=document.createElement('iframe');frame.title=it.dataset.plTitle+' project details';
+      /* keep the embedded page invisible until it reports its height (or 5s), so its un-initialised state never shows */
+      frame.style.opacity='0';frame.style.transition='opacity .35s ease';
+      setTimeout(()=>{if(frame.isConnected)frame.style.opacity='1'},5000);
       const u=new URL(href,document.baseURI);u.pathname=u.pathname.replace(/\.html$/, '/');u.searchParams.set('embedded','1');frame.src=u.href;frame.allow='autoplay';frame.addEventListener('load',()=>{if(modal?.contains(frame))window.scrollTo({top:0,behavior:'instant'});},{once:true});modal.appendChild(frame);
     }else{
       const title=document.createElement('h3');title.textContent=it.dataset.plTitle;modal.appendChild(title);
@@ -192,7 +195,7 @@
     if(!modal)return;modal.remove();modal=null;document.body.classList.remove('project-inline-open');relayout();
     if(!now){const u=new URL(location.href);u.searchParams.delete('project');history.replaceState(null,'',u);window.scrollTo({top:savedScroll,behavior:'instant'});selectedCard?.focus({preventScroll:true});}
   }
-  addEventListener('message',e=>{const f=modal?.querySelector('iframe');if(e.origin===location.origin&&f&&e.source===f.contentWindow&&e.data?.type==='project-height'){f.style.height=Math.max(400,Math.min(100000,e.data.height))+'px';}});
+  addEventListener('message',e=>{const f=modal?.querySelector('iframe');if(e.origin===location.origin&&f&&e.source===f.contentWindow&&e.data?.type==='project-height'){f.style.height=Math.max(400,Math.min(100000,e.data.height))+'px';f.style.opacity='1';}});
   addEventListener('keydown',e=>{if(e.key==='Escape')close();});
   addEventListener('pagehide',()=>close(true));
   const requested=new URLSearchParams(location.search).get('project');
