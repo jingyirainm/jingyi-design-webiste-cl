@@ -2,10 +2,10 @@
 (function () {
   const ORDER = [
     { f: 'knotboard.html', t: 'Knotboard', s: 'AI-powered SaaS for creative workflows', n: '001', img: 'assets/projects/knotboard/knotboard_intro.gif' },
-    { f: 'reelshort-casting-system.html', t: 'Casting Pool', s: 'ReelShort casting system at 100M+ view scale', n: '002', img: 'https://freight.cargo.site/t/original/i/A3166357737920798636489174220286/CastPool_Hero_3x2_.gif' },
+    { f: 'reelshort-casting-system.html', t: 'Casting Pool', s: 'ReelShort casting system at 100M+ view scale', n: '002', img: 'assets/media/878a8fe2da87_CastPool_Hero_3x2_.gif' },
     { f: 'reelshort-addendum-studio.html', t: 'ReelShort Addendum Studio', s: 'Payroll & legal compliance system for ReelShort', n: '003', img: 'assets/projects/addendum/00_cover.jpg' },
     { f: 'yi-daily-guidance.html', t: 'Yi 易', s: 'I Ching soundscapes, from installation to app', n: '005', img: 'assets/projects/yi/cs_01_hero.jpg' },
-    { f: 'cave-song.html', t: 'Cave Song', s: 'Mobile app for cultural heritage preservation', n: '006', img: 'https://freight.cargo.site/w/1600/q/85/i/C3156658344904556918719000149502/ChatGPT--2026929-10_06_09.png' }
+    { f: 'cave-song.html', t: 'Cave Song', s: 'Mobile app for cultural heritage preservation', n: '006', img: 'assets/media/c25c69c6b39e_ChatGPT--2026929-10_06_09.png' }
   ];
   const segment=location.pathname.split('/').filter(Boolean).pop();
   const here = segment.endsWith('.html') ? segment : segment+'.html';
