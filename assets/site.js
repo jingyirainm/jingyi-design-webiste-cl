@@ -186,15 +186,26 @@
   });
 })();
 
-/* Muted inline media starts automatically, including dynamically inserted media. */
+/* Muted inline media plays by itself, loops like a GIF, and shows no player controls.
+   It plays while on screen and pauses when scrolled away (saves data and battery on phones). */
 (()=>{
+ const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{
+  const v=e.target;v._inView=e.isIntersecting;
+  if(e.isIntersecting){if(v.preload!=='auto')v.preload='auto';if(!v.dataset.userPaused)v.play().catch(()=>{});}
+  else if(!v.paused&&!v.dataset.userPaused)v.pause();
+ }),{rootMargin:'120px'}):null;
  const enable=root=>root.querySelectorAll('video').forEach(v=>{
-  if(v.dataset.autoReady)return;v.dataset.autoReady='1';
+  if(v.dataset.autoReady||v.closest('.lb-stage'))return;v.dataset.autoReady='1';
+  v.removeAttribute('controls');v.controls=false;v.disablePictureInPicture=true;v.setAttribute('disableremoteplayback','');
   v.autoplay=true;v.muted=true;v.defaultMuted=true;v.loop=true;v.playsInline=true;
-  ['autoplay','muted','loop','playsinline'].forEach(k=>v.setAttribute(k,''));
-  const start=()=>v.play().catch(()=>{});v.addEventListener('canplay',start,{once:true});start();
+  ['autoplay','muted','loop','playsinline','webkit-playsinline'].forEach(k=>v.setAttribute(k,''));
+  const start=()=>{if(!v.dataset.userPaused)v.play().catch(()=>{})};v.addEventListener('canplay',start,{once:true});start();
+  if(io)io.observe(v);else v._inView=true;
  });
  window.rsAutoplay=enable;
+ /* If the browser blocked autoplay (e.g. iOS Low Power Mode), the first touch or scroll starts everything on screen. */
+ const kick=()=>document.querySelectorAll('video').forEach(v=>{if(v.paused&&v._inView&&!v.dataset.userPaused&&!v.closest('.lb-stage'))v.play().catch(()=>{})});
+ ['touchend','pointerup','scroll'].forEach(t=>addEventListener(t,kick,{passive:true}));
  const embeds=()=>document.querySelectorAll('iframe[src]').forEach(f=>{
   if(f.dataset.autoEmbed)return;
   const u=new URL(f.src,document.baseURI);

@@ -185,3 +185,7 @@ body.page-about .ab-rv{transition:opacity 1.144s ease .2s!important}
 
 /* Project filters scroll naturally with the list. */
 @media(max-width:767px){body.mobile.page-menu .mf-wrap{position:relative!important;top:auto!important}}
+
+/* videos play by themselves and loop like GIFs: no native play button / controls, and the Play preview pill is only shown if autoplay was blocked */
+video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
+@media (hover:none),(pointer:coarse){.pl-pill.is-playing{display:none!important}}

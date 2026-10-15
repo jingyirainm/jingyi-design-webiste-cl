@@ -163,19 +163,20 @@
   function pill(v) {
     const b = document.createElement('button'); b.type = 'button'; b.className = 'pl-pill';
     const sync = () => { b.textContent = v.paused ? 'Play preview' : 'Pause preview'; };
-    b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); v.paused ? v.play() : v.pause(); sync(); }, true);
-    v.addEventListener('play', sync); v.addEventListener('pause', sync); sync();
+    b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); if (v.paused) { delete v.dataset.userPaused; v.play(); } else { v.dataset.userPaused = '1'; v.pause(); } sync(); }, true);
+    const mark = () => b.classList.toggle('is-playing', !v.paused && v.readyState > 2);
+    v.addEventListener('play', sync); v.addEventListener('pause', sync); v.addEventListener('play', mark); v.addEventListener('playing', mark); v.addEventListener('pause', mark); sync(); mark();
     return b;
   }
 
   let modal = null, savedScroll = 0, selectedCard = null;
   const panelCSS=document.createElement('style');
-  panelCSS.textContent=`.project-inline-open{overflow-anchor:none}.project-inline{width:100%;max-width:1100px;margin:0 auto;animation:projectAppear .35s ease}.project-inline-back{display:inline-flex;align-items:center;min-height:44px;padding:8px 18px;margin:0 0 24px;border:1px solid #ddd;border-radius:24px;background:transparent;color:inherit;font:inherit;cursor:pointer}.project-inline iframe{display:block;width:100%;border:0;min-height:400px}.project-inline h3{font-weight:400}.project-inline img,.project-inline video{display:block;max-width:100%;height:auto;margin:0 auto}.project-inline p{text-align:left;line-height:1.65}.project-inline-open .mf-wrap{display:none!important}.project-inline-open .pl-sec{display:none!important}.project-inline-open .project-inline{display:block!important}@keyframes projectAppear{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.project-inline{animation:none}}`;
+  panelCSS.textContent=`.project-inline-open{overflow-anchor:none}.project-inline{width:100%;max-width:1100px;margin:0 auto;animation:projectAppear .35s ease}.project-inline-back{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 11px;margin:0 0 24px;border-radius:99px;font:500 11.7px/1 Inter,'Diatype',-apple-system,sans-serif;color:#111;text-decoration:none;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.1),0 2px 10px -4px rgba(0,0,0,.12);transition:transform .3s cubic-bezier(.22,.8,.2,1),box-shadow .3s}.project-inline-back:hover{transform:translateX(-2px);box-shadow:0 0 0 1px rgba(17,17,17,.18),0 3px 12px -4px rgba(0,0,0,.16)}.project-inline-back svg{transition:transform .3s cubic-bezier(.22,.8,.2,1)}.project-inline-back:hover svg{transform:translateX(-3px)}.project-inline-back:focus-visible{outline:2px solid #111;outline-offset:2px}body.mobile .project-inline-back{min-height:44px}.project-inline iframe{display:block;width:100%;border:0;min-height:400px}.project-inline h3{font-weight:400}.project-inline img,.project-inline video{display:block;max-width:100%;height:auto;margin:0 auto}.project-inline p{text-align:left;line-height:1.65}.project-inline-open .mf-wrap{display:none!important}.project-inline-open .pl-sec{display:none!important}.project-inline-open .project-inline{display:block!important}@keyframes projectAppear{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.project-inline{animation:none}}`;
   document.head.appendChild(panelCSS);
   function open(it) {
     close(true); savedScroll=scrollY;selectedCard=it;
     modal=document.createElement('section');modal.className='project-inline';
-    const back=document.createElement('button');back.type='button';back.className='project-inline-back';back.textContent='← Back to Projects';back.addEventListener('click',()=>close());modal.appendChild(back);
+    const back=document.createElement('button');back.type='button';back.className='project-inline-back';back.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Projects';back.addEventListener('click',()=>close());modal.appendChild(back);
     const href=it.dataset.plHref;
     if(href){
       const frame=document.createElement('iframe');frame.title=it.dataset.plTitle+' project details';
