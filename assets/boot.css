@@ -31,3 +31,12 @@ html.rs-boot body.page-homepage-desktop-1 .main .page-content,html.rs-boot body.
 /* Videos behave like GIFs: never show the native play button or player controls (iOS shows a big round play button when autoplay is blocked). */
 video::-webkit-media-controls,video::-webkit-media-controls-enclosure,video::-webkit-media-controls-panel,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;opacity:0!important;pointer-events:none!important;-webkit-appearance:none}
 video{-webkit-touch-callout:none}
+
+/* Home: one-glance introduction above the work grid (who I am, what I do, for whom) */
+body .home-hero{margin:0 0 clamp(2rem,5vw,3.5rem);max-width:48rem;animation:hhIn .9s cubic-bezier(.22,.8,.2,1) .1s backwards}
+body .home-hero h1{font:500 clamp(1.7rem,3.4vw,2.7rem)/1.14 Inter,'Diatype',-apple-system,sans-serif!important;letter-spacing:-.025em;margin:0 0 .9rem;color:inherit}
+body .home-hero p{margin:0 0 .45rem;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.5;opacity:.75}
+body .home-hero p.hh-sub{font-size:clamp(.9rem,1.2vw,1rem);opacity:.5}
+body.mobile .home-hero h1{font-size:28px!important;line-height:1.15}
+@keyframes hhIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){body .home-hero{animation:none}}

@@ -7,12 +7,6 @@
  const apply=()=>{
   const main=document.querySelector('main'); if(!main)return;
   if(document.body.classList.contains('page-homepage-desktop-1')){
-   main.querySelectorAll('bodycopy').forEach(content=>{
-   if(!content.querySelector('.mobile-intro')){
-    const intro=document.createElement('section');intro.className='mobile-intro';intro.setAttribute('aria-label','Introduction');
-    intro.innerHTML='<p>Hi, I am Jingyi <span class="mobile-green-dot" aria-hidden="true"></span>, an AI-native designer with a strong sense of product thinking, aesthetics, and creativity. I turn complex ideas into systems and bring them to life through design and code.</p><p>Recently at <a href="https://www.reelshort.com/" target="_blank" rel="noopener">@ReelShort</a>.</p>';
-    content.prepend(intro);
-   }});
    main.querySelectorAll('gallery-columnized').forEach(g=>{g.dataset.mcols='2'});
   }
   const footer=document.querySelector('.pin-mbottom');
