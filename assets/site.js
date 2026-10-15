@@ -203,6 +203,7 @@
   if(io)io.observe(v);else v._inView=true;
  });
  window.rsAutoplay=enable;
+ const noUi=document.createElement('style');noUi.textContent='video::-webkit-media-controls,video::-webkit-media-controls-enclosure,video::-webkit-media-controls-panel,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;opacity:0!important;pointer-events:none!important;-webkit-appearance:none}';document.head.appendChild(noUi);
  /* If the browser blocked autoplay (e.g. iOS Low Power Mode), the first touch or scroll starts everything on screen. */
  const kick=()=>document.querySelectorAll('video').forEach(v=>{if(v.paused&&v._inView&&!v.dataset.userPaused&&!v.closest('.lb-stage'))v.play().catch(()=>{})});
  ['touchend','pointerup','scroll'].forEach(t=>addEventListener(t,kick,{passive:true}));
