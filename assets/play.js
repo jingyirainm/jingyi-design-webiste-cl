@@ -77,7 +77,9 @@
   const cardKey = it => {
     const l = it.querySelector('a.mi-link'); if (l && CARDS[l.getAttribute('href')]) return l.getAttribute('href');
     const m = it.querySelector('.media'); const f = m ? decodeURIComponent((m.getAttribute('src') || '').split('?')[0].split('/').pop()) : '';
-    return CARDS[f] ? f : null;
+    if (CARDS[f]) return f;
+    const g = f.replace(/^[0-9a-f]{12}_/, ''); if (CARDS[g]) return g;
+    return Object.keys(CARDS).find(k => g.length > 20 && k.startsWith(g.replace(/\.png$/, ''))) || null;
   };
   const clean = t => t.replace(/ /g, ' ').replace(/\s+/g, ' ').replace(/\s*&\s*/g, ' & ').replace(/\s*\/\s*/g, ' / ').trim();
 
