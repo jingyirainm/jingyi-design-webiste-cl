@@ -36,7 +36,7 @@
     }), { rootMargin: '0px 0px -6% 0px' });
     const shared = document.body.matches('.page-homepage-desktop-1,.page-work,.page-menu,.page-about');
     const els = [...(scope || document).querySelectorAll(shared ? '.mi-frame, .wk-desc, .pl-hov, .mobile-intro' : '.mi-frame, .yx-ph, .wk-cover, iframe')]
-      .filter(e => e.closest('.main') && (!e.closest('.th-keep, .yx-scr') || e.classList.contains('yx-ph')));
+      .filter(e => !(e.classList.contains('pl-hov') && matchMedia('(min-width:768px)').matches) && e.closest('.main') && (!e.closest('.th-keep, .yx-scr') || e.classList.contains('yx-ph')));
     let row = 0, last = -1;
     els.forEach(el => {
       if(revealed.has(el))return;revealed.add(el);
