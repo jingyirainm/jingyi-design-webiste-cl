@@ -40,3 +40,4 @@ body .home-hero p.hh-sub{font-size:clamp(.9rem,1.2vw,1rem);opacity:.5}
 body.mobile .home-hero h1{font-size:28px!important;line-height:1.15}
 @keyframes hhIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){body .home-hero{animation:none}}
+body .home-hero a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}

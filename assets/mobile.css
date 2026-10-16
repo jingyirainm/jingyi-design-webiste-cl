@@ -189,3 +189,20 @@ body.page-about .ab-rv{transition:opacity 1.144s ease .2s!important}
 /* videos play by themselves and loop like GIFs: no native play button / controls, and the Play preview pill is only shown if autoplay was blocked */
 video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit-media-controls-start-playback-button,video::-webkit-media-controls-overlay-play-button{display:none!important;-webkit-appearance:none}
 @media (hover:none),(pointer:coarse){.pl-pill.is-playing{display:none!important}}
+
+/* Phone header: pinned, airy glass (90% transparent), 25% shorter, Light wordmark */
+@media(max-width:767px){
+ body.mobile .pin-mtop{background:rgba(255,255,255,.1)!important;-webkit-backdrop-filter:blur(20px) saturate(1.3);backdrop-filter:blur(20px) saturate(1.3);border-bottom:1px solid rgba(0,0,0,.04)!important;transition:background .3s ease}
+ html[data-theme=dark] body.mobile .pin-mtop{background:rgba(17,17,17,.1)!important;border-bottom-color:rgba(255,255,255,.06)!important}
+ body.mobile .pin-mtop:has(.menu-open){background:rgba(255,255,255,.92)!important}
+ html[data-theme=dark] body.mobile .pin-mtop:has(.menu-open){background:rgba(17,17,17,.92)!important}
+ body.mobile .pin-mtop bodycopy{padding:0 16px!important}
+ body.mobile .mobile-nav{min-height:48px!important}
+ body.mobile .mobile-nav .mobile-brand,body.mobile .mobile-nav .mobile-menu-button,body.mobile .mobile-nav .th-toggle{height:48px;min-height:0}
+ body.mobile .mobile-nav .mobile-brand{font-weight:300!important;min-height:0}
+ body.mobile .main{padding-top:68px!important}
+ /* Footer (social links): not pinned, sits at the end of Index / Project / Work / About only */
+ body.mobile .pin.pin-mbottom{position:static!important;bottom:auto!important;background:transparent!important;border:0!important;margin-top:24px;min-height:44px}
+ body.mobile .pin-mbottom.mobile-foot-off,body.mobile.case-mode .pin-mbottom,body.mobile:has(.project-inline) .pin-mbottom,html.is-embedded .pin-mbottom{display:none!important}
+ body.mobile .main{padding-bottom:16px!important}
+}
