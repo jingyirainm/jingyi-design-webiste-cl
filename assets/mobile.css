@@ -192,8 +192,8 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
 
 /* Phone header: pinned, airy glass (90% transparent), 25% shorter, Light wordmark */
 @media(max-width:767px){
- body.mobile .pin-mtop{background:rgba(255,255,255,.1)!important;-webkit-backdrop-filter:blur(20px) saturate(1.3);backdrop-filter:blur(20px) saturate(1.3);border-bottom:1px solid rgba(0,0,0,.04)!important;transition:background .3s ease}
- html[data-theme=dark] body.mobile .pin-mtop{background:rgba(17,17,17,.1)!important;border-bottom-color:rgba(255,255,255,.06)!important}
+ body.mobile .pin-mtop{background:rgba(255,255,255,.15)!important;-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);border:0!important;box-shadow:none!important;transition:background .3s ease}
+ html[data-theme=dark] body.mobile .pin-mtop{background:rgba(17,17,17,.15)!important}
  body.mobile .pin-mtop:has(.menu-open){background:rgba(255,255,255,.92)!important}
  html[data-theme=dark] body.mobile .pin-mtop:has(.menu-open){background:rgba(17,17,17,.92)!important}
  body.mobile .pin-mtop bodycopy{padding:0 16px!important}
@@ -205,4 +205,11 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
  body.mobile .pin.pin-mbottom{position:static!important;bottom:auto!important;background:transparent!important;border:0!important;margin-top:24px;min-height:44px}
  body.mobile .pin-mbottom.mobile-foot-off,body.mobile.case-mode .pin-mbottom,body.mobile:has(.project-inline) .pin-mbottom,html.is-embedded .pin-mbottom{display:none!important}
  body.mobile .main{padding-bottom:16px!important}
+}
+
+/* Phone home: visuals first, intro below; Light, tight lines (no blank rows) */
+@media(max-width:767px){
+ body.mobile .mob-only>.page .page-content>bodycopy{display:flex;flex-direction:column}
+ body.mobile .mob-only .home-hero{order:2;margin:28px 0 8px}
+ html body.mobile .home-hero h1,html body.mobile .home-hero p,html body.mobile .home-hero p.hh-sub{font-weight:300!important;margin:0!important;line-height:1.5!important}
 }
