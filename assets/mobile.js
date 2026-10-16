@@ -37,5 +37,10 @@
  new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&(n.matches('main')||n.querySelector('main')))))schedule()}).observe(document.body,{childList:true,subtree:true});
 })();
 
-/* Opening screen: Enter glides to the index cards */
-(()=>{document.addEventListener('click',e=>{const b=e.target.closest('.ms-enter');if(!b)return;const g=document.querySelector('.mob-only .ic-gal');if(!g)return;g.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})})})();
+/* Opening screen: scroll cue glides to the index cards; the intro drifts and fades as you scroll away */
+(()=>{
+ document.addEventListener('click',e=>{const b=e.target.closest('.ms-scroll');if(!b)return;const g=document.querySelector('.mob-only .ic-gal');if(!g)return;g.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})});
+ let tick=false;
+ const upd=()=>{tick=false;const s=document.querySelector('.m-splash');if(!s)return;const p=Math.min(1,Math.max(0,scrollY/(innerHeight*.6)));s.style.setProperty('--ms-p',p.toFixed(3))};
+ addEventListener('scroll',()=>{if(tick)return;tick=true;requestAnimationFrame(upd)},{passive:true});
+})();
