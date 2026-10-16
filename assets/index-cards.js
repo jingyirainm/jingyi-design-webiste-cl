@@ -1,7 +1,7 @@
 /* Index: hover reveals the bottom label; the whole card links directly to its project. */
 (function () {
   const PROJECTS = {
-    knot:  { n: 'Knotboard', m: 'SaaS', d: "Designed an all-in-one creative SaaS workspace that turns inspiration into action — helping creatives collect and organize ideas in a visual library, plan projects, track progress through dashboards, and use an AI agent to optimize plans in their creative process.", href: 'knotboard.html' },
+    knot:  { n: 'Knotboard', m: 'SaaS', d: "Designed an AI-powered creative SaaS workspace that keeps creative work connected — helping creatives collect and organize ideas in a visual library, plan projects, track progress through dashboards, and use an AI agent to optimize plans in their creative process.", href: 'knotboard.html' },
     cast:  { n: 'ReelShort Casting System', m: 'B2B SaaS', d: "Redesigned and launched an internal casting platform for the leading global short- drama company, featuring a talent database and project management dashboard to support faster production decisions across high-volume TV productions.", href: 'reelshort-casting-system.html' },
     add:   { n: 'ReelShort Addendum Studio', m: 'B2B SaaS', d: "Designed and built an automated payroll documentation tool for ReelShort, simplifying contract preparation, payment paperwork, and compliance workflows for production teams.", href: 'reelshort-addendum-studio.html' },
     cave:  { n: 'Cave Song', m: 'Consumer Mobile App', d: "Designed a digital cultural heritage platform dedicated to preserving and promoting China's Mogao Caves, including educational resources, digital exhibitions, and cultural products to make historical heritage more accessible to new generations.", href: 'cave-song.html' },
