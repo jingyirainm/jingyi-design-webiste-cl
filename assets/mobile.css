@@ -207,11 +207,16 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
  body.mobile .main{padding-bottom:16px!important}
 }
 
-/* Phone home: visuals first, intro below; Light, tight lines (no blank rows) */
+/* Phone opening screen: headline, folder illustration, intro, Enter */
 @media(max-width:767px){
- body.mobile .mob-only>.page .page-content>bodycopy{display:flex;flex-direction:column}
- body.mobile .mob-only .home-hero{order:2;margin:28px 0 8px}
- html body.mobile .home-hero h1,html body.mobile .home-hero p,html body.mobile .home-hero p.hh-sub{font-weight:300!important;margin:0!important;line-height:1.5!important}
+ body.mobile .m-splash{min-height:calc(100dvh - 68px - 16px);display:flex;flex-direction:column;margin:0 0 32px;font-family:Inter,"Diatype Variable",sans-serif;font-weight:300;color:inherit}
+ body.mobile .m-splash h1{font:300 var(--ms-h,27px)/1.28 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.02em;margin:28px 0 0;color:inherit;text-wrap:balance}
+ body.mobile .m-splash .ms-fig{flex:1 1 auto;margin:0;display:flex;align-items:center;justify-content:center;min-height:200px;padding:20px 0}
+ body.mobile .m-splash .ms-fig img{display:block;width:min(100%,330px);height:auto}
+ body.mobile .m-splash .ms-copy p{font:300 var(--ms-p,14px)/1.55 Inter,"Diatype Variable",sans-serif!important;margin:0 0 16px;letter-spacing:0;color:inherit;opacity:1}
+ body.mobile .m-splash .ms-copy a{color:inherit;text-underline-offset:3px;text-decoration:none}
+ body.mobile .m-splash .ms-foot{margin-top:20px;padding-top:6px;border-top:1px solid rgba(128,128,128,.55);display:flex;justify-content:space-between;align-items:center;font:300 var(--ms-p,14px)/1 Inter,"Diatype Variable",sans-serif}
+ body.mobile .m-splash .ms-foot span{opacity:.5}
+ body.mobile .m-splash .ms-enter{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;min-height:44px;font:inherit;color:inherit;cursor:pointer}
+ body.mobile .mob-only .ic-gal{scroll-margin-top:72px}
 }
-
-@media(max-width:767px){html body.mobile .home-hero h1,html body.mobile .home-hero p,html body.mobile .home-hero p.hh-sub{font-family:Inter,"Diatype Variable",sans-serif!important;font-weight:300!important;font-size:16px!important;letter-spacing:0!important;-webkit-font-smoothing:antialiased}}

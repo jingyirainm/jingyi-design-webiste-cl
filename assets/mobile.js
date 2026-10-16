@@ -36,3 +36,6 @@
  phone.addEventListener('change',schedule);document.addEventListener('rs-case-ready',schedule);
  new MutationObserver(ms=>{if(ms.some(m=>[...m.addedNodes].some(n=>n.nodeType===1&&(n.matches('main')||n.querySelector('main')))))schedule()}).observe(document.body,{childList:true,subtree:true});
 })();
+
+/* Opening screen: Enter glides to the index cards */
+(()=>{document.addEventListener('click',e=>{const b=e.target.closest('.ms-enter');if(!b)return;const g=document.querySelector('.mob-only .ic-gal');if(!g)return;g.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth',block:'start'})})})();
