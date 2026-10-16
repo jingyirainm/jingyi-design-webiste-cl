@@ -43,6 +43,6 @@ body.mobile .home-hero h1{font-size:28px!important;line-height:1.15}
 body .home-hero a{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 
 /* Home intro: one voice — same font, size, colour for every line */
-body .home-hero h1,body .home-hero p,body .home-hero p.hh-sub,body.mobile .home-hero h1{font:400 clamp(1.05rem,1.6vw,1.3rem)/1.55 Inter,'Diatype',-apple-system,sans-serif!important;letter-spacing:-.01em;color:inherit!important;opacity:1!important;margin:0 0 1rem}
+body .home-hero h1,body .home-hero p,body .home-hero p.hh-sub,body.mobile .home-hero h1{font:400 clamp(1.05rem,1.6vw,1.3rem)/1.55 Inter,'Diatype Variable',sans-serif!important;letter-spacing:-.01em;color:inherit!important;opacity:1!important;margin:0 0 1rem}
 body.mobile .home-hero h1,body.mobile .home-hero p{font-size:17px!important}
 body .home-hero p:last-child{margin-bottom:0}

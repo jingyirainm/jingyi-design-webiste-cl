@@ -213,3 +213,5 @@ video::-webkit-media-controls,video::-webkit-media-controls-panel,video::-webkit
  body.mobile .mob-only .home-hero{order:2;margin:28px 0 8px}
  html body.mobile .home-hero h1,html body.mobile .home-hero p,html body.mobile .home-hero p.hh-sub{font-weight:300!important;margin:0!important;line-height:1.5!important}
 }
+
+@media(max-width:767px){html body.mobile .home-hero h1,html body.mobile .home-hero p,html body.mobile .home-hero p.hh-sub{font-family:Inter,"Diatype Variable",sans-serif!important;font-weight:300!important;font-size:16px!important;letter-spacing:0!important;-webkit-font-smoothing:antialiased}}
