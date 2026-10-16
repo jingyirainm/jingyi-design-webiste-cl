@@ -54,6 +54,9 @@
   .pl-stage img,.pl-stage video{display:block;max-width:100%;max-height:calc(92vh - 210px);width:auto;height:auto;border-radius:12px}
   .pl-stage .pl-pill{right:39px;bottom:39px}
   html[data-theme="dark"] .pl-modal{background:rgba(255,255,255,.4)}
+  body.pj-open{overflow:hidden!important}
+  @media(min-width:768px){.pl-box{overflow-y:auto;scrollbar-width:none}.pl-box::-webkit-scrollbar{display:none}.pl-box .pl-stage{flex:0 0 auto}.pl-box .pl-stage img,.pl-box .pl-stage video{max-height:calc(92vh - 360px)}.pl-box .pl-intro{flex:none}}
+  .pl-modal{cursor:pointer}.pl-box{cursor:auto}
   body.mobile .pl-hov{display:none}
   @media (prefers-reduced-motion:reduce){.pl-card *,.pl-modal,.pl-box{transition:none!important}}`;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
@@ -159,7 +162,7 @@
     frame.appendChild(hov);
     const v = frame.querySelector('video');
     if (v) frame.appendChild(pill(v));
-    it.addEventListener('click', e => { if (e.target.closest('.pl-pill')) return; e.preventDefault(); e.stopPropagation(); open(it); }, true);
+    it.addEventListener('click', e => { if (e.target.closest('.pl-pill')) return; e.preventDefault(); e.stopPropagation(); openCard(it); }, true);
     it.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(it); } });
   }
 
@@ -174,10 +177,50 @@
 
   let modal = null, savedScroll = 0, selectedCard = null;
   const panelCSS=document.createElement('style');
-  panelCSS.textContent=`.project-inline-open{overflow-anchor:none}.project-inline{width:100%;max-width:1100px;margin:0 auto;animation:projectAppear .35s ease}.project-inline-back{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:9px 14px 9px 11px;margin:0 0 24px;border-radius:99px;font:500 11.7px/1 Inter,'Diatype',-apple-system,sans-serif;color:#111;text-decoration:none;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.1),0 2px 10px -4px rgba(0,0,0,.12);transition:transform .3s cubic-bezier(.22,.8,.2,1),box-shadow .3s}.project-inline-back:hover{transform:translateX(-2px);box-shadow:0 0 0 1px rgba(17,17,17,.18),0 3px 12px -4px rgba(0,0,0,.16)}.project-inline-back svg{transition:transform .3s cubic-bezier(.22,.8,.2,1)}.project-inline-back:hover svg{transform:translateX(-3px)}.project-inline-back:focus-visible{outline:2px solid #111;outline-offset:2px}body.mobile .project-inline-back{min-height:44px}.project-inline iframe{display:block;width:100%;border:0;min-height:400px}.project-inline h3{font-weight:400}.project-inline img,.project-inline video{display:block;max-width:100%;height:auto;margin:0 auto}.project-inline p{text-align:left;line-height:1.65}.project-inline-open .mf-wrap{display:none!important}.project-inline-open .pl-sec{display:none!important}.project-inline-open .project-inline{display:block!important}@keyframes projectAppear{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.project-inline{animation:none}}`;
+  panelCSS.textContent=`.project-inline-open{overflow-anchor:none}.project-inline{width:100%;max-width:1100px;margin:0 auto;animation:projectAppear .35s ease}.project-inline-back{appearance:none;-webkit-appearance:none;border:0;cursor:pointer;display:flex;width:fit-content;align-items:center;gap:8px;padding:9px 14px 9px 11px;margin:0 0 24px auto;border-radius:99px;font:500 11.7px/1 Inter,'Diatype',-apple-system,sans-serif;color:#111;text-decoration:none;background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.1),0 2px 10px -4px rgba(0,0,0,.12);transition:transform .3s cubic-bezier(.22,.8,.2,1),box-shadow .3s}.project-inline-back:hover{transform:translateX(-2px);box-shadow:0 0 0 1px rgba(17,17,17,.18),0 3px 12px -4px rgba(0,0,0,.16)}.project-inline-back svg{transition:transform .3s cubic-bezier(.22,.8,.2,1)}.project-inline-back:hover svg{transform:translateX(-3px)}.project-inline-back:focus-visible{outline:2px solid #111;outline-offset:2px}body.mobile .project-inline-back{min-height:44px}.project-inline iframe{display:block;width:100%;border:0;min-height:400px}.project-inline h3{font-weight:400}.project-inline img,.project-inline video{display:block;max-width:100%;height:auto;margin:0 auto}.project-inline p{text-align:left;line-height:1.65}.project-inline-open .mf-wrap{display:none!important}.project-inline-open .pl-sec{display:none!important}.project-inline-open .project-inline{display:block!important}@keyframes projectAppear{from{opacity:0}to{opacity:1}}@media(prefers-reduced-motion:reduce){.project-inline{animation:none}}`;
   document.head.appendChild(panelCSS);
-  function open(it) {
-    close(true); savedScroll=scrollY;selectedCard=it;
+  /* ---- project card: centred card over a blurred page; click outside (or Esc) to close ---- */
+  let cardModal = null;
+  function openCard(it) {
+    closeCard(true); selectedCard = it;
+    const title = it.dataset.plTitle || 'Project';
+    const rm = (window.rsMeta || {})[title] || null;
+    const m = document.createElement('div'); m.className = 'pl-modal'; m.setAttribute('role', 'dialog'); m.setAttribute('aria-modal', 'true'); m.setAttribute('aria-label', title);
+    const box = document.createElement('div'); box.className = 'pl-box'; box.tabIndex = -1; m.appendChild(box);
+    const top = document.createElement('div'); top.className = 'pl-top';
+    const h = document.createElement('h3'); h.textContent = title; top.appendChild(h);
+    if (it.dataset.plHref) {
+      const op = document.createElement('a'); op.className = 'pl-open'; op.href = it.dataset.plHref; op.textContent = 'Open ↗';
+      op.addEventListener('click', e => { if (e.metaKey || e.ctrlKey || e.shiftKey) return; e.preventDefault(); openProject(it); });
+      top.appendChild(op);
+    }
+    box.appendChild(top);
+    if (rm) {
+      const dl = document.createElement('dl'); dl.className = 'pl-meta';
+      [['Role', rm.role], ['Medium', rm.medium]].concat(rm.other || []).forEach(([k, v]) => {
+        if (!v) return; const d = document.createElement('div'), dt = document.createElement('dt'), dd = document.createElement('dd');
+        dt.textContent = k; dd.textContent = v; d.append(dt, dd); dl.appendChild(d);
+      });
+      box.appendChild(dl);
+    }
+    const stage = document.createElement('div'); stage.className = 'pl-stage';
+    const orig = it.querySelector('.media');
+    if (orig) { const c = orig.cloneNode(true); stage.appendChild(c); if (c.tagName === 'VIDEO') { c.muted = true; c.loop = true; c.setAttribute('playsinline', ''); stage.appendChild(pill(c)); } }
+    box.appendChild(stage);
+    const introText = it.dataset.plIntro || it.dataset.plDesc || '';
+    if (introText) { const p = document.createElement('p'); p.className = 'pl-intro'; p.textContent = introText; box.appendChild(p); }
+    m.addEventListener('click', e => { if (e.target === m) closeCard(); });
+    document.body.appendChild(m); document.body.classList.add('pj-open');
+    window.rsAutoplay?.(m);
+    requestAnimationFrame(() => { m.classList.add('on'); box.focus({ preventScroll: true }); });
+    cardModal = m;
+  }
+  function closeCard(now) {
+    if (!cardModal) return; const m = cardModal; cardModal = null; document.body.classList.remove('pj-open');
+    if (now) m.remove(); else { m.classList.remove('on'); setTimeout(() => m.remove(), 350); selectedCard?.focus({ preventScroll: true }); }
+  }
+  function openProject(it) {
+    closeCard(true);close(true); savedScroll=scrollY;selectedCard=it;
     modal=document.createElement('section');modal.className='project-inline';
     const back=document.createElement('button');back.type='button';back.className='project-inline-back';back.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Projects';back.addEventListener('click',()=>close());modal.appendChild(back);
     const href=it.dataset.plHref;
@@ -200,10 +243,10 @@
     if(!now){const u=new URL(location.href);u.searchParams.delete('project');history.replaceState(null,'',u);window.scrollTo({top:savedScroll,behavior:'instant'});selectedCard?.focus({preventScroll:true});}
   }
   addEventListener('message',e=>{const f=modal?.querySelector('iframe');if(e.origin===location.origin&&f&&e.source===f.contentWindow&&e.data?.type==='project-height'){f.style.height=Math.max(400,Math.min(100000,e.data.height))+'px';f.style.opacity='1';}});
-  addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-  addEventListener('pagehide',()=>close(true));
+  addEventListener('keydown',e=>{if(e.key==='Escape'){if(cardModal)closeCard();else close();}});
+  addEventListener('pagehide',()=>{closeCard(true);close(true);});
   const requested=new URLSearchParams(location.search).get('project');
-  if(requested){const card=[...bc.querySelectorAll('.pl-card')].find(it=>(it.dataset.plHref||'').replace(/\.html$/,'').replace(/\/$/,'').split('/').pop()===requested);if(card)open(card);else if(/^[a-z0-9-]+$/.test(requested)){const fallback=document.createElement('div');fallback.dataset.plHref=requested+'.html';fallback.dataset.plTitle=requested.replace(/-/g,' ');open(fallback);}}
+  if(requested){const card=[...bc.querySelectorAll('.pl-card')].find(it=>(it.dataset.plHref||'').replace(/\.html$/,'').replace(/\/$/,'').split('/').pop()===requested);if(card)openProject(card);else if(/^[a-z0-9-]+$/.test(requested)){const fallback=document.createElement('div');fallback.dataset.plHref=requested+'.html';fallback.dataset.plTitle=requested.replace(/-/g,' ');openProject(fallback);}}
 
   // the filter bar sits on the same line as "Index" in the side bar (desktop)
   const align = () => {
