@@ -219,7 +219,6 @@
     if (!cardModal) return; const m = cardModal; cardModal = null; document.body.classList.remove('pj-open');
     if (now) m.remove(); else { m.classList.remove('on'); setTimeout(() => m.remove(), 350); selectedCard?.focus({ preventScroll: true }); }
   }
-  window.rsProject = { openCard: it => openCard(it) };
   function openProject(it) {
     closeCard(true);close(true); savedScroll=scrollY;selectedCard=it;
     modal=document.createElement('section');modal.className='project-inline';
