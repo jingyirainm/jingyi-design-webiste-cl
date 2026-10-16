@@ -26,6 +26,7 @@
   .pl-hov span{margin-top:1.35em;font-size:.84rem;line-height:1.35;color:rgba(17,17,17,.62);max-width:28ch;transform:translateY(6px);transition:transform .55s ${E}}
   .pl-hov p{margin:.35rem 0 0;font-size:.76rem;line-height:1.45;color:rgba(17,17,17,.7);max-width:34ch;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;transform:translateY(6px);transition:transform .6s ${E}}
   .pl-card:hover .pl-hov b,.pl-card:hover .pl-hov span,.pl-card:hover .pl-hov p{transform:none}
+  @media(min-width:768px){.pl-hov span,.pl-hov p,.pl-intro,.pl-meta dd,.project-inline p{font-size:var(--pl-fs,12.393px)!important;line-height:1.5!important}}
   .pl-box.has-intro .pl-stage img,.pl-box.has-intro .pl-stage video{max-height:calc(92vh - 320px)}
   .pl-intro{margin:-6px 0 27px;padding:0 27px;box-sizing:border-box;width:100%;max-width:none;text-align:center;font-size:.98rem;line-height:1.6;color:rgba(17,17,17,.7)}
   .pl-pill{all:unset;position:absolute;right:16px;bottom:16px;z-index:2;padding:7px 12px;border-radius:99px;background:rgba(255,255,255,.92);color:#111;
