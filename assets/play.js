@@ -222,7 +222,7 @@
   function openProject(it) {
     closeCard(true);close(true); savedScroll=scrollY;selectedCard=it;
     modal=document.createElement('section');modal.className='project-inline';
-    const back=document.createElement('button');back.type='button';back.className='project-inline-back';back.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Projects';back.addEventListener('click',()=>close());modal.appendChild(back);
+    const back=document.createElement('button');back.type='button';back.className='project-inline-back';back.innerHTML='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Visual Design';back.addEventListener('click',()=>close());modal.appendChild(back);
     const href=it.dataset.plHref;
     if(href){
       const frame=document.createElement('iframe');frame.title=it.dataset.plTitle+' project details';
@@ -248,11 +248,11 @@
   const requested=new URLSearchParams(location.search).get('project');
   if(requested){const card=[...bc.querySelectorAll('.pl-card')].find(it=>(it.dataset.plHref||'').replace(/\.html$/,'').replace(/\/$/,'').split('/').pop()===requested);if(card)openProject(card);else if(/^[a-z0-9-]+$/.test(requested)){const fallback=document.createElement('div');fallback.dataset.plHref=requested+'.html';fallback.dataset.plTitle=requested.replace(/-/g,' ');openProject(fallback);}}
 
-  // the filter bar sits on the same line as "Index" in the side bar (desktop)
+  // the filter bar sits on the same line as the first item in the side bar (desktop)
   const align = () => {
     const wrap = document.querySelector('.mf-wrap'); if (!wrap) return;
     if (document.body.classList.contains('mobile')) { wrap.style.marginTop = ''; return; }
-    const idx = [...document.querySelectorAll('.pin-left a')].find(a => a.textContent.trim() === 'Index'); if (!idx) return;
+    const idx = [...document.querySelectorAll('.pin-left a')].find(a => a.getAttribute('href') === 'work.html' && a.textContent.trim() === 'Product Design'); if (!idx) return;
     wrap.style.marginTop = '0px';
     const r = idx.getBoundingClientRect(), w = wrap.getBoundingClientRect();
     const d = (r.top + r.height / 2) - (w.top + w.height / 2) + scrollY * 0;

@@ -20,7 +20,7 @@
       force('main > .page',{'padding':'0','width':'100%','min-height':'0'});
       force('main .page-layout',{'width':'100%','max-width':'1054px','padding':'16px','margin':'0 auto'});
       force('main .page-content',{'width':'100%','padding':'0'});
-      document.querySelectorAll('main a, main button').forEach(el=>{if(/^(?:←\s*)?back(?:\s+to\s+(?:project|projects))?$/i.test(el.textContent.trim()))el.remove();});
+      document.querySelectorAll('main a, main button').forEach(el=>{if(/^(?:←\s*)?back(?:\s+to\s+(?:project|projects|product design|visual design))?$/i.test(el.textContent.trim()))el.remove();});
       const report=()=>parent.postMessage({type:'project-height',height:Math.ceil(document.querySelector('main').getBoundingClientRect().height)+24},location.origin);
       new ResizeObserver(report).observe(document.querySelector('main'));addEventListener('load',report);report();
     }else{
@@ -54,8 +54,8 @@
   /* chrome */
   const prog = document.createElement('div'); prog.className = 'cm-progress'; document.body.appendChild(prog);
   const back = document.createElement('a'); back.className = 'cm-back'; back.href = returnFile;
-  back.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Work';
-  if(!isWork)back.innerHTML=back.innerHTML.replace('Back to Work','Back to Project');
+  back.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8.5 2.5 4 7l4.5 4.5"/></svg>Back to Product Design';
+  if(!isWork)back.innerHTML=back.innerHTML.replace('Back to Product Design','Back to Visual Design');
   document.body.appendChild(back);
 
   const next1 = ORDER[(idx + 1) % ORDER.length], next2 = ORDER[(idx + 2) % ORDER.length];

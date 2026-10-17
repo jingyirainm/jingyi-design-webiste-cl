@@ -1,5 +1,5 @@
 /* Project detail pages: a small "← Back" control at the top of the content.
-   Goes back in history when the visitor came from this site, otherwise opens the Project page. */
+   Goes back in history when the visitor came from this site, otherwise opens the Visual Design page. */
 (function () {
   const main = document.querySelector('main .page-content');
   if (!main || document.body.classList.contains('case-mode') || main.querySelector('.bk-btn')) return;
