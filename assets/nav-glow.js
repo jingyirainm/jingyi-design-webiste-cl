@@ -20,6 +20,10 @@ html[data-theme="dark"] .nv.on span{color:#8ACE00;filter:invert(1) hue-rotate(18
 .nv-list.moving .nv.on:not(.go)::before{opacity:0;transform:scale(.6)}
 html[data-theme="dark"] .nv{color:inherit!important}
 html[data-theme="dark"] .nv::before{background:radial-gradient(closest-side,#1c5a00,rgba(28,90,0,.9) 45%,rgba(28,90,0,0) 100%);filter:blur(16px)}
+.side-intro{color:rgba(0,0,0,.5)}
+.side-intro .si-hl{color:#5e9c00}
+.side-intro a{color:#1d1b18;text-decoration:none}
+html[data-theme="dark"] .side-intro .si-hl{color:#8ACE00;filter:invert(1) hue-rotate(180deg)}
 @media (prefers-reduced-motion:reduce){.nv::before{transition:none}}`;
   document.head.appendChild(css);
 
