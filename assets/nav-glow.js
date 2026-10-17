@@ -1,6 +1,6 @@
 /* Side-nav glow: the current section sits in a soft, blurred pill of light; clicking another item moves the glow there before the page changes. */
 (function () {
-  const ITEMS = [['jingyizhang-design.html', 'Index'], ['work.html', 'Product Design'], ['menu.html', 'Visual Design'], ['about.html', 'About']];
+  const ITEMS = [['jingyizhang-design.html', 'Home'], ['work.html', 'Product Design'], ['menu.html', 'Visual Design'], ['about.html', 'About']];
   const WORK = ['knotboard', 'reelshort-casting-system', 'addendum-studio', 'vibe-painting', 'yi-iching-soundscapes', 'cave-song'];
   const PAGE = () => ((location.hash.startsWith('#/') ? location.hash.slice(2) : '') || (location.pathname===new URL(document.baseURI).pathname ? 'jingyizhang-design.html' : location.pathname.split('/').filter(Boolean).pop())).replace(/\.html$/, '') || 'index';
 
@@ -32,9 +32,9 @@ html[data-theme="dark"] .nv::before{background:radial-gradient(closest-side,#1c5
   }
 
   function build(root) {
-    const first = [...root.querySelectorAll('a[href="jingyizhang-design.html"]')].find(a => a.textContent.trim() === 'Index');
+    const first = [...root.querySelectorAll('a[href="jingyizhang-design.html"]')].find(a => a.textContent.trim() === 'Home');
     if (!first) return;
-    // gather every old nav node (links, "> " text, line breaks, wrapper spans) between Index and About
+    // gather every old nav node (links, "> " text, line breaks, wrapper spans) between Home and About
     const about = [...root.querySelectorAll('a[href="about.html"]')].pop();
     if (!about) return;
     const list = document.createElement('div');
@@ -47,7 +47,7 @@ html[data-theme="dark"] .nv::before{background:radial-gradient(closest-side,#1c5
       if (h === cur) a.setAttribute('aria-current', 'page');
       list.appendChild(a);
     });
-    // remove old nodes: walk from the "> " text before Index to About
+    // remove old nodes: walk from the "> " text before Home to About
     const range = document.createRange();
     let start = first.previousSibling;
     range.setStartBefore(start && start.nodeType === 3 && start.textContent.includes('>') ? start : first);
