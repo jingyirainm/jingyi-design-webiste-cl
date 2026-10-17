@@ -248,11 +248,11 @@
   const requested=new URLSearchParams(location.search).get('project');
   if(requested){const card=[...bc.querySelectorAll('.pl-card')].find(it=>(it.dataset.plHref||'').replace(/\.html$/,'').replace(/\/$/,'').split('/').pop()===requested);if(card)openProject(card);else if(/^[a-z0-9-]+$/.test(requested)){const fallback=document.createElement('div');fallback.dataset.plHref=requested+'.html';fallback.dataset.plTitle=requested.replace(/-/g,' ');openProject(fallback);}}
 
-  // the filter bar sits on the same line as the first item in the side bar (desktop)
+  // the filter bar sits on the same line as "Index" in the side bar (desktop) (desktop)
   const align = () => {
     const wrap = document.querySelector('.mf-wrap'); if (!wrap) return;
     if (document.body.classList.contains('mobile')) { wrap.style.marginTop = ''; return; }
-    const idx = [...document.querySelectorAll('.pin-left a')].find(a => a.getAttribute('href') === 'work.html' && a.textContent.trim() === 'Product Design'); if (!idx) return;
+    const idx = [...document.querySelectorAll('.pin-left a')].find(a => a.textContent.trim() === 'Index'); if (!idx) return;
     wrap.style.marginTop = '0px';
     const r = idx.getBoundingClientRect(), w = wrap.getBoundingClientRect();
     const d = (r.top + r.height / 2) - (w.top + w.height / 2) + scrollY * 0;
