@@ -1,4 +1,5 @@
 /* Product Design page add-on (runs after work.js)
+   - Grid view: the tag sits on the right.
    - List view (desktop): the subtitle after "—" moves from the header row to just below the cover,
      above the description. Phones keep the original header. */
 (function () {
@@ -6,9 +7,10 @@
   if (!grid) return;
 
   const css = `
+  .wk-grid.two .wk-type{justify-content:flex-end}
   .wk-sub{display:none}
   @media (min-width:768px){
-    body:not(.mobile) .wk-grid:not(.two) .wk-sub{display:block;font-size:1rem;line-height:1.4;color:#111;letter-spacing:-.01em;margin:1.1rem 0 .35rem}
+    body:not(.mobile) .wk-grid:not(.two) .wk-sub{display:block;font-size:1rem;line-height:1.4;font-weight:390;color:#111;letter-spacing:-.01em;margin:1.1rem 0 .35rem}
     body:not(.mobile) .wk-grid:not(.two) .wk-tline{display:none}
   }`;
   const st = document.createElement('style'); st.id = 'wk-tags-css'; st.textContent = css; document.head.appendChild(st);
