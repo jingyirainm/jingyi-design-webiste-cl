@@ -39,6 +39,10 @@
   .pin-left .side-intro a{color:var(--sb-fg)!important}
   .pin-left .side-intro a{text-decoration:underline;text-underline-offset:.18em}
 
+  /* current page "button": same as the original white sidebar
+     (green text, soft blurred lime glow); intro text stays neutral */
+  .pin-left .nv.on span{color:#5e9c00!important}
+  .pin-left .nv::before{background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%)!important;filter:blur(14px)!important}
   /* nav hover / active */
   .pin-left bodycopy a:hover{opacity:.65}
 
@@ -56,7 +60,8 @@
   html[data-theme="dark"] .pin-left img[src*="JingyiZhang_logo"]{filter:invert(1)!important}
   html[data-theme="dark"] .pin-left .side-intro .si-hl{filter:none!important}
   html[data-theme="dark"] .pin-left .side-foot img{filter:invert(1)!important}
-  html[data-theme="dark"] .pin-left .nv.on span{filter:none!important}
+  html[data-theme="dark"] .pin-left .nv.on span{filter:invert(1) hue-rotate(180deg)!important}
+  html[data-theme="dark"] .pin-left .nv::before{filter:invert(1) hue-rotate(180deg) blur(14px)!important}
   /* pure black here renders as the lightest tone the dark theme allows */
   html[data-theme="dark"] .pin-left .page-layout{background:#000}
 }
