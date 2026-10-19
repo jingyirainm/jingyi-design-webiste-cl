@@ -6,7 +6,6 @@
     --sb-bg:#111;          /* side bar black */
     --sb-fg:#f5f2ee;       /* off-white text */
     --sb-dim:rgba(245,242,238,.62);
-    --sb-green:#8ACE00;    /* brand green */
     --sb-l:32px;           /* text left edge (was ~53px) */
     --side-l:var(--sb-l);  /* footer (Instagram / Email / LinkedIn / Change Mode) follows */
   }
@@ -36,11 +35,8 @@
   /* intro copy a step quieter; highlighted words stay bright */
   .pin-left .side-intro{color:var(--sb-dim)!important}
   .pin-left .side-intro span{color:inherit!important}
-  .pin-left .side-intro a{color:var(--sb-fg)!important}
-  /* brand green: highlighted words, current page, glow */
   .pin-left .side-intro .si-hl,
-  .pin-left .nv.on span{color:var(--sb-green)!important}
-  .pin-left .nv::before{background:radial-gradient(closest-side,rgba(138,206,0,.5),rgba(138,206,0,.22) 45%,rgba(138,206,0,0) 100%)!important}
+  .pin-left .side-intro a{color:var(--sb-fg)!important}
   .pin-left .side-intro a{text-decoration:underline;text-underline-offset:.18em}
 
   /* nav hover / active */
@@ -55,13 +51,12 @@
   .pin-left .side-foot .th-toggle .th-ico{border-color:var(--sb-fg)}
 
   /* Dark mode: the site inverts the whole page, so the black bar is left as-is and
-     comes out light (white bar + black page). Logo and icons flip with the bar;
-     the brand green is counter-inverted so it stays #8ACE00 in both modes. */
+     comes out light (white bar + black page). Only undo the theme's per-element
+     re-inversions inside the bar so the logo, highlights and icons flip with it. */
   html[data-theme="dark"] .pin-left img[src*="JingyiZhang_logo"]{filter:invert(1)!important}
-  html[data-theme="dark"] .pin-left .side-intro .si-hl{filter:invert(1) hue-rotate(180deg)!important}
+  html[data-theme="dark"] .pin-left .side-intro .si-hl{filter:none!important}
   html[data-theme="dark"] .pin-left .side-foot img{filter:invert(1)!important}
-  html[data-theme="dark"] .pin-left .nv.on span{filter:invert(1) hue-rotate(180deg)!important}
-  html[data-theme="dark"] .pin-left .nv::before{filter:invert(1) hue-rotate(180deg) blur(16px)!important}
+  html[data-theme="dark"] .pin-left .nv.on span{filter:none!important}
   /* pure black here renders as the lightest tone the dark theme allows */
   html[data-theme="dark"] .pin-left .page-layout{background:#000}
 }
