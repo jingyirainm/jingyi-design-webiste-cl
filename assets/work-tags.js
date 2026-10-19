@@ -1,5 +1,5 @@
 /* Product Design page add-on (runs after work.js)
-   - Grid view: the tag sits on the right.
+   - Grid view: the subtitle sits in the title row above the cover; the tag sits on the right.
    - List view (desktop): the subtitle after "—" moves from the header row to just below the cover,
      above the description. Phones keep the original header. */
 (function () {
@@ -8,6 +8,7 @@
 
   const css = `
   .wk-grid.two .wk-type{justify-content:flex-end}
+  .wk-head>.wk-line{order:0;margin:0;flex:0 1 auto;min-width:0;font-size:1.08rem;line-height:1.2;color:rgba(17,17,17,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wk-sub{display:none}
   @media (min-width:768px){
     body:not(.mobile) .wk-grid:not(.two) .wk-sub{display:block;font-size:1rem;line-height:1.4;font-weight:390;color:#111;letter-spacing:-.01em;margin:1.1rem 0 .35rem}
@@ -18,6 +19,10 @@
   const BLOCK = 'gallery-slideshow,gallery-columnized,media-item,figure,.yi-live-cover';
 
   grid.querySelectorAll('.wk-item').forEach(it => {
+    // grid: subtitle joins the title row above the cover
+    const gl = it.querySelector(':scope>.wk-line'), gh = it.querySelector(':scope>.wk-head');
+    if (gl && gh) { gl.title = gl.textContent; const nm = gh.querySelector('.wk-nm'); nm ? nm.after(gl) : gh.appendChild(gl); }
+
     // list subtitle -> below the cover
     const head = it.querySelector(':scope>column-set'); if (!head) return;
     const titleCell = head.querySelectorAll(':scope>.cu')[1]; if (!titleCell) return;
