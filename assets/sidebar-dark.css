@@ -1,6 +1,6 @@
 /* ===== Black side bar (desktop) — after amyxiaofanjiang.com =====
-   Add this file LAST in <head> on every page:
-   <link rel="stylesheet" href="assets/sidebar-dark.css?v=1">            */
+   Linked last in <head> on every page with the side bar.
+   Light mode: black bar + white page. Dark mode: white bar + black page.            */
 @media (min-width:768px){
   :root{
     --sb-bg:#111;          /* side bar black */
@@ -50,19 +50,13 @@
   .pin-left .side-foot img{filter:invert(1)}
   .pin-left .side-foot .th-toggle .th-ico{border-color:var(--sb-fg)}
 
-  /* Dark mode inverts the whole page, so pre-invert the bar to keep it black */
-  html[data-theme="dark"] .pin-left .page-layout{background:#fff;color:#0b0b0b}
-  html[data-theme="dark"] .pin-left bodycopy,
-  html[data-theme="dark"] .pin-left bodycopy span,
-  html[data-theme="dark"] .pin-left bodycopy a,
-  html[data-theme="dark"] .pin-left .side-foot,
-  html[data-theme="dark"] .pin-left .side-foot a,
-  html[data-theme="dark"] .pin-left .side-foot .th-toggle,
-  html[data-theme="dark"] .pin-left .side-intro .si-hl,
-  html[data-theme="dark"] .pin-left .side-intro a{color:#0b0b0b!important}
-  html[data-theme="dark"] .pin-left .side-intro{color:rgba(11,11,11,.62)!important}
-  html[data-theme="dark"] .pin-left img[src*="JingyiZhang_logo"]{filter:none!important}
+  /* Dark mode: the site inverts the whole page, so the black bar is left as-is and
+     comes out light (white bar + black page). Only undo the theme's per-element
+     re-inversions inside the bar so the logo, highlights and icons flip with it. */
+  html[data-theme="dark"] .pin-left img[src*="JingyiZhang_logo"]{filter:invert(1)!important}
   html[data-theme="dark"] .pin-left .side-intro .si-hl{filter:none!important}
-  html[data-theme="dark"] .pin-left .side-foot svg{color:#0b0b0b}
-  html[data-theme="dark"] .pin-left .side-foot .th-toggle .th-ico{border-color:#0b0b0b}
+  html[data-theme="dark"] .pin-left .side-foot img{filter:invert(1)!important}
+  html[data-theme="dark"] .pin-left .nv.on span{filter:none!important}
+  /* pure black here renders as the lightest tone the dark theme allows */
+  html[data-theme="dark"] .pin-left .page-layout{background:#000}
 }
