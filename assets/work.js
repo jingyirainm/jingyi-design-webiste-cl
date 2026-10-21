@@ -140,6 +140,42 @@
     if (line) { const l = document.createElement('div'); l.className = 'wk-g wk-line'; l.textContent = line; it.appendChild(l); }
   });
 
+  // spec row under each cover: Type / Context / Stage; the year moves to the header's right edge
+  (function () {
+    const css = `
+  .wk-spec{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem 2rem;margin:0;padding:.85rem 0 0;border-top:1px solid rgba(17,17,17,.12)}
+  .wk-spec>div{min-width:0;display:flex;flex-direction:column;gap:.3rem}
+  .wk-spec dt{font-size:.68rem;line-height:1;letter-spacing:.08em;text-transform:uppercase;color:rgba(17,17,17,.45)}
+  .wk-spec dd{margin:0;font-size:.92rem;line-height:1.35;color:rgba(17,17,17,.85)}
+  .wk-type{display:none!important}
+  .wk-item .cs-meta.wk-year{border:0!important;padding:0!important;border-radius:0!important;font-size:.92rem;color:rgba(17,17,17,.55)!important}
+  .wk-grid.two .wk-spec{order:2;grid-template-columns:minmax(0,1fr);gap:.55rem;padding-top:.7rem}
+  .wk-grid.two .wk-spec>div{flex-direction:row;gap:.8rem}
+  .wk-grid.two .wk-spec dt{flex:none;width:4.6rem;padding-top:.28rem}
+  body.mobile .wk-spec{grid-template-columns:minmax(0,1fr);gap:.55rem}
+  body.mobile .wk-spec>div{flex-direction:row;gap:.8rem}
+  body.mobile .wk-spec dt{flex:none;width:4.6rem;padding-top:.28rem}`;
+    if (!document.getElementById('wk-spec-css')) { const st = document.createElement('style'); st.id = 'wk-spec-css'; st.textContent = css; document.head.appendChild(st); }
+    const KNOWN = {
+      'SaaS Workspace / Rainmelon Studio / 0-1 / MVP Launched / 2026': ['SaaS Workspace', 'Rainmelon Studio', '0-1 · MVP Launched'],
+      'B2B SaaS / ReelShort / Service Design / Shipped / 2026': ['B2B SaaS · Service Design', 'ReelShort', 'Shipped'],
+      'Mobile App / Digital Experience / Columbia Digital Storytelling Lab / Concept / 2023': ['Mobile App · Digital Experience', 'Columbia Digital Storytelling Lab', 'Concept']
+    };
+    const norm = s => s.replace(/\s+/g, ' ').replace(/\s*\/\s*/g, ' / ').trim();
+    grid.querySelectorAll('.wk-item').forEach(it => {
+      const tag = it.querySelector(':scope>column-set .cs-meta'); if (!tag || it.querySelector('.wk-spec')) return;
+      const full = norm(tag.textContent), seg = full.split(' / ');
+      if (seg.length < 3) return;
+      const year = seg[seg.length - 1];
+      const d = KNOWN[full] || [seg[0], seg.slice(1, -2).join(' · '), seg[seg.length - 2]];
+      const dl = document.createElement('dl'); dl.className = 'wk-spec';
+      [['Type', d[0]], ['Context', d[1]], ['Stage', d[2]]].forEach(([k, v]) => { if (!v) return; const r = document.createElement('div'); const a = document.createElement('dt'); a.textContent = k; const b = document.createElement('dd'); b.textContent = v; r.append(a, b); dl.appendChild(r); });
+      const cover = it.querySelector(':scope>gallery-slideshow, :scope>media-item, :scope>div:not(.wk-g)');
+      if (cover) cover.after(dl); else it.appendChild(dl);
+      tag.textContent = year; tag.classList.add('wk-year');
+    });
+  })();
+
   // the control: list / grid
   const ICON_LIST = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="12" height="4.5" rx="1.2"/><rect x="2" y="9" width="12" height="4.5" rx="1.2"/></svg>';
   const ICON_GRID = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2.5" width="5.2" height="4.5" rx="1.2"/><rect x="8.8" y="2.5" width="5.2" height="4.5" rx="1.2"/><rect x="2" y="9" width="5.2" height="4.5" rx="1.2"/><rect x="8.8" y="9" width="5.2" height="4.5" rx="1.2"/></svg>';
