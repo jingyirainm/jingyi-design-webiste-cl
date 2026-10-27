@@ -99,6 +99,8 @@
   blocks.forEach(el => el.classList.add('cm-r'));
   const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('cm-in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
   blocks.forEach(el => { if (el.getBoundingClientRect().top < innerHeight) el.classList.add('cm-in'); else io.observe(el); });
+  /* safety net: a block that is on screen is never left hidden (inline / custom elements can't always be observed once clipped) */
+  { let st; const sweep = () => blocks.forEach(el => { if (el.classList.contains('cm-in')) return; const r = el.getBoundingClientRect(); if (r.top < innerHeight * .92 && r.bottom > 0) { el.classList.add('cm-in'); io.unobserve(el); } }); addEventListener('scroll', () => { clearTimeout(st); st = setTimeout(sweep, 160); }, { passive: true }); setTimeout(sweep, 400); }
 
   /* scroll: progress, scroll-spy with sliding pill, hide bar while scrolling fast down near the top */
   const track = nav.querySelector('.cm-track'), pill = nav.querySelector('.cm-pillbg'), links = [...track.querySelectorAll('a')], curl = nav.querySelector('.cm-curl');
