@@ -37,6 +37,318 @@
 <meta name="twitter:description" content="Designed and built an automated payroll documentation tool for ReelShort, simplifying contract preparation, payment paperwork and compliance for production teams.">
 <meta name="twitter:image" content="https://jingyizhang.design/assets/projects/addendum/00_cover_board.jpg">
 <link rel="stylesheet" href="assets/sidebar-dark.css?v=4">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style id="cs2-style">
+.cs2{--bg:#fff;--fg:rgba(0,0,0,.8);--ink:#111;--mute:rgba(0,0,0,.55);--hair:rgba(17,17,17,.1);--fill:#f5f5f7;--green:#5e9c00;--greenbg:rgba(94,156,0,.1);--red:#c0392b;--frame:#f5f5f7;
+--body:"Diatype Variable",Inter,system-ui,sans-serif;--glass:rgba(255,255,255,.74);--ease:cubic-bezier(.22,.8,.2,1);--sheet:#fff;--sheeton:#f2f2f2;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--pillbg:#000;--pilltx:#fff;--pillsh:rgba(0,0,0,.22);--cvgreen:#3f8f5c;--cvglow:rgba(56,118,255,.12);--c1:#8b3a3a;--c2:#2f5cf5;--c3:#3d7a52;--c4:#a9a9a9;--k:1}
+.cs2 *{box-sizing:border-box}
+.cs2 .w{max-width:1054px;margin:0 auto;padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .n{max-width:calc(46*var(--r))}
+.cs2 h1,.cs2 h2,.cs2 h3,.cs2 h4,.cs2 p{margin:0}
+.cs2 h1{font-weight:500;font-size:calc(1.53*var(--r));line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.cs2 h2{font-weight:400;font-size:calc(1.3*var(--r));line-height:1.3;letter-spacing:-.005em;text-wrap:balance}
+.cs2 h3{font-weight:500;font-size:calc(1.05*var(--r));line-height:1.35}
+.cs2 strong,.cs2 b{font-weight:500}
+.cs2 .top{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;font-size:calc(.956*var(--r));color:var(--mute);margin-bottom:28px}
+.cs2 .top .no{color:var(--fg)}
+.cs2 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cs2 .tag{font-size:calc(.765*var(--r));padding:4px 12px;border:1px solid var(--hair);border-radius:99px;color:var(--mute)}
+.cs2 .tag.on{color:var(--green);border-color:var(--green);background:var(--greenbg)}
+.cs2 .lede{font-size:calc(.956*var(--r));line-height:1.7;margin-top:28px}
+.cs2 .hero{margin-top:40px}
+.cs2 figure{margin:0}
+.cs2 .fr{background:var(--frame);border-radius:14px;overflow:hidden;line-height:0}
+.cs2 .fr img{width:100%;height:auto;display:block}
+.cs2 figcaption{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5}
+.cs2 .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(11*var(--r)),1fr));gap:0;margin-top:40px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.cs2 .glance div{padding:18px 16px 18px 0}
+.cs2 .glance dt{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.cs2 .glance dd{margin:0;font-size:calc(.956*var(--r));font-weight:300}
+.cs2 .sec{margin-top:112px}
+.cs2 .pill{display:inline-block;font-size:calc(.74*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--greenbg);padding:4px 12px;border-radius:99px;margin-bottom:20px;font-weight:500}
+.cs2 .sec>h2{margin-bottom:20px}
+.cs2 .sec p+p{margin-top:16px}
+.cs2 .sec .n p{color:var(--fg)}
+.cs2 .conf{font-size:calc(.765*var(--r));color:var(--mute);margin-top:20px;max-width:calc(46*var(--r))}
+.cs2 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(13*var(--r)),1fr));gap:12px;margin-top:32px}
+.cs2 .stat{background:var(--fill);border-radius:14px;padding:20px}
+.cs2 .stat b{display:block;font-size:calc(2.3*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.cs2 .stat span{display:block;font-size:calc(.765*var(--r));color:var(--mute);margin-top:6px;line-height:1.45}
+.cs2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs2 .pair>*{min-width:0}
+.cs2 .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.cs2 .cols3>*{min-width:0}
+.cs2 .k{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px;display:block}
+.cs2 .needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.cs2 .need{background:var(--fill);border-radius:14px;padding:22px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cs2 .need h3{display:flex;gap:10px;align-items:baseline}
+.cs2 .need h3 i{font-style:normal;color:var(--green);font-size:calc(.765*var(--r));font-weight:500}
+.cs2 .need>p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .need blockquote{margin:6px 0 0;padding:12px 0 0;border-top:1px solid var(--hair);font-size:calc(.85*var(--r));line-height:1.5;font-style:italic}
+.cs2 .need details summary{cursor:pointer;font-size:calc(.765*var(--r));color:var(--green);margin-top:6px;list-style:none;font-style:normal}
+.cs2 .need details summary::-webkit-details-marker{display:none}
+.cs2 .need details[open] summary{margin-bottom:8px}
+.cs2 .dec{margin-top:96px;padding-top:32px;border-top:1px solid var(--hair)}
+.cs2 .dec:first-of-type{margin-top:48px}
+.cs2 .dec .h{display:flex;gap:14px;align-items:baseline;margin-bottom:24px}
+.cs2 .dec .h i{font-style:normal;font-size:calc(.765*var(--r));color:var(--green);font-weight:500;letter-spacing:.06em}
+.cs2 .dec .h h3{font-size:calc(1.2*var(--r));font-weight:400;letter-spacing:-.01em;text-wrap:balance}
+.cs2 .dec figure{margin-top:28px}
+.cs2 .dec .cols3 p{font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .dec .cols3 .prob .k{color:var(--red)}
+.cs2 .prio{background:var(--fill);border-radius:14px;padding:22px 24px;margin-top:24px;font-size:calc(.956*var(--r))}
+.cs2 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:2px solid var(--ink)}
+.cs2 .phases>div{padding:16px 16px 0 0;min-width:0}
+.cs2 .phases small{display:block;font-size:calc(.68*var(--r));letter-spacing:.1em;color:var(--green);font-weight:500}
+.cs2 .phases b{display:block;font-size:calc(1.1*var(--r));font-weight:400;margin:2px 0 4px}
+.cs2 .phases span{font-size:calc(.765*var(--r));color:var(--mute);line-height:1.5;display:block}
+.cs2 .hold{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cs2 .hold>div{border:1px solid var(--hair);border-radius:14px;padding:20px;min-width:0}
+.cs2 .hold h4{font-size:calc(.956*var(--r));font-weight:500;margin-bottom:6px}
+.cs2 .hold p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .sub{font-size:calc(.765*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:48px 0 4px;font-weight:500}
+.cs2 .nm{border-left:2px solid var(--green);padding:2px 0 2px 16px;margin-top:28px;font-size:calc(.88*var(--r));color:var(--mute);max-width:calc(46*var(--r))}
+.cs2 .refl{font-size:calc(1.3*var(--r));line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .refl p+p{margin-top:20px}
+.cs2 .refl em{color:var(--green);font-style:normal;font-weight:400}
+@media (max-width:760px){.cs2 .pair,.cs2 .cols3,.cs2 .needs,.cs2 .hold{grid-template-columns:1fr}
+.cs2 .phases{grid-template-columns:1fr 1fr}
+.cs2 .phases>div{padding-bottom:16px}
+.cs2 .sec{margin-top:80px}
+.cs2 .dec{margin-top:64px}}
+@media (prefers-reduced-motion:no-preference){.cs2 .fr img{transition:transform .6s cubic-bezier(.22,.8,.2,1)}}
+.cs2 a:focus-visible,.cs2 summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.cs2 .sec{scroll-margin-top:90px}
+.cs2 .pill{font-family:var(--body);font-size:calc(1.2*var(--r));line-height:1;letter-spacing:0;text-transform:none;font-weight:500;color:var(--pilltx);background:var(--pillbg);padding:.55em 1.05em .6em;border-radius:99px;box-shadow:0 14px 28px -10px var(--pillsh);margin-bottom:28px}
+.cs2 .sec>h2{font-size:calc(1.15*var(--r));font-weight:300;line-height:1.45;color:var(--fg);max-width:calc(40*var(--r));margin-bottom:24px}
+.cs2 .opill{display:inline-block;font-size:calc(1.05*var(--r));font-weight:500;line-height:1.1;letter-spacing:0;color:var(--fg);border:calc(.1*var(--r)) solid var(--ink);border-radius:99px;padding:.5em 1em .55em;margin:0;text-wrap:balance;max-width:100%}
+.cs2 .dec .h{margin-bottom:28px}
+.cs2 .top,.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-family:var(--mono);letter-spacing:.04em;font-weight:400}
+.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-size:calc(.64*var(--r));letter-spacing:.1em}
+.cs2 .fr{border-radius:22px;box-shadow:0 0 0 1px var(--hair)}
+.cs2 .fr.v{border-radius:28px;background:#f0efe9}
+.cs2 .fr video{width:100%;height:auto;display:block}
+.cs2 .vids{margin-top:0}
+.cs2 .stat{background:none;border-radius:0;border-top:1px solid var(--ink);padding:14px 8px 0 0}
+.cs2 .stat b{font-weight:300}
+.cs2 .stat span{font-family:var(--mono);font-size:calc(.66*var(--r));letter-spacing:.02em;line-height:1.55}
+.cs2 .need{background:none;border:1px solid var(--hair)}
+.cs2 .dec{border-top:1px solid var(--hair)}
+@media (max-width:760px){.cs2 .vids{grid-template-columns:1fr}
+.cs2 .pill{font-size:calc(1.1*var(--r))}}
+.cs2 .cv{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(88px,10vw,150px) clamp(48px,6vw,96px);padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .cv::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 60% at 8% 0%,var(--cvglow),transparent 70%)}
+.cs2 .cv-in{max-width:910px;margin:0 auto}
+.cs2 .cv .ph{position:absolute;z-index:-1;top:8%;left:50%;margin-left:clamp(-20px,3vw,70px);width:clamp(220px,23vw,340px);aspect-ratio:520/920;border-radius:clamp(26px,3vw,40px);overflow:hidden;opacity:.17;filter:blur(.8px)}
+.cs2 .cv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cs2 .cv .ph .pb{opacity:0}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv .ph .pa{animation:swapa 10s ease-in-out infinite}
+.cs2 .cv .ph .pb{animation:swapb 10s ease-in-out infinite}
+@keyframes swapa{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
+@keyframes swapb{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}}
+.cs2 .cv .tags{margin:0 0 30px;gap:10px}
+.cs2 .cv .tag{font-size:calc(.74*var(--r));letter-spacing:.12em;text-transform:uppercase;padding:.55em 1.25em;border:1px solid var(--hair);color:var(--mute);background:transparent}
+.cs2 .cv .tag.on{color:var(--cvgreen);border-color:var(--cvgreen);background:none;display:inline-flex;align-items:center;gap:.6em}
+.cs2 .cv .tag.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cvgreen)}
+.cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)));line-height:.98;letter-spacing:-.015em;margin:0;color:var(--fg);text-wrap:balance}
+.cs2 .cv h1 span{display:block}
+.cs2 .cv h1 em{font-style:italic;color:var(--cvgreen)}
+.cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)));line-height:1.55;color:var(--mute);max-width:36em;margin-top:clamp(24px,2.6vw,44px)}
+.cs2 .cv .sc{display:flex;gap:12px;align-items:center;margin-top:clamp(40px,4vw,72px);font-family:var(--mono);font-size:calc(.7*var(--r));letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cs2 .cv .sc i{display:block;width:1px;height:30px;background:linear-gradient(var(--cvgreen),transparent)}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv-in>*{animation:cvup .9s var(--ease) backwards}
+.cs2 .cv-in>*:nth-child(2){animation-delay:.08s}
+.cs2 .cv-in>*:nth-child(3){animation-delay:.16s}
+.cs2 .cv-in>*:nth-child(4){animation-delay:.24s}
+@keyframes cvup{from{opacity:0;transform:translateY(14px)}}}
+@media (max-width:760px){.cs2 .cv .ph{left:auto;right:-70px;margin-left:0;top:6%;opacity:.12}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))}}
+.cs2 .glance.g6{grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.6fr)}
+.cs2 .glance.g6 div{min-width:0}
+.cs2 .cap{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .pipe{display:grid;grid-template-columns:repeat(8,1fr);border-top:2px solid var(--ink);margin-top:36px}
+.cs2 .pipe>div{padding:14px 10px 14px 0;font-size:calc(.88*var(--r));line-height:1.3;min-width:0}
+.cs2 .pipe small{display:block;font-family:var(--mono);font-size:calc(.62*var(--r));letter-spacing:.08em;color:var(--mute);margin-bottom:6px;text-transform:uppercase}
+.cs2 .pipe .hot{background:var(--pillbg);color:var(--pilltx);border-radius:14px;padding-left:12px;margin-top:6px;box-shadow:0 14px 28px -12px var(--pillsh)}
+.cs2 .pipe .hot small{color:inherit;opacity:.7}
+.cs2 .ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.cs2 .ba>div{border:1px solid var(--hair);border-radius:22px;padding:22px 24px;min-width:0}
+.cs2 .ba ol{margin:10px 0 0;padding-left:1.2em;font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .ba .k.bad{color:var(--red)}
+.cs2 .ba>div:last-child{border-color:var(--green)}
+.cs2 .lead{font-weight:500;font-size:calc(1.1*var(--r));line-height:1.4;color:var(--fg)}
+.cs2 .impact{margin-top:22px;max-width:calc(46*var(--r));font-size:calc(.956*var(--r));padding:16px 20px;border-radius:14px;background:var(--fill)}
+.cs2 .impact .k{margin-bottom:4px}
+.cs2 .bands{margin-top:40px;position:relative;max-width:100%}
+.cs2 .brow{display:grid;grid-template-columns:calc(7.5*var(--r)) 1fr;gap:14px;align-items:center;margin-bottom:10px}
+.cs2 .bl{font-family:var(--mono);font-size:calc(.68*var(--r));letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cs2 .bt{display:flex;height:calc(2.6*var(--r));border-radius:12px;overflow:hidden;min-width:0}
+.cs2 .bt i{font-style:normal;font-family:var(--mono);font-size:calc(.66*var(--r));display:flex;align-items:center;padding:0 calc(.7*var(--r));white-space:nowrap;overflow:hidden;min-width:0}
+.cs2 .s1{background:var(--fill);color:var(--fg)}
+.cs2 .s15{background:var(--greenbg);color:var(--green)}
+.cs2 .s2{background:var(--green);color:var(--bg)}
+.cs2 .bax{position:relative;height:calc(1.2*var(--r));margin-left:calc(calc(7.5*var(--r)) + 14px);font-family:var(--mono);font-size:calc(.62*var(--r));color:var(--mute)}
+.cs2 .bax span{position:absolute;top:2px;transform:translateX(-50%)}
+.cs2 .bax span:first-child{transform:none}
+.cs2 .bax span:last-child{transform:translateX(-100%)}
+.cs2 .tc{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:44px;border:1px solid var(--hair);border-radius:22px;overflow:hidden}
+.cs2 .tc-in{padding:24px}
+.cs2 .tc-out{padding:24px;background:var(--fill)}
+.cs2 .tc label{display:block;font-family:var(--mono);font-size:calc(.64*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:16px 0 4px}
+.cs2 .tc input{width:100%;font:300 calc(1.1*var(--r)) var(--body);color:var(--fg);background:transparent;border:0;border-bottom:1px solid var(--hair);padding:6px 0;border-radius:0;font-variant-numeric:tabular-nums;outline:none}
+.cs2 .tc input:focus{border-bottom-color:var(--green)}
+.cs2 .tc .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cs2 .seg{display:inline-flex;margin:12px 0 4px;border:1px solid var(--hair);border-radius:99px;padding:3px}
+.cs2 .seg button{all:unset;cursor:pointer;font:500 calc(.8*var(--r)) var(--body);padding:.45em 1.1em;border-radius:99px;color:var(--mute)}
+.cs2 .seg button.on{background:var(--pillbg);color:var(--pilltx)}
+.cs2 .seg button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.cs2 .tc-out .r{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:calc(.88*var(--r))}
+.cs2 .tc-out .r b{font-weight:400;font-variant-numeric:tabular-nums}
+.cs2 .tc-out .r em{font-style:normal;font-family:var(--mono);font-size:calc(.66*var(--r));color:var(--green);margin-left:6px}
+.cs2 .tc-out .tot{border:0;padding-top:16px;font-size:calc(1*var(--r))}
+.cs2 .tc-out .tot b{font-size:calc(2*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1}
+.cs2 .tc-out .fx{font-family:var(--mono);font-size:calc(.64*var(--r));line-height:1.6;color:var(--mute);margin-top:8px}
+.cs2 .refl .rh{font-size:calc(1.05*var(--r));font-weight:500;margin:36px 0 8px;line-height:1.3}
+.cs2 .refl .rh:first-child{margin-top:0}
+.cs2 .refl{font-size:calc(1*var(--r))}
+.cs2 .refl p+p{margin-top:0}
+.cs2 .pair figure{margin-top:0}
+@media (max-width:760px){.cs2 .glance.g6{grid-template-columns:1fr 1fr}
+.cs2 .glance.g6 .wide{grid-column:1/-1}
+.cs2 .pipe{grid-template-columns:repeat(4,1fr)}
+.cs2 .ba,.cs2 .tc{grid-template-columns:1fr}
+.cs2 .brow{grid-template-columns:1fr;gap:6px}
+.cs2 .bax{margin-left:0}
+.cs2 .bt i{padding:0 calc(.4*var(--r));font-size:calc(.58*var(--r))}}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(34px,4.7vw,92px)));line-height:1.02}
+@media (max-width:760px){.cs2 .cv h1{font-size:calc(var(--k)*(clamp(30px,9vw,48px)))}}
+.cs2 .sf{margin-top:40px}
+.cs2 .sf-t{font-size:calc(1.15*var(--r));font-weight:300;margin-bottom:22px}
+.cs2 .sf-g{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);gap:clamp(14px,2vw,28px);align-items:center}
+.cs2 .sf-q{background:var(--fill);border-radius:28px;padding:clamp(20px,2.4vw,34px);font-size:calc(1*var(--r));line-height:2.1}
+.cs2 .sf-q span{padding:.05em .1em .05em .35em;border-left:.4em solid var(--c);border-bottom:.12em solid var(--c);color:var(--c)}
+.cs2 .sf-q span.c4{color:var(--fg)}
+.cs2 .sf-a{color:var(--mute);width:calc(2.4*var(--r));height:auto}
+.cs2 .sf-f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cs2 .sf-f div{border:1px solid var(--hair);border-left:calc(.4*var(--r)) solid var(--c);border-radius:22px;padding:14px 16px 14px 18px;min-width:0}
+.cs2 .sf-f small{display:block;font-size:calc(.72*var(--r));color:var(--mute);line-height:1.3}
+.cs2 .sf-f b{display:block;font-weight:300;font-size:calc(1.15*var(--r));margin-top:2px;font-variant-numeric:tabular-nums}
+.cs2 .c1{--c:var(--c1)}
+.cs2 .c2{--c:var(--c2)}
+.cs2 .c3{--c:var(--c3)}
+.cs2 .c4{--c:var(--c4)}
+@media (max-width:760px){.cs2 .sf-g{grid-template-columns:1fr}
+.cs2 .sf-a{transform:rotate(90deg);justify-self:center}
+.cs2 .sf-f{grid-template-columns:1fr 1fr}}
+.cs2 .dec figure.sm{max-width:calc(46*var(--r));margin-inline:auto}
+.cs2 .pair.pn{max-width:calc(44*var(--r));margin-inline:auto}
+.cs2 .dec figure.sm figcaption{text-align:center}
+@media (max-width:760px){.cs2 .pair.pn{grid-template-columns:1fr 1fr}}
+.cs2 .n,.cs2 .cap,.cs2 .impact,.cs2 .conf,.cs2 .nm,.cs2 .refl,.cs2 .sec>h2{max-width:none}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.7*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}}
+.cs2 .sec>h2,.cs2 .opill,.cs2 .pill,.cs2 .rh,.cs2 .sf-t,.cs2 .sub,.cs2 .lead,.cs2 h3,.cs2 h4{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em;text-transform:none;color:var(--fg)}
+.cs2 .sec>h2{font-size:calc(2.1*var(--r));line-height:1.15;margin-bottom:28px}
+.cs2 .lead{font-size:calc(1.5*var(--r));line-height:1.25}
+.cs2 .opill{font-size:calc(1.6*var(--r));line-height:1.1;padding:.35em 1em .4em}
+.cs2 .pill{font-size:calc(1.7*var(--r));line-height:1;padding:.4em 1em .45em;color:var(--pilltx)}
+.cs2 .rh,.cs2 h3:not(.opill),.cs2 h4{font-size:calc(1.45*var(--r));line-height:1.2}
+.cs2 .refl .rh{margin:40px 0 10px}
+.cs2 .refl .rh:first-child{margin-top:0}
+.cs2 .sf-t{font-size:calc(1.6*var(--r));margin-bottom:20px}
+.cs2 .sub{font-size:calc(1.6*var(--r));line-height:1.2;margin:48px 0 8px}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.8*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}
+.cs2 .opill{font-size:calc(1.35*var(--r))}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h1{font-weight:500!important;font-size:calc(1.53*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h2{font-weight:400!important;font-size:calc(1.3*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3{font-weight:500!important;font-size:calc(1.05*var(--r))!important;line-height:1.35!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 strong,body.mobile.case-mode .main .cs2 b{font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tag{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lede{font-size:calc(.956*var(--r))!important;line-height:1.7!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .fr{line-height:0!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 figcaption{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt{font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dd{font-size:calc(.956*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(.74*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .conf{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-size:calc(2.3*var(--r))!important;font-weight:300!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-size:calc(.765*var(--r))!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .k{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need h3 i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need>p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need blockquote{font-size:calc(.85*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need details summary{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.2*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .cols3 p{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .prio{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases small{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases b{font-size:calc(1.1*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases span{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold h4{font-size:calc(.956*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .nm{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1.3*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl em{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-family:var(--body)!important;font-size:calc(1.2*var(--r))!important;line-height:1!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.15*var(--r))!important;font-weight:300!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top,body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-family:var(--mono)!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important;line-height:1.55!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .tag{font-size:calc(.74*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)))!important;line-height:.98!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)))!important;line-height:1.55!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .sc{font-family:var(--mono)!important;font-size:calc(.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cap{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pipe>div{font-size:calc(.88*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pipe small{font-family:var(--mono)!important;font-size:calc(.62*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .ba ol{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lead{font-weight:500!important;font-size:calc(1.1*var(--r))!important;line-height:1.4!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .impact{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bl{font-family:var(--mono)!important;font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bt i{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bax{font-family:var(--mono)!important;font-size:calc(.62*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc label{font-family:var(--mono)!important;font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r b{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r em{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .tot{font-size:calc(1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .tot b{font-size:calc(2*var(--r))!important;font-weight:300!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .fx{font-family:var(--mono)!important;font-size:calc(.64*var(--r))!important;line-height:1.6!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl .rh{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .bt i{font-size:calc(.58*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(34px,4.7vw,92px)))!important;line-height:1.02!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(30px,9vw,48px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-t{font-size:calc(1.15*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-q{font-size:calc(1*var(--r))!important;line-height:2.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-f small{font-size:calc(.72*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-f b{font-weight:300!important;font-size:calc(1.15*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2,body.mobile.case-mode .main .cs2 .opill,body.mobile.case-mode .main .cs2 .pill,body.mobile.case-mode .main .cs2 .rh,body.mobile.case-mode .main .cs2 .sf-t,body.mobile.case-mode .main .cs2 .sub,body.mobile.case-mode .main .cs2 .lead,body.mobile.case-mode .main .cs2 h3,body.mobile.case-mode .main .cs2 h4{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(2.1*var(--r))!important;line-height:1.15!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lead{font-size:calc(1.5*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.6*var(--r))!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.7*var(--r))!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .rh,body.mobile.case-mode .main .cs2 h3:not(.opill),body.mobile.case-mode .main .cs2 h4{font-size:calc(1.45*var(--r))!important;line-height:1.2!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-t{font-size:calc(1.6*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(1.6*var(--r))!important;line-height:1.2!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.8*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.35*var(--r))!important}}
+body.case-mode{overflow-x:clip}
+.cs2{--r:max(.9vw,10px);width:100vw;margin-left:calc(50% - 50vw);margin-top:calc(-1*clamp(56px,5vw,84px));margin-bottom:0;color:var(--fg);font-family:var(--body);font-weight:300;font-size:calc(.956*var(--r));line-height:1.5;text-align:left;letter-spacing:normal}
+.cs2 .w{padding-bottom:40px}
+@media (max-width:767px){.cs2{--r:14.64px;margin-top:-124px}}
+</style>
 </head>
 <body class="page-addendum-studio case-mode">
 <script>document.body.classList.toggle('mobile',matchMedia('(max-width:767px)').matches)</script>
@@ -63,150 +375,211 @@
 </span></div></column-set></bodycopy></div></div></div></div><div class="pin pin-mbottom"><div class="page pinned" id="B1072365829"><div class="page-layout"><div class="page-content"><bodycopy><column-set class="cs" style="--gap:2rem;--mgap:2rem"><div class="cu" style="--span:6"><span class="page-nav" style="line-height: 1.7;">         <br>         
  © 2026</span></div><div class="cu" style="--span:6"></div></column-set><span style="font-size: 7.4028px; letter-spacing: 0em;"><br>
 </span></bodycopy></div></div></div></div>
-<main class="main"><div class="page " id="R0000ADDNDM"><div class="page-layout"><div class="page-content"><bodycopy><br>
-<column-set class="cs" style="--gap:2rem;--mgap:0rem"><div class="cu" style="--span:2"><div style="text-align: left"><span class="number" style="color: rgb(255, 255, 255); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; background: rgb(0, 0, 0);"><b>&nbsp;&nbsp; 003 &nbsp;</b></span></div></div><div class="cu" style="--span:8"><div style="text-align: center">ReelShort Addendum Studio — Payroll &amp; Legal Compliance System</div></div><div class="cu" style="--span:2"><div style="text-align: right"></div></div></column-set><hr><b><span style="--font-scale: 1.4;"><br>
-ReelShort Addendum Studio</span></b><br><br>
-<gallery-slideshow data-autoplay="true" data-delay="2.2" data-speed="0.8" data-nav="none" data-va="top"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/projects/addendum/00_cover_board.jpg" alt="00_cover_board" width="2880" height="1800" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div></media-item><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/projects/addendum/12_workspace_ca.png" alt="12_workspace_ca" width="2880" height="1800" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div></media-item></gallery-slideshow><br>
-<span style="color: rgba(6, 0, 0, 0.85);">Designed and built an automated payroll documentation tool for ReelShort, simplifying contract preparation, payment paperwork, and compliance workflows for production teams.<br>
-<br>
-<column-set class="cs mstack" style="--gap:1rem;--mgap:1rem"><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">ROLE<br>
-<br>PRODUCT DESIGNER<br>DESIGN ENGINEER</span></div><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">SCOPE<br>
-<br>Research &amp; Rules Modeling<br>UIUX Design<br>Front-end Build</span></div></column-set></span><br>
-<br>
-<span class="caption">Part of the content has been anonymized. All names, amounts and production details shown are fictional or generalized. Real contractor, payroll and legal data is confidential.</span><br>
-<br>
-<marquee-set data-speed="-10"><div class="mq-track"><div class="mq-copy"><marquee-inner><column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:12"><span class="diatype" style="color: rgba(6, 0, 0, 0.85);"><b>｜</b><i>27</i> contractors<b> ｜</b><i>7</i> departments<b> ｜</b><i>8</i> paperwork steps per person<b> ｜</b><i>~139</i> OT hours reconciled<b> ｜</b><i>21</i> addenda per production<b> ｜</b><i>3</i> location rule sets<b> ｜</b><i>7</i> fee categories<b> ｜</b></span></div></column-set></marquee-inner></div><div class="mq-copy" aria-hidden="true"><marquee-inner><column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:12"><span class="diatype" style="color: rgba(6, 0, 0, 0.85);"><b>｜</b><i>27</i> contractors<b> ｜</b><i>7</i> departments<b> ｜</b><i>8</i> paperwork steps per person<b> ｜</b><i>~139</i> OT hours reconciled<b> ｜</b><i>21</i> addenda per production<b> ｜</b><i>3</i> location rule sets<b> ｜</b><i>7</i> fee categories<b> ｜</b></span></div></column-set></marquee-inner></div></div></marquee-set><br>
-<br>
+<main class="main"><div class="page " id="R0000ADDNDM"><div class="page-layout"><div class="page-content"><bodycopy><div class="cs2">
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp;Overview&amp; Context&nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(17, 1, 1, 0.7);">The addendum is one step in an eight-step pipeline — and the only one that involves maths.</h2><br>
-Every contractor on a ReelShort shoot moves through the same paperwork pipeline, tracked row by row in a crew batch sheet. Seven of the steps are "send and collect". The addendum is different: it turns negotiated terms and the production's time record into a pay calculation the producer signs.<br>
-<br>
-On the reference production — a 10-day Texas shoot with 12-hour contracted days — 27 contractors across 7 departments went through this pipeline, and 21 of them needed an addendum. Each one was rebuilt by hand in Word and a personal spreadsheet.<br>
-<span class="caption">The reference production is an anonymized composite based on typical shoots. Figures are illustrative.</span><br>
-<br>
-<div class="adx-pipe"><div><i>01</i>Welcome letter</div><div><i>02</i>Agreement</div><div><i>03</i>W-9</div><div><i>04</i>Invoice</div><div class="hot"><i>05 · this project</i>Addendum</div><div><i>06</i>Folder</div><div><i>07</i>Payment</div><div><i>08</i>Finance</div></div>
-<span class="caption">Contractor paperwork pipeline, column by column in the crew batch sheet. When the addendum stalls, payment stalls.</span><br>
-<br>
-<br>
+<header class="cv" id="top"><div class="ph" aria-hidden="true"><img class="pa" src="assets/projects/addendum-v2/addendum-ph_tx.jpg" alt=""><img class="pb" src="assets/projects/addendum-v2/addendum-ph_ca.jpg" alt=""></div>
+<div class="cv-in">
+<div class="tags"><span class="tag">ReelShort · Crazy Maple Studio</span><span class="tag">Internal Platform · B2B SaaS · Service Design</span><span class="tag">2026</span><span class="tag on">Shipped · In Active Use</span></div>
+<h1><span>ReelShort Addendum Studio:</span><span>Payroll &amp; Legal</span><span>Compliance <em>System</em></span></h1>
+<p class="lede">Film production is unpredictable. Schedules shift, workdays change, and overtime or special circumstances can affect the original contract terms and payment amounts. I designed and built an internal Addendum Studio that generates contract addendums from production spreadsheets, time records and local labor rules, bringing the process into one streamlined workflow.</p>
+<div class="sc"><i></i>Scroll</div>
+</div></header>
+<div class="w">
+<figure class="hero" style="margin-top:0"><div class="fr"><img src="assets/projects/addendum-v2/addendum-cover.jpg" alt="Addendum Studio screens: project workspace, crew queue and live document preview"></div></figure>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; The Problem &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">The hard part wasn't the document. It was everything feeding into it.</h2><br>
-Each addendum looks like a one-page form. Underneath sit three messy inputs — a free-text deal memo, a timecard export and a location rule — that only someone who knew the rules could reconcile. I started from the real crew batch sheet and traced every number on a signed addendum back to its source.<br>
-<br>
-<div class="adx-sheet"><table>
-<thead><tr><th>Title / Role</th><th>Contractor</th><th class="hl">Payment details (free text)</th><th>Day rate</th><th>Hrs</th><th>Days</th><th>Flat fee</th><th>OT hrs</th><th>OT $</th><th>Total</th><th>W-9</th><th>Invoice</th><th>Addendum</th></tr></thead>
-<tbody>
-<tr class="dept"><td colspan="13">PRODUCTION DEPARTMENT</td></tr>
-<tr><td>Director</td><td>A. Rivera</td><td class="terms">Flat prep / shoot</td><td></td><td></td><td></td><td class="m">$8,000.00</td><td></td><td></td><td class="m">$8,000.00</td><td class="ok">Done</td><td class="ok">Done</td><td class="na">N/A</td></tr>
-<tr><td>Line Producer</td><td>N. Kim</td><td class="terms">$420/shoot day + $1000 flat prep/wrap — 10 days</td><td class="m">$420.00</td><td>12</td><td>10</td><td class="m">$1,000.00</td><td class="m">16.50</td><td class="m">$742.50</td><td class="m">$5,942.50</td><td class="ok">Done</td><td class="ok">Done</td><td class="ok">Done</td></tr>
-<tr><td>1st AD</td><td>G. Okafor</td><td class="terms">$1000 flat prep, $360 / 12 hour shoot day …</td><td class="m">$360.00</td><td>12</td><td>10</td><td class="m">$1,000.00</td><td class="m">7.00</td><td class="m">$270.00</td><td class="m">$4,870.00</td><td class="ok">Done</td><td class="ok">Done</td><td class="ok">Done</td></tr>
-<tr class="dept"><td colspan="13">GRIP AND ELECTRIC DEPT</td></tr>
-<tr><td>Gaffer</td><td>M. Alvarez</td><td class="terms">$280/12 hour day — 2 days</td><td class="m">$280.00</td><td>12</td><td>2</td><td></td><td class="m">0.40</td><td class="m">$12.00</td><td class="m">$572.00</td><td class="se">Sent</td><td class="se">Sent</td><td class="ok">Done</td></tr>
-<tr class="dept"><td colspan="13">ART DEPT</td></tr>
-<tr><td>Art Director</td><td>Studio vendor LLC</td><td class="terms">Flat fee for whole art direction service</td><td></td><td></td><td></td><td></td><td></td><td></td><td class="m">$3,900.00</td><td class="ok">Done</td><td class="ok">Done</td><td class="na">N/A</td></tr>
-</tbody></table></div>
-<span class="caption">Anatomy of the crew batch — department header rows, a free-text deal column, derived OT figures and status columns in one sheet. Names and amounts are fictional, calculated with the real rules. Any resemblance to real individuals is coincidental.</span><br>
-<br>
-<br>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:6"><b>Deals arrive as sentences</b><br>
-<span class="caption">"$1000 flat prep, $350 / 12 hour shoot day, 10 days" had to be re-read and split into rate, hours, days and fees before any maths could start.</span></div><div class="cu" style="--span:6"><b>Overtime law differs by state</b><br>
-<span class="caption">California pays 1.5× after 8 hours and 2× after 12; Texas and most other locations stop at 1.5×.</span></div></column-set><br>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:6"><b>Fees compound on each other</b><br>
-<span class="caption">Hourly rate is backed out of a weighted day; OT and meal penalties depend on it; agency fees apply to flat + base + OT, never to per-diems.</span></div><div class="cu" style="--span:6"><b>Batch work, one-off tools</b><br>
-<span class="caption">Dozens of contractors paid in weekly waves — but addenda were built one at a time, with signatures pasted in after the fact.</span></div></column-set><br>
-<br>
-<br>
-<h2><b>From a sentence to structured fields</b></h2><br>
-<div class="adx-parse"><div class="raw">"<u class="c1">$1000 flat prep/wrap</u>, <u class="c2">$420 / shoot day</u>, <u class="c3">12 hour day</u>, <u class="c4">10 day shoot</u>"</div><div class="arr">→</div><div class="fields"><div class="c1"><small>Flat fee · Prep &amp; wrap</small>$1,000.00</div><div class="c2"><small>Principal day rate</small>$420.00</div><div class="c3"><small>Contracted hours</small>12 hrs/day</div><div class="c4"><small>Working days</small>10</div></div></div>
-<br>
-<br>
-<h2><b>A 14-hour day is three pay rates in California — and two in Texas.</b></h2><br>
-Contracted hours are folded into weighted bands to back out a true hourly rate; every OT hour from the production record is then re-priced per working day.<br>
-<br>
-<div class="adx-bands"><span>California</span><div class="tr"><i class="b1" style="width:57.1%">1× · hrs 1–8</i><i class="b15" style="width:28.6%">1.5× · 8–12</i><i class="b2" style="width:14.3%">2× · 12+</i></div><span>Texas / Other</span><div class="tr"><i class="b1" style="width:57.1%">1× · hrs 1–8</i><i class="b15" style="width:42.9%">1.5× · over 8</i></div><span></span><div class="ax"><em>0h</em><em>4h</em><em>8h</em><em>12h</em><em>14h</em></div></div>
-<div class="adx-calc"><div><small>12-hr day, Texas</small>8 + 4 × 1.5 = 14 weighted hrs</div><div><small>Hourly rate</small>$420 ÷ 14 = $30.00</div><div><small>Recorded OT (1.65 hrs/day)</small>1.65 × 1.5 × $30 × 10</div><div class="res"><small>OT fee on the addendum</small>= $742.50</div></div>
-<br>
-<br>
-<br>
+<dl class="glance g6">
+<div><dt>Role</dt><dd>Product Designer · Front-End Developer · Design Engineer</dd></div>
+<div><dt>Timeline</dt><dd>Sep – Oct 2026</dd></div>
+<div><dt>Platform</dt><dd>Internal web app</dd></div>
+<div><dt>Status</dt><dd>Shipped · In Active Use</dd></div>
+<div class="wide"><dt>Outcome</dt><dd>Used across 4+ productions, supporting contract adjustments and payment documentation for 60+ cast and crew members</dd></div>
+</dl>
+<p class="conf">Part of the content has been anonymized. All names, amounts and production details shown are fictional or generalized. Real contractor, payroll and legal data is confidential.</p>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; Design Principles &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">Model the rules once. Let the interface stay simple.</h2><br>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:4"><b>Derive, never type</b><br>
-<span class="caption">Hourly rate, OT, meal penalty, agency fee and total are outputs. Nobody hand-edits a number the engine owns.</span></div><div class="cu" style="--span:4"><b>The batch is the unit</b><br>
-<span class="caption">Accountants think in productions and pay waves, so the home view is a project with progress and exposure.</span></div><div class="cu" style="--span:4"><b>Enforce, don't explain</b><br>
-<span class="caption">Order, validation and approval locks live in the product, replacing tribal knowledge.</span></div></column-set><br>
-<br>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:6"><span class="caption">BEFORE</span><br>
-① Read the free-text deal memo<br>② Copy last project's Word template<br>③ Rebuild formulas in a spreadsheet<br>④ Look up the state's OT tier<br>⑤ Type figures, paste a signature, export<br>⑥ Repeat for ~21 contractors</div><div class="cu" style="--span:6"><span class="caption">AFTER · ADDENDUM STUDIO</span><br>
-① Pick the project — location rules apply<br>② Import the crew batch CSV<br>③ Fix only records flagged "Needs fix"<br>④ Finalize approval — record locks<br>⑤ Batch-export every addendum as PDF</div></column-set><br>
-<br>
-<br>
+<section class="sec" id="sec-1" data-l="Context">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Overview &amp; Context</span>
+<h2>When film production changes, paperwork follows.</h2>
+<div class="n">
+<p>Film production rarely goes exactly as planned. Overtime, schedule changes and last-minute adjustments can all affect the original contract terms and final payments. On top of that, labor rules and documentation requirements vary by location and employment type.</p>
+<p>Every adjustment needs to be calculated, documented and approved before payment can move forward. It is an essential part of production, and a time-consuming one.</p>
+<p>Every contractor on a ReelShort shoot moves through the same paperwork pipeline, tracked row by row in a crew batch sheet. Seven of the steps are "send and collect". The addendum is different: it turns negotiated terms and the production's time record into a pay calculation.</p>
+</div>
+<div class="pipe" role="list" aria-label="Contractor paperwork pipeline">
+<div role="listitem"><small>01</small>Welcome letter</div><div role="listitem"><small>02</small>Agreement</div><div role="listitem"><small>03</small>W-9</div><div role="listitem"><small>04</small>Invoice</div><div class="hot" role="listitem"><small>05 · this project</small>Addendum</div><div role="listitem"><small>06</small>Folder</div><div role="listitem"><small>07</small>Payment</div><div role="listitem"><small>08</small>Finance</div>
+</div>
+<p class="cap">The contractor paperwork pipeline, column by column in the crew batch sheet. When the addendum stalls, payment stalls.</p>
+<div class="n" style="margin-top:32px"><p>On the reference production, a 10-day Texas shoot with 12-hour contracted days, 27 contractors across 7 departments went through this pipeline, and 21 of them needed an addendum. Each one was rebuilt by hand in Word and a personal spreadsheet.</p></div>
+<div class="stats">
+<div class="stat"><b>27</b><span>Contractors in the pipeline</span></div>
+<div class="stat"><b>7</b><span>Departments</span></div>
+<div class="stat"><b>21</b><span>Needed an addendum</span></div>
+<div class="stat"><b>10 days</b><span>Texas shoot, 12-hour contracted days</span></div>
+</div>
+</section>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; 01 Rules Engine &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">A rules engine, not a template.</h2><br>
-Choosing a location sets the overtime bands for every record on the project; changing a day rate re-derives hourly rate, OT, meal penalty and agency fee instantly. Each fee category is an optional, collapsible section with a live subtotal — and blank categories disappear from the final document.<br>
-<br>
-<gallery-grid style="--cols:2;--gap:3rem;--mgap:1rem;--va:start"><media-item class="zoomable" style="" data-full="assets/projects/addendum/07_fee_sections_collapsed.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/07_fee_sections_collapsed.png" alt="07_fee_sections_collapsed" width="880" height="2570" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Scan, then drill in — each fee category shows its own subtotal while collapsed.</div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/projects/addendum/08_fee_sections_open.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/08_fee_sections_open.png" alt="08_fee_sections_open" width="880" height="2570" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Derived, never typed — the hourly rate is computed and locked.</div></figcaption></media-item></gallery-grid><br>
-<br>
-<gallery-grid style="--cols:2;--gap:6rem 4rem;--mgap:1rem;--va:start"><media-item class="zoomable" style="" data-full="assets/projects/addendum/10_document_texas.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/10_document_texas.png" alt="10_document_texas" width="1588" height="2542" loading="lazy" decoding="async" style="filter: drop-shadow(0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Texas project — OT at 1.5×, band rule printed under the hourly rate.</div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/projects/addendum/11_document_ca.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/11_document_ca.png" alt="11_document_ca" width="1588" height="2214" loading="lazy" decoding="async" style="filter: drop-shadow(0.1rem 0.1rem 0.6rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">California unit — same template, 1× / 1.5× / 2× bands applied automatically.</div></figcaption></media-item></gallery-grid><br>
-<br>
-<br>
+<section class="sec" id="sec-2" data-l="The Problem">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">The Problem</span>
+<h2>Too much manual work, too much room for error.</h2>
+<div class="n">
+<p>The existing process relied heavily on spreadsheets and manually drafted addendums. For each contract adjustment, the team had to cross-check time records, recalculate payments, prepare documents and send them through review.</p>
+<p>Even small mistakes could mean going back to fix the paperwork, slowing down approvals and potentially delaying payments.</p>
+</div>
+<div class="ba">
+<div><span class="k bad">Before · for each of ~21 contractors</span><ol><li>Read the free-text deal memo</li><li>Copy last project's Word template</li><li>Rebuild formulas in a spreadsheet</li><li>Look up the state's overtime tier</li><li>Type figures, paste a signature, export</li><li>Repeat</li></ol></div>
+<div><span class="k">After · Addendum Studio</span><ol><li>Pick the project, location rules apply</li><li>Import the crew batch CSV</li><li>Fix only records flagged "Needs fix"</li><li>Finalize approval, the record locks</li><li>Batch-export every addendum as PDF</li></ol></div>
+</div>
+</section>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; 02 Built for Batches &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">The production, not the document, is the unit of work.</h2><br>
-The workspace opens on crew count, finalized ratio, records needing attention and the running project total. The queue carries each contractor's amount and status, and filters straight to the records that block a pay wave. CSV import uses alias lists and fuzzy header matching, so the crew sheet production already keeps becomes the input.<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/projects/addendum/02_stats.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/02_stats.png" alt="02_stats" width="2880" height="152" loading="lazy" decoding="async" style="border-radius: 1rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.2));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Project summary strip — progress and total exposure always visible.</div></figcaption></media-item><br>
-<br>
-<gallery-columnized data-cols="3" data-mcols="1" style="--gap:3rem 2rem;--mgap:1rem"><media-item class="zoomable" style="" data-full="assets/projects/addendum/03_projects_menu.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/03_projects_menu.png" alt="03_projects_menu" width="1440" height="840" loading="lazy" decoding="async" style="border-radius: 1.5rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Many units, one tool</div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/projects/addendum/04_queue.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/04_queue.png" alt="04_queue" width="600" height="1240" loading="lazy" decoding="async" style="border-radius: 1.5rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">The queue is the to-do list</div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/projects/addendum/05_filter_needsfix.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/05_filter_needsfix.png" alt="05_filter_needsfix" width="600" height="720" loading="lazy" decoding="async" style="border-radius: 1.5rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">One click to blockers</div></figcaption></media-item></gallery-columnized><br>
-<br>
-<br>
+<section class="sec" id="sec-3" data-l="Opportunity">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">The Opportunity &amp; Winning the Buy-in</span>
+<h2>What if we could turn hours of paperwork into a few clicks?</h2>
+<div class="n">
+<p>As ReelShort began exploring AI and internal tools to improve operational efficiency, I saw an opportunity in a workflow I dealt with regularly.</p>
+<p>Instead of drafting every addendum from scratch, I proposed building a tool that could bring production data, payment calculations, applicable rules and document generation into one place. The goal was simple: <strong>less manual work, fewer errors and faster approvals.</strong></p>
+<p>I presented my idea and an early demo, and got approval to move forward with this self-initiated project. I took the lead on product design, turning an idea to improve my own workflow into a tool that could also save my teammates time and help the company better organize and keep track of important documents.</p>
+</div>
+</section>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; 03 Guardrails &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">Guardrails over manuals.</h2><br>
-Crew editing stays locked until the project is defined. Validation runs on every keystroke and marks the exact field that's wrong. Export is blocked while any record fails. Once a producer finalizes, approver, date and signature lock — payment lines stay editable, but approval can't drift silently.<br>
-<br>
-<gallery-grid style="--cols:2;--gap:3rem;--mgap:1rem;--va:start"><media-item class="zoomable" style="" data-full="assets/projects/addendum/06_inline_validation.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/06_inline_validation.png" alt="06_inline_validation" width="880" height="1370" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Errors where they live — flagged on the field itself.</div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/projects/addendum/09_approval_locked.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/09_approval_locked.png" alt="09_approval_locked" width="880" height="1370" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div><figcaption class="caption" slot="caption"><div style="text-align: center">Signed means signed — approvals lock until Edit.</div></figcaption></media-item></gallery-grid><br>
-<br>
-<br>
+<section class="sec" id="sec-4" data-l="Design Decisions">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Design Decisions</span>
+<div class="n"><p>Drawing on my firsthand experience with the workflow, and on the need for accuracy in payroll and legal documents, I made three key design decisions to guide the product.</p></div>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; 04 WYSIWYG &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">What you see is what gets signed.</h2><br>
-The right-hand pane is the actual print layout, updating live. Reviewers never reconcile a form against a separate output — the document is the interface, and switching to a California unit re-renders every preview with its own overtime law.<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/projects/addendum/12_workspace_ca.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/projects/addendum/12_workspace_ca.png" alt="12_workspace_ca" width="2880" height="1800" loading="lazy" decoding="async" style="border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25));"></div></media-item><br>
-<br>
-<br>
+<article class="dec">
+<div class="h"><h3 class="opill">01 · Simplify Complexity</h3></div>
+<div class="n"><p class="lead">From four fragmented steps to one streamlined workflow.</p>
+<p>Previously, creating an addendum required four separate stages: calculating overtime from time records, applying payroll rules and reconciling spreadsheets, drafting legal documents, and coordinating approvals.</p>
+<p>I redesigned this fragmented process into a single workflow. Users can import time records and payroll spreadsheets, review pay components, automatically calculate adjustments, generate standardized legal clauses, and batch-export PDFs, all within one interface.</p></div>
+<p class="impact"><span class="k">Design impact</span>Consolidated a four-stage process into one streamlined experience, reducing repetitive work and cognitive load.</p>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-ws.jpg" alt="Addendum Studio workspace: crew queue, addendum form and live document preview in one screen"></div><figcaption>One workspace: the crew queue, the form and the live document preview side by side.</figcaption></figure>
+<figure class="sm"><div class="fr"><img src="assets/projects/addendum-v2/addendum-proj.jpg" alt="Project switcher listing three productions with crew counts"></div><figcaption>The production is the unit of work. Many units, one tool.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-stats.jpg" alt="Project summary strip: crew count, finalized, needs attention, project total"></div><figcaption>The workspace opens on crew count, finalized ratio, records needing attention and the running project total.</figcaption></figure>
+<div class="sf" aria-label="From a free-text deal memo to structured fields">
+<p class="sf-t">From a sentence to structured fields</p>
+<div class="sf-g">
+<div class="sf-q">"<span class="c1">$1000 flat prep/wrap</span>, <span class="c2">$420 / shoot day</span>, <span class="c3">12 hour day</span>, <span class="c4">10 day shoot</span>"</div>
+<svg class="sf-a" viewBox="0 0 40 12" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M0 6h38M33 1l5 5-5 5"/></svg>
+<div class="sf-f"><div class="c1"><small>Flat fee · Prep &amp; wrap</small><b>$1,000.00</b></div><div class="c2"><small>Principal day rate</small><b>$420.00</b></div><div class="c3"><small>Contracted hours</small><b>12 hrs/day</b></div><div class="c4"><small>Working days</small><b>10</b></div></div>
+</div>
+<p class="cap">A free-text deal memo is read once and split into the fields the calculation needs.</p>
+</div>
+<div class="pair pn"><figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-queue.jpg" alt="Generation queue with status filters and per-contractor amounts"></div><figcaption>The queue carries each contractor's amount and status.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-filt.jpg" alt="Queue filtered to records marked Needs fix"></div><figcaption>One click filters to the records that block a pay wave.</figcaption></figure></div>
+</article>
 
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); background: #000000;"><span style="color: rgb(255, 255, 255);"><b>&nbsp;&nbsp; Impact &nbsp;&nbsp;</b></span></span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85);">From a per-document chore to a per-production workflow.</h2><br>
-<div class="adx-metrics"><div><b>~85%*</b><span>less time to prepare a production's addenda batch</span></div><div><b>0</b><span>manual formulas left in the addendum step</span></div><div><b>4 → 1</b><span>tools consolidated: deal memo, template, sheet, PDF/signing</span></div><div><b>100%</b><span>of exported records pass validation</span></div></div>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:4"><b>Fewer payment re-issues</b><br>
-<span class="caption">Location-aware OT and a visible formula target the most common re-issue: the wrong tier copied from another project.</span></div><div class="cu" style="--span:4"><b>Approval you can audit</b><br>
-<span class="caption">Finalized records lock signature and date — a clear line between draft and approved before each pay wave.</span></div><div class="cu" style="--span:4"><b>Onboarding in minutes</b><br>
-<span class="caption">A new coordinator can produce a correct addendum without learning the rules first.</span></div></column-set><br>
-<br>
-<h2><b>What's next</b></h2><br>
-Ingest OT hours straight from the production timecard export · write addendum status back to the crew batch sheet · replace uploaded signature images with a producer e-signature and audit trail.<br>
-<br>
-<span class="caption">* Estimated from walkthroughs of the previous manual process. Reference counts come from one ReelShort crew batch; product screens use fictional demo data and no personal or payment data is shown.</span><br>
-<br>
-<b>About this case study</b><br>
-<span class="caption">Addendum Studio is an internal ReelShort tool that handles payroll and contract data. All data in this case study is fictional, and some details have been generalized. Part of the content has been anonymized.</span><br>
-<br>
-</bodycopy></div></div></div></main>
+<article class="dec">
+<div class="h"><h3 class="opill">02 · Accuracy by Design</h3></div>
+<div class="n"><p class="lead">Embed compliance into the workflow, not as an afterthought.</p>
+<p>Payroll calculations vary by location and can involve complex overtime tiers, meal penalties and contractual requirements.</p>
+<p>I integrated location-specific calculation rules and relevant legal language for California and Texas production workflows. Instead of applying formulas by hand, users enter overtime hours and let the system calculate the applicable adjustments, with the breakdown clearly displayed for verification.</p></div>
+<p class="impact"><span class="k">Design impact</span>Reduced reliance on manual calculations and made complex payroll adjustments easier to understand, verify and document.</p>
+
+<div class="bands" aria-label="Overtime bands by location">
+<div class="brow"><span class="bl">Texas / Other</span><div class="bt"><i class="s1" style="width:57.14%">1× · hrs 1–8</i><i class="s15" style="width:42.86%">1.5× · over 8</i></div></div>
+<div class="brow"><span class="bl">California</span><div class="bt"><i class="s1" style="width:57.14%">1× · hrs 1–8</i><i class="s15" style="width:28.57%">1.5× · 8–12</i><i class="s2" style="width:14.29%">2× · 12+</i></div></div>
+<div class="bax"><span>0h</span><span style="left:28.57%">4h</span><span style="left:57.14%">8h</span><span style="left:85.71%">12h</span><span style="left:100%">14h</span></div>
+</div>
+<p class="cap" style="margin-top:12px">A 14-hour day is three pay rates in California and two in Texas. Contracted hours fold into weighted bands to back out a true hourly rate, and every overtime hour from the production record is re-priced per working day.</p>
+
+<div class="tc" id="tc">
+<div class="tc-in">
+<span class="k">Try the calculation · fictional numbers</span>
+<div class="seg" role="group" aria-label="Location"><button type="button" class="on" data-r="Texas">Texas</button><button type="button" data-r="CA">California</button></div>
+<label for="c-rate">Principal day rate ($)</label><input id="c-rate" inputmode="decimal" value="420">
+<div class="two"><div><label for="c-hrs">Contracted hours</label><input id="c-hrs" inputmode="decimal" value="12"></div><div><label for="c-days">Working days</label><input id="c-days" inputmode="decimal" value="10"></div></div>
+<label for="c-ot">Total OT hours (from the time record)</label><input id="c-ot" inputmode="decimal" value="16.5">
+</div>
+<div class="tc-out" aria-live="polite">
+<div class="r"><span>Weighted contracted hours</span><b id="o-w">14.00</b></div>
+<div class="r"><span>Hourly rate (derived)</span><b id="o-h">$30.00</b></div>
+<div class="r"><span>Base pay</span><b id="o-b">$4,200.00</b></div>
+<div class="r"><span>OT fee <em id="o-m">1.5×</em></span><b id="o-o">$742.50</b></div>
+<div class="r tot"><span>Calculated total</span><b id="o-t">$4,942.50</b></div>
+<p class="fx" id="o-f"></p>
+</div>
+</div>
+
+<div class="pair"><figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-coll.jpg" alt="Fee categories collapsed, each with a live subtotal"></div><figcaption>Scan, then drill in. Each fee category shows its own subtotal while collapsed.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-open.jpg" alt="Fee categories opened with derived hourly rate locked"></div><figcaption>Derived, never typed. The hourly rate is computed and locked.</figcaption></figure></div>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-tx.jpg" alt="Generated addendum document for a Texas project"></div><figcaption>Texas project: overtime at 1.5×, with the band rule printed under the hourly rate.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-ca.jpg" alt="Generated addendum document for a California unit"></div><figcaption>California unit: the same template, with 1× / 1.5× / 2× bands applied automatically.</figcaption></figure></div>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">03 · Human-Centered Automation</h3></div>
+<div class="n"><p class="lead">Automate repetitive tasks without removing human control.</p>
+<p>Legal and financial documents require human judgment, even when much of the preparation can be automated.</p>
+<p>I designed an editable workflow where users can review and modify generated information before finalizing documents. The system flags discrepancies between entered values and calculated amounts, helping users catch potential errors while keeping control over critical decisions.</p></div>
+<p class="impact"><span class="k">Design impact</span>Balanced automation with human oversight, making document generation faster, more transparent and easier to review.</p>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-val.jpg" alt="Inline validation marking the exact field that is missing"></div><figcaption>Errors where they live, flagged on the field itself. Export is blocked while any record fails.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/addendum-v2/addendum-appr.jpg" alt="Approval section locked after the producer finalizes"></div><figcaption>Signed means signed. Approver, date and signature lock until Edit.</figcaption></figure></div>
+</article>
+</section>
+
+<section class="sec" id="sec-5" data-l="Outcome">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Outcome</span>
+<h2>From a per-document chore to a per-production workflow.</h2>
+<div class="stats">
+<div class="stat"><b>~85%*</b><span>Less time to prepare a production's addenda batch</span></div>
+<div class="stat"><b>0</b><span>Manual formulas left in the addendum step</span></div>
+<div class="stat"><b>4 → 1</b><span>Tools consolidated: deal memo, template, sheet, PDF and signing</span></div>
+<div class="stat"><b>100%</b><span>Of exported records pass validation</span></div>
+</div>
+<div class="cols3">
+<div><span class="k">Fewer payment re-issues</span><p style="font-size:.956rem">Location-aware overtime calculations and transparent formulas help prevent two common errors: missing overtime details and applying the wrong regional pay rules.</p></div>
+<div><span class="k">Approval you can audit</span><p style="font-size:.956rem">Once approved, the signature and date are locked, making it easy to tell which documents are final and ready for payment.</p></div>
+<div><span class="k">Wrap in minutes</span><p style="font-size:.956rem">Even new coordinators can create accurate addendums in minutes, without having to learn complex payroll rules first.</p></div>
+</div>
+<p class="sub">What's next</p>
+<div class="n"><p>Add approval tiers and e-signature features so users can complete the whole process in one place.</p></div>
+<p class="nm">* Estimated from walkthroughs of the previous manual process. Reference counts come from one ReelShort crew batch; product screens use fictional demo data and no personal or payment data is shown.</p>
+</section>
+
+<section class="sec" id="sec-6" data-l="Reflection">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Reflection</span>
+<div class="refl">
+<h3 class="rh">Start with the real problem</h3>
+<p>Working with addendums myself gave me a clear view of where the process was slow and frustrating. But I learned that the goal was not just to automate paperwork. It was to rethink the workflow and make the whole process easier for everyone using it.</p>
+<h3 class="rh">Automation isn't always the answer</h3>
+<p>When working with payroll and legal documents, getting things right matters more than making everything automatic. I learned to balance automation with clear calculations, error warnings and the flexibility for users to review and make changes.</p>
+<h3 class="rh">Keep learning after launch</h3>
+<p>Seeing the tool used in real productions was especially rewarding. It reminded me that shipping a product is just the beginning. As more people use it, I want to keep learning from their feedback and improve how it fits into their daily work.</p>
+</div>
+</section>
+
+</div>
+</div></bodycopy></div></div></div></main>
 <div class="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><div class="lb-stage"></div></div>
 
 
 
+<script>
+(function(){document.documentElement.classList.add("js");
+var els=[].slice.call(document.querySelectorAll(".sec>*,.dec>*,figure,.stat,.need,.hold>div,.phases"));els.forEach(function(e){e.classList.add("rv")});
+function inview(e){return e.getBoundingClientRect().top<innerHeight*.96}
+els.forEach(function(e){if(inview(e))e.classList.add("in")});
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){if(!e.classList.contains("in"))io.observe(e)})}else{els.forEach(function(e){e.classList.add("in")})}
+setTimeout(function(){els.forEach(function(e){if(inview(e))e.classList.add("in")})},2500);
+var vs=[].slice.call(document.querySelectorAll("video"));
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){vs.forEach(function(v){v.removeAttribute("autoplay");v.pause()})}
+else if("IntersectionObserver" in window){var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.25});vs.forEach(function(v){vo.observe(v)})}
+})();
+</script>
+<script>
+(function(){var reg="Texas";var $=function(i){return document.getElementById(i)};
+function num(v){var n=parseFloat(String(v==null?"":v).replace(/[$,]/g,""));return isFinite(n)?n:0}
+function money(v){return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD"}).format(v)}
+function bands(h,r){h=num(h);var b8=Math.min(h,8),b812=r==="CA"?Math.min(Math.max(h-8,0),4):Math.max(h-8,0),b12=r==="CA"?Math.max(h-12,0):0;return{b8:b8,b812:b812,b12:b12}}
+function wt(h,r){var b=bands(h,r);return b.b8+b.b812*1.5+b.b12*2}
+function calc(){var rate=num($("c-rate").value),ch=num($("c-hrs").value),days=num($("c-days").value)||1,ot=num($("c-ot").value);
+var w=wt(ch,reg),hr=w?rate/w:0,per=ot/days,c=bands(ch,reg),a=bands(ch+per,reg);
+var o1=Math.max(a.b8-c.b8,0),o15=Math.max(a.b812-c.b812,0),o2=Math.max(a.b12-c.b12,0);
+var fee=(o1*hr+o15*1.5*hr+o2*2*hr)*days,base=rate*days;
+var m=[];if(o15>0)m.push("1.5×");if(o2>0)m.push("2×");if(!m.length&&o1>0)m.push("1×");if(!m.length)m.push("1.5×");
+$("o-w").textContent=w.toFixed(2);$("o-h").textContent=money(hr);$("o-b").textContent=money(base);$("o-o").textContent=money(fee);$("o-m").textContent=m.join("/");$("o-t").textContent=money(base+fee);
+$("o-f").textContent=money(rate).replace(".00","")+" ÷ "+w.toFixed(2)+" weighted hrs = "+money(hr)+"/hr · OT "+per.toFixed(2)+" hrs/day × tier × "+money(hr)+" × "+days+" days"}
+["c-rate","c-hrs","c-days","c-ot"].forEach(function(i){$(i).addEventListener("input",calc)});
+[].slice.call(document.querySelectorAll(".seg button")).forEach(function(b){b.addEventListener("click",function(){reg=b.dataset.r;[].slice.call(document.querySelectorAll(".seg button")).forEach(function(x){x.classList.toggle("on",x===b)});calc()})});
+calc()})();
+</script>
 </body>
 </html>

@@ -37,6 +37,208 @@
 <meta name="twitter:description" content="Redesigned and launched an internal casting platform for ReelShort, with a talent database and project dashboard that speeds up production decisions at 100M+ view scale.">
 <meta name="twitter:image" content="https://jingyizhang.design/assets/media/3c32b2754922_1.png">
 <link rel="stylesheet" href="assets/sidebar-dark.css?v=4">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style id="cs2-style">
+.cs2{--bg:#fff;--fg:rgba(0,0,0,.8);--ink:#111;--mute:rgba(0,0,0,.55);--hair:rgba(17,17,17,.1);--fill:#f5f5f7;--green:#5e9c00;--greenbg:rgba(94,156,0,.1);--red:#c0392b;--frame:#f5f5f7;
+--body:"Diatype Variable",Inter,system-ui,sans-serif;--glass:rgba(255,255,255,.74);--ease:cubic-bezier(.22,.8,.2,1);--sheet:#fff;--sheeton:#f2f2f2;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--pillbg:#000;--pilltx:#fff;--pillsh:rgba(0,0,0,.22);--cvgreen:#3f8f5c;--cvglow:rgba(94,156,0,.10);--k:1}
+.cs2 *{box-sizing:border-box}
+.cs2 .w{max-width:1054px;margin:0 auto;padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .n{max-width:calc(46*var(--r))}
+.cs2 h1,.cs2 h2,.cs2 h3,.cs2 h4,.cs2 p{margin:0}
+.cs2 h1{font-weight:500;font-size:calc(1.53*var(--r));line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.cs2 h2{font-weight:400;font-size:calc(1.3*var(--r));line-height:1.3;letter-spacing:-.005em;text-wrap:balance}
+.cs2 h3{font-weight:500;font-size:calc(1.05*var(--r));line-height:1.35}
+.cs2 strong,.cs2 b{font-weight:500}
+.cs2 .top{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;font-size:calc(.956*var(--r));color:var(--mute);margin-bottom:28px}
+.cs2 .top .no{color:var(--fg)}
+.cs2 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cs2 .tag{font-size:calc(.765*var(--r));padding:4px 12px;border:1px solid var(--hair);border-radius:99px;color:var(--mute)}
+.cs2 .tag.on{color:var(--green);border-color:var(--green);background:var(--greenbg)}
+.cs2 .lede{font-size:calc(.956*var(--r));line-height:1.7;margin-top:28px}
+.cs2 .hero{margin-top:40px}
+.cs2 figure{margin:0}
+.cs2 .fr{background:var(--frame);border-radius:14px;overflow:hidden;line-height:0}
+.cs2 .fr img{width:100%;height:auto;display:block}
+.cs2 figcaption{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5}
+.cs2 .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(11*var(--r)),1fr));gap:0;margin-top:40px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.cs2 .glance div{padding:18px 16px 18px 0}
+.cs2 .glance dt{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.cs2 .glance dd{margin:0;font-size:calc(.956*var(--r));font-weight:300}
+.cs2 .sec{margin-top:112px}
+.cs2 .pill{display:inline-block;font-size:calc(.74*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--greenbg);padding:4px 12px;border-radius:99px;margin-bottom:20px;font-weight:500}
+.cs2 .sec>h2{margin-bottom:20px}
+.cs2 .sec p+p{margin-top:16px}
+.cs2 .sec .n p{color:var(--fg)}
+.cs2 .conf{font-size:calc(.765*var(--r));color:var(--mute);margin-top:20px;max-width:calc(46*var(--r))}
+.cs2 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(13*var(--r)),1fr));gap:12px;margin-top:32px}
+.cs2 .stat{background:var(--fill);border-radius:14px;padding:20px}
+.cs2 .stat b{display:block;font-size:calc(2.3*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.cs2 .stat span{display:block;font-size:calc(.765*var(--r));color:var(--mute);margin-top:6px;line-height:1.45}
+.cs2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs2 .pair>*{min-width:0}
+.cs2 .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.cs2 .cols3>*{min-width:0}
+.cs2 .k{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px;display:block}
+.cs2 .needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.cs2 .need{background:var(--fill);border-radius:14px;padding:22px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cs2 .need h3{display:flex;gap:10px;align-items:baseline}
+.cs2 .need h3 i{font-style:normal;color:var(--green);font-size:calc(.765*var(--r));font-weight:500}
+.cs2 .need>p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .need blockquote{margin:6px 0 0;padding:12px 0 0;border-top:1px solid var(--hair);font-size:calc(.85*var(--r));line-height:1.5;font-style:italic}
+.cs2 .need details summary{cursor:pointer;font-size:calc(.765*var(--r));color:var(--green);margin-top:6px;list-style:none;font-style:normal}
+.cs2 .need details summary::-webkit-details-marker{display:none}
+.cs2 .need details[open] summary{margin-bottom:8px}
+.cs2 .dec{margin-top:96px;padding-top:32px;border-top:1px solid var(--hair)}
+.cs2 .dec:first-of-type{margin-top:48px}
+.cs2 .dec .h{display:flex;gap:14px;align-items:baseline;margin-bottom:24px}
+.cs2 .dec .h i{font-style:normal;font-size:calc(.765*var(--r));color:var(--green);font-weight:500;letter-spacing:.06em}
+.cs2 .dec .h h3{font-size:calc(1.2*var(--r));font-weight:400;letter-spacing:-.01em;text-wrap:balance}
+.cs2 .dec figure{margin-top:28px}
+.cs2 .dec .cols3 p{font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .dec .cols3 .prob .k{color:var(--red)}
+.cs2 .prio{background:var(--fill);border-radius:14px;padding:22px 24px;margin-top:24px;font-size:calc(.956*var(--r))}
+.cs2 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:2px solid var(--ink)}
+.cs2 .phases>div{padding:16px 16px 0 0;min-width:0}
+.cs2 .phases small{display:block;font-size:calc(.68*var(--r));letter-spacing:.1em;color:var(--green);font-weight:500}
+.cs2 .phases b{display:block;font-size:calc(1.1*var(--r));font-weight:400;margin:2px 0 4px}
+.cs2 .phases span{font-size:calc(.765*var(--r));color:var(--mute);line-height:1.5;display:block}
+.cs2 .hold{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cs2 .hold>div{border:1px solid var(--hair);border-radius:14px;padding:20px;min-width:0}
+.cs2 .hold h4{font-size:calc(.956*var(--r));font-weight:500;margin-bottom:6px}
+.cs2 .hold p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .sub{font-size:calc(.765*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:48px 0 4px;font-weight:500}
+.cs2 .nm{border-left:2px solid var(--green);padding:2px 0 2px 16px;margin-top:28px;font-size:calc(.88*var(--r));color:var(--mute);max-width:calc(46*var(--r))}
+.cs2 .refl{font-size:calc(1.3*var(--r));line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .refl p+p{margin-top:20px}
+.cs2 .refl em{color:var(--green);font-style:normal;font-weight:400}
+@media (max-width:760px){.cs2 .pair,.cs2 .cols3,.cs2 .needs,.cs2 .hold{grid-template-columns:1fr}
+.cs2 .phases{grid-template-columns:1fr 1fr}
+.cs2 .phases>div{padding-bottom:16px}
+.cs2 .sec{margin-top:80px}
+.cs2 .dec{margin-top:64px}}
+@media (prefers-reduced-motion:no-preference){.cs2 .fr img{transition:transform .6s cubic-bezier(.22,.8,.2,1)}}
+.cs2 a:focus-visible,.cs2 summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.cs2 .sec{scroll-margin-top:90px}
+.cs2 .pill{font-family:var(--body);font-size:calc(1.2*var(--r));line-height:1;letter-spacing:0;text-transform:none;font-weight:500;color:var(--pilltx);background:var(--pillbg);padding:.55em 1.05em .6em;border-radius:99px;box-shadow:0 14px 28px -10px var(--pillsh);margin-bottom:28px}
+.cs2 .sec>h2{font-size:calc(1.15*var(--r));font-weight:300;line-height:1.45;color:var(--fg);max-width:calc(40*var(--r));margin-bottom:24px}
+.cs2 .opill{display:inline-block;font-size:calc(1.05*var(--r));font-weight:500;line-height:1.1;letter-spacing:0;color:var(--fg);border:calc(.1*var(--r)) solid var(--ink);border-radius:99px;padding:.5em 1em .55em;margin:0;text-wrap:balance;max-width:100%}
+.cs2 .dec .h{margin-bottom:28px}
+.cs2 .top,.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-family:var(--mono);letter-spacing:.04em;font-weight:400}
+.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-size:calc(.64*var(--r));letter-spacing:.1em}
+.cs2 .fr{border-radius:22px;box-shadow:0 0 0 1px var(--hair)}
+.cs2 .fr.v{border-radius:28px;background:#f0efe9}
+.cs2 .fr video{width:100%;height:auto;display:block}
+.cs2 .vids{margin-top:0}
+.cs2 .stat{background:none;border-radius:0;border-top:1px solid var(--ink);padding:14px 8px 0 0}
+.cs2 .stat b{font-weight:300}
+.cs2 .stat span{font-family:var(--mono);font-size:calc(.66*var(--r));letter-spacing:.02em;line-height:1.55}
+.cs2 .need{background:none;border:1px solid var(--hair)}
+.cs2 .dec{border-top:1px solid var(--hair)}
+@media (max-width:760px){.cs2 .vids{grid-template-columns:1fr}
+.cs2 .pill{font-size:calc(1.1*var(--r))}}
+.cs2 .cv{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(88px,10vw,150px) clamp(48px,6vw,96px);padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .cv::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 60% at 8% 0%,var(--cvglow),transparent 70%)}
+.cs2 .cv-in{max-width:910px;margin:0 auto}
+.cs2 .cv .ph{position:absolute;z-index:-1;top:8%;left:50%;margin-left:clamp(-20px,3vw,70px);width:clamp(220px,23vw,340px);aspect-ratio:520/920;border-radius:clamp(26px,3vw,40px);overflow:hidden;opacity:.17;filter:blur(.8px)}
+.cs2 .cv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cs2 .cv .ph .pb{opacity:0}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv .ph .pa{animation:swapa 10s ease-in-out infinite}
+.cs2 .cv .ph .pb{animation:swapb 10s ease-in-out infinite}
+@keyframes swapa{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
+@keyframes swapb{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}}
+.cs2 .cv .tags{margin:0 0 30px;gap:10px}
+.cs2 .cv .tag{font-size:calc(.74*var(--r));letter-spacing:.12em;text-transform:uppercase;padding:.55em 1.25em;border:1px solid var(--hair);color:var(--mute);background:transparent}
+.cs2 .cv .tag.on{color:var(--cvgreen);border-color:var(--cvgreen);background:none;display:inline-flex;align-items:center;gap:.6em}
+.cs2 .cv .tag.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cvgreen)}
+.cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)));line-height:.98;letter-spacing:-.015em;margin:0;color:var(--fg);text-wrap:balance}
+.cs2 .cv h1 span{display:block}
+.cs2 .cv h1 em{font-style:italic;color:var(--cvgreen)}
+.cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)));line-height:1.55;color:var(--mute);max-width:36em;margin-top:clamp(24px,2.6vw,44px)}
+.cs2 .cv .sc{display:flex;gap:12px;align-items:center;margin-top:clamp(40px,4vw,72px);font-family:var(--mono);font-size:calc(.7*var(--r));letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cs2 .cv .sc i{display:block;width:1px;height:30px;background:linear-gradient(var(--cvgreen),transparent)}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv-in>*{animation:cvup .9s var(--ease) backwards}
+.cs2 .cv-in>*:nth-child(2){animation-delay:.08s}
+.cs2 .cv-in>*:nth-child(3){animation-delay:.16s}
+.cs2 .cv-in>*:nth-child(4){animation-delay:.24s}
+@keyframes cvup{from{opacity:0;transform:translateY(14px)}}}
+@media (max-width:760px){.cs2 .cv .ph{left:auto;right:-70px;margin-left:0;top:6%;opacity:.12}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))}}
+.cs2 .n,.cs2 .cap,.cs2 .impact,.cs2 .conf,.cs2 .nm,.cs2 .refl,.cs2 .sec>h2,.cs2 .lead,.cs2 .dec p,.cs2 figcaption{max-width:none}
+.cs2 .sec>h2,.cs2 .opill,.cs2 .pill,.cs2 .dec .h h3,.cs2 .refl .rh{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em}
+.cs2 .sec>h2{font-size:calc(2.1*var(--r));line-height:1.15;margin-bottom:28px}
+.cs2 .opill{font-size:calc(1.6*var(--r));line-height:1.1;padding:.35em 1em .4em}
+.cs2 .pill{font-size:calc(1.7*var(--r));line-height:1;padding:.4em 1em .45em}
+.cs2 .dec .h h3{font-size:calc(1.7*var(--r));line-height:1.15}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.8*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}
+.cs2 .opill{font-size:calc(1.35*var(--r))}
+.cs2 .dec .h h3{font-size:calc(1.45*var(--r))}}
+.cs2 h3,.cs2 h4,.cs2 .need h3,.cs2 .sub{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em;text-transform:none;color:var(--fg)}
+.cs2 h3:not(.opill),.cs2 h4{font-size:calc(1.45*var(--r));line-height:1.2}
+.cs2 .sub{font-size:calc(1.6*var(--r));line-height:1.2;margin:48px 0 8px}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h1{font-weight:500!important;font-size:calc(1.53*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h2{font-weight:400!important;font-size:calc(1.3*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3{font-weight:500!important;font-size:calc(1.05*var(--r))!important;line-height:1.35!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 strong,body.mobile.case-mode .main .cs2 b{font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tag{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lede{font-size:calc(.956*var(--r))!important;line-height:1.7!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .fr{line-height:0!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 figcaption{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt{font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dd{font-size:calc(.956*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(.74*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .conf{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-size:calc(2.3*var(--r))!important;font-weight:300!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-size:calc(.765*var(--r))!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .k{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need h3 i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need>p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need blockquote{font-size:calc(.85*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need details summary{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.2*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .cols3 p{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .prio{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases small{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases b{font-size:calc(1.1*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases span{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold h4{font-size:calc(.956*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .nm{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1.3*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl em{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-family:var(--body)!important;font-size:calc(1.2*var(--r))!important;line-height:1!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.15*var(--r))!important;font-weight:300!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top,body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-family:var(--mono)!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important;line-height:1.55!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .tag{font-size:calc(.74*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)))!important;line-height:.98!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)))!important;line-height:1.55!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .sc{font-family:var(--mono)!important;font-size:calc(.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2,body.mobile.case-mode .main .cs2 .opill,body.mobile.case-mode .main .cs2 .pill,body.mobile.case-mode .main .cs2 .dec .h h3,body.mobile.case-mode .main .cs2 .refl .rh{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(2.1*var(--r))!important;line-height:1.15!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.6*var(--r))!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.7*var(--r))!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.7*var(--r))!important;line-height:1.15!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.8*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.35*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.45*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3,body.mobile.case-mode .main .cs2 h4,body.mobile.case-mode .main .cs2 .need h3,body.mobile.case-mode .main .cs2 .sub{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3:not(.opill),body.mobile.case-mode .main .cs2 h4{font-size:calc(1.45*var(--r))!important;line-height:1.2!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(1.6*var(--r))!important;line-height:1.2!important}}
+body.case-mode{overflow-x:clip}
+.cs2{--r:max(.9vw,10px);width:100vw;margin-left:calc(50% - 50vw);margin-top:calc(-1*clamp(56px,5vw,84px));margin-bottom:0;color:var(--fg);font-family:var(--body);font-weight:300;font-size:calc(.956*var(--r));line-height:1.5;text-align:left;letter-spacing:normal}
+.cs2 .w{padding-bottom:40px}
+@media (max-width:767px){.cs2{--r:14.64px;margin-top:-124px}}
+</style>
 </head>
 <body class="page-reelshort-casting-system case-mode">
 <script>document.body.classList.toggle('mobile',matchMedia('(max-width:767px)').matches)</script>
@@ -63,168 +265,227 @@
 </span></div></column-set></bodycopy></div></div></div></div><div class="pin pin-mbottom"><div class="page pinned" id="B1072365829"><div class="page-layout"><div class="page-content"><bodycopy><column-set class="cs" style="--gap:2rem;--mgap:2rem"><div class="cu" style="--span:6"><span class="page-nav" style="line-height: 1.7;">         <br>         
  © 2026</span></div><div class="cu" style="--span:6"></div></column-set><span style="font-size: 7.4028px; letter-spacing: 0em;"><br>
 </span></bodycopy></div></div></div></div>
-<main class="main"><div class="page " id="O4158167021"><div class="page-layout"><div class="page-content"><bodycopy><column-set class="cs" style="--gap:2rem;--mgap:0rem"><div class="cu" style="--span:2"><div style="text-align: left"><span class="number" style="color: rgb(255, 255, 255); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; background: rgb(0, 0, 0);"><b>   002  </b></span></div></div><div class="cu" style="--span:8"><div style="text-align: center">ReelShort Casting System — Casting at <b>100M+ </b>View Scale</div></div><div class="cu" style="--span:2"><div style="text-align: right"></div></div></column-set><hr><b></b><br>
-<br>
-<b><span style="--font-scale: 1.4;">Reelshort Casting System</span></b><br>
-<br>
-<gallery-slideshow data-autoplay="false" data-delay="3" data-speed="0.5" data-nav="cursor-zones" data-va="middle"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/3c32b2754922_1.png" alt="1" width="1536" height="883" loading="lazy" decoding="async" style=""></div></media-item><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/ff01531b66d9_111.png" alt="111" width="2602" height="1496" loading="lazy" decoding="async" style=""></div></media-item></gallery-slideshow><br>
-<br>
-<br>
-Redesigned and launched an internal casting platform for the leading global short- drama company, featuring a talent database and project management dashboard to support faster production decisions across high-volume TV productions.<br>
-<br>
-<span style="color: rgba(6, 0, 0, 0.85);"><column-set class="cs mstack" style="--gap:1rem;--mgap:1rem"><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">ROLE<br>
-<br>PRODUCT DESIGNER<br>BRAND DESIGNER</span></div><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">SCOPE<br>
-<br>Product  Design<br>
-User  Experience Research<br>Design Engineer</span></div></column-set></span><br>
-<br>
-<span class="caption">Confidentiality note: This is an internal ReelShort tool. All screens, names, photos and figures in this case study are fictional demo data or have been anonymized. No real talent, agency, contract or production information is shown.</span>
-  <br>
-<br>
-<gallery-slideshow data-autoplay="false" data-delay="3" data-speed="0.5" data-nav="cursor-zones" data-va="middle"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/b1d5d63fed3a_2026-10-01-10.05.26.png" alt="2026-10-01-10.05.26" width="3012" height="1722" loading="lazy" decoding="async" style=""></div></media-item></gallery-slideshow><br>
-<br>
-<br>
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>  Overview  </b></span><b> </b></span>
-</span><br>
-<br>
-ReelShort produces a high volume of short-form dramas every year, which means casting teams constantly need to <b>find</b>, <b>evaluate, and coordinate</b> with a large pool of actors.<br>
-<br>
-The existing Casting Hub helped centralize this process, but finding the right talent still required navigating dense profiles, incomplete information, multiple platforms, and repetitive communication.<br>
-<br>
-I redesigned the platform around one goal: Make casting decisions faster with less manual work.<b><br>
-</b><br>
-<div style="text-align: center"><media-item class="zoomable" style="" data-full="assets/media/835f56d38057_2026-09-29-9.28.33.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/106b68c81be8_2026-09-29-9.28.33.png" alt="2026-09-29-9.28.33" width="2496" height="806" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">
-Reelshort App on IOS received more than 500K ratings</figcaption></media-item></div><br>
- <div style="text-align: center"><media-item class="zoomable" style="" data-full="assets/media/8f4963e05144_2026-09-29-4.45.54.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/08fab7ea6ece_2026-09-29-4.45.54.png" alt="2026-09-29-4.45.54" width="3010" height="1720" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Reelshort Produce more than 1000+ short drama series every year</figcaption></media-item></div><br>
-<br>
-<br>
-<br><span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>   The Problem  </b></span><b> </b></span>
-</span>
-<br>
-<br>
-Imagine you are a producer/casting director casting a new short drama.You need to search for actors across IMDb, Instagram, agencies, and internal records.  Then you compare photos, check availability and location, organize contact information, reach out, and track responses.<br>
-<br>
-A lot of time is spent simply collecting information before a casting decision can even happen.The opportunity was to turn the Casting Hub from a talent database into a more useful decision-making tool.<br>
-<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/909ac36adebc_Casting_Chaos.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/909ac36adebc_Casting_Chaos.gif" alt="Casting_Chaos" width="1774" height="887" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<br><span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>   User Research  </b></span><b> </b></span>
-</span>
- <br>
-<br>Before redesigning the platform, <b>I wanted to understand what casting professionals actually pay attention to.</b> I did research with five Producers and Casting Directors working across short-form entertainment and fashion about how they find talent, compare candidates, and make final decisions.<br>
-<br>
-I spoke with five Producers and Casting Directors working across short-form entertainment and fashion. Four needs came up repeatedly: <span style="color: rgba(29, 58, 20, 0.8);">Visual Fit, Complete Information, Chemistry, Agency Network. These insights became the foundation of the redesign.</span><br>
-<br>
-<column-set class="cs mstack" style="--gap:1rem;--mgap:1rem"></column-set>
-<media-item class="zoomable" style="" data-full="assets/media/dc9e8a584354_Casting_Needs_HD.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/dc9e8a584354_Casting_Needs_HD.gif" alt="Casting_Needs_HD" width="3552" height="1800" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<br><span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>   Key Design Decisions   </b></span><b> </b></span>
-</span><br>
+<main class="main"><div class="page " id="O4158167021"><div class="page-layout"><div class="page-content"><bodycopy><div class="cs2">
 
-<br><span class="caption">All screens in this section were rebuilt with fictional demo data for this portfolio. Actor names, photos, measurements, agency names and contact details are invented or generic placeholders. Real talent data is confidential and is never displayed here.</span>
-<br>
-<br>
-<b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   01 · Make Talent Card More Visual   </span></b><br><br>
-Multiple photos can be viewed directly from the card, while the information hierarchy prioritizes the details needed for quick decisions. Casting teams can screen talent from the grid and open fewer profiles along the way.<br>
-<br>
-<gallery-grid style="--cols:2;--gap:3rem;--mgap:1rem;--va:start"><media-item class="zoomable" style="" data-full="assets/media/b384468a4358_card111_HD.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/b384468a4358_card111_HD.gif" alt="card111_HD" width="1440" height="1080" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><media-item class="zoomable" style="" data-full="assets/media/6e9923cba72f_0930_HD.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/6e9923cba72f_0930_HD.gif" alt="0930_HD" width="1440" height="1080" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item></gallery-grid>
-<h2><br>
-<media-item class="zoomable" style="" data-full="assets/media/6fc500b2a60a_Talent-Card--Problems_.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/9f3189e12079_Talent-Card--Problems_.png" alt="Talent-Card--Problems_" width="7680" height="3988" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Problems<br>The old card showed only one photo, so users kept opening profiles to see other angles. Its tags were cluttered, and empty values like &#x22;AI Unknown&#x22; pushed the useful details out of sight.</figcaption></media-item><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/684117f29248_Talent-Card--Case-Study_.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/b6dd981db4b6_Talent-Card--Case-Study_.png" alt="Talent-Card--Case-Study_" width="7680" height="4240" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">What changed<br>
+<header class="cv" id="top"><div class="ph" aria-hidden="true"><img class="pa" src="assets/projects/casting/casting-ph1.jpg" alt=""><img class="pb" src="assets/projects/casting/casting-ph2.jpg" alt=""></div>
+<div class="cv-in">
+<div class="tags"><span class="tag">ReelShort · Crazy Maple Studio</span><span class="tag">Internal platform · B2B SaaS</span><span class="tag">2026</span><span class="tag on">Shipped · In Active Use</span></div>
+<h1><span>Casting at scale:</span><span>from a talent database</span><span>to a <em>decision tool</em></span></h1>
+<p class="lede">ReelShort produces 400+ vertical drama series a year, and every one of them starts with casting. I redesigned and built the company's internal Casting Hub so the team can evaluate talent directly from the grid, with complete information and the agency behind each actor in view.</p>
+<div class="sc"><i></i>Scroll</div>
+</div></header>
+<div class="w">
+<figure class="hero" style="margin-top:0"><div class="fr"><img src="assets/projects/casting/casting-1.jpg" alt="ReelShort brand cover over a wall of vertical drama posters"></div></figure>
 
-<ol>
-<li>Photo carousel. Users flip through every photo right on the card with the ← → arrows.</li>
-<li>Simplified tags. Only filled values are shown, with short, colour-coded labels like &#x22;Int 4&#x22;.</li>
-<li>Profile completeness. A colour-coded score next to the name shows which profiles still need data.</li></ol></figcaption></media-item><br>
-    </h2><h2>   <br>
-</h2><b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">  02 · Surface Information Completeness   </span></b><br>
-<br>
-I identified 12 key data points commonly needed during casting and introduced a Profile Completeness indicator. Casting teams can quickly see which profiles are ready for consideration and which are missing critical information.<br>
-<br>
-<div style="text-align: center"><media-item class="zoomable" style="" data-full="assets/media/dcb1cf591e25_Profile-Completeness.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/37a164c089d8_Profile-Completeness.png" alt="Profile-Completeness" width="4496" height="892" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Profile Completeness Setting System</figcaption></media-item></div>
-<h2></h2><div style="text-align: center"><br>
-<media-item class="zoomable" style="--scale:98.9%" data-full="assets/media/f8f13e88f0bf_Frame-1.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/57e2bace669b_Frame-1.png" alt="Frame-1" width="5408" height="3224" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Profile Completeness UI Component</figcaption></media-item></div><br>
-<h2><br>
-</h2><br><b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   03 · Rebuild Agency Library Page   </span></b><br>
-<br>
-I redesigned the Agency Library to connect agencies directly with the actors they represent.  Casting teams can move between an agency, its contacts, and its talent pool without treating them as separate databases.<br>
+<dl class="glance">
+<div><dt>Role</dt><dd>Product Designer &amp; Front-End Developer</dd></div>
+<div><dt>Timeline</dt><dd>Jul – Oct 2026</dd></div>
+<div><dt>Platform</dt><dd>Internal web app</dd></div>
+<div><dt>Outcome</dt><dd>+28% profile completeness</dd></div>
+<div><dt>Scale</dt><dd>600+ actors · 130+ agencies · 60+ productions in one system</dd></div>
+</dl>
+<p class="conf">All talent names, photos and agency data on this page are fictional demo data. The real platform is internal and confidential.</p>
 
-<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/f71d0a0eac71_Agency-Table--Problems.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/eb98a22c3b7d_Agency-Table--Problems.png" alt="Agency-Table--Problems" width="8216" height="4368" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Problems<br>
+<!-- CONTEXT -->
+<section class="sec" id="sec-1" data-l="Context">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Context</span>
+<h2>A high-volume studio that ships series every single day</h2>
+<div class="n"><p>ReelShort is the leading global short-drama platform. Its series are vertical, mobile-first and released at a pace no traditional studio works at. Casting is on the critical path of every one of them: a single role can mean hundreds of candidates, each with photos, measurements, an agency, consent limits and a schedule.</p></div>
+<figure style="margin-top:32px"><div class="fr"><img src="assets/projects/casting/casting-2.jpg" alt="Casting Hub overview: structure and clarity across every casting decision"></div></figure>
+<div class="stats">
+<div class="stat"><b>500K+</b><span>App Store ratings, 4.7 average</span></div>
+<div class="stat"><b>400+</b><span>Vertical drama series produced every year</span></div>
+<div class="stat"><b>#1</b><span>Once ranked 1st in the App Store</span></div>
+<div class="stat"><b>#17</b><span>Entertainment chart, US App Store</span></div>
+</div>
+<figure style="margin-top:24px"><div class="fr"><img src="assets/projects/casting/casting-5.jpg" alt="ReelShort app home screen"></div><figcaption>ReelShort, the product the casting team serves.</figcaption></figure>
+<figure style="margin-top:24px"><div class="fr"><img src="assets/projects/casting/casting-4.jpg" alt="ReelShort App Store listing: 4.7 rating, 500K+ ratings, #17 in Entertainment"></div><figcaption>App Store listing.</figcaption></figure>
+</section>
 
-<ol>
-<li>Every cell was an input. Long names and emails got cut off, and rows were hard to read.</li>
-<li>Loud, unclear status. Green emoji checkmarks filled every column, and &#x22;—&#x22; could mean no or unknown.</li>
-<li>Missing data blended in. Empty fields looked the same as filled ones.</li>
-<li>Delete on every row. One click could remove an agency record.</li></ol></figcaption></media-item><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/d4aafeff9b7d_Agency-Directory--Redesign-Demo-data.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/4cfeaef63168_Agency-Directory--Redesign-Demo-data.png" alt="Agency-Directory--Redesign-Demo-data" width="8656" height="5124" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">What changed<br>
+<!-- WHERE THIS STARTED -->
+<section class="sec" id="sec-2" data-l="Where this started">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Where This Started</span>
+<h2>I was the user before I was the designer</h2>
+<div class="n">
+<p>Before designing Casting Hub, I spent a year on ReelShort's production operations team, managing onboarding, contracts and wrap across 40+ productions. Working with producers, casting directors and talent agencies every day showed me the workflows, frustrations and needs of the people I would later design for.</p>
+<p><strong>Two things from that year made this project possible.</strong></p>
+<p><strong>First-hand knowledge of the workflow.</strong> I knew where casting decisions slowed down because I had been the one slowing down: opening a profile for a second photo, cross-checking an agency in a spreadsheet, finding a missing consent field after the call. These were problems I had met myself.</p>
+<p><strong>A network.</strong> The people I had worked with became the stakeholders, research participants and early adopters for the redesign. That is the main reason it could move as fast as it did.</p>
+</div>
+<figure style="margin-top:40px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Illustration of casting information scattered across IMDb, Instagram, an internal database and agency sites"><source src="assets/projects/casting/casting-chaos.webm" type="video/webm"><source src="assets/projects/casting/casting-chaos.mp4" type="video/mp4"></video></div><figcaption>Where a casting decision's information lived before the redesign.</figcaption></figure>
+<div class="n" style="margin-top:40px">
+<h3>The problem was not the database. It was everything around it.</h3>
+<p style="margin-top:12px">The Casting Hub held talent records, but a decision still meant leaving it. A second photo lived on Instagram, availability lived in email, the agency relationship lived in someone's memory. Most of the team's time went into collecting information before a decision could begin.</p>
+<p>The opportunity was to turn the Hub from a place where records are stored into a place where decisions are made.</p>
+</div>
+</section>
 
-<ol>
-<li>Add Agency. One clear button adds agencies, and each new record needs at least one public profile.</li>
-<li>Richer agency info. Each row shows office locations and Website, Instagram and LinkedIn links.</li>
-<li>Cleaner status. Soft ✓ pills mark what&#x27;s done, and grey &#x22;—&#x22; pills mark what isn&#x27;t.</li>
-<li>Actors with faces. Linked actors show as a face stack with a count that opens the roster in one click.</li></ol></figcaption></media-item><br>
-<br>
-<br>
-<b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   04 · Change the Filter’s Information Architecture   </span></b><br>
-<br>
-The original filter offered comprehensive options, but the structure was cluttered and single-select interactions made complex searches inefficient.<br>
-I reorganized the hierarchy, merged overlapping criteria, removed unnecessary options, and introduced multi-select filtering.A cleaner, more flexible filtering experience helps casting teams narrow down talent faster.<br>
-<h2></h2><br>
-<media-item class="zoomable" style="" data-full="assets/media/fbebdf4bac90_Library_Filters_Problems-1.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/df3228bbed8a_Library_Filters_Problems-1.png" alt="Library_Filters_Problems-1" width="7680" height="4320" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/4b1e2eda24f3_Library_Filters_WhatChanged_1-1_.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/94e4d35f9f35_Library_Filters_WhatChanged_1-1_.png" alt="Library_Filters_WhatChanged_1-1_" width="7680" height="3926" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">What changed (overview)<br>
+<!-- WHERE IT NEEDS ITERATION -->
+<section class="sec" id="sec-3" data-l="The problem">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">The Problem</span>
+<h2>Leading the next evolution of Casting Hub</h2>
+<div class="n">
+<p>As ReelShort began exploring how AI and new technology could make production more efficient, improving internal tools became a priority. The casting team already had a basic Casting Hub, but it worked like a database more than a tool for making decisions. I was asked to lead the redesign around two goals: fill the gaps in talent profiles, and make the platform more useful in the daily casting workflow.</p>
+</div>
+<div class="cols3">
+<div><span class="k">Missing information</span><p style="font-size:.956rem">I audited existing profiles to find the fields casting teams rely on most and where the gaps were.</p></div>
+<div><span class="k">Workflow friction</span><p style="font-size:.956rem">I traced how producers search, compare and shortlist, and marked the repeated steps and needless navigation.</p></div>
+<div><span class="k">A better experience</span><p style="font-size:.956rem">I explored early Figma concepts that brought key talent information into the grid, so teams could evaluate actors without opening every profile.</p></div>
+</div>
+<div class="n"><p style="margin-top:32px"><strong>The direction that came out of this: less time searching for information, more time making casting decisions.</strong></p></div>
+<figure style="margin-top:32px"><div class="fr"><img src="assets/projects/casting/casting-3.jpg" alt="The existing Talent Library grid"></div><figcaption>The Talent Library grid, the surface most of the work centres on.</figcaption></figure>
+</section>
 
-<ul>
+<!-- USER RESEARCH -->
+<section class="sec" id="sec-4" data-l="User research">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">User Research</span>
+<h2>What casting teams told me</h2>
+<div class="n"><p>Before committing to a direction, I interviewed five producers and casting directors, 30 minutes each, through my studio connections. We covered how they source talent, how they compare two candidates, and what makes them stop and open a profile. Four needs came up again and again.</p></div>
+<figure style="margin-top:32px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Illustration of four needs: visual fit, chemistry, complete information, agency network"><source src="assets/projects/casting/casting-needs.webm" type="video/webm"><source src="assets/projects/casting/casting-needs.mp4" type="video/mp4"></video></div></figure>
+<div class="needs">
+<div class="need"><h3><i>01</i>Visual fit</h3><p>Multiple angles and looks, not a single headshot. The face is always the first filter.</p>
+<details><summary>Read the quote</summary><blockquote>“When we and the client choose the talent, their profile picture is always the most important first impression. You immediately know whether the talent's look meets the character's needs or whether they should go into the candidate pool. The profile photo is their kind of resume.”</blockquote></details></div>
+<div class="need"><h3><i>02</i>Complete information</h3><p>Height, consent limits, agency, location. A profile missing any of these is skipped rather than investigated.</p>
+<details><summary>Read the quote</summary><blockquote>“When we select some talents and want to move forward, we spend a long time checking whether their schedule, location and consent fit the production. A complete profile with clear information right in our hand saves tons of time. Every piece of information matters in choosing the right person.”</blockquote></details></div>
+<div class="need"><h3><i>03</i>Chemistry</h3><p>Casting happens in pairs and ensembles. Teams want to see two faces side by side.</p>
+<details><summary>Read the quote</summary><blockquote>“For a vertical romance drama, the chemistry between the two leads is everything. It's one of the biggest things that can make a show go viral. Sometimes two actors are perfect for their roles separately, but together the chemistry just isn't there. It's whether they work as a couple.”</blockquote></details></div>
+<div class="need"><h3><i>04</i>Agency network</h3><p>The deal is with the agency. Who represents whom, and who actually responds, shapes the shortlist.</p>
+<details><summary>Read the quote</summary><blockquote>“Agencies usually hold a lot of talent, and it's much easier to book several talents from the same agency together. I would love to see the agency info when I look at a talent's profile.”</blockquote></details></div>
+</div>
+</section>
 
-<li>① Simpler structure (bracket on the left): Six rows became three: library tabs, one search bar with sort, and seven grouped filters.</li>
-<li>② Multi-select (dashed box around the filter buttons): Each filter group opens a panel with checkboxes.</li>
-<li>③ Logical order (labels under the buttons): Who → Look → Where → Deal → Consent: who the person is, how they look, where they&#x27;re based, how we work with them, and what they&#x27;ve agreed to.</li></ul><br></figcaption></media-item><br><media-item class="zoomable" style="" data-full="assets/media/4e6aec50aa59_Library_Filters_WhatChanged_2-1.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/f5467a94ac10_Library_Filters_WhatChanged_2-1.png" alt="Library_Filters_WhatChanged_2-1" width="7680" height="4320" loading="lazy" decoding="async" style="border-width: 0rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;"></div><figcaption class="caption" slot="caption">Inside the filters (panel details)
-<br>
+<!-- DECISIONS -->
+<section class="sec" id="sec-5" data-l="Key design decisions">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Key Design Decisions</span>
+<h2>Five decisions, prioritized against four needs and two sprints</h2>
+<div class="n"><p>The research produced a longer list of problems than two sprints could absorb. I weighed the four needs against the engineering budget and committed to five changes for phase one. The project manager approved the scope.</p></div>
 
-<ul>
-<li>Gender: Pick any mix of genders. Minors is now its own Exclude / Include / Only switch, because it&#x27;s an age, not a gender (② ③).</li>
-<li>Age: Age ranges calculated from date of birth, and you can tick more than one (②).</li>
-<li>Appearance: Height, hair and eye colour are in one panel instead of three separate dropdowns (①).</li>
-<li>Consent: AI friendly and minimum intimacy level are grouped together (①).</li></ul><br></figcaption></media-item><br>
-<br><b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   05 · VFX Information UI  System’s  Update  </span></b><br>
-<br>
-The VFX grading standard is the reference the team uses to grade every project&#x27;s visual effects, from D (simple shot) to S+ (top-tier difficulty).  <br>
-I turned the old full-width table into a collapsible card with colour-coded grade chips, a lighter table and a short pricing footnote. The project list now sits near the top of the VFX page, and the full standards are still one click away.<br>
-<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/16457546372e_2026-09-30-8.36.15.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/bfe9a1d4d8f1_2026-09-30-8.36.15.png" alt="2026-09-30-8.36.15" width="2396" height="894" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/c129a14de6f3_VFX_Grading_Redesign-3.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/3937b692e49c_VFX_Grading_Redesign-3.png" alt="VFX_Grading_Redesign-3" width="8264" height="5948" loading="lazy" decoding="async" style="border-radius: 2rem;"></div><figcaption class="caption" slot="caption">What Change:<br>
+<article class="dec">
+<div class="h"><h3 class="opill">01 · Make Talent Card More Visual</h3></div>
+<div class="cols3">
+<div class="prob"><span class="k">The problem</span><p>Each card showed one photo, so teams had to open the full profile to see more of an actor. Too many tags cluttered the card and buried the information that mattered.</p></div>
+<div><span class="k">What changed</span><p>A photo carousel lets users browse several photos without opening a profile. I cut the tags back to key consent information, in simple color-coded labels.</p></div>
+<div><span class="k">Why this</span><p>Casting teams scan dozens of faces at once, and extra tags get in the way. Putting the focus back on the actor makes looks easier to compare and keeps browsing uninterrupted.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/casting/casting-10.jpg" alt="Original talent card with single photo and cluttered tags"></div><figcaption>Before: one photo, cluttered tags.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-11.jpg" alt="Redesigned talent cards with photo carousel, simplified tags and completeness"></div><figcaption>After: photo carousel, simplified tags, profile completeness.</figcaption></figure>
+<figure><div class="pair vids"><div class="fr v"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Talent card carousel: browsing photos of Ashley Brent"><source src="assets/projects/casting/casting-card_a.webm" type="video/webm"><source src="assets/projects/casting/casting-card_a.mp4" type="video/mp4"></video></div><div class="fr v"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Talent card carousel: browsing photos of Niki Mar"><source src="assets/projects/casting/casting-card_b.webm" type="video/webm"><source src="assets/projects/casting/casting-card_b.mp4" type="video/mp4"></video></div></div><figcaption>The new card in use: browse photos in place, with completeness and consent tags always in view.</figcaption></figure>
+</article>
 
-<ol>
-<li>Collapsible reference: the standards now sit behind a single summary card (&#x22;D → S+ · …&#x22;), and the full table only opens when you click View standards.</li>
-<li>Grade chips: a row of chips lets you scan D → S+ at a glance, with colour tiers for the higher grades. The A grades get a dark green chip and the S grades an amber one.</li>
-<li>Cleaner table: heavy cell borders are replaced by row dividers only, with small uppercase headers and more spacing.</li>
-<li>Pricing as a footnote: the batch discount text moved from above the table to a short note below it, so the grades stay the focus.</li></ol></figcaption></media-item><br>
-<br>
+<article class="dec">
+<div class="h"><h3 class="opill">02 · Surface Information Completeness</h3></div>
+<div class="cols3">
+<div class="prob"><span class="k">The problem</span><p>A promising actor is not necessarily a casting-ready actor. Many profiles were submitted with missing details, and the team often found out late. There was no way to tell which profiles were complete without opening them one by one.</p></div>
+<div><span class="k">What changed</span><p>I identified the 12 data points casting teams need most and added a Profile Completeness indicator to every card, plus filters to sort high- and low-completeness profiles.</p></div>
+<div><span class="k">Why this</span><p>Making completeness visible up front means less time checking for gaps and more time evaluating talent. It also shows which profiles need attention before anyone moves forward.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/casting/casting-12.jpg" alt="Profile completeness system: 12 states from low to high"></div><figcaption>Twelve states, one per filled checkpoint. Missing items appear as tags and disappear as they are filled.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-13.jpg" alt="Completeness progress from 0 to 100 percent with missing-field tags"></div></figure>
+</article>
 
-<br>
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>  Outcome  </b></span></span></span><br><br>
-Casting looks like picking faces, but most of it is keeping track of information. One role can mean hundreds of actors, each with photos, measurements, an agency, consent limits and a schedule. Before the ReelShort Casting Hub, all of that lived in spreadsheets, inboxes and people&#x27;s memory. I designed the hub to bring it into one place.<br>The hub now holds 600+ actors, 130+ agencies and 60+ projects, and it has become part of a larger internal system. It didn&#x27;t replace casting judgment. It put everything the team needs in front of them.<br>
-<span class="caption">Figures are rounded for confidentiality.</span><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/a8edc40d07c7_Outcome_Illustrations.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/a8edc40d07c7_Outcome_Illustrations.gif" alt="Outcome_Illustrations" width="1776" height="900" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/b3f7763e87c0_Outcome_Icons.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/b3f7763e87c0_Outcome_Icons.gif" alt="Outcome_Icons" width="1920" height="1080" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<br>
-<br>
-<div style="text-align: left"><br>
+<article class="dec">
+<div class="h"><h3 class="opill">03 · Rebuild Agency Library Page</h3></div>
+<div class="cols3">
+<div class="prob"><span class="k">The problem</span><p>Every cell was editable, long values were truncated, status was shown with emoji, and a destructive action sat on every row. The agency list and the talent library behaved like two separate databases.</p></div>
+<div><span class="k">What changed</span><p>One Add Agency flow with required fields. Each row now shows office locations and links to website, Instagram and LinkedIn, and emoji status became color-coded labels. Actor photo stacks with a count show who each agency represents and open the full roster in one click.</p></div>
+<div><span class="k">Why this</span><p>Teams need to know who an agency represents and whether they have worked together before, without digging through pages. The new layout puts that in one place and lowers the risk of accidental edits and deletions.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/casting/casting-14.jpg" alt="Previous agency table with editable cells and emoji status"></div><figcaption>Before: every cell editable, emoji status, delete on every row.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-15.jpg" alt="Redesigned agency directory with photo stacks and status labels"></div><figcaption>After: actor photo stacks, clear status, one Add Agency flow.</figcaption></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">04 · Change the Filter's Information Architecture</h3></div>
+<div class="cols3">
+<div class="prob"><span class="k">The problem</span><p>Six rows and thirteen controls, all single-select. Users could not view two genders or two age ranges together. The logic was unclear and the emoji added noise.</p></div>
+<div><span class="k">What changed</span><p>I reorganized the hierarchy, merged overlapping criteria, removed unneeded options and introduced multi-select filtering.</p></div>
+<div><span class="k">Why this</span><p>Teams often explore several options at once, so multi-select makes search more flexible. A simpler structure makes each option easier to find, understand and use.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/casting/casting-16.jpg" alt="Original filter bar: too many filters, single-select only"></div><figcaption>Before: thirteen single-select controls.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-17.jpg" alt="Redesigned filter information architecture"></div></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-18.jpg" alt="Inside the filters: gender, age ranges, appearance panel, consent"></div><figcaption>After: multi-select, age ranges, one appearance panel, grouped consent.</figcaption></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">05 · Update VFX Information UI System</h3></div>
+<div class="cols3">
+<div class="prob"><span class="k">The problem</span><p>The VFX grading standards, D to S+, filled a full-width table. Users scrolled past it to reach the project list even when they did not need the grades.</p></div>
+<div><span class="k">What changed</span><p>I turned the table into a collapsible card with color-coded grade labels, a cleaner layout and a short pricing note, and moved the project list near the top. The full standards stay one click away.</p></div>
+<div><span class="k">Why this</span><p>Most users come to check projects, not read grading standards. The information stays reachable without getting in the way of daily tasks.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/casting/casting-19.jpg" alt="Original VFX grade standards full-width table"></div><figcaption>Before: a full-width table pushing the project list down.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-20.jpg" alt="Redesigned VFX grade reference as a collapsible card"></div><figcaption>After: collapsible reference, grade chips, project list first.</figcaption></figure>
+</article>
+</section>
+
+<!-- SHIPPING -->
+<section class="sec" id="sec-6" data-l="Shipping it">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Shipping It</span>
+<h2>From research to rollout in about three months</h2>
+<div class="phases">
+<div><small>PHASE 0</small><b>Research</b><span>1.5 weeks · interviews, field inventory, pitch</span></div>
+<div><small>PHASE 1</small><b>Design</b><span>3 weeks · IA, flows, specs, working prototype</span></div>
+<div><small>PHASE 2</small><b>Build</b><span>2 sprints · card and filters first, agency directory next</span></div>
+<div><small>RELEASE</small><b>Rollout</b><span>1 month · walkthrough, feedback round, phase-two backlog</span></div>
+</div>
+<p class="sub">What we tested, what we put on hold</p>
+<div class="n"><p>Not every idea made it into the first release. Two looked promising but ran into practical limits.</p></div>
+<div class="hold">
+<div><h4>AI-powered talent attributes</h4><p>We tried detecting hair and eye color from uploaded photos. Results were not reliable across lighting, editing and photo quality, so we held the feature rather than show inaccurate data.</p></div>
+<div><h4>IMDb and Instagram integration</h4><p>I explored pulling photos and profile details from both to cut manual updates. API access and platform data restrictions made it impractical, so the integration was postponed.</p></div>
+</div>
+<p class="sub">Shipping and next steps</p>
+<div class="n"><p>Phase one went live for the internal team, followed by a 20-minute walkthrough to help people get started. Availability syncing and side-by-side talent comparison moved to the phase-two backlog.</p></div>
+</section>
+
+<!-- OUTCOME -->
+<section class="sec" id="sec-7" data-l="Outcome">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Outcome</span>
+<h2>Used by the casting team every day, now part of a larger internal system</h2>
+<div class="stats">
+<div class="stat"><b>+28%</b><span>Profile completeness</span></div>
+<div class="stat"><b>67%</b><span>Actor profiles updated</span></div>
+<div class="stat"><b>600+</b><span>Actor profiles, searchable by look, location, agreement and consent</span></div>
+<div class="stat"><b>130+</b><span>Agencies with verified profiles and linked rosters</span></div>
+<div class="stat"><b>60+</b><span>Productions with casting, VFX grade and budget in one place</span></div>
+</div>
+<div class="n" style="margin-top:32px">
+<p><strong>For the team.</strong> Casting staff and producers can shortlist without leaving the grid, see which profiles are decision-ready, and reach an agency's roster in one click.</p>
+<p><strong>For the company.</strong> Casting sits on the critical path of every production. The Hub has become the foundation of a broader internal production platform, supporting 60+ productions in its first quarter.</p>
+</div>
+
+<figure style="margin-top:40px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Four outcomes illustrated: clearer actor cards, better data, smarter search, agencies and VFX"><source src="assets/projects/casting/casting-illus.webm" type="video/webm"><source src="assets/projects/casting/casting-illus.mp4" type="video/mp4"></video></div></figure>
+<figure style="margin-top:24px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Outcome metrics: profile completeness, profiles updated, actor profiles, agencies, productions"><source src="assets/projects/casting/casting-icons.webm" type="video/webm"><source src="assets/projects/casting/casting-icons.mp4" type="video/mp4"></video></div><figcaption>Used by the casting team every day.</figcaption></figure>
+<p class="nm"><strong style="color:var(--fg);font-weight:500">Not yet measured.</strong> The platform has no event analytics. Counts come from the database, and task-level time savings are observed, not logged. Instrumenting it is first on the phase-two list.</p>
+</section>
+
+<!-- REFLECTION -->
+<section class="sec" id="sec-8" data-l="Reflection">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Reflection</span>
+<div class="refl">
+<p>Casting looks like choosing faces. Most of it is managing information, and the old tool made the team pay for the same information twice: once to find it, once to re-verify it. The redesign did not replace anyone's judgment. <em>It removed the second payment.</em></p>
+<p>The year on the production side turned out to be the method. I did not have to guess which field mattered or which stakeholder to convince. I had been the user, I knew the people, and that is where the design started.</p>
+<p>The biggest thing I learned: good design is not always about adding features. Sometimes it is removing the friction that gets in the way of people doing their jobs.</p>
+</div>
+</section>
+
+</div>
 </div></bodycopy></div></div></div></main>
 <div class="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><div class="lb-stage"></div></div>
 
 
 
+<script>
+(function(){document.documentElement.classList.add("js");
+var els=[].slice.call(document.querySelectorAll(".sec>*,.dec>*,figure,.stat,.need,.hold>div,.phases"));els.forEach(function(e){e.classList.add("rv")});
+function inview(e){return e.getBoundingClientRect().top<innerHeight*.96}
+els.forEach(function(e){if(inview(e))e.classList.add("in")});
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){if(!e.classList.contains("in"))io.observe(e)})}else{els.forEach(function(e){e.classList.add("in")})}
+setTimeout(function(){els.forEach(function(e){if(inview(e))e.classList.add("in")})},2500);
+var vs=[].slice.call(document.querySelectorAll("video"));
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){vs.forEach(function(v){v.removeAttribute("autoplay");v.pause()})}
+else if("IntersectionObserver" in window){var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.25});vs.forEach(function(v){vo.observe(v)})}
+})();
+</script>
 </body>
 </html>
