@@ -28,6 +28,6 @@
 
   if (!('IntersectionObserver' in window)) { root.querySelectorAll('.ab-rv').forEach(e => e.classList.add('in')); return; }
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
-    { rootMargin: '0px 0px -6% 0px', threshold: 0 });
+    { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
   root.querySelectorAll('.ab-rv:not(.in)').forEach(e => io.observe(e));
 })();
