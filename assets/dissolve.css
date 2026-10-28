@@ -47,9 +47,8 @@ body:not(.case-mode):not(.page-homepage-desktop-1):not(.page-work):not(.page-men
 
 /* Work + Project pages: centred in the space to the right of the side bar (desktop) */
 @media (min-width:768px){
-  body.page-work .main .page,body.page-menu .main .page,body.page-homepage-desktop-1 .main .page{justify-content:center!important;padding-left:calc(19.2vw + 1vw)}
+  body.page-work .main .page,body.page-menu .main .page{justify-content:center!important;padding-left:calc(19.2vw + 1vw)}
   body.page-work [id="T3057851291"] .page-layout{max-width:64vw!important}
-  body.page-homepage-desktop-1 .main .page-layout{width:100%;max-width:72vw!important}
   body.page-menu [id="N1895072596"] .page-layout{max-width:68vw!important}
 }
 
