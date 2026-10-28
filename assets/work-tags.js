@@ -16,8 +16,8 @@
   .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
   .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
   .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
-  .wk-kw span::before{content:'';position:absolute;left:-1.2em;right:-1.2em;top:-.8em;bottom:-.8em;z-index:-1;pointer-events:none;
-    background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%);filter:blur(11px);opacity:.55}
+  .wk-kw span::before{content:'';position:absolute;left:-.5em;right:-.5em;top:-.4em;bottom:-.4em;z-index:-1;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%);filter:blur(7px);opacity:.55}
   html[data-theme="dark"] .wk-kw span{color:#8ACE00;filter:invert(1) hue-rotate(180deg)}
   .wk-grid.two .wk-item>div.wk-kw{order:4!important;margin-top:-.4rem}
   .wk-sub{display:none}
