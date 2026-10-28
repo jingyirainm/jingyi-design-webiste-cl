@@ -13,6 +13,7 @@
   .wk-head>.wk-org{margin-left:.6em}
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
+  .wk-grid.two .wk-head>.wk-org{margin-left:auto}
   .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
   .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
   .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
