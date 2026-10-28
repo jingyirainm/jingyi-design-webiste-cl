@@ -348,6 +348,9 @@ body.case-mode{overflow-x:clip}
 .cs2{--r:max(.9vw,10px);width:100vw;margin-left:calc(50% - 50vw);margin-top:calc(-1*clamp(56px,5vw,84px));margin-bottom:0;color:var(--fg);font-family:var(--body);font-weight:300;font-size:calc(.956*var(--r));line-height:1.5;text-align:left;letter-spacing:normal}
 .cs2 .w{padding-bottom:40px}
 @media (max-width:767px){.cs2{--r:14.64px;margin-top:-124px}}
+html.js .cs2 .rv{opacity:0;transition:opacity 1.15s ease}
+html.js .cs2 .rv.in{opacity:1}
+@media (prefers-reduced-motion:reduce){html.js .cs2 .rv{opacity:1;transition:none}}
 </style>
 </head>
 <body class="page-addendum-studio case-mode">
