@@ -14,15 +14,12 @@
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
   .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
-  .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em;opacity:0;transition:opacity .5s ease}
-  .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00;transform:translateY(.3em);transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+  .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
+  .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
   .wk-kw span::before{content:'';position:absolute;left:-1.2em;right:-1.2em;top:-.8em;bottom:-.8em;z-index:-1;pointer-events:none;
     background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%);filter:blur(11px);opacity:.55}
-  .wk-item:hover .wk-kw,.wk-item:focus-within .wk-kw{opacity:1}
-  .wk-item:hover .wk-kw span,.wk-item:focus-within .wk-kw span{transform:none}
   html[data-theme="dark"] .wk-kw span{color:#8ACE00;filter:invert(1) hue-rotate(180deg)}
   .wk-grid.two .wk-item>div.wk-kw{order:4!important;margin-top:-.4rem}
-  @media (hover:none),(pointer:coarse){.wk-kw{opacity:1}.wk-kw span{transform:none}}
   .wk-sub{display:none}
   @media (min-width:768px){
     body:not(.mobile) .wk-grid:not(.two) .wk-sub{display:block;font-size:1rem;line-height:1.4;font-weight:390;color:#111;letter-spacing:-.01em;margin:1.1rem 0 .35rem}
