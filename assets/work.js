@@ -51,7 +51,15 @@
   .wk-view{display:inline-flex;gap:2px;padding:3px;border-radius:99px;background:rgba(17,17,17,.05);box-shadow:inset 0 0 0 1px rgba(17,17,17,.06)}
   .wk-view button{all:unset;display:grid;place-items:center;width:34px;height:28px;border-radius:99px;color:rgba(17,17,17,.45);transition:background .3s,color .3s,box-shadow .3s}
   .wk-view button:hover{color:#111}
-  .wk-view button[aria-pressed="true"]{background:#fff;color:#111;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.06)}
+  .wk-view button{position:relative;isolation:isolate}
+  .wk-view button::before{content:'';position:absolute;left:-8px;right:-8px;top:-9px;bottom:-9px;z-index:-1;pointer-events:none;
+    background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%);
+    filter:blur(7px);opacity:0;transform:scale(.6);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .wk-view button:hover::before{opacity:.35;transform:scale(.9)}
+  .wk-view button[aria-pressed="true"]{background:transparent;color:#5e9c00;box-shadow:none}
+  .wk-view button[aria-pressed="true"]::before{opacity:1;transform:scale(1)}
+  html[data-theme="dark"] .wk-view button[aria-pressed="true"] svg{filter:invert(1) hue-rotate(180deg)}
+  html[data-theme="dark"] .wk-view button::before{filter:invert(1) hue-rotate(180deg) blur(7px)}
   .wk-view button:focus-visible{outline:2px solid #111;outline-offset:2px}
   .wk-view svg{width:15px;height:15px;display:block}
   .wk-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(3.5rem,7vw,6rem)}
