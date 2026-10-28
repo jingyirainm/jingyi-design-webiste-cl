@@ -19,7 +19,7 @@
   .wk-kw span::before{content:'';position:absolute;left:-.5em;right:-.5em;top:-.4em;bottom:-.4em;z-index:-1;pointer-events:none;
     background:radial-gradient(closest-side,rgba(138,206,0,.85),rgba(138,206,0,.45) 45%,rgba(138,206,0,0) 100%);filter:blur(7px);opacity:.55}
   html[data-theme="dark"] .wk-kw span{color:#8ACE00;filter:invert(1) hue-rotate(180deg)}
-  .wk-grid.two .wk-kw span::before{background:radial-gradient(closest-side,rgba(120,120,120,.7),rgba(120,120,120,.35) 45%,rgba(120,120,120,0) 100%)}
+  .wk-grid.two .wk-kw span::before{display:none}
   .wk-grid.two .wk-item>div.wk-kw{order:4!important;margin-top:-.4rem}
   .wk-sub{display:none}
   @media (min-width:768px){
