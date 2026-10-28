@@ -7,17 +7,16 @@
   if (!grid) return;
 
   const css = `
-  .wk-grid.two .wk-type{justify-content:flex-end}
   .wk-head>.wk-line{order:0;margin:0;flex:0 1 auto;min-width:0;font-size:1.08rem;line-height:1.2;color:rgba(17,17,17,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wk-org{display:inline-flex;align-items:center;flex:none;margin-left:.7em;padding:.2em .7em .26em;border-radius:99px;background:rgba(17,17,17,.06);font:400 .95rem/1.25 Inter,'Diatype Variable',-apple-system,sans-serif;letter-spacing:.01em;color:rgba(17,17,17,.62);white-space:nowrap;vertical-align:.12em;text-decoration:none}
   .wk-head>.wk-org{margin-left:.6em}
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
   .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
-  .wk-kw{font-size:.86rem;line-height:1.4;color:rgba(17,17,17,.5);letter-spacing:-.005em;max-height:0;opacity:0;overflow:hidden;margin:0;transition:max-height .4s ease,opacity .4s ease}
-  .wk-item:hover .wk-kw,.wk-item:focus-within .wk-kw{max-height:3rem;opacity:1}
-  .wk-grid.two .wk-item>div.wk-kw{order:4!important;margin-top:-.4rem}
-  @media (hover:none),(pointer:coarse){.wk-kw{max-height:none;opacity:1}}
+  .wk-kw{font-size:1rem;line-height:1.4;color:rgba(17,17,17,.55);letter-spacing:-.005em;margin:0 0 .35rem}
+  .wk-grid.two .wk-type{justify-content:flex-start}
+  .wk-grid.two .wk-item>div.wk-kw{order:3!important;font-size:1rem;margin:-.3rem 0 0}
+  .wk-grid.two .wk-item>p.wk-desc{display:none}
   .wk-sub{display:none}
   @media (min-width:768px){
     body:not(.mobile) .wk-grid:not(.two) .wk-sub{display:block;font-size:1rem;line-height:1.4;font-weight:390;color:#111;letter-spacing:-.01em;margin:1.1rem 0 .35rem}
