@@ -11,6 +11,9 @@
   .wk-head>.wk-line{order:0;margin:0;flex:0 1 auto;min-width:0;font-size:1.08rem;line-height:1.2;color:rgba(17,17,17,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .wk-org{display:inline-flex;align-items:center;flex:none;margin-left:.7em;padding:.2em .7em .26em;border-radius:99px;background:rgba(17,17,17,.06);font:400 .95rem/1.25 Inter,'Diatype Variable',-apple-system,sans-serif;letter-spacing:.01em;color:rgba(17,17,17,.62);white-space:nowrap;vertical-align:.12em;text-decoration:none}
   .wk-head>.wk-org{margin-left:.6em}
+  .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
+  .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
+  .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
   .wk-kw{font-size:.86rem;line-height:1.4;color:rgba(17,17,17,.5);letter-spacing:-.005em;max-height:0;opacity:0;overflow:hidden;margin:0;transition:max-height .4s ease,opacity .4s ease}
   .wk-item:hover .wk-kw,.wk-item:focus-within .wk-kw{max-height:3rem;opacity:1}
   .wk-grid.two .wk-item>div.wk-kw{order:4!important;margin-top:-.4rem}
@@ -60,6 +63,22 @@
     if (desc) it.insertBefore(sub, desc);
     else if (media) media.after(sub);
     else it.appendChild(sub);
+  });
+
+  /* institution endorsement: a small badge to the right of each project title (list and grid views) */
+  const ORG = [[/casting/i, '@ReelShort'], [/addendum/i, '@ReelShort'], [/knotboard/i, '@Rainmelon Studio'], [/vibe/i, '@Google Developer Group'], [/yi\b|易/i, '@Columbia Digital Storytelling Lab'], [/cave song/i, '@Columbia Digital Storytelling Lab']];
+  const orgOf = name => { const m = ORG.find(o => o[0].test(name)); return m ? m[1] : ''; };
+  const badge = txt => { const b = document.createElement('span'); b.className = 'wk-org'; b.textContent = txt; return b; };
+  grid.querySelectorAll('.wk-item').forEach(it => {
+    if (it.querySelector('.wk-org')) return;
+    const nm = it.querySelector(':scope>.wk-head .wk-nm'); if (!nm) return;
+    const org = orgOf(nm.textContent); if (!org) return;
+    nm.after(badge(org));                                            // grid view: after the title in the header row
+    const head = it.querySelector(':scope>column-set'); if (!head) return;
+    const cell = head.querySelectorAll(':scope>.cu')[1]; if (!cell) return;
+    const tl = cell.querySelector('.wk-tline');                      // list view: after the title, before the subtitle
+    if (tl) tl.before(badge(org));
+    else { const holder = cell.querySelector('span') || cell; holder.appendChild(badge(org)); }
   });
 
   /* extra keywords: revealed under the subtitle on hover / focus (always visible on touch screens) */
