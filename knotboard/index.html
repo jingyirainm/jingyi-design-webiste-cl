@@ -37,6 +37,339 @@
 <meta name="twitter:description" content="Designed an AI-powered creative SaaS workspace that keeps creative work connected — helping creatives collect and organize ideas in a visual library, plan projects, track progress through dashboards, and use an AI agent to optimize plans in their creative process.">
 <meta name="twitter:image" content="https://jingyizhang.design/assets/media/4f4690df8914_Group-21.png">
 <link rel="stylesheet" href="assets/sidebar-dark.css?v=4">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style id="cs2-style">
+.cs2{--bg:#fff;--fg:rgba(0,0,0,.8);--ink:#111;--mute:rgba(0,0,0,.55);--hair:rgba(17,17,17,.1);--fill:#f5f5f7;--green:#5e9c00;--greenbg:rgba(94,156,0,.1);--red:#c0392b;--frame:#f5f5f7;
+--body:"Diatype Variable",Inter,system-ui,sans-serif;--glass:rgba(255,255,255,.74);--ease:cubic-bezier(.22,.8,.2,1);--sheet:#fff;--sheeton:#f2f2f2;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--pillbg:#000;--pilltx:#fff;--pillsh:rgba(0,0,0,.22);--cvgreen:#3f8f5c;--cvglow:rgba(56,118,255,.12);--c1:#8b3a3a;--c2:#2f5cf5;--c3:#3d7a52;--c4:#a9a9a9;--k:1}
+.cs2 *{box-sizing:border-box}
+.cs2 .w{max-width:1054px;margin:0 auto;padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .n{max-width:calc(46*var(--r))}
+.cs2 h1,.cs2 h2,.cs2 h3,.cs2 h4,.cs2 p{margin:0}
+.cs2 h1{font-weight:500;font-size:calc(1.53*var(--r));line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.cs2 h2{font-weight:400;font-size:calc(1.3*var(--r));line-height:1.3;letter-spacing:-.005em;text-wrap:balance}
+.cs2 h3{font-weight:500;font-size:calc(1.05*var(--r));line-height:1.35}
+.cs2 strong,.cs2 b{font-weight:500}
+.cs2 .top{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;font-size:calc(.956*var(--r));color:var(--mute);margin-bottom:28px}
+.cs2 .top .no{color:var(--fg)}
+.cs2 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cs2 .tag{font-size:calc(.765*var(--r));padding:4px 12px;border:1px solid var(--hair);border-radius:99px;color:var(--mute)}
+.cs2 .tag.on{color:var(--green);border-color:var(--green);background:var(--greenbg)}
+.cs2 .lede{font-size:calc(.956*var(--r));line-height:1.7;margin-top:28px}
+.cs2 .hero{margin-top:40px}
+.cs2 figure{margin:0}
+.cs2 .fr{background:var(--frame);border-radius:14px;overflow:hidden;line-height:0}
+.cs2 .fr img{width:100%;height:auto;display:block}
+.cs2 figcaption{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5}
+.cs2 .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(11*var(--r)),1fr));gap:0;margin-top:40px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.cs2 .glance div{padding:18px 16px 18px 0}
+.cs2 .glance dt{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.cs2 .glance dd{margin:0;font-size:calc(.956*var(--r));font-weight:300}
+.cs2 .sec{margin-top:112px}
+.cs2 .pill{display:inline-block;font-size:calc(.74*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--greenbg);padding:4px 12px;border-radius:99px;margin-bottom:20px;font-weight:500}
+.cs2 .sec>h2{margin-bottom:20px}
+.cs2 .sec p+p{margin-top:16px}
+.cs2 .sec .n p{color:var(--fg)}
+.cs2 .conf{font-size:calc(.765*var(--r));color:var(--mute);margin-top:20px;max-width:calc(46*var(--r))}
+.cs2 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(13*var(--r)),1fr));gap:12px;margin-top:32px}
+.cs2 .stat{background:var(--fill);border-radius:14px;padding:20px}
+.cs2 .stat b{display:block;font-size:calc(2.3*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.cs2 .stat span{display:block;font-size:calc(.765*var(--r));color:var(--mute);margin-top:6px;line-height:1.45}
+.cs2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs2 .pair>*{min-width:0}
+.cs2 .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.cs2 .cols3>*{min-width:0}
+.cs2 .k{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px;display:block}
+.cs2 .needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.cs2 .need{background:var(--fill);border-radius:14px;padding:22px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cs2 .need h3{display:flex;gap:10px;align-items:baseline}
+.cs2 .need h3 i{font-style:normal;color:var(--green);font-size:calc(.765*var(--r));font-weight:500}
+.cs2 .need>p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .need blockquote{margin:6px 0 0;padding:12px 0 0;border-top:1px solid var(--hair);font-size:calc(.85*var(--r));line-height:1.5;font-style:italic}
+.cs2 .need details summary{cursor:pointer;font-size:calc(.765*var(--r));color:var(--green);margin-top:6px;list-style:none;font-style:normal}
+.cs2 .need details summary::-webkit-details-marker{display:none}
+.cs2 .need details[open] summary{margin-bottom:8px}
+.cs2 .dec{margin-top:96px;padding-top:32px;border-top:1px solid var(--hair)}
+.cs2 .dec:first-of-type{margin-top:48px}
+.cs2 .dec .h{display:flex;gap:14px;align-items:baseline;margin-bottom:24px}
+.cs2 .dec .h i{font-style:normal;font-size:calc(.765*var(--r));color:var(--green);font-weight:500;letter-spacing:.06em}
+.cs2 .dec .h h3{font-size:calc(1.2*var(--r));font-weight:400;letter-spacing:-.01em;text-wrap:balance}
+.cs2 .dec figure{margin-top:28px}
+.cs2 .dec .cols3 p{font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .dec .cols3 .prob .k{color:var(--red)}
+.cs2 .prio{background:var(--fill);border-radius:14px;padding:22px 24px;margin-top:24px;font-size:calc(.956*var(--r))}
+.cs2 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:2px solid var(--ink)}
+.cs2 .phases>div{padding:16px 16px 0 0;min-width:0}
+.cs2 .phases small{display:block;font-size:calc(.68*var(--r));letter-spacing:.1em;color:var(--green);font-weight:500}
+.cs2 .phases b{display:block;font-size:calc(1.1*var(--r));font-weight:400;margin:2px 0 4px}
+.cs2 .phases span{font-size:calc(.765*var(--r));color:var(--mute);line-height:1.5;display:block}
+.cs2 .hold{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cs2 .hold>div{border:1px solid var(--hair);border-radius:14px;padding:20px;min-width:0}
+.cs2 .hold h4{font-size:calc(.956*var(--r));font-weight:500;margin-bottom:6px}
+.cs2 .hold p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .sub{font-size:calc(.765*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:48px 0 4px;font-weight:500}
+.cs2 .nm{border-left:2px solid var(--green);padding:2px 0 2px 16px;margin-top:28px;font-size:calc(.88*var(--r));color:var(--mute);max-width:calc(46*var(--r))}
+.cs2 .refl{font-size:calc(1.3*var(--r));line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .refl p+p{margin-top:20px}
+.cs2 .refl em{color:var(--green);font-style:normal;font-weight:400}
+@media (max-width:760px){.cs2 .pair,.cs2 .cols3,.cs2 .needs,.cs2 .hold{grid-template-columns:1fr}
+.cs2 .phases{grid-template-columns:1fr 1fr}
+.cs2 .phases>div{padding-bottom:16px}
+.cs2 .sec{margin-top:80px}
+.cs2 .dec{margin-top:64px}}
+@media (prefers-reduced-motion:no-preference){.cs2 .fr img{transition:transform .6s cubic-bezier(.22,.8,.2,1)}}
+.cs2 a:focus-visible,.cs2 summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.cs2 .sec{scroll-margin-top:90px}
+.cs2 .pill{font-family:var(--body);font-size:calc(1.2*var(--r));line-height:1;letter-spacing:0;text-transform:none;font-weight:500;color:var(--pilltx);background:var(--pillbg);padding:.55em 1.05em .6em;border-radius:99px;box-shadow:0 14px 28px -10px var(--pillsh);margin-bottom:28px}
+.cs2 .sec>h2{font-size:calc(1.15*var(--r));font-weight:300;line-height:1.45;color:var(--fg);max-width:calc(40*var(--r));margin-bottom:24px}
+.cs2 .opill{display:inline-block;font-size:calc(1.05*var(--r));font-weight:500;line-height:1.1;letter-spacing:0;color:var(--fg);border:calc(.1*var(--r)) solid var(--ink);border-radius:99px;padding:.5em 1em .55em;margin:0;text-wrap:balance;max-width:100%}
+.cs2 .dec .h{margin-bottom:28px}
+.cs2 .top,.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-family:var(--mono);letter-spacing:.04em;font-weight:400}
+.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-size:calc(.64*var(--r));letter-spacing:.1em}
+.cs2 .fr{border-radius:22px;box-shadow:0 0 0 1px var(--hair)}
+.cs2 .fr.v{border-radius:28px;background:#f0efe9}
+.cs2 .fr video{width:100%;height:auto;display:block}
+.cs2 .vids{margin-top:0}
+.cs2 .stat{background:none;border-radius:0;border-top:1px solid var(--ink);padding:14px 8px 0 0}
+.cs2 .stat b{font-weight:300}
+.cs2 .stat span{font-family:var(--mono);font-size:calc(.66*var(--r));letter-spacing:.02em;line-height:1.55}
+.cs2 .need{background:none;border:1px solid var(--hair)}
+.cs2 .dec{border-top:1px solid var(--hair)}
+@media (max-width:760px){.cs2 .vids{grid-template-columns:1fr}
+.cs2 .pill{font-size:calc(1.1*var(--r))}}
+.cs2 .cv{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(88px,10vw,150px) clamp(48px,6vw,96px);padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .cv::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 60% at 8% 0%,var(--cvglow),transparent 70%)}
+.cs2 .cv-in{max-width:910px;margin:0 auto}
+.cs2 .cv .ph{position:absolute;z-index:-1;top:8%;left:50%;margin-left:clamp(-20px,3vw,70px);width:clamp(220px,23vw,340px);aspect-ratio:520/920;border-radius:clamp(26px,3vw,40px);overflow:hidden;opacity:.17;filter:blur(.8px)}
+.cs2 .cv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cs2 .cv .ph .pb{opacity:0}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv .ph .pa{animation:swapa 10s ease-in-out infinite}
+.cs2 .cv .ph .pb{animation:swapb 10s ease-in-out infinite}
+@keyframes swapa{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
+@keyframes swapb{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}}
+.cs2 .cv .tags{margin:0 0 30px;gap:10px}
+.cs2 .cv .tag{font-size:calc(.74*var(--r));letter-spacing:.12em;text-transform:uppercase;padding:.55em 1.25em;border:1px solid var(--hair);color:var(--mute);background:transparent}
+.cs2 .cv .tag.on{color:var(--cvgreen);border-color:var(--cvgreen);background:none;display:inline-flex;align-items:center;gap:.6em}
+.cs2 .cv .tag.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cvgreen)}
+.cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)));line-height:.98;letter-spacing:-.015em;margin:0;color:var(--fg);text-wrap:balance}
+.cs2 .cv h1 span{display:block}
+.cs2 .cv h1 em{font-style:italic;color:var(--cvgreen)}
+.cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)));line-height:1.55;color:var(--mute);max-width:36em;margin-top:clamp(24px,2.6vw,44px)}
+.cs2 .cv .sc{display:flex;gap:12px;align-items:center;margin-top:clamp(40px,4vw,72px);font-family:var(--mono);font-size:calc(.7*var(--r));letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cs2 .cv .sc i{display:block;width:1px;height:30px;background:linear-gradient(var(--cvgreen),transparent)}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv-in>*{animation:cvup .9s var(--ease) backwards}
+.cs2 .cv-in>*:nth-child(2){animation-delay:.08s}
+.cs2 .cv-in>*:nth-child(3){animation-delay:.16s}
+.cs2 .cv-in>*:nth-child(4){animation-delay:.24s}
+@keyframes cvup{from{opacity:0;transform:translateY(14px)}}}
+@media (max-width:760px){.cs2 .cv .ph{left:auto;right:-70px;margin-left:0;top:6%;opacity:.12}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))}}
+.cs2 .glance.g6{grid-template-columns:repeat(4,minmax(0,1fr)) minmax(0,1.6fr)}
+.cs2 .glance.g6 div{min-width:0}
+.cs2 .cap{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .pipe{display:grid;grid-template-columns:repeat(8,1fr);border-top:2px solid var(--ink);margin-top:36px}
+.cs2 .pipe>div{padding:14px 10px 14px 0;font-size:calc(.88*var(--r));line-height:1.3;min-width:0}
+.cs2 .pipe small{display:block;font-family:var(--mono);font-size:calc(.62*var(--r));letter-spacing:.08em;color:var(--mute);margin-bottom:6px;text-transform:uppercase}
+.cs2 .pipe .hot{background:var(--pillbg);color:var(--pilltx);border-radius:14px;padding-left:12px;margin-top:6px;box-shadow:0 14px 28px -12px var(--pillsh)}
+.cs2 .pipe .hot small{color:inherit;opacity:.7}
+.cs2 .ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.cs2 .ba>div{border:1px solid var(--hair);border-radius:22px;padding:22px 24px;min-width:0}
+.cs2 .ba ol{margin:10px 0 0;padding-left:1.2em;font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .ba .k.bad{color:var(--red)}
+.cs2 .ba>div:last-child{border-color:var(--green)}
+.cs2 .lead{font-weight:500;font-size:calc(1.1*var(--r));line-height:1.4;color:var(--fg)}
+.cs2 .impact{margin-top:22px;max-width:calc(46*var(--r));font-size:calc(.956*var(--r));padding:16px 20px;border-radius:14px;background:var(--fill)}
+.cs2 .impact .k{margin-bottom:4px}
+.cs2 .bands{margin-top:40px;position:relative;max-width:100%}
+.cs2 .brow{display:grid;grid-template-columns:calc(7.5*var(--r)) 1fr;gap:14px;align-items:center;margin-bottom:10px}
+.cs2 .bl{font-family:var(--mono);font-size:calc(.68*var(--r));letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.cs2 .bt{display:flex;height:calc(2.6*var(--r));border-radius:12px;overflow:hidden;min-width:0}
+.cs2 .bt i{font-style:normal;font-family:var(--mono);font-size:calc(.66*var(--r));display:flex;align-items:center;padding:0 calc(.7*var(--r));white-space:nowrap;overflow:hidden;min-width:0}
+.cs2 .s1{background:var(--fill);color:var(--fg)}
+.cs2 .s15{background:var(--greenbg);color:var(--green)}
+.cs2 .s2{background:var(--green);color:var(--bg)}
+.cs2 .bax{position:relative;height:calc(1.2*var(--r));margin-left:calc(calc(7.5*var(--r)) + 14px);font-family:var(--mono);font-size:calc(.62*var(--r));color:var(--mute)}
+.cs2 .bax span{position:absolute;top:2px;transform:translateX(-50%)}
+.cs2 .bax span:first-child{transform:none}
+.cs2 .bax span:last-child{transform:translateX(-100%)}
+.cs2 .tc{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:44px;border:1px solid var(--hair);border-radius:22px;overflow:hidden}
+.cs2 .tc-in{padding:24px}
+.cs2 .tc-out{padding:24px;background:var(--fill)}
+.cs2 .tc label{display:block;font-family:var(--mono);font-size:calc(.64*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:16px 0 4px}
+.cs2 .tc input{width:100%;font:300 calc(1.1*var(--r)) var(--body);color:var(--fg);background:transparent;border:0;border-bottom:1px solid var(--hair);padding:6px 0;border-radius:0;font-variant-numeric:tabular-nums;outline:none}
+.cs2 .tc input:focus{border-bottom-color:var(--green)}
+.cs2 .tc .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cs2 .seg{display:inline-flex;margin:12px 0 4px;border:1px solid var(--hair);border-radius:99px;padding:3px}
+.cs2 .seg button{all:unset;cursor:pointer;font:500 calc(.8*var(--r)) var(--body);padding:.45em 1.1em;border-radius:99px;color:var(--mute)}
+.cs2 .seg button.on{background:var(--pillbg);color:var(--pilltx)}
+.cs2 .seg button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.cs2 .tc-out .r{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--hair);font-size:calc(.88*var(--r))}
+.cs2 .tc-out .r b{font-weight:400;font-variant-numeric:tabular-nums}
+.cs2 .tc-out .r em{font-style:normal;font-family:var(--mono);font-size:calc(.66*var(--r));color:var(--green);margin-left:6px}
+.cs2 .tc-out .tot{border:0;padding-top:16px;font-size:calc(1*var(--r))}
+.cs2 .tc-out .tot b{font-size:calc(2*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1}
+.cs2 .tc-out .fx{font-family:var(--mono);font-size:calc(.64*var(--r));line-height:1.6;color:var(--mute);margin-top:8px}
+.cs2 .refl .rh{font-size:calc(1.05*var(--r));font-weight:500;margin:36px 0 8px;line-height:1.3}
+.cs2 .refl .rh:first-child{margin-top:0}
+.cs2 .refl{font-size:calc(1*var(--r))}
+.cs2 .refl p+p{margin-top:0}
+.cs2 .pair figure{margin-top:0}
+@media (max-width:760px){.cs2 .glance.g6{grid-template-columns:1fr 1fr}
+.cs2 .glance.g6 .wide{grid-column:1/-1}
+.cs2 .pipe{grid-template-columns:repeat(4,1fr)}
+.cs2 .ba,.cs2 .tc{grid-template-columns:1fr}
+.cs2 .brow{grid-template-columns:1fr;gap:6px}
+.cs2 .bax{margin-left:0}
+.cs2 .bt i{padding:0 calc(.4*var(--r));font-size:calc(.58*var(--r))}}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(34px,4.7vw,92px)));line-height:1.02}
+@media (max-width:760px){.cs2 .cv h1{font-size:calc(var(--k)*(clamp(30px,9vw,48px)))}}
+.cs2 .sf{margin-top:40px}
+.cs2 .sf-t{font-size:calc(1.15*var(--r));font-weight:300;margin-bottom:22px}
+.cs2 .sf-g{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1.15fr);gap:clamp(14px,2vw,28px);align-items:center}
+.cs2 .sf-q{background:var(--fill);border-radius:28px;padding:clamp(20px,2.4vw,34px);font-size:calc(1*var(--r));line-height:2.1}
+.cs2 .sf-q span{padding:.05em .1em .05em .35em;border-left:.4em solid var(--c);border-bottom:.12em solid var(--c);color:var(--c)}
+.cs2 .sf-q span.c4{color:var(--fg)}
+.cs2 .sf-a{color:var(--mute);width:calc(2.4*var(--r));height:auto}
+.cs2 .sf-f{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cs2 .sf-f div{border:1px solid var(--hair);border-left:calc(.4*var(--r)) solid var(--c);border-radius:22px;padding:14px 16px 14px 18px;min-width:0}
+.cs2 .sf-f small{display:block;font-size:calc(.72*var(--r));color:var(--mute);line-height:1.3}
+.cs2 .sf-f b{display:block;font-weight:300;font-size:calc(1.15*var(--r));margin-top:2px;font-variant-numeric:tabular-nums}
+.cs2 .c1{--c:var(--c1)}
+.cs2 .c2{--c:var(--c2)}
+.cs2 .c3{--c:var(--c3)}
+.cs2 .c4{--c:var(--c4)}
+@media (max-width:760px){.cs2 .sf-g{grid-template-columns:1fr}
+.cs2 .sf-a{transform:rotate(90deg);justify-self:center}
+.cs2 .sf-f{grid-template-columns:1fr 1fr}}
+.cs2 .dec figure.sm{max-width:calc(46*var(--r));margin-inline:auto}
+.cs2 .pair.pn{max-width:calc(44*var(--r));margin-inline:auto}
+.cs2 .dec figure.sm figcaption{text-align:center}
+@media (max-width:760px){.cs2 .pair.pn{grid-template-columns:1fr 1fr}}
+.cs2 .n,.cs2 .cap,.cs2 .impact,.cs2 .conf,.cs2 .nm,.cs2 .refl,.cs2 .sec>h2{max-width:none}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.7*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}}
+.cs2 .sec>h2,.cs2 .opill,.cs2 .pill,.cs2 .rh,.cs2 .sf-t,.cs2 .sub,.cs2 .lead,.cs2 h3,.cs2 h4{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em;text-transform:none;color:var(--fg)}
+.cs2 .sec>h2{font-size:calc(2.1*var(--r));line-height:1.15;margin-bottom:28px}
+.cs2 .lead{font-size:calc(1.5*var(--r));line-height:1.25}
+.cs2 .opill{font-size:calc(1.6*var(--r));line-height:1.1;padding:.35em 1em .4em}
+.cs2 .pill{font-size:calc(1.7*var(--r));line-height:1;padding:.4em 1em .45em;color:var(--pilltx)}
+.cs2 .rh,.cs2 h3:not(.opill),.cs2 h4{font-size:calc(1.45*var(--r));line-height:1.2}
+.cs2 .refl .rh{margin:40px 0 10px}
+.cs2 .refl .rh:first-child{margin-top:0}
+.cs2 .sf-t{font-size:calc(1.6*var(--r));margin-bottom:20px}
+.cs2 .sub{font-size:calc(1.6*var(--r));line-height:1.2;margin:48px 0 8px}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.8*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}
+.cs2 .opill{font-size:calc(1.35*var(--r))}}
+.cs2 .cv .ph{left:auto;right:-3vw;margin-left:0;top:7%;width:min(66vw,980px);aspect-ratio:1792/980;border-radius:26px;opacity:.1;filter:none}
+.cs2 .cv .ph .pa{animation:none}
+.cs2 .cv .ph .pb{display:none}
+@media (max-width:700px){.cs2 .cv .ph{width:130vw;right:-40vw;top:14%;opacity:.09}}
+.cs2 .pipe.p7{grid-template-columns:repeat(7,1fr)}
+.cs2 .cols3.q4{grid-template-columns:repeat(4,1fr);gap:20px}
+.cs2 .fr.v{background:#f0efe9}
+.cs2 .vid{max-width:calc(46*var(--r));margin-inline:auto}
+@media (max-width:900px){.cs2 .pipe.p7{grid-template-columns:repeat(2,1fr)}
+.cs2 .cols3.q4{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.cs2 .cols3.q4{grid-template-columns:1fr}}
+.cs2 .sec>.n+figure,.cs2 .sec>figure+.n,.cs2 .dec>.n+figure,.cs2 .dec>.impact+figure{margin-top:28px}
+.cs2 .dec>figure+figure,.cs2 .dec>.pair+figure,.cs2 .dec>figure+.pair{margin-top:20px}
+.cs2 .fn{margin-top:22px;padding:18px 22px;border-radius:14px;background:var(--fill)}
+.cs2 .fn .k{display:block;margin-bottom:8px}
+.cs2 .fn ul{margin:0;padding-left:1.1em;font-size:calc(.956*var(--r));line-height:1.55}
+.cs2 .fn li{margin:3px 0}
+.cs2 .pair>.fn{margin-top:0}
+.cs2 .sub2{font-weight:500;margin:34px 0 6px;font-size:calc(1.02*var(--r));letter-spacing:-.005em}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h1{font-weight:500!important;font-size:calc(1.53*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h2{font-weight:400!important;font-size:calc(1.3*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3{font-weight:500!important;font-size:calc(1.05*var(--r))!important;line-height:1.35!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 strong,body.mobile.case-mode .main .cs2 b{font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tag{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lede{font-size:calc(.956*var(--r))!important;line-height:1.7!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .fr{line-height:0!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 figcaption{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt{font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dd{font-size:calc(.956*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(.74*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .conf{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-size:calc(2.3*var(--r))!important;font-weight:300!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-size:calc(.765*var(--r))!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .k{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need h3 i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need>p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need blockquote{font-size:calc(.85*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need details summary{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.2*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .cols3 p{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .prio{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases small{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases b{font-size:calc(1.1*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases span{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold h4{font-size:calc(.956*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .nm{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1.3*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl em{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-family:var(--body)!important;font-size:calc(1.2*var(--r))!important;line-height:1!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.15*var(--r))!important;font-weight:300!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top,body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-family:var(--mono)!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important;line-height:1.55!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .tag{font-size:calc(.74*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)))!important;line-height:.98!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)))!important;line-height:1.55!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .sc{font-family:var(--mono)!important;font-size:calc(.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cap{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pipe>div{font-size:calc(.88*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pipe small{font-family:var(--mono)!important;font-size:calc(.62*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .ba ol{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lead{font-weight:500!important;font-size:calc(1.1*var(--r))!important;line-height:1.4!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .impact{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bl{font-family:var(--mono)!important;font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bt i{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .bax{font-family:var(--mono)!important;font-size:calc(.62*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc label{font-family:var(--mono)!important;font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r b{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .r em{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .tot{font-size:calc(1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .tot b{font-size:calc(2*var(--r))!important;font-weight:300!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tc-out .fx{font-family:var(--mono)!important;font-size:calc(.64*var(--r))!important;line-height:1.6!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl .rh{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .bt i{font-size:calc(.58*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(34px,4.7vw,92px)))!important;line-height:1.02!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(30px,9vw,48px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-t{font-size:calc(1.15*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-q{font-size:calc(1*var(--r))!important;line-height:2.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-f small{font-size:calc(.72*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-f b{font-weight:300!important;font-size:calc(1.15*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2,body.mobile.case-mode .main .cs2 .opill,body.mobile.case-mode .main .cs2 .pill,body.mobile.case-mode .main .cs2 .rh,body.mobile.case-mode .main .cs2 .sf-t,body.mobile.case-mode .main .cs2 .sub,body.mobile.case-mode .main .cs2 .lead,body.mobile.case-mode .main .cs2 h3,body.mobile.case-mode .main .cs2 h4{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(2.1*var(--r))!important;line-height:1.15!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lead{font-size:calc(1.5*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.6*var(--r))!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.7*var(--r))!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .rh,body.mobile.case-mode .main .cs2 h3:not(.opill),body.mobile.case-mode .main .cs2 h4{font-size:calc(1.45*var(--r))!important;line-height:1.2!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sf-t{font-size:calc(1.6*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(1.6*var(--r))!important;line-height:1.2!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.8*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.35*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .fn ul{font-size:calc(.956*var(--r))!important;line-height:1.55!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub2{font-weight:500!important;font-size:calc(1.02*var(--r))!important}}
+body.case-mode{overflow-x:clip}
+.cs2{--r:max(.9vw,10px);width:100vw;margin-left:calc(50% - 50vw);margin-top:calc(-1*clamp(56px,5vw,84px));margin-bottom:0;color:var(--fg);font-family:var(--body);font-weight:300;font-size:calc(.956*var(--r));line-height:1.5;text-align:left;letter-spacing:normal}
+.cs2 .w{padding-bottom:40px}
+@media (max-width:767px){.cs2{--r:14.64px;margin-top:-124px}}
+</style>
 </head>
 <body class="page-knotboard case-mode">
 <script>document.body.classList.toggle('mobile',matchMedia('(max-width:767px)').matches)</script>
@@ -63,231 +396,161 @@
 </span></div></column-set></bodycopy></div></div></div></div><div class="pin pin-mbottom"><div class="page pinned" id="B1072365829"><div class="page-layout"><div class="page-content"><bodycopy><column-set class="cs" style="--gap:2rem;--mgap:2rem"><div class="cu" style="--span:6"><span class="page-nav" style="line-height: 1.7;">         <br>         
  © 2026</span></div><div class="cu" style="--span:6"></div></column-set><span style="font-size: 7.4028px; letter-spacing: 0em;"><br>
 </span></bodycopy></div></div></div></div>
-<main class="main"><div class="page " id="V1695500895"><div class="page-layout"><div class="page-content"><bodycopy><br>
-<column-set class="cs" style="--gap:2rem;--mgap:0rem"><div class="cu" style="--span:2"><div style="text-align: left"><span class="number" style="color: rgb(255, 255, 255); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; background: rgb(0, 0, 0);"><b>   001  </b></span></div></div><div class="cu" style="--span:8"><div style="text-align: center">Knotboard —AI-Powered SaaS for Creative Workflows</div></div><div class="cu" style="--span:2"><div style="text-align: right"></div></div></column-set><hr><b><span style="--font-scale: 1.4;"><br>
-Knotboard</span></b><br><br>
-<media-item class="linked" style=""><div class="mi-frame"><a class="mi-link" href="knotboard.html"><img class="media" src="assets/media/4f4690df8914_Group-21.png" alt="Group-21" width="5432" height="3529" loading="lazy" decoding="async" style=""></a></div></media-item><br>
-<span style="color: rgba(6, 0, 0, 0.85);">Designed an AI-powered creative SaaS workspace that keeps creative work connected — helping creatives collect and organize ideas in a visual library, plan projects, track progress through dashboards, and use an AI agent to optimize plans in their creative process.<br>
-<br>
-<column-set class="cs mstack" style="--gap:1rem;--mgap:1rem"><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">ROLE<br>
-<br>PRODUCT DESIGNER<br>BRAND DESIGNER</span></div><div class="cu" style="--span:6"><span style="color: rgba(6, 0, 0, 0.85);">SCOPE<br>
-<br>UIUX Design<br>Visual Design<br>Design Engineer</span></div></column-set></span><br>
-<br>
-<marquee-set data-speed="-10"><div class="mq-track"><div class="mq-copy"><marquee-inner><column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:12"><span class="knotboard diatype" style="color: rgba(6, 0, 0, 0.85);"><b>｜</b><i>W38</i> Task Management<b> +46 XP  ｜</b><i>W38</i> Inspiration/File Auto Categorized<b> +20 XP ｜</b><i>W37</i> Project Planning<b> +28  XP ｜</b><i>W36</i> Productivity&#x26;Creativity<b> +30  XP ｜</b>W 35 Weekly Reflection Routine<b> +34XP</b></span></div></column-set></marquee-inner></div><div class="mq-copy" aria-hidden="true"><marquee-inner><column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:12"><span class="knotboard diatype" style="color: rgba(6, 0, 0, 0.85);"><b>｜</b><i>W38</i> Task Management<b> +46 XP  ｜</b><i>W38</i> Inspiration/File Auto Categorized<b> +20 XP ｜</b><i>W37</i> Project Planning<b> +28  XP ｜</b><i>W36</i> Productivity&#x26;Creativity<b> +30  XP ｜</b>W 35 Weekly Reflection Routine<b> +34XP</b></span></div></column-set></marquee-inner></div></div></marquee-set><br>
-<br>
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>  Overview&#x26; Context  </b></span><b> </b></span>
-</span><br>
-<br>
-<span class="description-language1" style="color: rgba(0, 0, 0, 0.85); display: inline-block; border-radius: 2rem;"><h2 style="color: rgba(17, 1, 1, 0.7);">Connect ideas, plans, files, and learning in one creative flow.</h2><br>
-A designer may save a reference on Instagram, write a thought in Notes, plan the week in a calendar, track tasks in another app, and export the final file into a folder. Each tool works on its own. The problem appears between them. Context disappears during every handoff, and the creator must rebuild the story of the work from memory.<br>
-<br>
-Knotboard brings that story into one connected workspace. A reference can become a task. A task can belong to a project, appear in the weekly plan, move onto a calendar, produce a deliverable, and return to the dashboard as evidence for reflection. The product keeps the source, action, output, and learning connected.<br>
-<br>
-<h2></h2><media-item class="zoomable" style="" data-full="assets/media/6663cc872b49_01_core_loop-2.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/3c07ece1b37a_01_core_loop-2.svg" alt="01_core_loop-2" width="1280" height="720" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<br>
-<br>
-<span style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);"><b>   The Problem  <br>
-</b></span><b> </b></span>
-</span><br>
-</span><br>
-<br>
-<h2 style="color: rgba(0, 0, 0, 0.85); display: inline-block; border-radius: 2rem;">Creative work fails when ideas and execution stay disconnected？</h2><br>
-Imagine a design student named Maya. On Monday, she saves a typographic poster because of its unusual grid. On Tuesday, she finds a material experiment in a gallery archive. By Friday, both references are buried under newer images. When she begins her own project, she remembers that she found something useful, but not where it came from or why it mattered.<br>
-<br>
-The missing feature is not another bookmark. Maya needs a path from recognition to action. She needs to record the reason a reference matters, connect it to a project, and decide what to do with it while the thought is still fresh.<br>
+<main class="main"><div class="page " id="V1695500895"><div class="page-layout"><div class="page-content"><bodycopy><div class="cs2">
 
-<br>
-<span class="description-language1" style="color: rgba(0, 0, 0, 0.85);"><media-item class="zoomable" style="" data-full="assets/media/7477c1c9e4bf_User_Pain_Points_v2_2.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/c74b1a358889_User_Pain_Points_v2_2.svg" alt="User_Pain_Points_v2_2" width="267" height="150" loading="lazy" decoding="async" style="border-color: #000000; border-width: 0.5rem; border-style: solid; border-radius: 2rem;"></div></media-item></span><br>
-<br>
-<h2><b>The opportunity</b><b></b></h2><br>
-The product opportunity was to treat creative work as a connected cycle instead of a set of isolated lists. Inspiration should carry its context forward. Planning should be flexible enough for exploratory work. Completion should recognize output without forcing every task to produce a file. Review should turn activity into an informed next step.<br>
-<br>
-<br>
-<br>
-<span class="project-title" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><span style="color: rgb(0, 0, 0);"> <span style="color: rgb(255, 255, 255);"> <b>   User Research  </b></span><b> </b></span>
-</span><span class="description-language1" style="color: rgba(0, 0, 0, 0.85);"><br>
-<br>
-<b><h2>Different roles share the same broken handoffs.</h2></b><br>
-Knotboard focuses first on individual creators, but the system was designed around needs that also appear in fast-moving content work and design teams. 
-The details change by role; the underlying job remains consistent: keep ideas, commitments, and evidence of progress connected.<br>
-</span><br><media-item class="zoomable" style="" data-full="assets/media/80c6577d3494_Knotboard-User-Journey-and-Flow-Redesigned-Final_.pptx.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/a7538b09b7fe_Knotboard-User-Journey-and-Flow-Redesigned-Final_.pptx.svg" alt="Knotboard-User-Journey-and-Flow-Redesigned-Final_.pptx" width="267" height="150" loading="lazy" decoding="async" style="border-radius: 2rem; border-color: #ffffff; border-width: 0.5rem; border-style: solid;"></div></media-item><span class="description-language1" style="color: rgba(0, 0, 0, 0.85);"><br>
-These behaviors led to a central design principle: Knotboard should reduce the cost of moving from one stage of work to the next. The system should remember the relationships so the user can keep thinking about the work itself.</span><br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/6c53d92371e5_Knotboard-User-Journey-and-Flow-Redesigned-Final.pptx-1.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/777772ab8085_Knotboard-User-Journey-and-Flow-Redesigned-Final.pptx-1.svg" alt="Knotboard-User-Journey-and-Flow-Redesigned-Final.pptx-1" width="267" height="150" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<marquee-set data-speed="-15"><div class="mq-track"><div class="mq-copy"><marquee-inner>          <media-item class="zoomable" style="--scale:22.4%" data-full="assets/media/b37689495ad1_2026-09-28-11.10.30.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/c34541ed9129_2026-09-28-11.10.30.png" alt="2026-09-28-11.10.30" width="1310" height="852" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.2%" data-full="assets/media/0118ea79a858_2026-09-28-11.10.24.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/a10a99947e34_2026-09-28-11.10.24.png" alt="2026-09-28-11.10.24" width="1254" height="822" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.4%" data-full="assets/media/80a1a1e689f3_2026-09-28-11.00.16.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/6a0f16f1e190_2026-09-28-11.00.16.png" alt="2026-09-28-11.00.16" width="1260" height="832" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.7%" data-full="assets/media/14570f5581f1_2026-09-28-11.00.07.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/bdfee6a66b27_2026-09-28-11.00.07.png" alt="2026-09-28-11.00.07" width="1272" height="848" loading="lazy" decoding="async" style=""></div></media-item></marquee-inner></div><div class="mq-copy" aria-hidden="true"><marquee-inner>          <media-item class="zoomable" style="--scale:22.4%" data-full="assets/media/b37689495ad1_2026-09-28-11.10.30.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/c34541ed9129_2026-09-28-11.10.30.png" alt="2026-09-28-11.10.30" width="1310" height="852" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.2%" data-full="assets/media/0118ea79a858_2026-09-28-11.10.24.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/a10a99947e34_2026-09-28-11.10.24.png" alt="2026-09-28-11.10.24" width="1254" height="822" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.4%" data-full="assets/media/80a1a1e689f3_2026-09-28-11.00.16.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/6a0f16f1e190_2026-09-28-11.00.16.png" alt="2026-09-28-11.00.16" width="1260" height="832" loading="lazy" decoding="async" style=""></div></media-item>          <media-item class="zoomable" style="--scale:22.7%" data-full="assets/media/14570f5581f1_2026-09-28-11.00.07.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/bdfee6a66b27_2026-09-28-11.00.07.png" alt="2026-09-28-11.00.07" width="1272" height="848" loading="lazy" decoding="async" style=""></div></media-item></marquee-inner></div></div></marquee-set><br>
-<br>
-<br>
-<br>
-<br>
-<span class="descriptions" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><b><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);">   Basic Fucntion  </span> </span>
-</b></span><br><br>
-<media-item class="zoomable" style="" data-full="assets/media/fc9a3301785b_Frame-29.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/587d4ed9f9f7_Frame-29.svg" alt="Frame-29" width="4668" height="3031" loading="lazy" decoding="async" style="border-color: #000000; border-width: 0.5rem; border-style: solid; border-radius: 2rem;"></div></media-item><br>
-<br>
-<br>
-<br>
-<span class="diatype" style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;"> <b>   Inspiration</b>   </span><b><br>
-</b><br>
-<br>
-<h2>Capture first, organize when the idea has a future.</h2><br>The Inspiration library is the product’s front door. It accepts the messy forms in which ideas actually arrive: a URL, an image, a sentence, a PDF, or another file. The capture field stays prominent and lightweight because adding a reference should not require a classification decision first.<br>
-<br>
-<br>
-<column-set class="cs mstack" style="--gap:1rem;--mgap:1rem"><div class="cu" style="--span:1"></div><div class="cu" style="--span:10"><gallery-grid style="--cols:2;--gap:6rem 4rem;--mgap:1rem;--va:center"><media-item class="zoomable" style="" data-full="assets/media/b37689495ad1_2026-09-28-11.10.30.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/c34541ed9129_2026-09-28-11.10.30.png" alt="2026-09-28-11.10.30" width="1310" height="852" loading="lazy" decoding="async" style=""></div><figcaption class="caption" slot="caption">Inspiration Card 1</figcaption></media-item><media-item class="zoomable" style="" data-full="assets/media/80a1a1e689f3_2026-09-28-11.00.16.png" data-video="false" data-span="1"><div class="mi-frame"><img class="media" src="assets/media/6a0f16f1e190_2026-09-28-11.00.16.png" alt="2026-09-28-11.00.16" width="1260" height="832" loading="lazy" decoding="async" style=""></div><figcaption class="caption" slot="caption">Inspiration Card 2</figcaption></media-item></gallery-grid></div><div class="cu" style="--span:1"></div></column-set><br>
-<br>
-<h2>Why the library behaves differently from a folder<b></b></h2><br>Knotboard stores more than files—it preserves why each reference matters and what it could become. Users can organize items, connect them to projects, and turn them into tasks without losing context. Compact URL cards, visual-first image cards, and hidden drag controls keep the library flexible and uncluttered.<br>
-<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/863b86ae7e7f_2026-09-25-2.50.36.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/6f3af695d450_2026-09-25-2.50.36.png" alt="2026-09-25-2.50.36" width="3022" height="1650" loading="lazy" decoding="async" style="border-color: #ffffff; border-width: 0.5rem; border-style: solid; border-radius: 2rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><ul><li>Inspiration Library Function：</li><li>Capture thoughts, images, links, PDFs, and other references in one place.</li><li>Organize inspiration with tags, collections, projects, and research topics.</li><li>Turn any reference directly into a task or project—moving ideas into action.</li></ul></span></figcaption></media-item><br>
-</span><span class="diatype" style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:1"></div><div class="cu" style="--span:10"></div><div class="cu" style="--span:1"></div></column-set><br>
-</span><br>
-<br>
-<br>
-<span class="description-language1 diatype"><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   Planner   </span><br>
-</b></span><br>
-<div style="text-align: center"></div>  <br><br></span><h2>A plan should give shape to the week without pretending every task is predictable</h2><span class="description-language1 diatype"><br>Creative work contains different kinds of effort. Some tasks are routine and easy to estimate. Others are uncertain because the creator is still learning what the problem is. Knotboard makes that difference visible without turning planning into a scoring exercise.</span><br><br>
+<header class="cv" id="top"><div class="ph" aria-hidden="true"><img class="pa" src="assets/projects/knotboard-v2/knotboard-ph1.jpg" alt=""><img class="pb" src="assets/projects/knotboard-v2/knotboard-ph2.jpg" alt=""></div>
+<div class="cv-in">
+<div class="tags"><span class="tag">Rainmelon Studio</span><span class="tag">AI SaaS · Creative Workflow · 0-to-1</span><span class="tag">2026</span><span class="tag on">MVP Launched</span></div>
+<h1><span>Knotboard:</span><span>AI-Powered SaaS for</span><span>Creative <em>Workflows</em></span></h1>
+<p class="lede">Designed an AI-powered creative SaaS workspace that keeps creative work connected — helping creatives collect and organize ideas in a visual library, plan projects, track progress through dashboards, and use an AI agent to optimize plans in their creative process.</p>
+<div class="sc"><i></i>Scroll</div>
+</div></header>
+<div class="w">
+<figure class="hero" style="margin-top:0"><div class="fr"><img src="assets/projects/knotboard-v2/4f4690df8914_Group-21_1800.jpg" alt="Knotboard screens: inspiration library, weekly planner, dashboard and Knot Agent"></div></figure>
 
-<span class="description-language1 diatype"><br>
-</span><h2>One task, several useful views</h2><span class="description-language1 diatype"><br>Planner, Calendar, Tasks, and Project pages do not create separate copies of a task. They show the same record from different angles. The Planner supports weekly intent. Calendar handles dated work and a backlog. Tasks provides a searchable operational list. Projects preserve context and history. Editing status, due date, estimate, or assignment in one view updates the same underlying task everywhere.</span><br>
-<span class="description-language1 diatype"><table><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></span>
-<span style="color: rgba(0, 0, 0, 0.85);"><span style="color: rgba(0, 0, 0, 0.85);"><media-item class="zoomable" style="" data-full="assets/media/9c8560835353_02-Planner-Weekly-Overview-01.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/911b5a8d8583_02-Planner-Weekly-Overview-01.png" alt="02-Planner-Weekly-Overview-01" width="3020" height="1636" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: #ffffff; border-style: solid; border-radius: 2rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><ul><li>Planner Function：</li><li>Create task cards within each project to build a clear action plan.</li><li>Set priority, difficulty, output value, and estimated time; Knotboard converts them into an XP score.</li><li>Drag and reorder tasks for a fast, flexible planning experience.</li><li>Use clear visual states to understand progress at a glance.</li></ul></figcaption></media-item></span></span><span class="description-language1 diatype"><table><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></span>
-<h2></h2><span class="description-language1 diatype"><table><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></span>
-<media-item class="zoomable" style="" data-full="assets/media/0ed0c5e60795_04-Tasks-All-Tasks-02.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/99eb3ec26469_04-Tasks-All-Tasks-02.png" alt="04-Tasks-All-Tasks-02" width="3022" height="1648" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: #ffffff; border-style: solid; border-radius: 2rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><span class="description-language1"><ul><li>Tasks Function：</li><li>View every task across projects and channels in one structured list.</li><li>Filter by status, project, channel, assignee, priority, or due date.</li><li>Find the right task quickly and manage complex workflows efficiently.</li></ul></span></figcaption></media-item><br>
-<br>
-<br>
-<span class="description-language1" style="color: rgba(0, 0, 0, 0.99);"><gallery-slideshow data-autoplay="true" data-delay="3" data-speed="0.8" data-nav="cursor-zones" data-va="top"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/386d9d024ce1_03-Calendar-Month-View-01.png" alt="03-Calendar-Month-View-01" width="3018" height="1646" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: #ffffff; border-style: solid; border-radius: 2rem; filter: drop-shadow(0.2rem 0.2rem 0.6rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><div style="text-align: left"><ul><li>Calendar Function：</li><li>Drag unscheduled tasks from Backlog directly onto the calendar.</li><li>Switch between day, week, and month views to plan at different levels.</li><li>See workload and deadlines in one clear timeline.</li></ul></div></figcaption></media-item></gallery-slideshow></span><span class="diatype"><span class="description-language1"><h2></h2><br>
-<table><tbody><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></tbody></table></span></span><br>
-<b><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">   Project&#x26; Channel   </span><br>
-</span></b><br>
-<br>
-<h2>The project page keeps the work and the evidence together</h2><br>
-A creative project is more than a task list. It has a reason, a body of research, a changing plan, and artifacts that show what was made. Knotboard’s Channel and Project structure keeps those layers in one place without forcing every project into the same template.<br>
-<br>
-<gallery-slideshow data-autoplay="true" data-delay="3" data-speed="0.8" data-nav="cursor-zones" data-va="top"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/aa8f179d520a_2026-09-28-2.14.10.png" alt="2026-09-28-2.14.10" width="3020" height="1632" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: rgba(255, 255, 255, 0.85); border-style: solid; border-radius: 2rem; filter: drop-shadow(0.2rem 0.2rem 0.7rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div></media-item><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/1d76bb5e9c58_2026-09-28-2.13.30.png" alt="2026-09-28-2.13.30" width="3024" height="1654" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: rgba(255, 255, 255, 0.85); border-style: solid; border-radius: 2rem; filter: drop-shadow(0.2rem 0.2rem 0.7rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div></media-item></gallery-slideshow><br>
-<br>
-<h2>Channels create a stable map<br>
-</h2><br>
-Channel organize the larger areas of a creative practice. Each channel contains projects. Each project can hold its own tasks, inspiration, description, link, cover, status, and deliverables. This structure lets a user zoom from a long-term area of growth to the exact task that needs attention today.<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/9aa8201541ed_2026-10-06-10.18.14.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/1c63b65e2a07_2026-10-06-10.18.14.png" alt="2026-10-06-10.18.14" width="2516" height="1208" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<h2>Deliverables make progress visible</h2><br>
-When a task produces an image, document, link, or other output, the result appears in the project’s Deliverables gallery. The gallery is both practical and motivational: it creates a visual record of work that would otherwise vanish into folders. Because deliverables are optional, the system respects tasks whose value is learning, deciding, communicating, or exploring.<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/e8a783314d6d_2026-10-06-10.19.22.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/4100f29aedc2_2026-10-06-10.19.22.png" alt="2026-10-06-10.19.22" width="2356" height="968" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<h2>Points reward effort without replacing judgment</h2><br>
-Points translate task difficulty, importance, output value, and time into a lightweight signal. They help users compare commitments and recognize effort. They are not a quality score. The product pairs them with the actual deliverable and a written reflection so progress is never reduced to a number.<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/fb8c7fe7cfa5_2026-10-06-10.17.14.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/e4457aa0bab8_2026-10-06-10.17.14.png" alt="2026-10-06-10.17.14" width="2386" height="1026" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<gallery-slideshow data-autoplay="true" data-delay="3" data-speed="0.8" data-nav="cursor-zones" data-va="top"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/aa8f179d520a_2026-09-28-2.14.10.png" alt="2026-09-28-2.14.10" width="3020" height="1632" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: rgba(255, 255, 255, 0.85); border-style: solid; border-radius: 2rem; filter: drop-shadow(0.2rem 0.2rem 0.7rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><div style="text-align: left"><ul><li>Channel&#x26;Project Function：</li><li>Organize projects by channel with customizable covers, layouts, and visuals.</li><li>Keep project details, tasks, references, progress, and outputs connected.</li><li>Showcase finished work in a rewarding Deliverables Gallery and XP Board.</li><li>Review every scheduled task within the full project context.</li></ul></div></figcaption></media-item></gallery-slideshow><br>
-<br>
-<br>
-<b><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">    Dashboard    </span><br>
-</span></b><br>
-<span class="description-language1"><br>
-<b><h2>Completion becomes useful when it changes the next plan</h2></b><br>Most productivity tools treat completion as the end of the story. Knotboard treats it as evidence. The Dashboard gathers completed tasks, time, points, project status, deliverables, and review notes into one place. A global time filter keeps the period consistent across charts so users do not have to reconcile daily, weekly, monthly, and overall views by hand.<br>
-<br>
-<br>
-<gallery-slideshow data-autoplay="true" data-delay="3" data-speed="0.8" data-nav="cursor-zones" data-va="top"><media-item class="" style=""><div class="mi-frame"><img class="media" src="assets/media/19be8d280465_07-Dashboard-Performance-Overview-05.png" alt="07-Dashboard-Performance-Overview-05" width="3012" height="1650" loading="lazy" decoding="async" style="border-width: 0.5rem; border-color: #ffffff; border-style: solid; border-radius: 2rem; filter: drop-shadow(0.1rem 0.1rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter;"></div><figcaption class="caption" slot="caption"><span style="color: rgba(0, 0, 0, 0.85);"><div style="text-align: left"><ul><li>Dashboard Function：</li><li>Turn a complex workload into measurable progress.</li><li>Track completed tasks, focused hours, earned points, and project performance.</li><li>Use clear charts and trends to understand what happened—and decide what to do next.</li></ul></div></span></figcaption></media-item></gallery-slideshow><br>
-</span><br>
-<br>
-<h2></h2><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><b><span style="display: inline-block; border-width: 0.1rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;">    Knot AI Agent    </span><br>
-<br>
-</b><h2 style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;">AI Agent appears where context already exists</h2><br>
+<dl class="glance">
+<div><dt>Role</dt><dd>Product Designer · Brand Designer</dd></div>
+<div><dt>Scope</dt><dd>UIUX Design · Visual Design · Design Engineer</dd></div>
+<div><dt>Studio</dt><dd>Rainmelon Studio</dd></div>
+<div><dt>Status</dt><dd>MVP Launched</dd></div>
+</dl>
 
-<b><br>
-</b>Knot Agent is not a separate chatbot pasted onto the product. Its usefulness depends on the workspace around it: saved references, unfinished tasks, project priorities, dates, estimates, deliverables, and review history. The agent can make a relevant suggestion because Knotboard has preserved the context of the work.<br>
-<br>
-<h1 style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"></h1></span><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><h1 style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><media-item class="zoomable" style="--scale:34.6%" data-full="assets/media/4438cde19e76_knot-agent-button.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/4438cde19e76_knot-agent-button.gif" alt="knot-agent-button" width="800" height="304" loading="lazy" decoding="async" style=""></div></media-item></h1></span><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><b><span style="display: inline-block; background: #ffffff; border-style: solid; border-width: 0;"><br>
-<br>
-</span><br>
-<br>
-<gallery-columnized data-cols="2" data-mcols="1" style="--gap:10rem 15rem;--mgap:1rem"><media-item class="zoomable" style="" data-full="assets/media/2cf99cb1e14b_2026-10-06-11.34.36.png" data-video="false" data-span="1"><div class="mi-frame"><img class="media" src="assets/media/2f925955b111_2026-10-06-11.34.36.png" alt="2026-10-06-11.34.36" width="844" height="1640" loading="lazy" decoding="async" style=""></div><figcaption class="caption" slot="caption"><div style="text-align: center"></div></figcaption></media-item><media-item class="zoomable" style="" data-full="assets/media/9507a52d7547_2026-10-06-10.21.35.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/13475c91bb37_2026-10-06-10.21.35.png" alt="2026-10-06-10.21.35" width="834" height="658" loading="lazy" decoding="async" style=""></div></media-item><media-item class="zoomable" style="" data-full="assets/media/f1b7a288e27d_111111.jpg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/25841b4945f0_111111.jpg" alt="111111" width="3000" height="2000" loading="lazy" decoding="async" style=""></div></media-item></gallery-columnized><br>
-</b></span><br>
-<br>
-<media-item class="" style=""><div class="mi-frame"><video class="media" src="assets/media/7dd3c1b6090b_Agent.mov" controls playsinline preload="metadata" controls width="1998" height="1080" poster="assets/media/30645f59dcc2_Agent.avif" style=""></video></div><figcaption class="caption" slot="caption"><ul><li>Knot AI Agent Function Review View: </li><li>Turn a complex workload into measurable progress.</li><li>Track completed tasks, focused hours, earned points, and project performance.</li><li>Use clear charts and trends to understand what happened—and decide what to do next.</li></ul><br><br>
-<br>
-<br>
-<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:5"><gallery-grid style="--cols:1;--gap:1rem;--mgap:1rem;--va:start"><media-item class="zoomable" style="" data-full="assets/media/8c66b6cbd1bc_2026-10-06-12.35.21.png" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/98c4ed059562_2026-10-06-12.35.21.png" alt="2026-10-06-12.35.21" width="670" height="744" loading="lazy" decoding="async" style=""></div></media-item></gallery-grid></div><div class="cu" style="--span:1">
+<section class="sec" id="sec-1" data-l="Context">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Overview &amp; Context</span>
+<h2>Connect ideas, plans, files, and learning in one creative flow.</h2>
+<div class="n">
+<p>A designer may save a reference on Instagram, write a thought in Notes, plan the week in a calendar, track tasks in another app, and export the final file into a folder. Each tool works on its own. The problem appears between them. Context disappears during every handoff, and the creator must rebuild the story of the work from memory.</p>
+<p>Knotboard brings that story into one connected workspace. A reference can become a task. A task can belong to a project, appear in the weekly plan, move onto a calendar, produce a deliverable, and return to the dashboard as evidence for reflection. The product keeps the source, action, output, and learning connected.</p>
+</div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/3c07ece1b37a_01_core_loop-2.svg" alt="Knotboard core loop diagram" loading="lazy"></div><figcaption>The core loop: source, action, output and learning stay connected.</figcaption></figure>
+</section>
 
+<section class="sec" id="sec-2" data-l="The Problem">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">The Problem</span>
+<h2>Creative work fails when ideas and execution stay disconnected.</h2>
+<div class="n">
+<p>Imagine a design student named Maya. On Monday, she saves a typographic poster because of its unusual grid. On Tuesday, she finds a material experiment in a gallery archive. By Friday, both references are buried under newer images. When she begins her own project, she remembers that she found something useful, but not where it came from or why it mattered.</p>
+<p>The missing feature is not another bookmark. Maya needs a path from recognition to action. She needs to record the reason a reference matters, connect it to a project, and decide what to do with it while the thought is still fresh.</p>
+</div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/c74b1a358889_User_Pain_Points_v2_2.svg" alt="User pain points across the creative workflow" loading="lazy"></div><figcaption>Where the creative workflow breaks: every handoff between tools drops context.</figcaption></figure>
+<p class="sub">The opportunity</p>
+<div class="n"><p>The product opportunity was to treat creative work as a connected cycle instead of a set of isolated lists. <strong>Inspiration should carry its context forward. Planning should be flexible enough for exploratory work. Completion should recognize output without forcing every task to produce a file. Review should turn activity into an informed next step.</strong></p></div>
+</section>
 
+<section class="sec" id="sec-3" data-l="User Research">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">User Research</span>
+<h2>Different roles share the same broken handoffs.</h2>
+<div class="n">
+<p>Knotboard focuses first on individual creators, but the system was designed around needs that also appear in fast-moving content work and design teams. The details change by role; the underlying job remains consistent: keep ideas, commitments, and evidence of progress connected.</p>
+</div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/a7538b09b7fe_Knotboard-User-Journey-and-Flow-Redesigned-Final_.pptx.svg" alt="Knotboard user journey by role" loading="lazy"></div></figure>
+<div class="n" style="margin-top:32px"><p>These behaviors led to a central design principle: <strong>Knotboard should reduce the cost of moving from one stage of work to the next.</strong> The system should remember the relationships so the user can keep thinking about the work itself.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/777772ab8085_Knotboard-User-Journey-and-Flow-Redesigned-Final.pptx-1.svg" alt="Knotboard user flow" loading="lazy"></div></figure>
+</section>
 
+<section class="sec" id="sec-4" data-l="Design Decisions">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Design Decisions</span>
+<div class="n"><p>Five product decisions turned the connected loop into a working system: capture, plan, organize, review and assist.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/587d4ed9f9f7_Frame-29.svg" alt="Knotboard product map: basic functions" loading="lazy"></div><figcaption>The product map: five connected functions share one underlying record.</figcaption></figure>
 
+<article class="dec">
+<div class="h"><h3 class="opill">01 · Capture First</h3></div>
+<div class="n"><p class="lead">Capture first, organize when the idea has a future.</p>
+<p>The Inspiration library is the product’s front door. It accepts the messy forms in which ideas actually arrive: a URL, an image, a sentence, a PDF, or another file. The capture field stays prominent and lightweight because adding a reference should not require a classification decision first.</p></div>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/knotboard-v2/c34541ed9129_2026-09-28-11.10.30_1200.jpg" alt="Inspiration card" loading="lazy"></div><figcaption>Inspiration card 1</figcaption></figure><figure><div class="fr"><img src="assets/projects/knotboard-v2/6a0f16f1e190_2026-09-28-11.00.16_1200.jpg" alt="Inspiration card" loading="lazy"></div><figcaption>Inspiration card 2</figcaption></figure></div>
+<div class="n" style="margin-top:32px"><p class="sub2">Why the library behaves differently from a folder</p>
+<p>Knotboard stores more than files—it preserves why each reference matters and what it could become. Users can organize items, connect them to projects, and turn them into tasks without losing context. Compact URL cards, visual-first image cards, and hidden drag controls keep the library flexible and uncluttered.</p></div>
 
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/6f3af695d450_2026-09-25-2.50.36_1600.jpg" alt="Inspiration library" loading="lazy"></div><figcaption>The Inspiration library.</figcaption></figure>
+<div class="fn"><span class="k">Inspiration Library Function</span><ul><li>Capture thoughts, images, links, PDFs, and other references in one place.</li><li>Organize inspiration with tags, collections, projects, and research topics.</li><li>Turn any reference directly into a task or project—moving ideas into action.</li></ul></div>
+</article>
 
+<article class="dec">
+<div class="h"><h3 class="opill">02 · Plan with Shape, Not Certainty</h3></div>
+<div class="n"><p class="lead">A plan should give shape to the week without pretending every task is predictable.</p>
+<p>Creative work contains different kinds of effort. Some tasks are routine and easy to estimate. Others are uncertain because the creator is still learning what the problem is. Knotboard makes that difference visible without turning planning into a scoring exercise.</p>
+<p class="sub2">One task, several useful views</p>
+<p>Planner, Calendar, Tasks, and Project pages do not create separate copies of a task. They show the same record from different angles. The Planner supports weekly intent. Calendar handles dated work and a backlog. Tasks provides a searchable operational list. Projects preserve context and history. Editing status, due date, estimate, or assignment in one view updates the same underlying task everywhere.</p></div>
 
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="Planner weekly overview" loading="lazy"></div><figcaption>Planner: weekly intent, with task cards and clear visual states.</figcaption></figure>
+<div class="fn"><span class="k">Planner Function</span><ul><li>Create task cards within each project to build a clear action plan.</li><li>Set priority, difficulty, output value, and estimated time; Knotboard converts them into an XP score.</li><li>Drag and reorder tasks for a fast, flexible planning experience.</li><li>Use clear visual states to understand progress at a glance.</li></ul></div>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/knotboard-v2/99eb3ec26469_04-Tasks-All-Tasks-02_1200.jpg" alt="Tasks list" loading="lazy"></div><figcaption>Tasks: every task across projects and channels, filterable by status, project, assignee, priority or due date.</figcaption></figure><figure><div class="fr"><img src="assets/projects/knotboard-v2/386d9d024ce1_03-Calendar-Month-View-01_1200.jpg" alt="Calendar month view" loading="lazy"></div><figcaption>Calendar: drag unscheduled tasks from the Backlog onto day, week or month views.</figcaption></figure></div>
+<div class="pair"><div class="fn"><span class="k">Tasks Function</span><ul><li>View every task across projects and channels in one structured list.</li><li>Filter by status, project, channel, assignee, priority, or due date.</li><li>Find the right task quickly and manage complex workflows efficiently.</li></ul></div><div class="fn"><span class="k">Calendar Function</span><ul><li>Drag unscheduled tasks from Backlog directly onto the calendar.</li><li>Switch between day, week, and month views to plan at different levels.</li><li>See workload and deadlines in one clear timeline.</li></ul></div></div>
+</article>
 
+<article class="dec">
+<div class="h"><h3 class="opill">03 · Keep Work and Evidence Together</h3></div>
+<div class="n"><p class="lead">The project page keeps the work and the evidence together.</p>
+<p>A creative project is more than a task list. It has a reason, a body of research, a changing plan, and artifacts that show what was made. Knotboard’s Channel and Project structure keeps those layers in one place without forcing every project into the same template.</p></div>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/knotboard-v2/aa8f179d520a_2026-09-28-2.14.10_1200.jpg" alt="Channel overview" loading="lazy"></div></figure><figure><div class="fr"><img src="assets/projects/knotboard-v2/1d76bb5e9c58_2026-09-28-2.13.30_1200.jpg" alt="Project page" loading="lazy"></div></figure></div>
+<div class="n" style="margin-top:32px"><p class="sub2">Channels create a stable map</p>
+<p>Channels organize the larger areas of a creative practice. Each channel contains projects. Each project can hold its own tasks, inspiration, description, link, cover, status, and deliverables. This structure lets a user zoom from a long-term area of growth to the exact task that needs attention today.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/1c63b65e2a07_2026-10-06-10.18.14_1600.jpg" alt="Channel structure" loading="lazy"></div></figure>
+<div class="n" style="margin-top:32px"><p class="sub2">Deliverables make progress visible</p>
+<p>When a task produces an image, document, link, or other output, the result appears in the project’s Deliverables gallery. The gallery is both practical and motivational: it creates a visual record of work that would otherwise vanish into folders. Because deliverables are optional, the system respects tasks whose value is learning, deciding, communicating, or exploring.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="Deliverables gallery" loading="lazy"></div></figure>
+<div class="n" style="margin-top:32px"><p class="sub2">Points reward effort without replacing judgment</p>
+<p>Points translate task difficulty, importance, output value, and time into a lightweight signal. They help users compare commitments and recognize effort. <strong>They are not a quality score.</strong> The product pairs them with the actual deliverable and a written reflection so progress is never reduced to a number.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/e4457aa0bab8_2026-10-06-10.17.14_1600.jpg" alt="XP board" loading="lazy"></div></figure>
+<div class="fn"><span class="k">Channel & Project Function</span><ul><li>Organize projects by channel with customizable covers, layouts, and visuals.</li><li>Keep project details, tasks, references, progress, and outputs connected.</li><li>Showcase finished work in a rewarding Deliverables Gallery and XP Board.</li><li>Review every scheduled task within the full project context.</li></ul></div>
 
+</article>
 
-<br>
-<b></b><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<span class="description"></span><br>
+<article class="dec">
+<div class="h"><h3 class="opill">04 · Completion Informs the Next Plan</h3></div>
+<div class="n"><p class="lead">Completion becomes useful when it changes the next plan.</p>
+<p>Most productivity tools treat completion as the end of the story. Knotboard treats it as evidence. The Dashboard gathers completed tasks, time, points, project status, deliverables, and review notes into one place. A global time filter keeps the period consistent across charts so users do not have to reconcile daily, weekly, monthly, and overall views by hand.</p></div>
 
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="Dashboard performance overview" loading="lazy"></div><figcaption>Dashboard: one time filter across every chart.</figcaption></figure>
+<div class="fn"><span class="k">Dashboard Function</span><ul><li>Turn a complex workload into measurable progress.</li><li>Track completed tasks, focused hours, earned points, and project performance.</li><li>Use clear charts and trends to understand what happened—and decide what to do next.</li></ul></div>
+</article>
 
+<article class="dec">
+<div class="h"><h3 class="opill">05 · Agent Where Context Exists</h3></div>
+<div class="n"><p class="lead">AI Agent appears where context already exists.</p>
+<p>Knot Agent is not a separate chatbot pasted onto the product. Its usefulness depends on the workspace around it: saved references, unfinished tasks, project priorities, dates, estimates, deliverables, and review history. The agent can make a relevant suggestion because Knotboard has preserved the context of the work.</p></div>
+<figure class="sm"><div class="fr"><img src="assets/projects/knotboard-v2/4438cde19e76_knot-agent-button.gif" alt="Knot Agent button" loading="lazy"></div><figcaption>The agent lives inside the workspace, one tap from where the work is.</figcaption></figure>
+<div class="pair"><figure><div class="fr"><img src="assets/projects/knotboard-v2/98c4ed059562_2026-10-06-12.35.21_800.jpg" alt="Knot Agent chat panel" loading="lazy"></div><figcaption>Ask the agent anything about the work in view; changes require approval.</figcaption></figure><figure><div class="fr"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft" loading="lazy"></div><figcaption>A review draft built from the dashboard period the user is looking at.</figcaption></figure></div>
+<figure class="sm"><div class="fr"><img src="assets/projects/knotboard-v2/25841b4945f0_111111_1600.jpg" alt="Ask AI on a saved reference" loading="lazy"></div><figcaption>Ask AI sits next to Edit and To Task on every saved reference.</figcaption></figure>
+<figure class="vid"><div class="fr"><video autoplay muted loop playsinline preload="metadata" aria-label="Knot Agent review view in action"><source src="assets/projects/knotboard-v2/agent.webm" type="video/webm"><source src="assets/projects/knotboard-v2/agent.mp4" type="video/mp4"></video></div><figcaption>Review view: the agent turns recent activity into a reflection.</figcaption></figure>
+<div class="fn"><span class="k">Knot AI Agent Function · Review View</span><ul><li>Turn a complex workload into measurable progress.</li><li>Track completed tasks, focused hours, earned points, and project performance.</li><li>Use clear charts and trends to understand what happened—and decide what to do next.</li></ul></div>
+<div class="cols3 q4">
+<div><span class="k">Plan</span><p style="font-size:.956rem">Schedules unscheduled tasks based on priority, deadlines, and workload.</p></div>
+<div><span class="k">Project</span><p style="font-size:.956rem">Breaks project goals into clear, manageable next steps.</p></div>
+<div><span class="k">Review</span><p style="font-size:.956rem">Turns recent activity and performance data into actionable reflections.</p></div>
+<div><span class="k">Attention</span><p style="font-size:.956rem">Identifies at-risk projects and tasks that need immediate action.</p></div>
+</div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/36f5d37c4962_03_levels_of_assistance-2.svg" alt="Levels of assistance" loading="lazy"></div><figcaption>Basic functions of Knot Agent: three levels of assistance.</figcaption></figure>
+</article>
+</section>
 
-</div><div class="cu" style="--span:5"><span class="description"><b><br><br>
-Plan</b><br>
+<section class="sec" id="sec-5" data-l="Reflection">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Reflection</span>
+<div class="refl">
+<h3 class="rh">Designing the system changed how I define productivity</h3>
+<p>At the start, Knotboard could have become a larger to-do list. The research framing and product structure pushed it in a different direction. Creative productivity depends on preserving meaning across time. The reference that sparked the work, the decision that shaped the plan, the effort required to make it, and the lesson discovered afterward all belong to the same story.</p>
+<p>The project strengthened my ability to work across product strategy and visual design. Information architecture made the system coherent. Interaction design made the handoffs usable. The visual language made a dense workspace feel calm. Brand thinking gave the product a clear point of view. AI design added a new constraint: assistance is valuable only when it uses context responsibly and keeps the user’s judgment visible.</p>
+</div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/43993b1d696b_04_product_choices-2.svg" alt="Product choices" loading="lazy"></div></figure>
+</section>
 
-<br>Schedules unscheduled tasks based on priority, deadlines, and workload.<br>
-
-<br>
-
-<br>
-<b>Project</b><br>
-
-<br>Breaks project goals into clear, manageable next steps.<br>
-
-<br>
-<b><br>Review</b><br>
-
-<br>Turns recent activity and performance data into actionable reflections.<br>
-
-<br>
-<br>
-<b>Attention</b><br>
-
-<br>Identifies at-risk projects and tasks that need immediate action.</span></div><div class="cu" style="--span:1"></div></column-set><br><div style="text-align: center">Basic Function of Knot Agent</div><br>
-<br></figcaption></media-item><br>
-<media-item class="zoomable" style="" data-full="assets/media/69f99bb55cfe_03_levels_of_assistance-2.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/36f5d37c4962_03_levels_of_assistance-2.svg" alt="03_levels_of_assistance-2" width="1280" height="720" loading="lazy" decoding="async" style="border-width: 0rem; border-color: rgba(0,0,0,0.85); border-style: solid; border-radius: 2rem;"></div></media-item><br>
-<br>
-<br>
-<h3></h3><span class="descriptions" style="color: rgba(157, 52, 52, 0.85); display: inline-block; border-width: 0.1rem; border-color: rgba(0, 0, 0, 0.85); border-style: solid; border-radius: 1rem; filter: drop-shadow(0.5rem 0.5rem 0.5rem rgba(0, 0, 0, 0.25)); will-change: filter; background: #000000;"><b><span style="color: rgb(0, 0, 0);"><span style="color: rgb(255, 255, 255);">   Reflection  </span> </span>
-</b></span><br><br>
-
-<h1><b><br>
-</b></h1><h2>Designing the system changed how I define productivity</h2><br>
-At the start, Knotboard could have become a larger to-do list. The research framing and product structure pushed it in a different direction. Creative productivity depends on preserving meaning across time. The reference that sparked the work, the decision that shaped the plan, the effort required to make it, and the lesson discovered afterward all belong to the same story.<br>
-<br>
-The project strengthened my ability to work across product strategy and visual design. Information architecture made the system coherent. Interaction design made the handoffs usable. The visual language made a dense workspace feel calm. Brand thinking gave the product a clear point of view. AI design added a new constraint: assistance is valuable only when it uses context responsibly and keeps the user’s judgment visible.<br>
-<h2></h2><br>
-<media-item class="zoomable" style="" data-full="assets/media/1ce3d236182c_04_product_choices-2.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/43993b1d696b_04_product_choices-2.svg" alt="04_product_choices-2" width="1280" height="720" loading="lazy" decoding="async" style="border-radius: 2rem;"></div></media-item><br>
-<br>
-<br>
-<br>
-<br>
-<media-item class="zoomable" style="" data-full="assets/media/314595fabc00_knotboard-horizontal-black.svg" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/02ba379f6526_knotboard-horizontal-black.svg" alt="knotboard-horizontal-black" width="1290" height="320" loading="lazy" decoding="async" style=""></div></media-item><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-     <div style="text-align: left"><br>
-<br></div><span class="description-language1" style="color: rgba(0, 0, 0, 0.85);"><br>
-</span></bodycopy></div></div></div></main>
+</div>
+</div></bodycopy></div></div></div></main>
 <div class="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><div class="lb-stage"></div></div>
 
 
 
+<script>
+(function(){document.documentElement.classList.add("js");
+var els=[].slice.call(document.querySelectorAll(".sec>*,.dec>*,figure,.stat,.need,.hold>div,.phases"));els.forEach(function(e){e.classList.add("rv")});
+function inview(e){return e.getBoundingClientRect().top<innerHeight*.96}
+els.forEach(function(e){if(inview(e))e.classList.add("in")});
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){if(!e.classList.contains("in"))io.observe(e)})}else{els.forEach(function(e){e.classList.add("in")})}
+setTimeout(function(){els.forEach(function(e){if(inview(e))e.classList.add("in")})},2500);
+var vs=[].slice.call(document.querySelectorAll("video"));
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){vs.forEach(function(v){v.removeAttribute("autoplay");v.pause()})}
+else if("IntersectionObserver" in window){var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.25});vs.forEach(function(v){vo.observe(v)})}
+})();
+</script>
 </body>
 </html>
