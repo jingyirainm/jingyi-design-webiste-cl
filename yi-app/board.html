@@ -4,10 +4,10 @@
 <title>Yi — live board</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden;background:#f3f3f3}
+html,body{width:100%;height:100%;overflow:hidden;background:#f3f3f3 radial-gradient(70% 80% at 50% 45%,#fbfbfb 0%,#f1f1f1 60%,#e9e9ea 100%)}
 /* 1730×1000 stage, scaled to whatever width the board is shown at */
 .stage{position:absolute;left:0;top:0;width:1730px;height:900px;transform-origin:0 0;
-  background:radial-gradient(70% 80% at 50% 45%,#fbfbfb 0%,#f1f1f1 60%,#e9e9ea 100%)}
+  background:none}
 .ph{--w:272px;position:absolute;width:var(--w);aspect-ratio:390/844;border-radius:calc(var(--w)*.15);background:#151515;padding:calc(var(--w)*.03);
   box-shadow:0 0 0 1px #2a2a2a inset,0 0 0 1.4px #444,0 46px 70px -26px rgba(0,0,0,.45),0 10px 24px -14px rgba(0,0,0,.35);
   animation:float 9s ease-in-out infinite}
@@ -28,7 +28,7 @@ html,body{width:100%;height:100%;overflow:hidden;background:#f3f3f3}
 </div>
 <script>
 const st=document.getElementById('stage');
-function fit(){ st.style.transform=`scale(${innerWidth/1730})`; document.querySelectorAll('.scr').forEach(s=>s.querySelector('iframe').style.transform=`scale(${s.clientWidth/390})`); }
+function fit(){ {const k=Math.min(innerWidth/1730,innerHeight/900),dx=(innerWidth-1730*k)/2,dy=(innerHeight-900*k)/2;st.style.transform=`translate(${dx}px,${dy}px) scale(${k})`;} document.querySelectorAll('.scr').forEach(s=>s.querySelector('iframe').style.transform=`scale(${s.clientWidth/390})`); }
 addEventListener('resize',fit); fit();
 // stagger loading so five app instances don't start at once
 document.querySelectorAll('iframe[data-src]').forEach((f,i)=>setTimeout(()=>{ f.src=f.dataset.src; },i*250));
