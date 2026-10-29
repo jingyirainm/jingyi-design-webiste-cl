@@ -14,7 +14,8 @@
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
   .wk-grid.two .wk-head>.wk-org{margin-left:auto}
-  .wk-grid.two .wk-head>.wk-line{flex:1 0 100%;white-space:normal;overflow:visible;text-overflow:clip}
+  .wk-grid.two .wk-item>.wk-line{order:2;margin:-.15rem 0 0;font-size:1.08rem;line-height:1.3;color:rgba(17,17,17,.5)}
+  .wk-grid.two .wk-item>.wk-type{order:3}
   .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
   .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
   .wk-kw span::before{content:'';position:absolute;left:-.5em;right:-.5em;top:-.4em;bottom:-.4em;z-index:-1;pointer-events:none;
@@ -32,10 +33,6 @@
   const BLOCK = 'gallery-slideshow,gallery-columnized,media-item,figure,.yi-live-cover';
 
   grid.querySelectorAll('.wk-item').forEach(it => {
-    // grid: subtitle joins the title row above the cover
-    const gl = it.querySelector(':scope>.wk-line'), gh = it.querySelector(':scope>.wk-head');
-    if (gl && gh) { gl.title = gl.textContent; const nm = gh.querySelector('.wk-nm'); nm ? nm.after(gl) : gh.appendChild(gl); }
-
     // list subtitle -> below the cover
     const head = it.querySelector(':scope>column-set'); if (!head) return;
     const titleCell = head.querySelectorAll(':scope>.cu')[1]; if (!titleCell) return;
