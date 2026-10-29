@@ -7,6 +7,9 @@ html[data-theme="dark"]{filter:invert(.92) hue-rotate(180deg)}
 /* keep media true-colour */
 html[data-theme="dark"] :is(img,video,iframe,canvas,picture):not(:where(.th-keep) *){filter:invert(1) hue-rotate(180deg)!important}
 html[data-theme="dark"] [style*="background-image"]:not(:where(.th-keep) *){filter:invert(1) hue-rotate(180deg)!important}
+/* project page shown inside the Visual Design page (iframe): the outer page already inverts it once, so neither filter nor counter-filter is applied to the frame itself; the page inside is drawn like a normal dark page */
+html[data-theme="dark"] .project-inline iframe{filter:none!important}
+html.is-embedded[data-theme="dark"]{filter:none}
 /* the logo becomes white */
 html[data-theme="dark"] img[src*="JingyiZhang_logo"]{filter:none!important}
 /* already-dark product panels stay dark (their contents are then left alone) */

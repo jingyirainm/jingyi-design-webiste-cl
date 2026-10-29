@@ -6,6 +6,8 @@
   const apply = t => root.setAttribute('data-theme', t);
   apply(saved() || (mq.matches ? 'dark' : 'light'));
   try { if (sessionStorage.getItem('rs-keep')) { root.classList.add('rs-keep'); sessionStorage.removeItem('rs-keep'); } } catch (e) {}
+  /* follow a change made in another window / the page that embeds this one */
+  addEventListener('storage', e => { if (e.key === KEY && e.newValue) { apply(e.newValue); document.querySelectorAll('.th-toggle').forEach(b => b.setAttribute('aria-pressed', e.newValue === 'dark')); } });
   mq.addEventListener && mq.addEventListener('change', e => { if (!saved()) apply(e.matches ? 'dark' : 'light'); });
 
   function toggle() {
