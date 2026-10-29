@@ -14,7 +14,7 @@
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
   .wk-grid.two .wk-head>.wk-org{margin-left:auto}
-  .wk-grid.two .wk-item>.wk-line{order:3;margin:0;text-align:left;font-size:1.08rem;line-height:1.3;color:rgba(17,17,17,.5)}
+  .wk-grid.two .wk-item>.wk-line{order:3;margin:0;text-align:left;font-size:1.08rem;line-height:1.3;color:#111}
   .wk-grid.two .wk-item>.wk-type{order:2}
   .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
   .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
