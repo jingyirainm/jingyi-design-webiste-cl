@@ -14,8 +14,8 @@
   .wk-grid.two .wk-head{flex-wrap:wrap;row-gap:.35rem}
   .wk-grid.two .wk-head .wk-nm{white-space:nowrap}
   .wk-grid.two .wk-head>.wk-org{margin-left:auto}
-  .wk-grid.two .wk-item>.wk-line{order:2;margin:-.15rem 0 0;font-size:1.08rem;line-height:1.3;color:rgba(17,17,17,.5)}
-  .wk-grid.two .wk-item>.wk-type{order:3}
+  .wk-grid.two .wk-item>.wk-line{order:3;margin:0;text-align:left;font-size:1.08rem;line-height:1.3;color:rgba(17,17,17,.5)}
+  .wk-grid.two .wk-item>.wk-type{order:2}
   .wk-kw{display:block;margin:0;font-size:.9rem;line-height:1.4;letter-spacing:-.005em}
   .wk-kw span{position:relative;display:inline-block;isolation:isolate;color:#5e9c00}
   .wk-kw span::before{content:'';position:absolute;left:-.5em;right:-.5em;top:-.4em;bottom:-.4em;z-index:-1;pointer-events:none;
