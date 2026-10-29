@@ -30,6 +30,7 @@
     // top-right on every page (floating); on phones it joins the top bar instead
     const foot = document.querySelector('.pin-left .side-foot');
     if (foot) foot.appendChild(button('th-float th-side')); else document.body.appendChild(button('th-float'));
+    if (!document.querySelector('.th-case')) document.body.appendChild(button('th-case'));
     const mt = document.querySelector('.pin-mtop .mobile-nav, .pin-mtop .nametag');
     if (mt && !mt.querySelector('.th-toggle')) { mt.appendChild(button('th-inbar')); }
   }

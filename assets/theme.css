@@ -2,7 +2,9 @@
    Dark mode inverts the whole page tone (so every inline colour adapts), then re-inverts
    photos, video and embeds so they keep their real colours. The Jingyi Zhang logo is deliberately
    left inverted, which turns the black line drawing white. */
-html{background:#fff;transition:filter .5s cubic-bezier(.22,.8,.2,1)}
+html{background:#fff;transition:filter 1.2s cubic-bezier(.45,0,.2,1)}
+/* media is counter-inverted: fade that in step with the page so nothing flashes */
+img,video,iframe,canvas,picture,[style*="background-image"],.th-keep{transition:filter 1.2s cubic-bezier(.45,0,.2,1)}
 html[data-theme="dark"]{filter:invert(.92) hue-rotate(180deg)}
 /* keep media true-colour */
 html[data-theme="dark"] :is(img,video,iframe,canvas,picture):not(:where(.th-keep) *){filter:invert(1) hue-rotate(180deg)!important}
@@ -16,12 +18,18 @@ html[data-theme="dark"] img[src*="JingyiZhang_logo"]{filter:none!important}
 html[data-theme="dark"] .th-keep{filter:invert(1) hue-rotate(180deg)}
 /* Change Mode control */
 .th-toggle{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.5em;color:inherit;font:inherit;line-height:inherit}
-.th-toggle .th-ico{display:inline-block;flex:none;width:1.05em;height:1.05em;border-radius:50%;border:1.5px solid currentColor;box-sizing:border-box;background:linear-gradient(90deg,currentColor 50%,transparent 50%);transition:transform .6s cubic-bezier(.22,.8,.2,1)}
+.th-toggle .th-ico{display:inline-block;flex:none;width:1.05em;height:1.05em;border-radius:50%;border:1.5px solid currentColor;box-sizing:border-box;background:linear-gradient(90deg,currentColor 50%,transparent 50%);transition:transform 1.2s cubic-bezier(.45,0,.2,1)}
 html[data-theme="dark"] .th-toggle .th-ico{transform:rotate(180deg)}
 .th-toggle:hover{opacity:.7}
 .th-toggle:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
 .th-float{position:fixed;right:clamp(16px,2.4vw,32px);top:calc(env(safe-area-inset-top,0px) + 18px);z-index:55;padding:9px 14px;border-radius:99px;font:500 13px/1 Inter,'Diatype',-apple-system,sans-serif;color:#111;
   background:rgba(255,255,255,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.1),0 2px 10px -4px rgba(0,0,0,.12)}
+/* case studies have no side bar: a round icon button at the top right */
+.th-case{display:none}
+body.case-mode:not(.mobile) .th-case{display:inline-flex;position:fixed;right:clamp(16px,2.4vw,32px);top:calc(env(safe-area-inset-top,0px) + 17px);z-index:70;width:36px;height:36px;padding:0;gap:0;justify-content:center;align-items:center;font-size:0;border-radius:99px;color:#111;
+  background:rgba(255,255,255,.78);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 0 0 1px rgba(17,17,17,.1),0 2px 10px -4px rgba(0,0,0,.12)}
+body.case-mode .th-case .th-ico{width:15px;height:15px}
+@media (prefers-reduced-motion:reduce){img,video,iframe,canvas,picture,[style*="background-image"],.th-keep{transition:none}}
 @media (prefers-reduced-motion:reduce){html{transition:none}.th-toggle .th-ico{transition:none}}
 
 /* phones: the floating control gives way to the one in the top bar (case studies hide that bar) */
