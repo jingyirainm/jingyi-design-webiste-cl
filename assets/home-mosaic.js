@@ -1,6 +1,7 @@
 /* Home (desktop): Cargo-style mosaic on a 12-column grid of square cells.
    Every card snaps to the same cell size, so the gap is identical across and down, and all row edges line up.
-   Mobile keeps its own single-column gallery. Runs after index-cards.js (card links, captions, numbers). */
+   The outer frame (equal side margins) comes from preview-frame.js. Mobile keeps its own gallery.
+   Runs after index-cards.js (card links, captions, numbers). */
 (function () {
   // Preview only: the live home keeps the original 3-column cards. Open /?preview=mosaic to see this layout.
   if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
@@ -9,17 +10,24 @@
   const GAP = 14; // px, same horizontally and vertically
 
   // [matcher, colStart, colSpan, rowStart, rowSpan, fit]
-  // Bands of 5 rows alternate big-left / big-right; the small column stacks 2 + 3 rows in band 2.
   const LAYOUT = [
     [/knotboard/i,              1, 8,  1, 5],
     [/somniloquy/i,             9, 4,  1, 5],
     [/knot-?agent/i,            1, 4,  6, 2, 'contain'],
     [/addendum/i,               1, 4,  8, 3],
     [/castpool/i,               5, 8,  6, 5],
-    [/chatgpt--2026929/i,       1, 8, 11, 5],
-    [/hexagram/i,               9, 4, 11, 5],
-    [/vibe_painting/i,          1, 4, 16, 5],
-    [/developers-social/i,      5, 8, 16, 5]
+    [/chatgpt--2026929/i,       1, 8, 11, 4],   // becomes the live I Ching board (wide)
+    [/hexagram/i,               9, 4, 11, 4],   // becomes the Mindspace balloons video
+    [/vibe_painting/i,          1, 4, 15, 5],
+    [/developers-social/i,      5, 8, 15, 5]
+  ];
+
+  // tiles swapped to assets that live elsewhere on the site
+  const SWAP = [
+    { re: /chatgpt--2026929/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
+      html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
+    { re: /hexagram/i, n: 'Mindspace', m: 'AIGC Video', href: 'mindspace.html',
+      html: '<video class="media" src="assets/media/86d4830e11be_rainmelonzjy_72706_a_thousand_of_floating_balloon_white_colo.mp4" autoplay muted loop playsinline width="768" height="512"></video>' }
   ];
 
   const css = `
@@ -31,11 +39,8 @@
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
-  /* full width right of the sidebar, equal outer margin on both sides */
-  body.page-homepage-desktop-1:not(.mobile) main .desk-only .page-layout{max-width:none!important;width:auto!important;margin:0!important;
-    padding-left:calc(var(--hm-sb,20.2vw) + var(--hm-m))!important;padding-right:var(--hm-m)!important}
-  body.page-homepage-desktop-1:not(.mobile) main .desk-only .page-content{padding-left:0!important;padding-right:0!important}
-  body.page-homepage-desktop-1{--hm-m:clamp(24px,2.8vw,56px)}
+  .hm-embed{position:absolute;inset:0;background:#f3f3f3}
+  .hm-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
   /* square corners on every home card (desktop + mobile) */
   body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame,
   body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame::after,
@@ -53,17 +58,29 @@
     mi.style.setProperty('--hm-c', `${c} / span ${cs}`);
     mi.style.setProperty('--hm-r', `${r} / span ${rs}`);
     if (fit === 'contain') mi.classList.add('hm-contain');
+    mi._hmKey = re;
     placed.push(mi);
   });
   if (placed.length !== items.length) return; // unknown card: leave the original masonry untouched
+
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  SWAP.forEach(sw => {
+    const mi = placed.find(x => sw.re.test(srcOf(x))); if (!mi) return;
+    const old = mi.querySelector('.mi-frame > img, .mi-frame > video'); if (!old) return;
+    old.insertAdjacentHTML('afterend', sw.html); old.remove();
+    const v = mi.querySelector('video'); if (v) { v.muted = true; v.play && v.play().catch(() => {}); }
+    const cap = mi.querySelector('.ic-cap');
+    if (cap) cap.innerHTML = `<b>${esc(sw.n)}</b><i>${esc(sw.m)}</i>`;
+    const link = mi.querySelector('.ic-link');
+    if (link) { link.setAttribute('href', sw.href); link.setAttribute('aria-label', `${sw.n}, ${sw.m}`); }
+  });
+
   placed.forEach(mi => gal.appendChild(mi)); // reading / tab order follows the mosaic
   placed.forEach((mi, i) => { const no = mi.querySelector('.ic-no'); if (no) no.textContent = String(i + 1).padStart(2, '0'); });
   gal.classList.add('hm');
 
   // square cells: row height = column width
-  const sb = document.querySelector('.pin-left .page-layout');
   const size = () => {
-    if (sb) document.body.style.setProperty('--hm-sb', Math.round(sb.getBoundingClientRect().right) + 'px');
     const w = gal.clientWidth; if (!w) return;
     gal.style.setProperty('--hm-row', ((w - GAP * 11) / 12) + 'px');
   };
