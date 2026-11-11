@@ -2,6 +2,8 @@
    Every card snaps to the same cell size, so the gap is identical across and down, and all row edges line up.
    Mobile keeps its own single-column gallery. Runs after index-cards.js (card links, captions, numbers). */
 (function () {
+  // Preview only: the live home keeps the original 3-column cards. Open /?preview=mosaic to see this layout.
+  if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   const gal = document.querySelector('main .desk-only gallery-columnized');
   if (!gal) return;
   const GAP = 14; // px, same horizontally and vertically
