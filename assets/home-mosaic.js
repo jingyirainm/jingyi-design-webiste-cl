@@ -28,7 +28,18 @@
   body:not(.mobile) gallery-columnized.hm>media-item>.mi-frame{width:100%!important;height:100%!important;margin:0!important}
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
-  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}`;
+  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
+  /* full width right of the sidebar, equal outer margin on both sides */
+  body.page-homepage-desktop-1:not(.mobile) main .desk-only .page-layout{max-width:none!important;width:auto!important;margin:0!important;
+    padding-left:calc(var(--hm-sb,20.2vw) + var(--hm-m))!important;padding-right:var(--hm-m)!important}
+  body.page-homepage-desktop-1:not(.mobile) main .desk-only .page-content{padding-left:0!important;padding-right:0!important}
+  body.page-homepage-desktop-1{--hm-m:clamp(24px,2.8vw,56px)}
+  /* square corners on every home card (desktop + mobile) */
+  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame,
+  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame::after,
+  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .media,
+  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .ic-cap,
+  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .ic-link{border-radius:0!important}`;
   const st = document.createElement('style'); st.id = 'home-mosaic-css'; st.textContent = css; document.head.appendChild(st);
 
   const items = [...gal.querySelectorAll(':scope > media-item')];
@@ -48,10 +59,13 @@
   gal.classList.add('hm');
 
   // square cells: row height = column width
+  const sb = document.querySelector('.pin-left .page-layout');
   const size = () => {
+    if (sb) document.body.style.setProperty('--hm-sb', Math.round(sb.getBoundingClientRect().right) + 'px');
     const w = gal.clientWidth; if (!w) return;
     gal.style.setProperty('--hm-row', ((w - GAP * 11) / 12) + 'px');
   };
   size();
-  if ('ResizeObserver' in window) new ResizeObserver(size).observe(gal); else addEventListener('resize', size);
+  addEventListener('resize', size);
+  if ('ResizeObserver' in window) new ResizeObserver(size).observe(gal);
 })();
