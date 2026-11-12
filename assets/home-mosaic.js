@@ -41,6 +41,8 @@
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
+  /* dark mode: no hairline ring around the tiles (it inverts to a light edge) */
+  html[data-theme="dark"] body:not(.mobile) gallery-columnized.hm .mi-frame::after{box-shadow:none!important}
   /* A Meditation Practice: its video ground is near-white */
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#fcfcfc}
   /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
@@ -57,7 +59,8 @@
     if (!mi) return;
     mi.style.setProperty('--hm-c', `${c} / span ${cs}`);
     mi.style.setProperty('--hm-r', `${r} / span ${rs}`);
-    if (fit === 'contain') mi.classList.add('hm-contain');
+    // contained tiles: the white ground around the media must stay white in dark mode, so the frame is kept out of the page inversion
+    if (fit === 'contain') { mi.classList.add('hm-contain'); const f = mi.querySelector('.mi-frame'); if (f) f.classList.add('th-keep'); }
     mi._hmKey = re;
     placed.push(mi);
   });
