@@ -15,16 +15,16 @@
     return v;
   };
   document.querySelectorAll('img[src*="CastPool_Hero_3x2_"]').forEach(img => {
-    const v = vid({ class: img.className, style: img.getAttribute('style') || '', width: 1600, height: 1066, poster: CAST + 'castingpool_motion_card_v5_poster.jpg',
+    const v = vid({ class: img.className, style: img.getAttribute('style') || '', width: 1600, height: 1066, poster: CAST + 'castingpool_motion_card_v7_poster.jpg',
       'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
-      [[CAST + 'castingpool_motion_card_v5.mp4', 'video/mp4']]);
+      [[CAST + 'castingpool_motion_card_v7.mp4', 'video/mp4']]);
     img.replaceWith(v); v.play && v.play().catch(() => {});
   });
   const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
   if (hero) {
-    const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v5_poster.jpg', preload: 'auto',
+    const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v7_poster.jpg', preload: 'auto',
       'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
-      [[CAST + 'castingpool_motion_v5.webm', 'video/webm'], [CAST + 'castingpool_motion_v5.mp4', 'video/mp4']]);
+      [[CAST + 'castingpool_motion_v7.webm', 'video/webm'], [CAST + 'castingpool_motion_v7.mp4', 'video/mp4']]);
     hero.replaceWith(v); v.play && v.play().catch(() => {});
   }
 
