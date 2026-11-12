@@ -10,20 +10,20 @@
   .hc-card.flipped .hc-card-in{transform:rotateY(180deg)}
   .hc-card-front,.hc-card-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4.7%/8.5%;overflow:hidden}
   .hc-card-front svg{display:block;width:100%;height:100%}
-  .hc-card-back{transform:rotateY(180deg);background:#f2f4ee url(assets/card-bg.jpg) center/cover;display:flex;flex-direction:column;justify-content:space-between;padding:7% 6%;color:#385C2B}
+  .hc-card-back{transform:rotateY(180deg);background:#f2f4ee url(assets/card-bg-bw.jpg?v=2) center/cover;display:flex;flex-direction:column;justify-content:space-between;padding:7% 6%;color:#2B2B2B}
   .hc-card-back>*{position:relative}
   .hc-card-back .nm{font:300 clamp(.9rem,1.5vw,1.2rem)/1.5 "Diatype Variable",Inter,sans-serif;letter-spacing:.02em}
   .hc-card-back ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem}
-  .hc-card-back a{font:300 clamp(1.1rem,2.2vw,1.7rem)/1.3 "Diatype Variable",Inter,sans-serif;color:#385C2B;text-decoration:none;display:inline-flex;gap:.5em;align-items:baseline}
+  .hc-card-back a{font:300 clamp(1.1rem,2.2vw,1.7rem)/1.3 "Diatype Variable",Inter,sans-serif;color:#2B2B2B;text-decoration:none;display:inline-flex;gap:.5em;align-items:baseline}
   .hc-card-back a:hover{text-decoration:underline}
   .hc-card-flip{position:absolute;z-index:3;border:0;background:transparent;cursor:pointer;border-radius:999px;padding:0}
-  .hc-card-flip:focus-visible{outline:2px solid #2C3A0E;outline-offset:2px}
+  .hc-card-flip:focus-visible{outline:2px solid #2B2B2B;outline-offset:2px}
   .hc-card-flip.f{left:59%;top:4.9%;width:39.8%;height:9.3%}
-  .hc-card-back .back-btn{align-self:flex-end;position:absolute;right:5%;top:6%;font:300 clamp(.8rem,1.3vw,1rem) "Diatype Variable",Inter,sans-serif;color:#fff;background:linear-gradient(90deg,#A4CF58,#5C8A26);border:0;border-radius:999px;padding:.55em 1.2em;cursor:pointer}
+  .hc-card-back .back-btn{align-self:flex-end;position:absolute;right:5%;top:6%;font:300 clamp(.8rem,1.3vw,1rem) "Diatype Variable",Inter,sans-serif;color:#fff;background:linear-gradient(90deg,#9a9a9a,#4a4a4a);border:0;border-radius:999px;padding:.55em 1.2em;cursor:pointer}
   html[data-theme="dark"] .hc-card-front,html[data-theme="dark"] .hc-card-back{filter:none}
   @media (prefers-reduced-motion:reduce){.hc-card-in{transition:none}}`;
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
-  fetch('assets/card-portfolio.svg?v=1').then(r => r.text()).then(svg => {
+  fetch('assets/card-portfolio-bw.svg?v=2').then(r => r.text()).then(svg => {
     const sec = document.createElement('section');
     sec.className = 'hc-card hc-rv';
     sec.innerHTML = `<div class="hc-card-in">
