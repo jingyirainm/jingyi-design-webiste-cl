@@ -20,6 +20,11 @@
       [[CAST + 'castingpool_motion_card_v8.mp4?r=3', 'video/mp4']]);
     img.replaceWith(v); v.play && v.play().catch(() => {});
   });
+  // Knotboard home card (preview only): MacBook part of the intro only, looped
+  document.querySelectorAll('video[src*="knotboard/knotboard_intro.mp4"]').forEach(v => {
+    v.poster = 'assets/projects/knotboard/knotboard_intro_mac_poster.jpg';
+    v.src = 'assets/projects/knotboard/knotboard_intro_mac.mp4'; v.muted = true; v.play && v.play().catch(() => {});
+  });
   const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
   if (hero) {
     const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v8_poster.jpg?r=3', preload: 'auto',
