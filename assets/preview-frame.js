@@ -29,8 +29,7 @@
   }
 
   // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)
-  // Home preview now matches the live home exactly (sizes, margins); only Product Design / Visual Design keep the frame
-  const framePage = /^\/(work\/?|menu\/?|work\.html|menu\.html)$/.test(location.pathname);
+  const framePage = /^\/(index\.html|work\/?|menu\/?|jingyizhang-design\.html|work\.html|menu\.html)?$/.test(location.pathname);
   if (!framePage) { keepFlag(); return; }
   B.classList.add('pv');
   const st = document.createElement('style'); st.id = 'preview-frame-css';
