@@ -13,12 +13,12 @@
   const LAYOUT = [   // [matcher, col, colSpan, band, bandSpan, fit, indent]   (Cargo reference: 4 bands, 8|4, 4|8, 6|6, 8|4)
     [/knotboard/i,              1, 8, 1, 1],
     [/somniloquy/i,             9, 4, 1, 1],
-    [/hexagram/i,               1, 4, 2, 1, '', 'l'],   // Yi phone: narrow, indented from the left edge
+    [/hexagram/i,               1, 4, 2, 1],   // Yi phone: narrow
     [/cast(ing)?pool/i,         5, 8, 2, 1],
     [/addendum/i,               1, 6, 3, 1],
     [/vibe_painting/i,          7, 6, 3, 1, 'contain'],   // becomes A Meditation Practice
     [/knot-?agent/i,            1, 8, 4, 1],   // becomes the live I Ching board (wide)
-    [/star-chair/i,             9, 4, 4, 1, '', 'r']    // narrow, short of the right edge
+    [/star-chair/i,             9, 4, 4, 1]
   ];
   const BANDS = [0.444, 0.38, 0.32, 0.413];   // band heights as a share of the card-group width
 
