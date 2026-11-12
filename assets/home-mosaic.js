@@ -18,8 +18,8 @@
     [/cast(ing)?pool/i,               5, 8,  6, 5],
     [/chatgpt--2026929/i,       1, 8, 11, 4],   // becomes the live I Ching board (wide)
     [/hexagram/i,               9, 4, 11, 4],   // becomes the Mindspace balloons video
-    [/vibe_painting/i,          1, 4, 15, 5],
-    [/developers-social/i,      5, 8, 15, 5]
+    [/vibe_painting/i,          1, 6, 15, 4],   // becomes A Meditation Practice (3:2, same frame as its video)
+    [/developers-social/i,      7, 6, 15, 4, 'contain']
   ];
 
   // tiles swapped to assets that live elsewhere on the site
@@ -27,7 +27,9 @@
     { re: /chatgpt--2026929/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
       html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
     { re: /hexagram/i, n: 'Mindspace', m: 'AIGC Video', href: 'mindspace.html',
-      html: '<video class="media" src="assets/media/86d4830e11be_rainmelonzjy_72706_a_thousand_of_floating_balloon_white_colo.mp4" autoplay muted loop playsinline width="768" height="512"></video>' }
+      html: '<video class="media" src="assets/media/86d4830e11be_rainmelonzjy_72706_a_thousand_of_floating_balloon_white_colo.mp4" autoplay muted loop playsinline width="768" height="512"></video>' },
+    { re: /vibe_painting/i, n: 'A Meditation Practice', m: 'Video Art / AI Generation', href: 'a-meditation-practice.html',
+      html: '<video class="media" src="assets/media/314f6ba6360a_rainmelonzjy_72706_httpss.mj.runjAVvjQTTUvc_no_camera_moveme.mp4" poster="assets/media/2d52531b2869_rainmelonzjy_72706_httpss.webp" autoplay muted loop playsinline width="1168" height="784"></video>' }
   ];
 
   const css = `
@@ -39,6 +41,8 @@
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
+  /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
+  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media[src*="developers-social"]{clip-path:inset(9.5% 0)}
   .hm-embed{position:absolute;inset:0;background:#f3f3f3}
   .hm-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}`;
   const st = document.createElement('style'); st.id = 'home-mosaic-css'; st.textContent = css; document.head.appendChild(st);
