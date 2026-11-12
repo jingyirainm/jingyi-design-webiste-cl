@@ -14,8 +14,9 @@
     v.muted = true; v.autoplay = true; v.loop = true; v.playsInline = true;
     return v;
   };
-  // the motion card replaces the Casting Pool image on Home and Product Design
-  document.querySelectorAll('img[src*="CastPool_Hero_3x2_"]').forEach(img => {
+  // the motion card replaces the Casting Pool image on the Home mosaic only; Product Design keeps its original slideshow image
+  const isHome = /^\/(index\.html|jingyizhang-design\.html)?$/.test(location.pathname);
+  if (isHome) document.querySelectorAll('img[src*="CastPool_Hero_3x2_"]').forEach(img => {
     const v = vid({ class: img.className, style: img.getAttribute('style') || '', width: 1600, height: 1066, poster: CAST + 'castingpool_motion_card_v8_poster.jpg?r=3',
       'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
       [[CAST + 'castingpool_motion_card_v8.mp4?r=3', 'video/mp4']]);
