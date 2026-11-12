@@ -1,11 +1,11 @@
-/* Home (preview only, /?preview=mosaic): the animated business card, closing the mosaic (desktop).
+/* Home (preview only, /?preview=mosaic): the animated business card, opening the mosaic in place of the intro heading (desktop).
    The SVG is inlined so its CSS animation runs; "Flip Card" turns it over to the contact side. */
 (function () {
   if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   const intro = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!intro || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const css = `
-  .hc-card{margin:14px 0 0;max-width:none;perspective:1800px}
+  .hc-card{margin:0 0 14px;max-width:none;perspective:1800px}
   .hc-card-in{position:relative;aspect-ratio:854/473;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
   .hc-card.flipped .hc-card-in{transform:rotateY(180deg)}
   .hc-card-front,.hc-card-back{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4.7%/8.5%;overflow:hidden}
@@ -36,7 +36,7 @@
         <ul><li><a href="mailto:jingyizhang145@gmail.com">Email <span>↗</span></a></li>
         <li><a href="https://www.linkedin.com/in/jingyizhang145/" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
         <li><a href="https://www.instagram.com/rainmelon.studio/" target="_blank" rel="noopener">Instagram <span>↗</span></a></li></ul></div></div>`;
-    intro.insertAdjacentElement('afterend', sec);
+    intro.insertAdjacentElement('beforebegin', sec);
     // line up with the mosaic's left edge (same trick as the intro heading)
     const align = () => { sec.style.marginLeft = '0px'; sec.style.width = ''; sec.style.marginLeft = (intro.getBoundingClientRect().left - sec.getBoundingClientRect().left) + 'px'; sec.style.width = intro.getBoundingClientRect().width + 'px'; };
     align(); addEventListener('resize', align); addEventListener('load', align); setTimeout(align, 600);
