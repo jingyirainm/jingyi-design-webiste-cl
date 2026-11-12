@@ -4,6 +4,33 @@
 (function () {
   if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   const B = document.body;
+
+  // new Casting Pool motion (preview only): 3:2 loop on cards, 16:9 loop on the case-study hero
+  const CAST = 'assets/projects/casting/';
+  const vid = (attrs, sources) => {
+    const v = document.createElement('video');
+    Object.entries(attrs).forEach(([k, val]) => v.setAttribute(k, val));
+    sources.forEach(([src, type]) => { const s = document.createElement('source'); s.src = src; s.type = type; v.appendChild(s); });
+    v.muted = true; v.autoplay = true; v.loop = true; v.playsInline = true;
+    return v;
+  };
+  document.querySelectorAll('img[src*="CastPool_Hero_3x2_"]').forEach(img => {
+    const v = vid({ class: img.className, style: img.getAttribute('style') || '', width: 1600, height: 1066, poster: CAST + 'castingpool_motion_card_v5_poster.jpg',
+      'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
+      [[CAST + 'castingpool_motion_card_v5.mp4', 'video/mp4']]);
+    img.replaceWith(v); v.play && v.play().catch(() => {});
+  });
+  const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
+  if (hero) {
+    const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v5_poster.jpg', preload: 'auto',
+      'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
+      [[CAST + 'castingpool_motion_v5.webm', 'video/webm'], [CAST + 'castingpool_motion_v5.mp4', 'video/mp4']]);
+    hero.replaceWith(v); v.play && v.play().catch(() => {});
+  }
+
+  // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)
+  const framePage = /^\/(index\.html|work\/?|menu\/?|jingyizhang-design\.html|work\.html|menu\.html)?$/.test(location.pathname);
+  if (!framePage) { keepFlag(); return; }
   B.classList.add('pv');
   const st = document.createElement('style'); st.id = 'preview-frame-css';
   st.textContent = `
@@ -18,15 +45,19 @@
   const size = () => { if (sb) B.style.setProperty('--pv-sb', Math.round(sb.getBoundingClientRect().right) + 'px'); };
   size(); addEventListener('resize', size);
 
+  keepFlag();
+
   // keep the preview flag across pages (full load, bypassing the in-place page swap)
   // window capture runs before clean-routing.js / dissolve.js, which also intercept clicks on document
-  window.addEventListener('click', e => {
-    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    const a = e.target.closest && e.target.closest('a[href]'); if (!a || a.target === '_blank') return;
-    const u = new URL(a.href, location.href);
-    if (u.origin !== location.origin || (u.pathname === location.pathname && u.hash)) return;
-    u.searchParams.set('preview', 'mosaic');
-    e.preventDefault(); e.stopImmediatePropagation();
-    location.href = u.href;
-  }, true);
+  function keepFlag() {
+    window.addEventListener('click', e => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest && e.target.closest('a[href]'); if (!a || a.target === '_blank') return;
+      const u = new URL(a.href, location.href);
+      if (u.origin !== location.origin || (u.pathname === location.pathname && u.hash)) return;
+      u.searchParams.set('preview', 'mosaic');
+      e.preventDefault(); e.stopImmediatePropagation();
+      location.href = u.href;
+    }, true);
+  }
 })();

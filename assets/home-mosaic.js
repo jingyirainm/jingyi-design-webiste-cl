@@ -15,7 +15,7 @@
     [/somniloquy/i,             9, 4,  1, 5],
     [/knot-?agent/i,            1, 4,  6, 2, 'contain'],
     [/addendum/i,               1, 4,  8, 3],
-    [/castpool/i,               5, 8,  6, 5],
+    [/cast(ing)?pool/i,               5, 8,  6, 5],
     [/chatgpt--2026929/i,       1, 8, 11, 4],   // becomes the live I Ching board (wide)
     [/hexagram/i,               9, 4, 11, 4],   // becomes the Mindspace balloons video
     [/vibe_painting/i,          1, 4, 15, 5],
@@ -50,7 +50,7 @@
   const st = document.createElement('style'); st.id = 'home-mosaic-css'; st.textContent = css; document.head.appendChild(st);
 
   const items = [...gal.querySelectorAll(':scope > media-item')];
-  const srcOf = mi => { const m = mi.querySelector('img,video'); return decodeURIComponent((m && (m.currentSrc || m.getAttribute('src'))) || ''); };
+  const srcOf = mi => { const m = mi.querySelector('img,video'); const so = m && m.querySelector && m.querySelector('source'); return decodeURIComponent((m && (m.currentSrc || m.getAttribute('src') || (so && so.getAttribute('src')))) || ''); };
   const placed = [];
   LAYOUT.forEach(([re, c, cs, r, rs, fit]) => {
     const mi = items.find(x => !placed.includes(x) && re.test(srcOf(x)));
