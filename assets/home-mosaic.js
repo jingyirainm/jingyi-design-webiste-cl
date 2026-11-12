@@ -41,9 +41,8 @@
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
-  /* A Meditation Practice: shown as a negative on black (its near-white ground inverts to near-black) */
-  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#030303}
-  body:not(.mobile) gallery-columnized.hm video[src*="314f6ba6360a"]{filter:invert(1)}
+  /* A Meditation Practice: its video ground is near-white */
+  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#fcfcfc}
   /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media[src*="developers-social"]{clip-path:inset(9.5% 0)}
   .hm-embed{position:absolute;inset:0;background:#f3f3f3}
