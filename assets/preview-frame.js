@@ -20,6 +20,14 @@
       [[CAST + 'castingpool_motion_card_v7.mp4', 'video/mp4']]);
     img.replaceWith(v); v.play && v.play().catch(() => {});
   });
+  // new Vibe Painting product mockup (preview only): display on a pastel desk, camera pushes into the canvas, 3:4 loop
+  const VIBE = 'assets/projects/vibe/';
+  document.querySelectorAll('img[src*="vibe_painting_5.8s_600x800"]').forEach(img => {
+    const v = vid({ class: img.className, style: img.getAttribute('style') || '', width: 900, height: 1200, poster: VIBE + 'vibe_painting_mockup_card_poster.jpg',
+      'aria-label': 'Vibe Painting running on a desktop display: blow to add colour, blink to add figures', autoplay: '', muted: '', loop: '', playsinline: '' },
+      [[VIBE + 'vibe_painting_mockup_card.mp4', 'video/mp4']]);
+    img.replaceWith(v); v.play && v.play().catch(() => {});
+  });
   const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
   if (hero) {
     const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v7_poster.jpg', preload: 'auto',
