@@ -52,7 +52,7 @@
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#fcfcfc}
   /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media[src*="developers-social"]{clip-path:inset(9.5% 0)}
-  body:not(.mobile) .hm-intro{margin:0 0 7.5rem;padding-top:.4rem;font:300 3vw/1.35 "Diatype Variable",Inter,-apple-system,sans-serif;
+  body:not(.mobile) .hm-intro{margin:0 0 7.5rem;padding-top:.4rem;font:500 3vw/1.35 "Diatype Variable",Inter,-apple-system,sans-serif;
     letter-spacing:-.01em;color:rgba(0,0,0,.8);text-align:left;white-space:nowrap}
   body:not(.mobile) .hm-intro i{font-style:italic}
   body:not(.mobile) .hm-intro u{text-decoration-thickness:.05em;text-underline-offset:.12em}
