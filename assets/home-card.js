@@ -25,12 +25,20 @@
     </defs>
     <g clip-path="url(#hc-clip)">
       <rect width="854" height="473" fill="url(#hc-g)"/>
-      <text x="30" y="408" textLength="794" lengthAdjust="spacingAndGlyphs" font-family="'Times New Roman',Times,'Liberation Serif',serif" font-size="140" fill="#fff" fill-opacity=".28" stroke="#fff" stroke-opacity=".95" stroke-width="1.5" filter="url(#hc-emboss)">Jingyi Zhang</text>
+      <text x="30" y="408" id="hc-name" font-family="'Cormorant Garamond','Times New Roman',Times,serif" font-weight="500" font-size="170" fill="#fff" fill-opacity=".28" stroke="#fff" stroke-opacity=".95" stroke-width="1.5" filter="url(#hc-emboss)">Jingyi Zhang</text>
     </g></svg>`;
+  // tall, high-contrast serif (Cormorant Garamond) from Google Fonts; sized so the name spans the card
+  if (!document.getElementById('hc-font')) {
+    const l = document.createElement('link'); l.id = 'hc-font'; l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap'; document.head.appendChild(l);
+  }
+  const fit = () => { const t = sec.querySelector('#hc-name'); if (!t) return; t.setAttribute('font-size', 170);
+    const w = t.getComputedTextLength(); if (w > 0) t.setAttribute('font-size', Math.min(230, 170 * 794 / w)); };
   const st = document.createElement('style');
   st.textContent = '.hc-card{margin:0 0 14px}.hc-card svg{display:block;width:100%;height:auto}';
   document.head.appendChild(st);
   grid.insertAdjacentElement('beforebegin', sec);
+  fit(); if (document.fonts) { document.fonts.load('500 100px "Cormorant Garamond"').then(fit).catch(() => {}); document.fonts.ready.then(fit); }
   // line up with the mosaic's left edge and width
   const align = () => { sec.style.marginLeft = '0px'; sec.style.width = ''; sec.style.marginLeft = (grid.getBoundingClientRect().left - sec.getBoundingClientRect().left) + 'px'; sec.style.width = grid.getBoundingClientRect().width + 'px'; };
   align(); addEventListener('resize', align); addEventListener('load', align); setTimeout(align, 600);
