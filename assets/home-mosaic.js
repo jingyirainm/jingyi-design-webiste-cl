@@ -86,6 +86,16 @@
   const size = () => {
     const w = gal.clientWidth; if (!w) return;
     gal.style.setProperty('--hm-row', ((w - GAP * 11) / 12) + 'px');
+    centre();
+  };
+  // centre the whole card group in the space right of the side bar: same white space left and right
+  const sb = document.querySelector('.pin-left .page-layout');
+  const centre = () => {
+    if (document.body.classList.contains('mobile')) { gal.style.left = ''; return; }
+    gal.style.position = 'relative'; gal.style.left = '0px';
+    const r = gal.getBoundingClientRect(); if (!r.width) return;
+    const L = sb ? sb.getBoundingClientRect().right : 0, R = document.documentElement.clientWidth;
+    gal.style.left = Math.round((L + R) / 2 - (r.left + r.right) / 2) + 'px';
   };
   size();
   addEventListener('resize', size);
