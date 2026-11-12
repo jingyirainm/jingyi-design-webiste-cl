@@ -52,8 +52,8 @@
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#fcfcfc}
   /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media[src*="developers-social"]{clip-path:inset(9.5% 0)}
-  body:not(.mobile) .hm-intro{margin:0 0 7.5rem;padding-top:.4rem;font:300 3.6vw/1.35 "Diatype Variable",Inter,-apple-system,sans-serif;
-    letter-spacing:-.01em;color:rgba(0,0,0,.8);text-align:left;max-width:68rem}
+  body:not(.mobile) .hm-intro{margin:0 0 7.5rem;padding-top:.4rem;font:300 3vw/1.35 "Diatype Variable",Inter,-apple-system,sans-serif;
+    letter-spacing:-.01em;color:rgba(0,0,0,.8);text-align:left;white-space:nowrap}
   body:not(.mobile) .hm-intro i{font-style:italic}
   body:not(.mobile) .hm-intro u{text-decoration-thickness:.05em;text-underline-offset:.12em}
   .hm-embed{position:absolute;inset:0;background:#f3f3f3}
@@ -99,7 +99,7 @@
   if (!document.querySelector('.hm-intro')) {
     const h = document.createElement('h1');
     h.className = 'hm-intro';
-    h.innerHTML = 'Hi, I am Jingyi.<br>I am an <u><i>AI-Native</i></u> Multidisplinary Designer that Bring Structure to Creativity.';
+    h.innerHTML = 'Hi, I am Jingyi.<br>I am an <u><i>AI-Native</i></u> Multidisplinary Designer<br>that Bring Structure to Creativity.';
     gal.parentNode.insertBefore(h, gal);
     // line the text up with the grid's left edge, as on the Cargo page
     const align = () => { h.style.marginLeft = '0px'; h.style.marginLeft = (gal.getBoundingClientRect().left - h.getBoundingClientRect().left) + 'px'; };
