@@ -13,18 +13,18 @@
   const LAYOUT = [
     [/knotboard/i,              1, 8,  1, 5],
     [/somniloquy/i,             9, 4,  1, 5],
-    [/knot-?agent/i,            1, 4,  6, 2, 'contain'],
-    [/vibe_painting/i,          1, 4,  8, 3, 'contain'],   // becomes A Meditation Practice: whole 3:2 frame, white ground blends with the card
-    [/cast(ing)?pool/i,               5, 8,  6, 5],
-    [/chatgpt--2026929/i,       1, 8, 11, 4],   // becomes the live I Ching board (wide)
-    [/hexagram/i,               9, 4, 11, 4],   // becomes the Mindspace balloons video
-    [/addendum/i,               1, 6, 15, 4],
-    [/developers-social/i,      7, 6, 15, 4, 'contain']
+    [/chatgpt--2026929/i,       1, 5,  6, 3],   // Dunhuang Echoes (its own image, ~1.65:1)
+    [/vibe_painting/i,          1, 5,  9, 3, 'contain'],   // becomes A Meditation Practice: whole 3:2 frame, white ground blends with the card
+    [/cast(ing)?pool/i,         6, 7,  6, 6],   // the talent-card cluster sits in the middle, only empty cream is trimmed
+    [/knot-?agent/i,            1, 8, 12, 4],   // becomes the live I Ching board (wide)
+    [/hexagram/i,               9, 4, 12, 4],   // becomes the Mindspace balloons video
+    [/addendum/i,               1, 6, 16, 4],
+    [/developers-social/i,      7, 6, 16, 4, 'contain']
   ];
 
   // tiles swapped to assets that live elsewhere on the site
   const SWAP = [
-    { re: /chatgpt--2026929/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
+    { re: /knot-?agent/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
       html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
     { re: /hexagram/i, n: 'Mindspace', m: 'AIGC Video', href: 'mindspace.html',
       html: '<video class="media" src="assets/media/86d4830e11be_rainmelonzjy_72706_a_thousand_of_floating_balloon_white_colo.mp4" autoplay muted loop playsinline width="768" height="512"></video>' },
