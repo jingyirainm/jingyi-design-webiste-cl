@@ -26,7 +26,7 @@
 
   // tiles swapped to assets that live elsewhere on the site
   const SWAP = [
-    { re: /star-chair/i, n: 'Star Chair', m: 'Object Design', href: 'artificial-appetite.html',
+    { re: /star-chair/i, n: 'Selection 3', m: 'AIGC Key Visual · Product', href: 'selection-3.html',
       html: '<img class="media" src="assets/media/star-chair.jpg" alt="Brushed-aluminium chair with a star cut-out" width="1000" height="1328">' },
     { re: /knot-?agent/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
       html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
