@@ -13,17 +13,21 @@
   const LAYOUT = [
     [/knotboard/i,              1, 8,  1, 5],
     [/somniloquy/i,             9, 4,  1, 5],
-    [/chatgpt--2026929/i,       1, 5,  6, 3],   // Dunhuang Echoes (its own image, ~1.65:1)
-    [/vibe_painting/i,          1, 5,  9, 3, 'contain'],   // becomes A Meditation Practice: whole 3:2 frame, white ground blends with the card
-    [/cast(ing)?pool/i,         6, 7,  6, 6],   // the talent-card cluster sits in the middle, only empty cream is trimmed
-    [/knot-?agent/i,            1, 8, 12, 4],   // becomes the live I Ching board (wide)
-    [/hexagram/i,               9, 4, 12, 4],   // becomes the Mindspace balloons video
-    [/addendum/i,               1, 6, 16, 4],
-    [/developers-social/i,      7, 6, 16, 4, 'contain']
+    [/star-chair/i,             1, 4,  6, 5],   // new: portrait tile, narrow slot
+    [/cast(ing)?pool/i,         5, 8,  6, 5],
+    [/chatgpt--2026929/i,       1, 6, 11, 4],   // Dunhuang Echoes
+    [/vibe_painting/i,          7, 6, 11, 4, 'contain'],   // becomes A Meditation Practice
+    [/knot-?agent/i,            1, 8, 15, 5],   // becomes the live I Ching board (wide)
+    [/hexagram/i,               9, 4, 15, 5],   // becomes the Mindspace balloons video
+    [/addendum/i,               1, 6, 20, 4],
+    [/developers-social/i,      7, 6, 20, 4, 'contain']
   ];
+
 
   // tiles swapped to assets that live elsewhere on the site
   const SWAP = [
+    { re: /star-chair/i, n: 'Star Chair', m: 'Object Design', href: 'artificial-appetite.html',
+      html: '<img class="media" src="assets/media/star-chair.jpg" alt="Brushed-aluminium chair with a star cut-out" width="1000" height="1328">' },
     { re: /knot-?agent/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
       html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
     { re: /hexagram/i, n: 'Mindspace', m: 'AIGC Video', href: 'mindspace.html',
@@ -52,7 +56,10 @@
   const st = document.createElement('style'); st.id = 'home-mosaic-css'; st.textContent = css; document.head.appendChild(st);
 
   const items = [...gal.querySelectorAll(':scope > media-item')];
-  const srcOf = mi => { const m = mi.querySelector('img,video'); const so = m && m.querySelector && m.querySelector('source'); return decodeURIComponent((m && (m.currentSrc || m.getAttribute('src') || (so && so.getAttribute('src')))) || ''); };
+  // extra card: clone an existing one, its picture is swapped below
+  { const base = items.find(x => /somniloquy/i.test(decodeURIComponent((x.querySelector('img,video') || {}).currentSrc || (x.querySelector('img,video') || document.body).getAttribute?.('src') || '')));
+    if (base) { const c = base.cloneNode(true); c.dataset.hmSrc = 'star-chair'; gal.appendChild(c); items.push(c); } }
+  const srcOf = mi => { if (mi.dataset.hmSrc) return mi.dataset.hmSrc; const m = mi.querySelector('img,video'); const so = m && m.querySelector && m.querySelector('source'); return decodeURIComponent((m && (m.currentSrc || m.getAttribute('src') || (so && so.getAttribute('src')))) || ''); };
   const placed = [];
   LAYOUT.forEach(([re, c, cs, r, rs, fit]) => {
     const mi = items.find(x => !placed.includes(x) && re.test(srcOf(x)));
