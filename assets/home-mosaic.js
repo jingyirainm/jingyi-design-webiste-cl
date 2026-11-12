@@ -14,11 +14,11 @@
     [/knotboard/i,              1, 8,  1, 5],
     [/somniloquy/i,             9, 4,  1, 5],
     [/knot-?agent/i,            1, 4,  6, 2, 'contain'],
-    [/addendum/i,               1, 4,  8, 3],
+    [/vibe_painting/i,          1, 4,  8, 3, 'contain'],   // becomes A Meditation Practice: whole 3:2 frame, white ground blends with the card
     [/cast(ing)?pool/i,               5, 8,  6, 5],
     [/chatgpt--2026929/i,       1, 8, 11, 4],   // becomes the live I Ching board (wide)
     [/hexagram/i,               9, 4, 11, 4],   // becomes the Mindspace balloons video
-    [/vibe_painting/i,          1, 6, 15, 4],   // becomes A Meditation Practice (3:2, same frame as its video)
+    [/addendum/i,               1, 6, 15, 4],
     [/developers-social/i,      7, 6, 15, 4, 'contain']
   ];
 
@@ -41,6 +41,8 @@
   body:not(.mobile) gallery-columnized.hm .mi-frame .media{width:100%!important;height:100%!important;object-fit:cover}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
+  /* A Meditation Practice: its video ground is near-white */
+  body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame:has(video[src*="314f6ba6360a"]){background:#fcfcfc}
   /* Developers board: whole logo visible, its thin grey top/bottom edges trimmed */
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media[src*="developers-social"]{clip-path:inset(9.5% 0)}
   .hm-embed{position:absolute;inset:0;background:#f3f3f3}
