@@ -29,7 +29,8 @@
   }
 
   // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)
-  const framePage = /^\/(index\.html|work\/?|menu\/?|jingyizhang-design\.html|work\.html|menu\.html)?$/.test(location.pathname);
+  // page margins follow the live site again (no extra preview frame) — only the link flag is kept
+  const framePage = false;
   if (!framePage) { keepFlag(); return; }
   B.classList.add('pv');
   const st = document.createElement('style'); st.id = 'preview-frame-css';

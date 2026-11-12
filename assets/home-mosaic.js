@@ -1,6 +1,6 @@
 /* Home (desktop): Cargo-style mosaic on a 12-column grid of square cells.
    Every card snaps to the same cell size, so the gap is identical across and down, and all row edges line up.
-   The outer frame (equal side margins) comes from preview-frame.js. Mobile keeps its own gallery.
+   Rounded corners and page margins are the live site's own. Mobile keeps its own gallery.
    Runs after index-cards.js (card links, captions, numbers). */
 (function () {
   // Preview only: the live home keeps the original 3-column cards. Open /?preview=mosaic to see this layout.
@@ -40,13 +40,7 @@
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .mi-frame{background:#fff}
   body:not(.mobile) gallery-columnized.hm media-item.hm-contain .media{object-fit:contain}
   .hm-embed{position:absolute;inset:0;background:#f3f3f3}
-  .hm-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
-  /* square corners on every home card (desktop + mobile) */
-  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame,
-  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .mi-frame::after,
-  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .media,
-  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .ic-cap,
-  body.page-homepage-desktop-1 main .ic-gal .ic-card.ic-card .ic-link{border-radius:0!important}`;
+  .hm-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}`;
   const st = document.createElement('style'); st.id = 'home-mosaic-css'; st.textContent = css; document.head.appendChild(st);
 
   const items = [...gal.querySelectorAll(':scope > media-item')];
