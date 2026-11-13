@@ -5,14 +5,14 @@
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
-  const V = '?v=5';
+  const V = '?v=6';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const arrowBack = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M12 2L2 12M10 12H2V4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const link = (t, href, ext) => `<a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}<span>↗</span></a>`;
   const sec = document.createElement('section');
   sec.className = 'hc-card';
   sec.innerHTML = `<div class="hc-in">
-    <div class="hc-face hc-front"><video class="hc-vid" poster="assets/card-drift-poster.jpg${V}" muted playsinline preload="auto" aria-label="Jingyi Zhang. I Bring Structure to Creativity." tabindex="-1"><source src="assets/card-drift.webm${V}" type="video/webm"><source src="assets/card-drift.mp4${V}" type="video/mp4"></video>
+    <div class="hc-face hc-front"><video class="hc-vid" poster="assets/card-order-poster.jpg${V}" muted playsinline preload="auto" aria-label="Jingyi Zhang. I Bring Structure to Creativity." tabindex="-1"><source src="assets/card-order.webm${V}" type="video/webm"><source src="assets/card-order.mp4${V}" type="video/mp4"></video>
       <button type="button" class="hc-hit" id="hc-flip" aria-label="Flip card"></button></div>
     <div class="hc-face hc-back" aria-hidden="true"><img src="assets/card-metal-bg.svg${V}" alt="" draggable="false">
       <div class="hc-contact"><p class="hc-n">Jingyi Zhang</p>
@@ -48,10 +48,10 @@
   sec.querySelector('#hc-flip').addEventListener('click', () => flip(true));
   sec.querySelector('#hc-back-btn').addEventListener('click', () => flip(false));
   flip(false);
-  // front video: play intro + drift once, then loop only the drift part (rest state = 4.0s)
+  // front video: play intro + drift once, then loop only the drift part (rest state = 7.5s)
   const vid = sec.querySelector('.hc-vid');
   if (vid && !still) {
-    vid.addEventListener('ended', () => { vid.currentTime = 4; vid.play().catch(() => {}); });
+    vid.addEventListener('ended', () => { vid.currentTime = 7.5; vid.play().catch(() => {}); });
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting && !sec.classList.contains('flipped')) vid.play().catch(() => {}); else vid.pause();
     }), { threshold: .25 }).observe(sec);
