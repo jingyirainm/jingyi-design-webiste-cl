@@ -1,0 +1,56 @@
+<svg width="854" height="473" viewBox="0 0 854 473" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_220_1243)">
+<rect width="854" height="473" rx="40" fill="#E9E9E9"/>
+<g clip-path="url(#clip1_220_1243)">
+<path d="M426.5 692C615.105 692 768 529.255 768 328.5C768 127.744 615.105 -35 426.5 -35C237.895 -35 85 127.744 85 328.5C85 529.255 237.895 692 426.5 692Z" fill="url(#paint0_radial_220_1243)"/>
+</g>
+<ellipse cx="350" cy="215" rx="120" ry="70" fill="#fff" opacity=".85" filter="url(#hlb)"/><ellipse cx="520" cy="350" rx="70" ry="120" fill="#fff" opacity=".25" filter="url(#hlb)" transform="rotate(25 520 350)"/><rect width="854" height="473" filter="url(#grainM)" opacity=".5"/>
+
+
+
+
+
+</g>
+<defs><filter id="hlb" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="28"/></filter><filter id="grainM" x="0" y="0" width="854" height="473" filterUnits="userSpaceOnUse"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="3"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .2"/></feComponentTransfer></filter>
+<filter id="filter0_f_220_1243" x="652" y="16" width="193.828" height="52" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="2" result="effect1_foregroundBlur_220_1243"/>
+</filter>
+<filter id="filter1_i_220_1243" x="52.7246" y="372.545" width="459.678" height="61.6362" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow_220_1243"/>
+</filter>
+<radialGradient id="paint0_radial_220_1243" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(426.5 328.5) scale(341.5 363.5)">
+<stop stop-color="#D3DAE6"/>
+<stop offset="0.31" stop-color="#8E9AB3"/>
+<stop offset="0.375" stop-color="#7E8AA4" stop-opacity="0.96"/>
+<stop offset="0.44" stop-color="#6E7A94" stop-opacity="0.89"/>
+<stop offset="0.5" stop-color="#5F6B86" stop-opacity="0.78"/>
+<stop offset="0.56" stop-color="#66728C" stop-opacity="0.66"/>
+<stop offset="0.625" stop-color="#6E7A93" stop-opacity="0.52"/>
+<stop offset="0.69" stop-color="#76829A" stop-opacity="0.39"/>
+<stop offset="0.75" stop-color="#7D89A0" stop-opacity="0.26"/>
+<stop offset="0.81" stop-color="#8995AA" stop-opacity="0.14"/>
+<stop offset="0.875" stop-color="#96A1B4" stop-opacity="0.06"/>
+<stop offset="0.94" stop-color="#A4ADBF" stop-opacity="0.01"/>
+<stop offset="1" stop-color="#B0B9C9" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="paint1_linear_220_1243" x1="656" y1="42" x2="841.829" y2="42" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B3BDCE"/>
+<stop offset="1" stop-color="#5F6B84"/>
+</linearGradient>
+<clipPath id="clip0_220_1243">
+<rect width="854" height="473" rx="40" fill="white"/>
+</clipPath>
+<clipPath id="clip1_220_1243">
+<rect width="683" height="727" fill="white" transform="translate(85 -35)"/>
+</clipPath>
+</defs>
+</svg>
