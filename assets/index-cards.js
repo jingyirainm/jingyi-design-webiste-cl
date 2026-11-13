@@ -24,8 +24,9 @@
     background:rgba(255,255,255,.8);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);font-family:Inter,'Diatype',-apple-system,sans-serif;color:#111;
     transform:translateY(calc(100% + 1rem));opacity:0;transition:transform .55s cubic-bezier(.22,.8,.2,1),opacity .4s ease;pointer-events:none}
   .ic-card:hover .ic-cap,.ic-card:focus-visible .ic-cap{transform:none;opacity:1}
-  .ic-cap b{font-size:.85rem;font-weight:500;line-height:1.2}
-  .ic-cap i{font-style:normal;font-size:.72rem;line-height:1.25;color:rgba(17,17,17,.55)}
+  .ic-cap b{font-size:1.275rem;font-weight:500;line-height:1.2}
+  .ic-cap i{font-style:normal;font-size:1.08rem;line-height:1.25;color:rgba(17,17,17,.55)}
+  body:not(.mobile) .ic-cap{left:1.2rem;right:1.2rem;bottom:1.2rem;gap:.3rem;padding:.9rem 1.2rem;border-radius:1.5rem}
   .ic-link{position:absolute;inset:0;z-index:4;display:block;color:inherit!important;text-decoration:none!important;border-radius:inherit}
   .ic-link:focus-visible{outline:2px solid #111;outline-offset:-3px}
   .ic-link:focus-visible .ic-cap{transform:none;opacity:1}
@@ -45,7 +46,7 @@
     .ic-no{display:none}
     body:not(.mobile) .ic-flush .ic-no{display:block;position:absolute;left:1.2rem;top:1.1rem;z-index:3;pointer-events:none;
       font:400 .95rem/1 ui-monospace,'SF Mono',Menlo,monospace;letter-spacing:.02em;color:#fff;mix-blend-mode:difference}
-    body:not(.mobile) .ic-flush .ic-cap{left:1rem;right:1rem;bottom:1rem}`;
+    body:not(.mobile) .ic-flush .ic-cap{left:1.5rem;right:1.5rem;bottom:1.5rem}`;
     document.head.appendChild(fs);
   }
   let num = 0;
