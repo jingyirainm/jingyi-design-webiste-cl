@@ -5,14 +5,14 @@
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
-  const V = '?v=4';
+  const V = '?v=5';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const arrowBack = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M12 2L2 12M10 12H2V4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const link = (t, href, ext) => `<a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}<span>↗</span></a>`;
   const sec = document.createElement('section');
   sec.className = 'hc-card';
   sec.innerHTML = `<div class="hc-in">
-    <div class="hc-face hc-front"><img src="assets/card-metal.svg${V}" alt="Jingyi Zhang. An AI-Native Multidisciplinary Designer. I Bring Structure to Creativity." draggable="false">
+    <div class="hc-face hc-front"><video class="hc-vid" poster="assets/card-drift-poster.jpg${V}" muted playsinline preload="auto" aria-label="Jingyi Zhang. I Bring Structure to Creativity." tabindex="-1"><source src="assets/card-drift.webm${V}" type="video/webm"><source src="assets/card-drift.mp4${V}" type="video/mp4"></video>
       <button type="button" class="hc-hit" id="hc-flip" aria-label="Flip card"></button></div>
     <div class="hc-face hc-back" aria-hidden="true"><img src="assets/card-metal-bg.svg${V}" alt="" draggable="false">
       <div class="hc-contact"><p class="hc-n">Jingyi Zhang</p>
@@ -26,7 +26,7 @@
   .hc-card.flipped .hc-in{transform:rotateY(180deg)}
   .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4.7%/8.5%;overflow:hidden}
   .hc-back{transform:rotateY(180deg)}
-  .hc-face>img{display:block;width:100%;height:100%;user-select:none}
+  .hc-face>img,.hc-face>video{display:block;width:100%;height:100%;object-fit:cover;user-select:none}
   .hc-hit{position:absolute;left:76.6%;top:3.8%;width:22%;height:10%;border:0;padding:0;border-radius:99px;background:transparent;cursor:pointer;transition:background .2s}
   .hc-hit:hover,.hc-hit:focus-visible{background:rgba(255,255,255,.18);outline:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
   .hc-pill{position:absolute;right:2.2%;top:4.2%;display:inline-flex;align-items:center;gap:.5em;font:300 1.9vw/1 ${FONT};font-size:max(.95rem,1.45vw);padding:.7em 1.1em;border-radius:99px;border:1px solid rgba(255,255,255,.6);color:#fff;background:linear-gradient(90deg,#B3BDCE,#5F6B84);cursor:pointer;transition:filter .2s}
@@ -38,7 +38,9 @@
   @media (prefers-reduced-motion:reduce){.hc-in{transition:none}}`;
   document.head.appendChild(st);
   grid.insertAdjacentElement('beforebegin', sec);
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const flip = on => { sec.classList.toggle('flipped', on);
+    const v = sec.querySelector('.hc-vid'); if (v && !still) { if (on) v.pause(); else v.play().catch(() => {}); }
     sec.querySelector('.hc-back').setAttribute('aria-hidden', String(!on));
     sec.querySelector('.hc-front').setAttribute('aria-hidden', String(on));
     sec.querySelectorAll('.hc-back a,#hc-back-btn').forEach(a => a.setAttribute('tabindex', on ? '0' : '-1'));
@@ -46,6 +48,15 @@
   sec.querySelector('#hc-flip').addEventListener('click', () => flip(true));
   sec.querySelector('#hc-back-btn').addEventListener('click', () => flip(false));
   flip(false);
+  // front video: play intro + drift once, then loop only the drift part (rest state = 4.0s)
+  const vid = sec.querySelector('.hc-vid');
+  if (vid && !still) {
+    vid.addEventListener('ended', () => { vid.currentTime = 4; vid.play().catch(() => {}); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting && !sec.classList.contains('flipped')) vid.play().catch(() => {}); else vid.pause();
+    }), { threshold: .25 }).observe(sec);
+    else vid.play().catch(() => {});
+  }
   // line up with the mosaic's left edge and width
   const align = () => { sec.style.marginLeft = '0px'; sec.style.width = ''; sec.style.marginLeft = (grid.getBoundingClientRect().left - sec.getBoundingClientRect().left) + 'px'; sec.style.width = grid.getBoundingClientRect().width + 'px'; };
   align(); addEventListener('resize', align); addEventListener('load', align); setTimeout(align, 600);
