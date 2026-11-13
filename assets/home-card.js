@@ -39,9 +39,10 @@
   const sec = document.createElement('section');
   sec.className = 'hc-card';
   sec.innerHTML = `<div class="hc-in">
-    <div class="hc-face hc-front"><svg viewBox="0 0 854 473" role="img" aria-label="Jingyi Zhang" xmlns="http://www.w3.org/2000/svg">${defs}
+    <div class="hc-face hc-front"><svg viewBox="0 0 854 473" role="img" aria-label="I Bring Structure to Creativity" xmlns="http://www.w3.org/2000/svg">${defs}
       <g clip-path="url(#hc-clip)"><rect width="854" height="473" fill="url(#hc-g)"/>
-      <text x="32" y="400" textLength="790" lengthAdjust="spacing" font-family='${FONT}' font-weight="300" font-size="128" fill="#fff" fill-opacity=".3" stroke="#fff" stroke-opacity=".95" stroke-width="1.6" filter="url(#hc-e)">Jingyi Zhang</text>
+      <text x="32" y="330" font-family='${FONT}' font-weight="300" font-size="100" fill="#fff" fill-opacity=".3" stroke="#fff" stroke-opacity=".95" stroke-width="1.6" filter="url(#hc-e)">I Bring Structure</text>
+      <text x="32" y="428" font-family='${FONT}' font-weight="300" font-size="100" fill="#fff" fill-opacity=".3" stroke="#fff" stroke-opacity=".95" stroke-width="1.6" filter="url(#hc-e)">to Creativity</text>
       ${btn('Flip Card', 'hc-flip', ARROW)}</g></svg></div>
     <div class="hc-face hc-back" aria-hidden="true"><svg viewBox="0 0 854 473" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#hc-clip)"><rect width="854" height="473" fill="url(#hc-g)"/>
