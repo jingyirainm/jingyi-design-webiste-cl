@@ -2,7 +2,7 @@
    Content sits right of the sidebar, centred, with the same outer margin on both sides.
    Internal links keep ?preview=mosaic and load as full pages so the preview survives navigation. */
 (function () {
-  if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
+  const PREVIEW = /[?&]preview=mosaic(&|$)/.test(location.search);
   const B = document.body;
 
   // new Casting Pool motion (preview only): 3:2 loop on cards, 16:9 loop on the case-study hero
@@ -27,7 +27,7 @@
     v.poster = 'assets/projects/knotboard/knotboard_intro_mac_poster.jpg';
     v.src = 'assets/projects/knotboard/knotboard_intro_mac.mp4'; v.muted = true; v.play && v.play().catch(() => {});
   });
-  const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
+  const hero = PREVIEW && document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
   if (hero) {
     const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v8_poster.jpg?r=4', preload: 'auto',
       'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
@@ -38,7 +38,7 @@
   // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)
   // page margins follow the live site again (no extra preview frame) — only the link flag is kept
   const framePage = false;
-  if (!framePage) { keepFlag(); return; }
+  if (!framePage) { if (PREVIEW) keepFlag(); return; }
   B.classList.add('pv');
   const st = document.createElement('style'); st.id = 'preview-frame-css';
   st.textContent = `

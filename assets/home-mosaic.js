@@ -3,8 +3,6 @@
    Rounded corners and page margins are the live site's own. Mobile keeps its own gallery.
    Runs after index-cards.js (card links, captions, numbers). */
 (function () {
-  // Preview only: the live home keeps the original 3-column cards. Open /?preview=mosaic to see this layout.
-  if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   const gal = document.querySelector('main .desk-only gallery-columnized');
   if (!gal) return;
   const GAP = 14; // px, same horizontally and vertically
