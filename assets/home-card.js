@@ -5,14 +5,14 @@
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
-  const V = '?v=6';
+  const V = '?v=7';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const arrowBack = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M12 2L2 12M10 12H2V4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const link = (t, href, ext) => `<a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}<span>↗</span></a>`;
   const sec = document.createElement('section');
   sec.className = 'hc-card';
   sec.innerHTML = `<div class="hc-in">
-    <div class="hc-face hc-front"><video class="hc-vid" poster="assets/card-order-poster.jpg${V}" muted playsinline preload="auto" aria-label="Jingyi Zhang. I Bring Structure to Creativity." tabindex="-1"><source src="assets/card-order.webm${V}" type="video/webm"><source src="assets/card-order.mp4${V}" type="video/mp4"></video>
+    <div class="hc-face hc-front"><video class="hc-vid" poster="assets/card-motion-poster.jpg${V}" muted loop playsinline preload="auto" aria-label="Jingyi Zhang. I Bring Structure to Creativity." tabindex="-1"><source src="assets/card-motion.webm${V}" type="video/webm"><source src="assets/card-motion.mp4${V}" type="video/mp4"></video>
       <button type="button" class="hc-hit" id="hc-flip" aria-label="Flip card"></button></div>
     <div class="hc-face hc-back" aria-hidden="true"><img src="assets/card-metal-bg.svg${V}" alt="" draggable="false">
       <div class="hc-contact"><p class="hc-n">Jingyi Zhang</p>
@@ -22,12 +22,12 @@
       <button type="button" class="hc-pill" id="hc-back-btn">Flip back ${arrowBack}</button></div></div>`;
   const st = document.createElement('style');
   st.textContent = `.hc-card{margin:0 0 14px;perspective:1800px}
-  .hc-in{position:relative;aspect-ratio:854/473;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
+  .hc-in{position:relative;aspect-ratio:988/556;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
   .hc-card.flipped .hc-in{transform:rotateY(180deg)}
-  .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:4.7%/8.5%;overflow:hidden}
+  .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:2.6%/4.6%;overflow:hidden}
   .hc-back{transform:rotateY(180deg)}
   .hc-face>img,.hc-face>video{display:block;width:100%;height:100%;object-fit:cover;user-select:none}
-  .hc-hit{position:absolute;left:76.6%;top:3.8%;width:22%;height:10%;border:0;padding:0;border-radius:99px;background:transparent;cursor:pointer;transition:background .2s}
+  .hc-hit{position:absolute;left:81%;top:1.2%;width:18.4%;height:10.6%;border:0;padding:0;border-radius:99px;background:transparent;cursor:pointer;transition:background .2s}
   .hc-hit:hover,.hc-hit:focus-visible{background:rgba(255,255,255,.18);outline:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
   .hc-pill{position:absolute;right:2.2%;top:4.2%;display:inline-flex;align-items:center;gap:.5em;font:300 1.9vw/1 ${FONT};font-size:max(.95rem,1.45vw);padding:.7em 1.1em;border-radius:99px;border:1px solid rgba(255,255,255,.6);color:#fff;background:linear-gradient(90deg,#B3BDCE,#5F6B84);cursor:pointer;transition:filter .2s}
   .hc-pill:hover,.hc-pill:focus-visible{filter:brightness(1.12);outline:none}
@@ -48,10 +48,9 @@
   sec.querySelector('#hc-flip').addEventListener('click', () => flip(true));
   sec.querySelector('#hc-back-btn').addEventListener('click', () => flip(false));
   flip(false);
-  // front video: play intro + drift once, then loop only the drift part (rest state = 7.5s)
+  // front video: play intro + drift once, then loop only the drift part 
   const vid = sec.querySelector('.hc-vid');
   if (vid && !still) {
-    vid.addEventListener('ended', () => { vid.currentTime = 7.5; vid.play().catch(() => {}); });
     if ('IntersectionObserver' in window) new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting && !sec.classList.contains('flipped')) vid.play().catch(() => {}); else vid.pause();
     }), { threshold: .25 }).observe(sec);
