@@ -5,7 +5,7 @@
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
-  const V = '?v=8';
+  const V = '?v=9';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const arrowBack = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M12 2L2 12M10 12H2V4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const link = (t, href, ext) => `<a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}<span>↗</span></a>`;
@@ -22,7 +22,7 @@
       <button type="button" class="hc-pill" id="hc-back-btn">Flip back ${arrowBack}</button></div></div>`;
   const st = document.createElement('style');
   st.textContent = `.hc-card{margin:0 0 14px;perspective:1800px}
-  .hc-in{position:relative;aspect-ratio:988/556;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
+  .hc-in{position:relative;aspect-ratio:1976/1112;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
   .hc-card.flipped .hc-in{transform:rotateY(180deg)}
   .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:2.6%/4.6%;overflow:hidden}
   .hc-back{transform:rotateY(180deg)}
