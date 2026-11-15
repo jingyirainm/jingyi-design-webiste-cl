@@ -5,7 +5,7 @@
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
   if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
-  const V = '?v=9';
+  const V = '?v=10';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const arrowBack = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M12 2L2 12M10 12H2V4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
   const link = (t, href, ext) => `<a href="${href}"${ext ? ' target="_blank" rel="noopener"' : ''}>${t}<span>↗</span></a>`;
@@ -22,12 +22,12 @@
       <button type="button" class="hc-pill" id="hc-back-btn">Flip back ${arrowBack}</button></div></div>`;
   const st = document.createElement('style');
   st.textContent = `.hc-card{margin:0 0 14px;perspective:1800px}
-  .hc-in{position:relative;aspect-ratio:1976/1112;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
+  .hc-in{position:relative;aspect-ratio:993/560;transform-style:preserve-3d;transition:transform 1.1s cubic-bezier(.45,0,.2,1)}
   .hc-card.flipped .hc-in{transform:rotateY(180deg)}
-  .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:2.6%/4.6%;overflow:hidden}
+  .hc-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:2%/3.6%;overflow:hidden}
   .hc-back{transform:rotateY(180deg)}
   .hc-face>img,.hc-face>video{display:block;width:100%;height:100%;object-fit:cover;user-select:none}
-  .hc-hit{position:absolute;left:81%;top:1.2%;width:18.4%;height:10.6%;border:0;padding:0;border-radius:99px;background:transparent;cursor:pointer;transition:background .2s}
+  .hc-hit{position:absolute;left:80.8%;top:1.2%;width:18.4%;height:11%;border:0;padding:0;border-radius:99px;background:transparent;cursor:pointer;transition:background .2s}
   .hc-hit:hover,.hc-hit:focus-visible{background:rgba(255,255,255,.18);outline:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.55)}
   .hc-pill{position:absolute;right:2.2%;top:4.2%;display:inline-flex;align-items:center;gap:.5em;font:300 1.9vw/1 ${FONT};font-size:max(.95rem,1.45vw);padding:.7em 1.1em;border-radius:99px;border:1px solid rgba(255,255,255,.6);color:#fff;background:linear-gradient(90deg,#B3BDCE,#5F6B84);cursor:pointer;transition:filter .2s}
   .hc-pill:hover,.hc-pill:focus-visible{filter:brightness(1.12);outline:none}
