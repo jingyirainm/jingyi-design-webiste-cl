@@ -3,7 +3,7 @@
 (function () {
   if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   const grid = document.querySelector('main .desk-only gallery-columnized.hm');
-  if (!grid || document.querySelector('.hc-card') || document.body.classList.contains('mobile')) return;
+  if (!grid || document.querySelector('.hc-card') || document.querySelector('.idc-card') || document.body.classList.contains('mobile')) return;
   const FONT = '"Diatype Variable",Inter,system-ui,sans-serif';
   const V = '?v=10';
   const arrowOut = '<svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M2 12L12 2M4 2H12V10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
