@@ -7,7 +7,7 @@
 
   const sec = document.createElement('section');
   sec.className = 'idc-card';
-  sec.innerHTML = '<iframe src="assets/id-card.html?v=20261116b" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
+  sec.innerHTML = '<iframe src="assets/id-card.html?v=20261116c" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
   if (!document.getElementById('idc-style')) {
     const st = document.createElement('style');
     st.id = 'idc-style';
