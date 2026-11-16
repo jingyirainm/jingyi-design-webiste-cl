@@ -1,5 +1,5 @@
 /* Home (desktop): interactive ID card at the top of the page, above the work mosaic.
-   The card itself lives in assets/id-card.html (particles, flip, selectable text, its own white cursor)
+   The card itself lives in assets/id-card.html (particles, flip, selectable text; it loads the site's own cursor.js)
    and is embedded in an iframe so its canvas, styles and cursor stay isolated from the site. */
 (function () {
   const grid = document.querySelector('main .desk-only gallery-columnized');
@@ -7,18 +7,18 @@
 
   const sec = document.createElement('section');
   sec.className = 'idc-card';
-  sec.innerHTML = '<iframe src="assets/id-card.html?v=20261116a" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
+  sec.innerHTML = '<iframe src="assets/id-card.html?v=20261116b" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
   if (!document.getElementById('idc-style')) {
     const st = document.createElement('style');
     st.id = 'idc-style';
     st.textContent = `.idc-card{margin:0 0 14px}
-    .idc-card iframe{display:block;width:100%;aspect-ratio:1029/596;border:0;background:transparent;color-scheme:normal}`;
+    .idc-card iframe{display:block;width:100%;aspect-ratio:1029/559;border:0;background:transparent;color-scheme:normal}`;
     document.head.appendChild(st);
   }
   grid.insertAdjacentElement('beforebegin', sec);
   const frame = sec.querySelector('iframe');
 
-  // the site's green cursor can't follow the pointer inside the iframe: hide it there (it comes back on the next move outside)
+  // the page's cursor can't follow the pointer inside the iframe, where the card runs its own copy of cursor.js: hide the outer one there
   frame.addEventListener('mouseenter', () => document.documentElement.classList.remove('cd-vis', 'cd-link', 'cd-text'));
 
   // pause the card's animation while it is scrolled out of view
