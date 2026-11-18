@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jingyi Zhang · Design Spark</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:transparent;overflow:hidden}
+body{display:flex;align-items:center;justify-content:center}
+#design-spark{width:100%}
+</style>
+</head><body>
+<div id="design-spark"></div>
+<script src="cursor.js?v=20261027e"></script>
+<script src="design-spark/player.js?v=20261118a"></script>
+<script>
+  // Home intro card (preview: /?preview=mosaic). Tune values in Player Studio and paste the copied config here.
+  var player = new PodPlayer(document.getElementById('design-spark'), {
+    videoSrc: 'design-spark/cover.mp4?v=20261118a',
+    posterSrc: 'design-spark/poster.jpg?v=20261118a',
+    portraitSrc: 'design-spark/portrait.png?v=20261118a'
+  });
+  // the outer page pauses this card while it is scrolled out of view
+  setInterval(function () {
+    var v = document.querySelector('#design-spark video');
+    if (!v) return;
+    if (window.__idcPaused && !v.paused) { v.pause(); window.__dsPausedByScroll = true; }
+    else if (!window.__idcPaused && window.__dsPausedByScroll) { window.__dsPausedByScroll = false; if (player.playing) v.play().catch(function () {}); }
+  }, 400);
+  document.addEventListener('keydown', function (e) {
+    var tag = (e.target && e.target.tagName) || '';
+    if (/INPUT|TEXTAREA/.test(tag)) return;
+    if (e.key === 'ArrowRight') player._action('next');
+    else if (e.key === 'ArrowLeft') player._action('prev');
+    else if (e.key === 'm' || e.key === 'M') player._action('menu');
+  });
+</script>
+</body></html>
