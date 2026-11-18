@@ -76,7 +76,7 @@
     showHeart: true,
     likeGuide: 'beat',           // beat | glow | off
     beatInterval: 3.6,
-    showLikeHint: true,
+    showLikeHint: false,
     likeHint: 'Like my profile?',
     likeHintDelay: 2.2,
     likeThanks: '',
