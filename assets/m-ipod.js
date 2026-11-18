@@ -45,9 +45,10 @@ const M_SPLASH_CONFIG = {};
   // margins that place a narrower block left / centre / right
   function blockAlign(a) { return a === 'center' ? 'margin-left:auto;margin-right:auto' : a === 'right' ? 'margin-left:auto;margin-right:0' : 'margin-left:0;margin-right:0'; }
   function type(c, p) {
-    return 'font-family:' + (FONTS[c[p + 'Font']] || FONTS.inter) + '!important;font-size:' + c[p + 'Size'] + 'px!important;font-weight:' + c[p + 'Weight'] + '!important;' +
-      (c[p + 'Line'] != null ? 'line-height:' + c[p + 'Line'] + '!important;' : '') +
-      'letter-spacing:' + c[p + 'Track'] + 'em;text-align:' + c[p + 'Align'] + ';font-style:' + (c[p + 'Italic'] ? 'italic' : 'normal') + '!important;' +
+    // the size goes through a custom property: the site rescales literal font sizes at runtime
+    return '--ms-fs-' + p + ':' + c[p + 'Size'] + 'px;' +
+      'font:' + (c[p + 'Italic'] ? 'italic ' : '') + c[p + 'Weight'] + ' var(--ms-fs-' + p + ')/' + (c[p + 'Line'] != null ? c[p + 'Line'] : 1) + ' ' + (FONTS[c[p + 'Font']] || FONTS.inter) + '!important;' +
+      'letter-spacing:' + c[p + 'Track'] + 'em;text-align:' + c[p + 'Align'] + ';' +
       'text-transform:' + c[p + 'Case'] + ';color:' + (c[p + 'Color'] || 'inherit') + ';' +
       (c[p + 'Wrap'] ? 'text-wrap:' + c[p + 'Wrap'] + ';' : '');
   }
@@ -71,7 +72,7 @@ const M_SPLASH_CONFIG = {};
       S + ' .ms-copy p{' + type(c, 'copy') + 'max-width:' + c.copyMaxW + '%;' + blockAlign(c.copyAlign) + ';margin-top:0;margin-bottom:' + c.copyGap + 'px;opacity:calc((1 - var(--ms-p,0)*' + (1.2 * k) + ') * ' + c.copyOpacity + ')}' +
       S + ' .ms-copy p:last-child{margin-bottom:0}' +
       S + ' .ms-copy a{color:inherit;text-underline-offset:3px;text-decoration:' + (c.linkStyle === 'underline' ? 'underline;text-decoration-thickness:1px' : 'none') + '}' +
-      S + ' .ms-scroll{display:' + (c.showScroll ? 'flex' : 'none') + ';margin-top:' + (c.scrollGap + 16) + 'px;' + type(c, 'scroll') + 'line-height:1!important;' +
+      S + ' .ms-scroll{display:' + (c.showScroll ? 'flex' : 'none') + ';margin-top:' + (c.scrollGap + 16) + 'px;' + type(c, 'scroll') +
         'align-self:' + (c.scrollAlign === 'left' ? 'flex-start' : c.scrollAlign === 'right' ? 'flex-end' : 'center') + ';align-items:' + (c.scrollAlign === 'left' ? 'flex-start' : c.scrollAlign === 'right' ? 'flex-end' : 'center') + ';' +
         'padding-left:' + (c.scrollAlign === 'left' ? 0 : 12) + 'px;padding-right:' + (c.scrollAlign === 'right' ? 0 : 12) + 'px;' +
         'opacity:calc((1 - var(--ms-p,0)*1.6) * ' + c.scrollOpacity + ')}' +
