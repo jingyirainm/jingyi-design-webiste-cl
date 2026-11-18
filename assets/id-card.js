@@ -5,12 +5,12 @@
   const grid = document.querySelector('main .desk-only gallery-columnized');
   if (!grid || document.querySelector('.idc-card') || document.body.classList.contains('mobile')) return;
 
-  // preview (/?preview=mosaic): the Design Spark iPod intro card takes the ID card's place
-  const PREVIEW = /[?&]preview=mosaic(&|$)/.test(location.search);
+  // the Design Spark iPod intro card is the home card (live since 2026-11-18); the old ID card stays in assets/id-card.html
+  const PREVIEW = true;
   const sec = document.createElement('section');
   sec.className = 'idc-card' + (PREVIEW ? ' ds-card' : '');
   sec.innerHTML = PREVIEW
-    ? '<iframe src="assets/design-spark-card.html?v=20261118e" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>'
+    ? '<iframe src="assets/design-spark-card.html?v=20261118f" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>'
     : '<iframe src="assets/id-card.html?v=20261116c" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
   if (!document.getElementById('idc-style')) {
     const st = document.createElement('style');

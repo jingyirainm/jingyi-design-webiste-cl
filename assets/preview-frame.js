@@ -1,4 +1,4 @@
-/* Preview only (/?preview=mosaic): one shared frame for Home, Product Design and Visual Design.
+/* Preview flag (/?preview=mosaic) — the mosaic, iPod card and Casting motion are now live for everyone; one shared frame for Home, Product Design and Visual Design.
    Content sits right of the sidebar, centred, with the same outer margin on both sides.
    Internal links keep ?preview=mosaic and load as full pages so the preview survives navigation. */
 (function () {
@@ -27,7 +27,7 @@
     v.poster = 'assets/projects/knotboard/knotboard_intro_mac_poster.jpg';
     v.src = 'assets/projects/knotboard/knotboard_intro_mac.mp4'; v.muted = true; v.play && v.play().catch(() => {});
   });
-  const hero = PREVIEW && document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]');
+  const hero = document.querySelector('figure.hero img[src*="casting/casting-1.jpg"]'); // live for everyone since 2026-11-18
   if (hero) {
     const v = vid({ width: 1920, height: 1080, poster: CAST + 'castingpool_motion_v8_poster.jpg?r=4', preload: 'auto',
       'aria-label': 'ReelShort Casting Hub: Add to Selection, then a pool of talent cards', autoplay: '', muted: '', loop: '', playsinline: '' },
