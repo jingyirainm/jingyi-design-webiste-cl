@@ -12,10 +12,13 @@ body{display:flex;align-items:center;justify-content:center}
 </head><body>
 <div id="design-spark"></div>
 <script src="cursor.js?v=20261027e"></script>
-<script src="design-spark/player.js?v=20261118e"></script>
+<script src="design-spark/player.js?v=20261118g"></script>
 <script>
   // Home intro card (preview: /?preview=mosaic). Tune values in Player Studio and paste the copied config here.
+  // ?layout=portrait → iPod-nano layout for phones (screen on top, wheel below)
+  var LAYOUT = /[?&]layout=portrait(&|$)/.test(location.search) ? 'portrait' : 'landscape';
   var player = new PodPlayer(document.getElementById('design-spark'), {
+    layout: LAYOUT,
     videoSrc: 'design-spark/cover.mp4?v=20261118a',
     posterSrc: 'design-spark/poster.jpg?v=20261118a',
     portraitSrc: 'design-spark/portrait.png?v=20261118a'
