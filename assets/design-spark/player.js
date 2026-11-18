@@ -64,7 +64,7 @@
     linkedinUrl: 'https://www.linkedin.com/in/jingyizhang145/',
 
     // wheel hint (buttons nudge to invite a click)
-    wheelHint: true,
+    wheelHint: false,
     wheelHintDelay: 2.5,
     wheelHintInterval: 5.5,
     wheelHintStrength: 3,
