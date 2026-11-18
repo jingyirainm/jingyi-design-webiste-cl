@@ -69,7 +69,8 @@
     wheelHintInterval: 5.5,
     wheelHintStrength: 3,
     wheelHintStyle: 'shake',     // shake | nudge
-    wheelHintStop: 'interact',   // interact | never
+    wheelHintStop: 'idle',       // idle (resume after no clicks) | interact (stop for good) | never
+    wheelHintIdle: 4,            // seconds without a click before the hint comes back
 
     // like
     showHeart: true,
@@ -405,6 +406,9 @@
     });
 
     this._initScrub();
+    var selfI = this;
+    r.addEventListener('pointerdown', function () { selfI._noteInteract(); }, true);
+    r.addEventListener('keydown', function () { selfI._noteInteract(); }, true);
     this._initViews();
     this._initFx();
     this._initLike();
@@ -920,12 +924,19 @@
   };
 
   /* ---------- wheel hint: buttons nudge in a wave around the wheel ---------- */
+  PodPlayer.prototype._noteInteract = function () {
+    var c = this.cfg;
+    if (c.wheelHintStop === 'interact') this._wheelTouched = true;
+    else if (c.wheelHintStop === 'idle') { this._wheelClock = 0; this._wheelAfterIdle = true; }
+  };
+
   PodPlayer.prototype._wheelHintStep = function (dt) {
     var c = this.cfg;
-    if (!c.wheelHint || this._wheelTouched || reduced() || document.hidden) { this._wheelClock = 0; return; }
+    var ae = document.activeElement, typing = ae && ae.tagName === 'INPUT' && this.root.contains(ae);
+    if (!c.wheelHint || this._wheelTouched || reduced() || document.hidden || typing || this._scrubMoved) { this._wheelClock = 0; return; }
     this._wheelClock = (this._wheelClock || 0) + dt;
-    var due = this._wheelFirstDone ? c.wheelHintInterval : c.wheelHintDelay;
-    if (this._wheelClock >= due) { this._wheelClock = 0; this._wheelFirstDone = true; this.wheelHint(); }
+    var due = this._wheelAfterIdle ? c.wheelHintIdle : (this._wheelFirstDone ? c.wheelHintInterval : c.wheelHintDelay);
+    if (this._wheelClock >= due) { this._wheelClock = 0; this._wheelFirstDone = true; this._wheelAfterIdle = false; this.wheelHint(); }
   };
 
   PodPlayer.prototype.wheelHint = function () {
@@ -1054,7 +1065,7 @@
 
   PodPlayer.prototype._action = function (act) {
     var c = this.cfg, onPlayer = this.view === 'player';
-    if (c.wheelHintStop === 'interact') this._wheelTouched = true;
+    this._noteInteract();
     if (act === 'next') { playSound(c.sound, c.volume, 1.08); onPlayer ? this.next() : this.screenStep(1); }
     else if (act === 'prev') { playSound(c.sound, c.volume, 0.94); onPlayer ? this.prev() : this.screenStep(-1); }
     else if (act === 'play') {
