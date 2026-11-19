@@ -242,12 +242,12 @@
     '<g opacity=".55" filter="url(#' + f('b6') + ')"><rect x="17" y="22" width="380" height="610" rx="46" style="fill:var(--dsp-shadow,#5A5F5B)"/></g>' +
     '<rect x="17" y="20" width="380" height="610" rx="44" fill="url(#' + f('body') + ')"/>' +
     '<g opacity=".6" filter="url(#' + f('b6') + ')"><rect x="29" y="32" width="356" height="586" rx="34" style="fill:var(--dsp-hilite,#fff)"/></g>' +
-    '<rect x="31.5" y="48" width="351" height="265" rx="9" stroke-width="6" fill="none" style="opacity:var(--dsp-bezelOp,.6);stroke:var(--dsp-bezel,#000)"/>'
+    '<rect x="31.5" y="49" width="351" height="263" rx="6" stroke-width="6" fill="none" style="opacity:var(--dsp-bezelOp,.6);stroke:var(--dsp-bezel,#000)"/>'
     ) : (
     '<g opacity=".55" filter="url(#' + f('b6') + ')"><path d="M799 64H173C152.013 64 135 81.0132 135 102V356C135 376.987 152.013 394 173 394H799C819.987 394 837 376.987 837 356V102C837 81.0132 819.987 64 799 64Z" style="fill:var(--dsp-shadow,#5A5F5B)"/></g>' +
     '<path d="M801 64H171C151.118 64 135 80.1177 135 100V358C135 377.882 151.118 394 171 394H801C820.882 394 837 377.882 837 358V100C837 80.1177 820.882 64 801 64Z" fill="url(#' + f('body') + ')"/>' +
     '<g opacity=".6" filter="url(#' + f('b6') + ')"><path d="M797 76H175C159.536 76 147 88.536 147 104V354C147 369.464 159.536 382 175 382H797C812.464 382 825 369.464 825 354V104C825 88.536 812.464 76 797 76Z" style="fill:var(--dsp-hilite,#fff)"/></g>' +
-    '<path style="opacity:var(--dsp-bezelOp,.6)" d="M171 94H506C510.971 94 515 98.0294 515 103V351C515 355.971 510.971 360 506 360H171C166.029 360 162 355.971 162 351V103C162 98.0294 166.029 94 171 94Z" stroke-width="6" style="stroke:var(--dsp-bezel,#000)"/>'
+    '<rect x="162" y="95" width="351" height="263" rx="6" stroke-width="6" fill="none" style="opacity:var(--dsp-bezelOp,.6);stroke:var(--dsp-bezel,#000)"/>'
     )) +
     '<g' + (portrait ? ' transform="translate(-467 242)"' : '') + '>' +
     '<g opacity=".6" filter="url(#' + f('b25') + ')"><circle cx="674" cy="226" r="119" style="fill:var(--dsp-wheelShadow,#A8A8A8)"/></g>' +

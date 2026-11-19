@@ -28,7 +28,7 @@
   @keyframes mh-rise{from{opacity:0;transform:translateY(36px) scale(.94);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
   @keyframes mh-floor{from{opacity:0;transform:scaleX(.55)}to{opacity:1;transform:none}}
   /* ---- page 2 · intro panel ---- */
-  .mh-p2{position:sticky;top:var(--p2top,48px);z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 28px;color:#fff;overflow:hidden;isolation:isolate;
+  .mh-p2{position:sticky;top:var(--p2top,48px);z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 92px;color:#fff;overflow:hidden;isolation:isolate;
     border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0;
     transform-origin:50% 0;transform:translateY(calc(var(--k2,0) * -18px)) scale(calc(1 - var(--k2,0) * .07));filter:brightness(calc(1 - var(--k2,0) * .32)) blur(calc(var(--k2,0) * 2.5px))}
   .mh-p2::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 0 transparent}
@@ -93,7 +93,7 @@
   sec.setAttribute('aria-label', 'Introduction');
   sec.innerHTML =
     '<div class="mh-p1"><div class="mh-ipod"><div class="mh-ipod-in">' +
-      '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118h" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
+      '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118g" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
       '</div><div class="mh-floor"></div></div></div>' +
     '<div class="mh-p2"><div class="mh-bg"></div><div class="mh-sheen"></div><div class="mh-grain"></div>' +
       '<h1 class="mh-hi" data-split data-d0=".7" data-step=".2">Hi, I am Jingyi</h1>' +
