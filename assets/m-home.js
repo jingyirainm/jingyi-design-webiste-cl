@@ -1,11 +1,10 @@
-/* Mobile home v2 (preview only: /?preview=mosaic on phones) — from Frame 39, refined.
+/* Mobile home v2 (live on phones since 2026-11-19) — from Frame 39, refined.
    Page 1: the Design Spark iPod. Page 2: a full-bleed gradient panel with the intro, the spark flower and the copy.
    Refinements over the frame: symmetric 32px margins, an 8pt spacing rhythm, body copy at 14/21 (1.5) instead of 14/16.6,
    a slightly deeper gradient so white copy reaches ~4.5:1 contrast, the flower centred, lines that wrap to any phone width.
    Motion: the iPod rises in; on scroll the panel slides up over it like a card (its corners straighten, the iPod sinks back);
    text reveals line by line through masks, the flower draws itself, the underline draws in, the header turns light over the panel. */
 (function () {
-  if (!/[?&]preview=mosaic(&|$)/.test(location.search)) return;
   if (!document.body.classList.contains('mobile')) return;
   const old = document.querySelector('.m-splash');
   if (!old) return;
