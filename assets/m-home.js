@@ -276,21 +276,23 @@
   (function connect() {
     const ARW = '<svg class="mc-arw" viewBox="70.5 132.5 5 5" aria-hidden="true"><path d="M71.4598 133H73.7106C74.3215 133 74.6238 133 74.8103 133.186C74.9968 133.373 75 133.678 75 134.283V136.54M71 137L74.5595 133.441" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const cssC = `
-    .mc{--u:calc(min(100vw,520px) / 391);position:relative;z-index:3;overflow:hidden;isolation:isolate;
+    .mc{position:relative;z-index:3;overflow:hidden;isolation:isolate;
       background:linear-gradient(180deg,#5D5D63 0%,#8993A7 17.31%,#AEC3C4 37.02%,#D8D8D8 57.69%,#8C90A0 83.17%,#BDBDC9 100%);
-      padding:calc(var(--u) * 34.2) calc(var(--u) * 21) calc(var(--u) * 21 + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
+      padding:76px 22px calc(80px + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
     .mc::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.5)}
-    .mh .mc h2.mc-t{--fs:calc(var(--u) * 16);margin:0;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;color:#fff}
-    .mh .mc p.mc-copy{--fs:calc(var(--u) * 12);--lh:calc(var(--u) * 15);margin:calc(var(--u) * 20) 0 0;font:230 var(--fs)/var(--lh) "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;color:#fff;max-width:none}
-    .mc-btns{display:flex;align-items:center;gap:calc(var(--u) * 10);margin-top:calc(var(--u) * 20.8)}
-    .mh .mc a.mc-btn{--fs:calc(var(--u) * 8);box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:calc(var(--u) * 3.3);
-      height:calc(var(--u) * 30);border-radius:999px;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;text-decoration:none;
+    .mh .mc h2.mc-t{--fs:34px;margin:0;font:400 var(--fs)/1.1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.025em;color:#fff}
+    .mh .mc p.mc-copy{--fs:17px;margin:18px 0 0;font:300 var(--fs)/1.55 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;color:rgba(255,255,255,.92);max-width:34ch}
+    .mc-btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin-top:36px}
+    .mh .mc a.mc-btn{--fs:14.5px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:6px;
+      height:46px;padding:0 15px;border-radius:999px;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;text-decoration:none;white-space:nowrap;
       transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;-webkit-tap-highlight-color:transparent}
     .mh .mc a.mc-btn:active{transform:scale(.96)}
-    .mh .mc a.mc-email{width:calc(var(--u) * 66);background:#000;color:#fff}
-    .mh .mc a.mc-li{width:calc(var(--u) * 64);background:#fff;color:#564848;border:.5px solid #747474}
-    .mh .mc a.mc-note{width:calc(var(--u) * 64);margin-left:calc(var(--u) * 1);background:#fff;color:#564848;border:1px solid #E8E8E8}
-    .mc-arw{width:calc(var(--u) * 5);height:calc(var(--u) * 5);flex:none;overflow:visible}
+    .mh .mc a.mc-email{background:#000;color:#fff}
+    .mh .mc a.mc-li{background:#fff;color:#564848;border:.5px solid #747474}
+    .mh .mc a.mc-note{background:#fff;color:#564848;border:1px solid #E8E8E8}
+    .mc-arw{width:9px;height:9px;flex:none;overflow:visible}
+    .mc-arw path{stroke-width:1.1}
+    @media (max-width:389px){.mh .mc a.mc-btn{--fs:13.5px;padding:0 13px;gap:5px}}
     /* reveal */
     .mc-r{opacity:0;transform:translateY(14px);filter:blur(6px)}
     .mc.in .mc-r{opacity:1;transform:none;filter:none;transition:opacity 1.4s cubic-bezier(.33,0,.2,1),transform 1.6s cubic-bezier(.16,1,.3,1),filter 1.6s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
@@ -304,7 +306,7 @@
     mc.className = 'mc'; mc.setAttribute('aria-labelledby', 'mc-title');
     mc.innerHTML =
       '<h2 id="mc-title" class="mc-t mc-r" style="--d:.05s">Let’s connect.</h2>' +
-      '<p class="mc-copy mc-r" style="--d:.18s">Have a project in mind, an opportunity to share, or just want<br>to say hello? I’d love to hear from you.</p>' +
+      '<p class="mc-copy mc-r" style="--d:.18s">Have a project in mind, an opportunity to share, or just want to say hello? I’d love to hear from you.</p>' +
       '<div class="mc-btns mc-r" style="--d:.32s">' +
         '<a class="mc-btn mc-email" href="mailto:' + MAIL + '">Email me' + ARW + '</a>' +
         '<a class="mc-btn mc-li" href="https://www.linkedin.com/in/jingyizhang145/" target="_blank" rel="noopener">LinkedIn' + ARW + '</a>' +
