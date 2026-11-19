@@ -16,8 +16,8 @@
   .mh{--e:cubic-bezier(.16,1,.3,1);position:relative;margin:0 -16px 40px;font-family:Inter,"Diatype Variable",sans-serif;color:#111}
   .mh *{box-sizing:border-box}
   /* ---- page 1 · iPod ---- */
-  .mh-p1{position:sticky;top:0;height:540px;display:flex;justify-content:center;align-items:flex-start;padding-top:4px;z-index:0}
-  .mh-ipod{position:relative;width:289px;transform-origin:50% 35%;will-change:transform,opacity,filter;
+  .mh-p1{position:sticky;top:0;height:563px;display:flex;justify-content:center;align-items:flex-start;padding-top:4px;z-index:0}
+  .mh-ipod{position:relative;width:303px;transform-origin:50% 35%;will-change:transform,opacity,filter;
     transform:translateY(calc(var(--k,0) * -28px)) scale(calc(1 - var(--k,0) * .09));opacity:calc(1 - var(--k,0) * .6);filter:blur(calc(var(--k,0) * 4px))}
   .mh .mh-ipod iframe{display:block;border:0;background:transparent;color-scheme:normal;max-width:none!important;width:calc(100% * 414 / 380);
     margin:calc(100% * -20 / 380) 0 calc(100% * -25 / 380) calc(100% * -17 / 380);aspect-ratio:414/655}
@@ -28,8 +28,10 @@
   @keyframes mh-rise{from{opacity:0;transform:translateY(36px) scale(.94);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
   @keyframes mh-floor{from{opacity:0;transform:scaleX(.55)}to{opacity:1;transform:none}}
   /* ---- page 2 · intro panel ---- */
-  .mh-p2{position:relative;z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 0;color:#fff;overflow:hidden;isolation:isolate;
-    border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0}
+  .mh-p2{position:sticky;top:var(--p2top,48px);z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 0;color:#fff;overflow:hidden;isolation:isolate;
+    border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0;
+    transform-origin:50% 0;transform:translateY(calc(var(--k2,0) * -18px)) scale(calc(1 - var(--k2,0) * .07));filter:brightness(calc(1 - var(--k2,0) * .32)) blur(calc(var(--k2,0) * 2.5px))}
+  .mh-p2::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 0 transparent}
   /* the panel's ground: fades in slowly (and settles from a soft zoom) when the panel arrives */
   .mh-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;overflow:hidden;
     background:linear-gradient(180deg,#4F5057 0%,#727D93 17.3%,#8FA5A7 37%,#9C9FA8 57.7%,#6E7284 83.2%,#8D8E9E 100%)}
@@ -91,7 +93,7 @@
   sec.setAttribute('aria-label', 'Introduction');
   sec.innerHTML =
     '<div class="mh-p1"><div class="mh-ipod"><div class="mh-ipod-in">' +
-      '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118g" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
+      '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118h" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
       '</div><div class="mh-floor"></div></div></div>' +
     '<div class="mh-p2"><div class="mh-bg"></div><div class="mh-sheen"></div><div class="mh-grain"></div>' +
       '<h1 class="mh-hi" data-split data-d0=".7" data-step=".2">Hi, I am Jingyi</h1>' +
@@ -166,7 +168,11 @@
     sec.style.setProperty('--k', k.toFixed(3));
     const q = Math.min(1, Math.max(-1, (r.top - hh) / vh));
     sec.style.setProperty('--q', (-q).toFixed(3));
-    document.body.classList.toggle('mh-dark-head', r.top <= hh * .5 && r.bottom > hh);
+    const mw = sec.querySelector('.mw'), mt = mw ? mw.getBoundingClientRect().top : Infinity;
+    const k2 = mw ? Math.min(1, Math.max(0, 1 - (mt - hh) / Math.max(1, vh - hh))) : 0;
+    sec.style.setProperty('--k2', k2.toFixed(3));
+    sec.style.setProperty('--p2top', Math.min(hh, vh - p2.offsetHeight) + 'px');
+    document.body.classList.toggle('mh-dark-head', r.top <= hh * .5 && r.bottom > hh && mt > hh * .5);
     try { frame.contentWindow.__idcPaused = k > .98; } catch (_) {}
   };
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
@@ -183,7 +189,8 @@
 
   // scroll cue → the work below
   sec.querySelector('.mh-scroll').addEventListener('click', () => {
-    const y = p2.getBoundingClientRect().bottom + scrollY - (head ? head.getBoundingClientRect().height : 48);
+    const mw = sec.querySelector('.mw');
+    const y = (mw ? mw.getBoundingClientRect().top : p2.getBoundingClientRect().bottom) + scrollY - (head ? head.getBoundingClientRect().height : 48);
     scrollTo({ top: y, behavior: 'smooth' });
   });
 
@@ -197,7 +204,10 @@
       return k(a) - k(b);
     });
     const cssP = `
-    .mw{margin:24px 0 40px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif}
+    .mw{position:relative;z-index:2;margin:0;padding:28px 16px 48px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif;
+      background:#fff;border-radius:calc((1 - var(--k2,0)) * 28px) calc((1 - var(--k2,0)) * 28px) 0 0;
+      box-shadow:0 -22px 44px -26px rgba(0,0,0,calc(.45 * (1 - var(--k2,0))))}
+    html[data-theme=dark] .mw{background:#111}
     .mw-card{display:block;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
     .mw-frame{position:relative;aspect-ratio:5/4;border-radius:32px;background:#FAFAF8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);overflow:hidden;
       display:flex;align-items:center;justify-content:center;padding:26px;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
@@ -250,7 +260,8 @@
       card.insertAdjacentHTML('beforeend', '<div class="mw-cap"><span class="mw-no">' + String(i + 1).padStart(2, '0') + '</span><span class="mw-t">' + t + '</span><span class="mw-m">' + m + '<span class="mw-arrow" aria-hidden="true">↗</span></span></div>');
       list.appendChild(card);
     });
-    sec.after(list);
+    sec.appendChild(list);
+    sec.style.marginBottom = '0';
     const oldGal = document.querySelector('.mob-only .ic-gal'); if (oldGal) oldGal.classList.add('mw-hidden');
 
     // media height cap follows the frame, so tall phones' videos stay inside the card

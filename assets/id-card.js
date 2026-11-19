@@ -10,7 +10,7 @@
   const sec = document.createElement('section');
   sec.className = 'idc-card' + (PREVIEW ? ' ds-card' : '');
   sec.innerHTML = PREVIEW
-    ? '<iframe src="assets/design-spark-card.html?v=20261118g" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>'
+    ? '<iframe src="assets/design-spark-card.html?v=20261118h" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>'
     : '<iframe src="assets/id-card.html?v=20261116c" title="Jingyi Zhang — ID card. I Bring Structure to Creativity." loading="eager"></iframe>';
   if (!document.getElementById('idc-style')) {
     const st = document.createElement('style');

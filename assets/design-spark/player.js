@@ -47,7 +47,7 @@
     scrubStep: 50,
 
     sound: 'soft',               // off | soft | tick | glass
-    volume: 0.35,
+    volume: 0.58,              // +66% (was 0.35)
 
     // screens
     screens: ['player', 'about', 'contact'],
