@@ -236,13 +236,13 @@
     items.forEach((mi, i) => {
       const a = mi.querySelector('a.ic-link'), cap = mi.querySelector('.ic-cap');
       const t = cap && cap.querySelector('b') ? cap.querySelector('b').textContent : '', m = cap && cap.querySelector('i') ? cap.querySelector('i').textContent : '';
-      const src = mi.querySelector('.mi-frame > video, .mi-frame > img, .mi-frame .hm-embed iframe');
+      const src = mi.querySelector('.mi-frame > video, .mi-frame > img, .mi-frame .hm-embed img, .mi-frame .hm-embed iframe');
       const card = document.createElement('a');
       card.className = 'mw-card'; card.href = a ? a.getAttribute('href') : '#';
       card.setAttribute('aria-label', t + (m ? ', ' + m : ''));
       const frame = document.createElement('div'); frame.className = 'mw-frame';
       const media = document.createElement('div'); media.className = 'mw-media';
-      if (src && src.tagName === 'IFRAME') {
+      if (src && src.tagName === 'IFRAME' && !matchMedia('(hover: none), (pointer: coarse)').matches) {
         media.classList.add('board');
         media.innerHTML = '<iframe src="' + src.getAttribute('src') + '" title="' + t + '" loading="lazy" tabindex="-1"></iframe>';
       } else if (src) {

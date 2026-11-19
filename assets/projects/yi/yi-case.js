@@ -14,7 +14,7 @@
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const f = e.target; if (!f.src) f.src = f.dataset.src; io.unobserve(f); } }), { rootMargin: '400px' });
   $$('.yx-scr iframe[data-src]').forEach(f => {
     const k = (f.dataset.src.match(/#demo-(\w+)/) || [])[1];
-    if (STILL && k) { const im = document.createElement('img'); im.src = IMG + 'screens/' + (SHOT[k] || SHOT.today); im.alt = f.title || ''; im.loading = 'lazy'; im.decoding = 'async';
+    if (STILL) { const im = document.createElement('img'); im.src = IMG + 'screens/' + (SHOT[k] || SHOT.today); im.alt = f.title || ''; im.loading = 'lazy'; im.decoding = 'async';
       im.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block'; f.replaceWith(im); return; }
     io.observe(f);
   });

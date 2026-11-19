@@ -392,6 +392,10 @@ body.bare .app{border-radius:0}
 <script>
 /* ================= DATA ================= */
 const DEMO_ON = /^#demo-/.test(location.hash);
+/* A #demo-* URL belongs only inside a mockup frame. If a browser opens one as the page itself, hide it at once and
+   go straight back to where the visitor was (or the home page) — never to a project page. */
+if (DEMO_ON && window.self === window.top) { document.documentElement.style.visibility = 'hidden';
+  try { if (history.length > 1 && document.referrer && new URL(document.referrer).origin === location.origin) history.back(); else location.replace('/'); } catch (e) { location.replace('/'); } }
 const A = '../assets/projects/yi/';
 const TRI = {
   qian:{zh:'乾',py:'Qian',el:'Heaven',n:1,l:[1,1,1],sym:'☰',vis:'A slow drift of stars across an open field.',snd:'High, open air'},
