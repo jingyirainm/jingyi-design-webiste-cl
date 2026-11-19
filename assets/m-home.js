@@ -278,11 +278,11 @@
     const cssC = `
     .mc{position:relative;z-index:3;overflow:hidden;isolation:isolate;
       background:linear-gradient(180deg,#5D5D63 0%,#8993A7 17.31%,#AEC3C4 37.02%,#D8D8D8 57.69%,#8C90A0 83.17%,#BDBDC9 100%);
-      padding:76px 22px calc(80px + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
+      padding:46px 22px calc(48px + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
     .mc::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.5)}
     .mh .mc h2.mc-t{--fs:34px;margin:0;font:400 var(--fs)/1.1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.025em;color:#fff}
-    .mh .mc p.mc-copy{--fs:17px;margin:18px 0 0;font:300 var(--fs)/1.55 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;color:rgba(255,255,255,.92);max-width:34ch}
-    .mc-btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin-top:36px}
+    .mh .mc p.mc-copy{--fs:17px;margin:14px 0 0;font:300 var(--fs)/1.55 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;color:rgba(255,255,255,.92);max-width:34ch}
+    .mc-btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin-top:28px}
     .mh .mc a.mc-btn{--fs:14.5px;box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:6px;
       height:46px;padding:0 15px;border-radius:999px;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;text-decoration:none;white-space:nowrap;
       transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;-webkit-tap-highlight-color:transparent}
