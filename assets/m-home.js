@@ -272,85 +272,49 @@
     if (reduce) list.querySelectorAll('.mw-card').forEach(c => c.classList.add('on'));
   })();
 
-  /* ---------- Let's connect: a black rounded card closing the page (AI-studio-style footer) ---------- */
+  /* ---------- Let's connect: full-width gradient panel closing the page (Group 35, 391 wide) ---------- */
   (function connect() {
+    const ARW = '<svg class="mc-arw" viewBox="70.5 132.5 5 5" aria-hidden="true"><path d="M71.4598 133H73.7106C74.3215 133 74.6238 133 74.8103 133.186C74.9968 133.373 75 133.678 75 134.283V136.54M71 137L74.5595 133.441" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const cssC = `
-    .mc{position:relative;z-index:3;background:#fff;padding:8px 10px calc(10px + env(safe-area-inset-bottom));font-family:Inter,"Diatype Variable",sans-serif}
-    html[data-theme=dark] .mc{background:#111}
-    .mc-card{position:relative;overflow:hidden;isolation:isolate;border-radius:32px;background:#0A0A0B;color:#fff;padding:44px 26px 26px;
-      transform-origin:50% 0;transform:translateY(calc((1 - var(--c,1)) * 48px)) scale(calc(.92 + var(--c,1) * .08));opacity:calc(.6 + var(--c,1) * .4)}
-    .mc-glow{position:absolute;z-index:-1;inset:-30% -40% auto -40%;height:120%;pointer-events:none;
-      background:radial-gradient(45% 40% at 30% 30%,rgba(124,209,58,.16),transparent 70%),radial-gradient(40% 35% at 80% 55%,rgba(140,150,190,.18),transparent 70%);
-      filter:blur(10px);animation:mc-drift 16s ease-in-out infinite alternate}
-    @keyframes mc-drift{0%{transform:translate3d(-4%,0,0) rotate(0)}100%{transform:translate3d(6%,6%,0) rotate(8deg)}}
-    .mc-grain{position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-    .mc-eyebrow{--fs:11px;display:flex;align-items:center;gap:8px;font:400 var(--fs)/1 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace!important;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-    .mc-eyebrow i{width:6px;height:6px;border-radius:50%;background:#7CD13A;box-shadow:0 0 10px 2px rgba(124,209,58,.6);animation:mc-pulse 2.8s ease-in-out infinite}
-    @keyframes mc-pulse{0%,100%{opacity:.55}50%{opacity:1}}
-    .mh .mc .mc-card h2{margin:18px 0 0;font:500 var(--mch,40px)/1.04 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.035em;color:#fff}
-    .mh .mc .mc-card p.mc-copy{margin:18px 0 0;font:300 var(--mcp,15px)/1.6 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.005em;color:rgba(255,255,255,.62);max-width:34ch}
-    .mc-btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
-    .mc-btns .primary{grid-column:1/-1}
-    .mc-btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 18px;border-radius:999px;font:500 var(--mcb,15px)/1 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.01em;text-decoration:none;
-      color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);background:rgba(255,255,255,.04);transition:transform .35s cubic-bezier(.16,1,.3,1),background .3s ease,box-shadow .3s ease;-webkit-tap-highlight-color:transparent}
-    .mc-btn:active{transform:scale(.96)}
-    .mc-btn.primary{background:#fff;color:#0A0A0B;box-shadow:none}
-    .mc-btn:not(.primary):active{background:rgba(255,255,255,.1)}
-    .mc-rule{height:1px;margin:40px 0 26px;background:linear-gradient(90deg,rgba(255,255,255,.16),rgba(255,255,255,.06))}
-    .mc-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .mh .mc .mc-cols h3{--fs:11px;margin:0 0 12px;font:400 var(--fs)/1 "JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace!important;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-    .mc-cols a{display:block;padding:7px 0;font:400 var(--mcl,15px)/1.2 Inter,"Diatype Variable",sans-serif!important;color:rgba(255,255,255,.86);text-decoration:none;-webkit-tap-highlight-color:transparent}
-    .mc-cols a:active{color:#fff}
-    .mc-mark{margin:44px 0 0;font:500 var(--mcw,64px)/.86 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.06em;white-space:nowrap;
-      background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(255,255,255,.18));-webkit-background-clip:text;background-clip:text;color:transparent;overflow:hidden;padding-bottom:.08em}
-    .mc-mark span{display:inline-block}
-    .mc-base{--fs:12px;display:flex;justify-content:space-between;gap:12px;margin-top:20px;font:400 var(--fs)/1.3 Inter,"Diatype Variable",sans-serif!important;color:rgba(255,255,255,.42)}
+    .mc{--u:calc(min(100vw,520px) / 391);position:relative;z-index:3;overflow:hidden;isolation:isolate;
+      background:linear-gradient(180deg,#5D5D63 0%,#8993A7 17.31%,#AEC3C4 37.02%,#D8D8D8 57.69%,#8C90A0 83.17%,#BDBDC9 100%);
+      padding:calc(var(--u) * 34.2) calc(var(--u) * 21) calc(var(--u) * 21 + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
+    .mc::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.5)}
+    .mh .mc h2.mc-t{--fs:calc(var(--u) * 16);margin:0;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;color:#fff}
+    .mh .mc p.mc-copy{--fs:calc(var(--u) * 12);--lh:calc(var(--u) * 15);margin:calc(var(--u) * 20) 0 0;font:230 var(--fs)/var(--lh) "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;color:#fff;max-width:none}
+    .mc-btns{display:flex;align-items:center;gap:calc(var(--u) * 10);margin-top:calc(var(--u) * 20.8)}
+    .mh .mc a.mc-btn{--fs:calc(var(--u) * 8);box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:calc(var(--u) * 3.3);
+      height:calc(var(--u) * 30);border-radius:999px;font:400 var(--fs)/1 "Diatype Variable",Inter,sans-serif!important;letter-spacing:0;text-decoration:none;
+      transition:transform .35s cubic-bezier(.16,1,.3,1),opacity .3s ease;-webkit-tap-highlight-color:transparent}
+    .mh .mc a.mc-btn:active{transform:scale(.96)}
+    .mh .mc a.mc-email{width:calc(var(--u) * 66);background:#000;color:#fff}
+    .mh .mc a.mc-li{width:calc(var(--u) * 64);background:#fff;color:#564848;border:.5px solid #747474}
+    .mh .mc a.mc-note{width:calc(var(--u) * 64);margin-left:calc(var(--u) * 1);background:#fff;color:#564848;border:1px solid #E8E8E8}
+    .mc-arw{width:calc(var(--u) * 5);height:calc(var(--u) * 5);flex:none;overflow:visible}
     /* reveal */
-    .mc-r{opacity:0;transform:translateY(18px);filter:blur(8px)}
-    .mc.in .mc-r{opacity:1;transform:none;filter:none;transition:opacity 1.6s cubic-bezier(.33,0,.2,1),transform 1.8s cubic-bezier(.16,1,.3,1),filter 1.8s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
-    .mc-mark span{transform:translateY(105%)}
-    .mc.in .mc-mark span{transform:none;transition:transform 1.4s cubic-bezier(.16,1,.3,1) var(--d,0s)}
-    .mc:not(.in) .mc-glow{opacity:0}
-    .mc.in .mc-glow{opacity:1;transition:opacity 3s ease .2s}
+    .mc-r{opacity:0;transform:translateY(14px);filter:blur(6px)}
+    .mc.in .mc-r{opacity:1;transform:none;filter:none;transition:opacity 1.4s cubic-bezier(.33,0,.2,1),transform 1.6s cubic-bezier(.16,1,.3,1),filter 1.6s cubic-bezier(.16,1,.3,1);transition-delay:var(--d,0s)}
     body.mobile.mh-on .pin-mbottom{display:none!important}
-    @media (prefers-reduced-motion:reduce){.mc *{animation:none!important;transition:none!important}.mc-r{opacity:1;transform:none;filter:none}.mc-mark span{transform:none}.mc-card{transform:none;opacity:1}}`;
+    /* the panel runs to the very bottom of the page */
+    body.mobile.mh-on main.main,body.mobile.mh-on .mob-only .page-layout{padding-bottom:0!important}
+    @media (prefers-reduced-motion:reduce){.mc *{transition:none!important}.mc-r{opacity:1;transform:none;filter:none}}`;
     const stC = document.createElement('style'); stC.textContent = cssC; document.head.appendChild(stC);
     const MAIL = 'jingyizhang145@gmail.com';
-    const word = 'Jingyi Zhang'.split('').map((ch, i) => '<span style="--d:' + (0.9 + i * 0.035).toFixed(3) + 's">' + (ch === ' ' ? '&nbsp;' : ch) + '</span>').join('');
     const mc = document.createElement('section');
     mc.className = 'mc'; mc.setAttribute('aria-labelledby', 'mc-title');
     mc.innerHTML =
-      '<div class="mc-card"><div class="mc-glow"></div><div class="mc-grain"></div>' +
-        '<div class="mc-eyebrow mc-r" style="--d:.05s"><i></i>Open to new work</div>' +
-        '<h2 id="mc-title" class="mc-r" style="--d:.15s">Let’s connect.</h2>' +
-        '<p class="mc-copy mc-r" style="--d:.3s">Have a project in mind, an opportunity to share, or just want to say hello? I’d love to hear from you. Thoughts on this website are always welcome, too.</p>' +
-        '<div class="mc-btns mc-r" style="--d:.45s">' +
-          '<a class="mc-btn primary" href="mailto:' + MAIL + '">Email me</a>' +
-          '<a class="mc-btn" href="mailto:' + MAIL + '?subject=Website%20feedback">Leave a note</a>' +
-          '<a class="mc-btn" href="https://www.linkedin.com/in/jingyizhang145/" target="_blank" rel="noopener">LinkedIn</a>' +
-        '</div>' +
-        '<div class="mc-rule mc-r" style="--d:.6s"></div>' +
-        '<div class="mc-cols mc-r" style="--d:.7s">' +
-          '<div><h3>Explore</h3><a href="work.html">Work</a><a href="about.html">About</a><a href="https://rainmelonstudio.com/" target="_blank" rel="noopener">Rainmelon Studio</a></div>' +
-          '<div><h3>Elsewhere</h3><a href="https://www.linkedin.com/in/jingyizhang145/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/rainmelon.studio/" target="_blank" rel="noopener">Instagram</a><a href="mailto:' + MAIL + '">Email</a></div>' +
-        '</div>' +
-        '<div class="mc-mark" aria-hidden="true">' + word + '</div>' +
-        '<div class="mc-base mc-r" style="--d:1.3s"><span>© 2026 Jingyi Zhang</span><span>Designed &amp; built in New York</span></div>' +
+      '<h2 id="mc-title" class="mc-t mc-r" style="--d:.05s">Let’s connect.</h2>' +
+      '<p class="mc-copy mc-r" style="--d:.18s">Have a project in mind, an opportunity to share, or just want<br>to say hello? I’d love to hear from you.</p>' +
+      '<div class="mc-btns mc-r" style="--d:.32s">' +
+        '<a class="mc-btn mc-email" href="mailto:' + MAIL + '">Email me' + ARW + '</a>' +
+        '<a class="mc-btn mc-li" href="https://www.linkedin.com/in/jingyizhang145/" target="_blank" rel="noopener">LinkedIn' + ARW + '</a>' +
+        '<a class="mc-btn mc-note" href="mailto:' + MAIL + '?subject=Website%20feedback">Leave a note</a>' +
       '</div>';
     sec.appendChild(mc);
     document.body.classList.add('mh-on');
-    // wordmark fills the card width
-    const mark = mc.querySelector('.mc-mark');
-    const fitMark = () => { mark.style.setProperty('--mcw', '64px'); const w = mark.scrollWidth, avail = mark.clientWidth - 4; if (w > 0) mark.style.setProperty('--mcw', Math.min(96, 64 * avail / w).toFixed(1) + 'px'); };
-    fitMark(); addEventListener('resize', fitMark); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitMark);
-    // reveal once, scale in with scroll
     if ('IntersectionObserver' in window && !reduce) {
-      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { mc.classList.add('in'); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -30% 0px' });
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { mc.classList.add('in'); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -15% 0px' });
       io.observe(mc);
     } else mc.classList.add('in');
-    const card = mc.querySelector('.mc-card');
-    let t = false;
-    const u = () => { t = false; const r = card.getBoundingClientRect(), vh = innerHeight; const c = Math.min(1, Math.max(0, (vh - r.top) / (vh * .55))); card.style.setProperty('--c', reduce ? 1 : c.toFixed(3)); };
-    addEventListener('scroll', () => { if (!t) { t = true; requestAnimationFrame(u); } }, { passive: true }); addEventListener('resize', u); u();
   })();
 })();
