@@ -275,11 +275,15 @@
   (function connect() {
     const ARW = '<svg class="mc-arw" viewBox="70.5 132.5 5 5" aria-hidden="true"><path d="M71.4598 133H73.7106C74.3215 133 74.6238 133 74.8103 133.186C74.9968 133.373 75 133.678 75 134.283V136.54M71 137L74.5595 133.441" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     const cssC = `
-    .mc{position:relative;z-index:3;overflow:hidden;isolation:isolate;box-sizing:border-box;
+    .mc{position:relative;z-index:3;overflow:hidden;isolation:isolate;box-sizing:border-box;margin-top:-28px;border-radius:28px 28px 0 0;
+      box-shadow:0 -22px 44px -26px rgba(0,0,0,.45);
       min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;
       background:linear-gradient(180deg,#5D5D63 0%,#8993A7 17.31%,#AEC3C4 37.02%,#D8D8D8 57.69%,#8C90A0 83.17%,#BDBDC9 100%);
       padding:88px 22px calc(56px + env(safe-area-inset-bottom));color:#fff;font-family:"Diatype Variable",Inter,sans-serif}
-    .mc::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.5)}
+    .mc::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(0,0,0,.5);border-radius:inherit}
+    /* the projects sheet holds still once its end is on screen; the connect page slides up over it as a new layer */
+    .mh .mw{position:sticky;top:var(--mwtop,0px);transform-origin:50% calc(100% - 50vh);transform:scale(calc(1 - var(--k3,0) * .05))}
+    .mh .mw::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#000;opacity:calc(var(--k3,0) * .35);pointer-events:none}
     .mh .mc h2.mc-t{--fs:44px;margin:0;font:400 var(--fs)/1.05 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.03em;color:#fff}
     .mh .mc p.mc-copy{--fs:18px;margin:20px 0 0;font:300 var(--fs)/1.55 "Diatype Variable",Inter,sans-serif!important;letter-spacing:-.005em;color:rgba(255,255,255,.92);max-width:32ch}
     .mc-btns{display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;margin-top:40px}
@@ -314,6 +318,17 @@
       '</div>';
     sec.appendChild(mc);
     document.body.classList.add('mh-on');
+    const mwS = sec.querySelector('.mw');
+    if (mwS) {
+      const hh = 48;
+      const pin = () => sec.style.setProperty('--mwtop', Math.min(0, innerHeight - mwS.offsetHeight) + 'px');
+      pin(); addEventListener('resize', pin, { passive: true });
+      if ('ResizeObserver' in window) new ResizeObserver(pin).observe(mwS);
+      let t3 = false;
+      const k3 = () => { t3 = false; const top = mc.getBoundingClientRect().top, vh = innerHeight;
+        sec.style.setProperty('--k3', Math.min(1, Math.max(0, (vh - top) / Math.max(1, vh - hh))).toFixed(3)); };
+      if (!reduce) { addEventListener('scroll', () => { if (!t3) { t3 = true; requestAnimationFrame(k3); } }, { passive: true }); k3(); }
+    }
     if ('IntersectionObserver' in window && !reduce) {
       const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { mc.classList.add('in'); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -25% 0px' });
       io.observe(mc);
