@@ -16,7 +16,7 @@
   .mh{--e:cubic-bezier(.16,1,.3,1);position:relative;margin:0 -16px 40px;font-family:Inter,"Diatype Variable",sans-serif;color:#111}
   .mh *{box-sizing:border-box}
   /* ---- page 1 · iPod ---- */
-  .mh-p1{position:sticky;top:0;height:504px;display:flex;justify-content:center;align-items:flex-start;padding-top:4px;z-index:0}
+  .mh-p1{position:sticky;top:0;height:540px;display:flex;justify-content:center;align-items:flex-start;padding-top:4px;z-index:0}
   .mh-ipod{position:relative;width:289px;transform-origin:50% 35%;will-change:transform,opacity,filter;
     transform:translateY(calc(var(--k,0) * -28px)) scale(calc(1 - var(--k,0) * .09));opacity:calc(1 - var(--k,0) * .6);filter:blur(calc(var(--k,0) * 4px))}
   .mh .mh-ipod iframe{display:block;border:0;background:transparent;color-scheme:normal;max-width:none!important;width:calc(100% * 414 / 380);
@@ -28,17 +28,23 @@
   @keyframes mh-rise{from{opacity:0;transform:translateY(36px) scale(.94);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
   @keyframes mh-floor{from{opacity:0;transform:scaleX(.55)}to{opacity:1;transform:none}}
   /* ---- page 2 · intro panel ---- */
-  .mh-p2{position:relative;z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 0;color:#fff;overflow:hidden;
-    border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0;
-    background:linear-gradient(180deg,#4F5057 0%,#727D93 17.3%,#8FA5A7 37%,#9C9FA8 57.7%,#6E7284 83.2%,#8D8E9E 100%);
-    box-shadow:0 -18px 40px -24px rgba(0,0,0,calc(.35 * (1 - var(--k,0))))}
-  .mh-p2::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.2);pointer-events:none}
+  .mh-p2{position:relative;z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 0;color:#fff;overflow:hidden;isolation:isolate;
+    border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0}
+  /* the panel's ground: fades in slowly (and settles from a soft zoom) when the panel arrives */
+  .mh-bg{position:absolute;inset:0;z-index:-1;pointer-events:none;border-radius:inherit;overflow:hidden;
+    background:linear-gradient(180deg,#4F5057 0%,#727D93 17.3%,#8FA5A7 37%,#9C9FA8 57.7%,#6E7284 83.2%,#8D8E9E 100%)}
+  .mh-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.2)}
+  .mh-p2:not(.in) .mh-bg{opacity:.16;transform:scale(1.06);filter:blur(10px)}
+  .mh-p2.in .mh-bg{transition:opacity 2.6s cubic-bezier(.33,0,.2,1),transform 3.2s var(--e),filter 2.6s var(--e)}
+  .mh-p2:not(.in) .mh-sheen{opacity:0}
+  .mh-p2.in .mh-sheen{transition:opacity 4s ease 1.2s}
   .mh-sheen{position:absolute;inset:-25%;pointer-events:none;opacity:.6;mix-blend-mode:soft-light;
     background:radial-gradient(38% 28% at 28% 30%,rgba(255,255,255,.6),transparent 70%),radial-gradient(34% 26% at 76% 68%,rgba(255,255,255,.4),transparent 70%);
     animation:mh-drift 20s ease-in-out infinite alternate}
   @keyframes mh-drift{0%{transform:translate3d(-5%,-3%,0) rotate(0)}100%{transform:translate3d(5%,5%,0) rotate(7deg)}}
   .mh-grain{position:absolute;inset:0;pointer-events:none;opacity:.08;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
-  .mh-p2>*:not(.mh-sheen):not(.mh-grain){position:relative}
+  .mh-p2>*:not(.mh-sheen):not(.mh-grain):not(.mh-bg){position:relative}
+  .mh-sheen,.mh-grain{z-index:-1}
   .mh .mh-p2 .mh-hi,.mh .mh-p2 .mh-h{font:250 var(--hs,24px)/var(--hl,30px) Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.005em;margin:0;color:#fff;text-wrap:balance}
   .mh .mh-p2 .mh-h{margin-top:28px;max-width:330px}
   .mh-flower{align-self:center;margin:32px 0 0;width:136px;height:132px;color:#EDEDED;cursor:pointer;-webkit-tap-highlight-color:transparent;translate:0 calc(var(--q,0) * -16px)}
@@ -54,21 +60,21 @@
   .mh-scroll svg{animation:mh-bob 2.2s ease-in-out infinite}
   @keyframes mh-bob{0%,100%{transform:translateY(0);opacity:.6}50%{transform:translateY(4px);opacity:1}}
   /* ---- reveal: lines slide up through masks ---- */
-  .mh-line{display:block;overflow:hidden;padding-bottom:.14em;margin-bottom:-.14em}
-  .mh-line>span{display:inline-block;will-change:transform}
-  .mh-p2:not(.in) .mh-line>span{transform:translateY(108%);opacity:0;filter:blur(6px)}
-  .mh-p2.in .mh-line>span{transition:transform 1.1s var(--e),opacity .9s ease,filter 1.1s var(--e);transition-delay:var(--d,0s)}
+  .mh-line{display:block}
+  .mh-line>span{display:inline-block;will-change:transform,opacity,filter}
+  .mh-p2:not(.in) .mh-line>span{transform:translateY(16px);opacity:0;filter:blur(10px)}
+  .mh-p2.in .mh-line>span{transition:transform 2.2s var(--e),opacity 2s cubic-bezier(.33,0,.2,1),filter 2.2s var(--e);transition-delay:var(--d,0s)}
   .mh-p2:not(.in) .mh-copy a{--u:0%}
-  .mh-p2.in .mh-copy a{transition:background-size 1.1s var(--e) var(--du,1.7s)}
+  .mh-p2.in .mh-copy a{transition:background-size 1.4s var(--e) var(--du,3s)}
   .mh-p2:not(.in) .mh-scroll{opacity:0;transform:translateY(10px)}
-  .mh-p2.in .mh-scroll{transition:opacity 1s ease 2.1s,transform 1.2s var(--e) 2.1s}
+  .mh-p2.in .mh-scroll{transition:opacity 1.6s ease 3.4s,transform 1.8s var(--e) 3.4s}
   .mh-st{stroke-dasharray:1 1}
   .mh-p2:not(.in) .mh-st{stroke-dashoffset:1}
   .mh-p2:not(.in) .mh-fl{opacity:0}
-  .mh-p2.in .mh-st{transition:stroke-dashoffset 1.6s cubic-bezier(.55,.1,.25,1) var(--d,0s)}
-  .mh-p2.in .mh-fl{transition:opacity .6s ease var(--d,0s)}
+  .mh-p2.in .mh-st{transition:stroke-dashoffset 2.2s cubic-bezier(.55,.1,.25,1) var(--d,0s)}
+  .mh-p2.in .mh-fl{transition:opacity 1s ease var(--d,0s)}
   .mh-p2:not(.in) .mh-bloom{transform:scale(.84) rotate(-12deg)}
-  .mh-p2.in .mh-bloom{transition:transform 2.3s var(--e) .55s}
+  .mh-p2.in .mh-bloom{transition:transform 3s var(--e) 1.2s}
   /* ---- header turns light over the panel ---- */
   body.mobile .pin-mtop bodycopy{transition:filter .45s ease}
   body.mobile.mh-dark-head .pin-mtop bodycopy{filter:invert(1) hue-rotate(180deg)}
@@ -87,13 +93,13 @@
     '<div class="mh-p1"><div class="mh-ipod"><div class="mh-ipod-in">' +
       '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118g" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
       '</div><div class="mh-floor"></div></div></div>' +
-    '<div class="mh-p2"><div class="mh-sheen"></div><div class="mh-grain"></div>' +
-      '<h1 class="mh-hi" data-split data-d0=".05">Hi, I am Jingyi</h1>' +
-      '<p class="mh-h" data-split data-d0=".22">A Product Designer who believes in usefulness, efficiency and simplicity.</p>' +
+    '<div class="mh-p2"><div class="mh-bg"></div><div class="mh-sheen"></div><div class="mh-grain"></div>' +
+      '<h1 class="mh-hi" data-split data-d0=".7" data-step=".2">Hi, I am Jingyi</h1>' +
+      '<p class="mh-h" data-split data-d0="1.05" data-step=".2">A Product Designer who believes in usefulness, efficiency and simplicity.</p>' +
       '<div class="mh-flower" role="img" aria-label="Spark flower — tap to redraw"><svg viewBox="108.75 852.75 137 133" fill="none"><g class="mh-bloom"><g class="mh-sway">' + FLOWER + '</g></g></svg></div>' +
       '<div class="mh-copy">' +
-        '<p data-split data-d0="1.0" data-step=".06">I design and prototype AI-powered B2B/B2C SaaS for creative &amp; production workflow.<br>Currently working @ReelShort.</p>' +
-        '<p data-split data-d0="1.3" data-step=".06">I am also a visual designer &amp; art director through my studio practice @<a href="https://rainmelonstudio.com/" target="_blank" rel="noopener">Rainmelon Studio</a>.</p>' +
+        '<p data-split data-d0="2.0" data-step=".14">I design and prototype AI-powered B2B/B2C SaaS for creative &amp; production workflow.<br>Currently working @ReelShort.</p>' +
+        '<p data-split data-d0="2.5" data-step=".14">I am also a visual designer &amp; art director through my studio practice @<a href="https://rainmelonstudio.com/" target="_blank" rel="noopener">Rainmelon Studio</a>.</p>' +
       '</div>' +
       '<button type="button" class="mh-scroll">Scroll to view more work<svg width="11" height="13" viewBox="0 0 11 13" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5.5 1v11M1.3 7.8 5.5 12l4.2-4.2"/></svg></button>' +
     '</div>';
@@ -131,8 +137,8 @@
 
   // flower: staggered strokes, pollen dots last
   const strokes = sec.querySelectorAll('.mh-st'), dots = sec.querySelectorAll('.mh-fl');
-  strokes.forEach((p, i) => { p.setAttribute('pathLength', '1'); p.style.setProperty('--d', (0.55 + i * 0.06).toFixed(2) + 's'); });
-  dots.forEach((p, i) => p.style.setProperty('--d', (1.9 + i * 0.05).toFixed(2) + 's'));
+  strokes.forEach((p, i) => { p.setAttribute('pathLength', '1'); p.style.setProperty('--d', (1.5 + i * 0.07).toFixed(2) + 's'); });
+  dots.forEach((p, i) => p.style.setProperty('--d', (3.1 + i * 0.06).toFixed(2) + 's'));
 
   const p2 = sec.querySelector('.mh-p2'), frame = sec.querySelector('iframe');
 
@@ -146,7 +152,7 @@
   const t0 = performance.now();
   const reveal = () => { const wait = Math.max(0, (started ? 1100 : 1800) - (performance.now() - t0)); setTimeout(() => p2.classList.add('in'), wait); };
   if ('IntersectionObserver' in window && !reduce) {
-    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { reveal(); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -12% 0px' });
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { reveal(); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -52% 0px' });
     io.observe(p2);
   } else p2.classList.add('in');
 
@@ -180,4 +186,84 @@
     const y = p2.getBoundingClientRect().bottom + scrollY - (head ? head.getBoundingClientRect().height : 48);
     scrollTo({ top: y, behavior: 'smooth' });
   });
+
+  /* ---------- Projects: the home mosaic's eight, one per row, as Ramp-style cards ---------- */
+  (function projects() {
+    const gal = document.querySelector('main .desk-only gallery-columnized.hm');
+    const items = gal ? [...gal.querySelectorAll(':scope > media-item:not(.hm-off)')] : [];
+    if (items.length < 8) return;
+    items.sort((a, b) => {
+      const k = mi => { const r = parseInt(mi.style.getPropertyValue('--hm-r')) || 0, c = parseInt(mi.style.getPropertyValue('--hm-c')) || 0; return r * 100 + c; };
+      return k(a) - k(b);
+    });
+    const cssP = `
+    .mw{margin:24px 0 40px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif}
+    .mw-card{display:block;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+    .mw-frame{position:relative;aspect-ratio:5/4;border-radius:32px;background:#FAFAF8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);overflow:hidden;
+      display:flex;align-items:center;justify-content:center;padding:26px;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
+    .mw-card:active .mw-frame{transform:scale(.982)}
+    .mw-media{position:relative;max-width:100%;max-height:100%;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(0,0,0,.35),0 2px 6px -2px rgba(0,0,0,.08);
+      transform:translateZ(0)}
+    .mw-media img,.mw-media video{display:block;max-width:100%;max-height:calc(var(--mwH) - 52px);width:auto;height:auto;object-fit:contain}
+    .mw-media.fill{width:100%;height:100%}
+    .mw-media.fill img,.mw-media.fill video{width:100%;height:100%;max-height:none;object-fit:cover}
+    .mw-media.board{width:100%;height:100%;background:#f3f3f3}
+    .mw-media.board iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+    .mw-cap{display:flex;align-items:baseline;gap:10px;padding:12px 6px 0}
+    .mw-no{font:400 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.04em;opacity:.45}
+    .mw-t{font:400 15px/1.25 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.005em}
+    .mw-m{margin-left:auto;font:300 12px/1.25 Inter,"Diatype Variable",sans-serif!important;opacity:.55;text-align:right}
+    .mw-arrow{display:inline-block;margin-left:6px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+    .mw-card:active .mw-arrow{transform:translate(2px,-2px)}
+    /* rise in as each card enters */
+    .mw-card{opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity 1.1s cubic-bezier(.33,0,.2,1),transform 1.3s cubic-bezier(.16,1,.3,1),filter 1.1s cubic-bezier(.16,1,.3,1)}
+    .mw-card .mw-media{transform:scale(1.05);transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+    .mw-card.on{opacity:1;transform:none;filter:none}
+    .mw-card.on .mw-media{transform:none}
+    html[data-theme=dark] .mw-frame{background:#161616;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+    body.mobile .mob-only .ic-gal.mw-hidden{display:none!important}
+    @media (prefers-reduced-motion:reduce){.mw-card,.mw-card .mw-media{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}}`;
+    const stP = document.createElement('style'); stP.textContent = cssP; document.head.appendChild(stP);
+
+    const list = document.createElement('section');
+    list.className = 'mw'; list.setAttribute('aria-label', 'Selected work');
+    items.forEach((mi, i) => {
+      const a = mi.querySelector('a.ic-link'), cap = mi.querySelector('.ic-cap');
+      const t = cap && cap.querySelector('b') ? cap.querySelector('b').textContent : '', m = cap && cap.querySelector('i') ? cap.querySelector('i').textContent : '';
+      const src = mi.querySelector('.mi-frame > video, .mi-frame > img, .mi-frame .hm-embed iframe');
+      const card = document.createElement('a');
+      card.className = 'mw-card'; card.href = a ? a.getAttribute('href') : '#';
+      card.setAttribute('aria-label', t + (m ? ', ' + m : ''));
+      const frame = document.createElement('div'); frame.className = 'mw-frame';
+      const media = document.createElement('div'); media.className = 'mw-media';
+      if (src && src.tagName === 'IFRAME') {
+        media.classList.add('board');
+        media.innerHTML = '<iframe src="' + src.getAttribute('src') + '" title="' + t + '" loading="lazy" tabindex="-1"></iframe>';
+      } else if (src) {
+        const c = src.cloneNode(true);
+        c.removeAttribute('style'); c.removeAttribute('class');
+        if (c.tagName === 'VIDEO') { c.muted = true; c.setAttribute('muted', ''); c.setAttribute('playsinline', ''); c.removeAttribute('autoplay'); c.preload = 'metadata'; }
+        else c.loading = 'lazy';
+        media.appendChild(c);
+      }
+      frame.appendChild(media); card.appendChild(frame);
+      card.insertAdjacentHTML('beforeend', '<div class="mw-cap"><span class="mw-no">' + String(i + 1).padStart(2, '0') + '</span><span class="mw-t">' + t + '</span><span class="mw-m">' + m + '<span class="mw-arrow" aria-hidden="true">↗</span></span></div>');
+      list.appendChild(card);
+    });
+    sec.after(list);
+    const oldGal = document.querySelector('.mob-only .ic-gal'); if (oldGal) oldGal.classList.add('mw-hidden');
+
+    // media height cap follows the frame, so tall phones' videos stay inside the card
+    const fit = () => list.querySelectorAll('.mw-frame').forEach(f => f.style.setProperty('--mwH', f.clientHeight + 'px'));
+    fit(); addEventListener('resize', fit);
+
+    // reveal + play only while on screen
+    const vis = new IntersectionObserver(es => es.forEach(e => {
+      const v = e.target.querySelector('video');
+      if (e.isIntersecting) { e.target.classList.add('on'); if (v) { const pr = v.play(); if (pr && pr.catch) pr.catch(() => {}); } }
+      else if (v) v.pause();
+    }), { threshold: 0.18, rootMargin: '0px 0px -6% 0px' });
+    list.querySelectorAll('.mw-card').forEach(c => vis.observe(c));
+    if (reduce) list.querySelectorAll('.mw-card').forEach(c => c.classList.add('on'));
+  })();
 })();
