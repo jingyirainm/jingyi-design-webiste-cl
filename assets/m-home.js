@@ -203,7 +203,7 @@
       return k(a) - k(b);
     });
     const cssP = `
-    .mw{position:relative;z-index:2;margin:-28px 0 0;padding:28px 16px 32px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif;
+    .mw{position:relative;z-index:2;margin:-28px 0 0;padding:28px 16px 128px;display:flex;flex-direction:column;gap:44px;font-family:Inter,"Diatype Variable",sans-serif;
       background:#fff;border-radius:28px 28px 0 0;
       box-shadow:0 -22px 44px -26px rgba(0,0,0,.4)}
     html[data-theme=dark] .mw{background:#111}
@@ -295,6 +295,11 @@
     .mh .mc a.mc-li{background:#fff;color:#564848;border:.5px solid #747474}
     .mh .mc a.mc-note{background:#fff;color:#564848;border:1px solid #E8E8E8}
     .mc-arw{width:9px;height:9px;flex:none;overflow:visible}
+    /* the site's LinkedIn / Email / Instagram icons, bottom right */
+    .mc-soc{position:absolute;right:22px;bottom:calc(28px + env(safe-area-inset-bottom));color:#fff}
+    .mc-soc .so-row{gap:20px}
+    .mh .mc-soc .so-row a{color:#fff!important;opacity:.85}
+    .mc-soc .so-row svg{width:20px;height:20px}
     .mc-arw path{stroke-width:1.1}
     @media (max-width:389px){.mh .mc a.mc-btn{--fs:13.5px;padding:0 13px;gap:5px}.mh .mc h2.mc-t{--fs:40px}}
     /* reveal */
@@ -318,6 +323,10 @@
       '</div>';
     sec.appendChild(mc);
     document.body.classList.add('mh-on');
+    // reuse the site's own social icon row (assets/social.js mounts it in the phone footer bar)
+    const soc = document.createElement('div'); soc.className = 'mc-soc mc-r'; soc.style.setProperty('--d', '.5s'); mc.appendChild(soc);
+    const fillSoc = () => { const r = document.querySelector('.pin-mbottom .so-row'); if (r && !soc.firstChild) { soc.appendChild(r.cloneNode(true)); return true; } return !!soc.firstChild; };
+    if (!fillSoc()) { const mo = new MutationObserver(() => { if (fillSoc()) mo.disconnect(); }); mo.observe(document.body, { childList: true, subtree: true }); setTimeout(() => mo.disconnect(), 10000); }
     const mwS = sec.querySelector('.mw');
     if (mwS) {
       const hh = 48;
