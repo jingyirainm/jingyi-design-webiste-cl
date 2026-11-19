@@ -28,7 +28,7 @@
   @keyframes mh-rise{from{opacity:0;transform:translateY(36px) scale(.94);filter:blur(14px)}to{opacity:1;transform:none;filter:blur(0)}}
   @keyframes mh-floor{from{opacity:0;transform:scaleX(.55)}to{opacity:1;transform:none}}
   /* ---- page 2 · intro panel ---- */
-  .mh-p2{position:sticky;top:var(--p2top,48px);z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 0;color:#fff;overflow:hidden;isolation:isolate;
+  .mh-p2{position:sticky;top:var(--p2top,48px);z-index:1;min-height:max(611px,calc(100svh - 48px));display:flex;flex-direction:column;padding:96px 32px 28px;color:#fff;overflow:hidden;isolation:isolate;
     border-radius:calc((1 - var(--k,0)) * 28px) calc((1 - var(--k,0)) * 28px) 0 0;
     transform-origin:50% 0;transform:translateY(calc(var(--k2,0) * -18px)) scale(calc(1 - var(--k2,0) * .07));filter:brightness(calc(1 - var(--k2,0) * .32)) blur(calc(var(--k2,0) * 2.5px))}
   .mh-p2::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;box-shadow:inset 0 0 0 0 transparent}
@@ -204,33 +204,29 @@
       return k(a) - k(b);
     });
     const cssP = `
-    .mw{position:relative;z-index:2;margin:0;padding:28px 16px 48px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif;
-      background:#fff;border-radius:calc((1 - var(--k2,0)) * 28px) calc((1 - var(--k2,0)) * 28px) 0 0;
-      box-shadow:0 -22px 44px -26px rgba(0,0,0,calc(.45 * (1 - var(--k2,0))))}
+    .mw{position:relative;z-index:2;margin:-28px 0 0;padding:28px 16px 48px;display:flex;flex-direction:column;gap:20px;font-family:Inter,"Diatype Variable",sans-serif;
+      background:#fff;border-radius:28px 28px 0 0;
+      box-shadow:0 -22px 44px -26px rgba(0,0,0,.4)}
     html[data-theme=dark] .mw{background:#111}
     .mw-card{display:block;color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
-    .mw-frame{position:relative;aspect-ratio:5/4;border-radius:32px;background:#FAFAF8;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);overflow:hidden;
-      display:flex;align-items:center;justify-content:center;padding:26px;transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .4s ease}
-    .mw-card:active .mw-frame{transform:scale(.982)}
-    .mw-media{position:relative;max-width:100%;max-height:100%;border-radius:16px;overflow:hidden;box-shadow:0 18px 40px -22px rgba(0,0,0,.35),0 2px 6px -2px rgba(0,0,0,.08);
-      transform:translateZ(0)}
-    .mw-media img,.mw-media video{display:block;max-width:100%;max-height:calc(var(--mwH) - 52px);width:auto;height:auto;object-fit:contain}
-    .mw-media.fill{width:100%;height:100%}
-    .mw-media.fill img,.mw-media.fill video{width:100%;height:100%;max-height:none;object-fit:cover}
-    .mw-media.board{width:100%;height:100%;background:#f3f3f3}
+    .mw-frame{position:relative;border-radius:24px;overflow:hidden;background:#F2F2F0;transform:translateZ(0);transition:transform .5s cubic-bezier(.16,1,.3,1)}
+    .mw-frame::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06);pointer-events:none}
+    .mw-card:active .mw-frame{transform:scale(.985)}
+    .mw-media{position:relative}
+    .mw-media img,.mw-media video{display:block;width:100%;height:auto}
+    .mw-media.board{aspect-ratio:16/10;background:#f3f3f3}
     .mw-media.board iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
     .mw-cap{display:flex;align-items:baseline;gap:10px;padding:12px 6px 0}
     .mw-no{font:400 11px/1 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.04em;opacity:.45}
     .mw-t{font:400 15px/1.25 Inter,"Diatype Variable",sans-serif!important;letter-spacing:-.005em}
     .mw-m{margin-left:auto;font:300 12px/1.25 Inter,"Diatype Variable",sans-serif!important;opacity:.55;text-align:right}
-    .mw-arrow{display:inline-block;margin-left:6px;transition:transform .4s cubic-bezier(.16,1,.3,1)}
-    .mw-card:active .mw-arrow{transform:translate(2px,-2px)}
     /* rise in as each card enters */
     .mw-card{opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity 1.1s cubic-bezier(.33,0,.2,1),transform 1.3s cubic-bezier(.16,1,.3,1),filter 1.1s cubic-bezier(.16,1,.3,1)}
-    .mw-card .mw-media{transform:scale(1.05);transition:transform 1.6s cubic-bezier(.16,1,.3,1)}
+    .mw-card .mw-media{transform:scale(1.06);transition:transform 1.8s cubic-bezier(.16,1,.3,1)}
     .mw-card.on{opacity:1;transform:none;filter:none}
     .mw-card.on .mw-media{transform:none}
-    html[data-theme=dark] .mw-frame{background:#161616;box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+    html[data-theme=dark] .mw-frame{background:#1a1a1a}
+    html[data-theme=dark] .mw-frame::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
     body.mobile .mob-only .ic-gal.mw-hidden{display:none!important}
     @media (prefers-reduced-motion:reduce){.mw-card,.mw-card .mw-media{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}}`;
     const stP = document.createElement('style'); stP.textContent = cssP; document.head.appendChild(stP);
@@ -257,7 +253,7 @@
         media.appendChild(c);
       }
       frame.appendChild(media); card.appendChild(frame);
-      card.insertAdjacentHTML('beforeend', '<div class="mw-cap"><span class="mw-no">' + String(i + 1).padStart(2, '0') + '</span><span class="mw-t">' + t + '</span><span class="mw-m">' + m + '<span class="mw-arrow" aria-hidden="true">↗</span></span></div>');
+      card.insertAdjacentHTML('beforeend', '<div class="mw-cap"><span class="mw-no">' + String(i + 1).padStart(2, '0') + '</span><span class="mw-t">' + t + '</span><span class="mw-m">' + m + '</span></div>');
       list.appendChild(card);
     });
     sec.appendChild(list);
@@ -265,8 +261,6 @@
     const oldGal = document.querySelector('.mob-only .ic-gal'); if (oldGal) oldGal.classList.add('mw-hidden');
 
     // media height cap follows the frame, so tall phones' videos stay inside the card
-    const fit = () => list.querySelectorAll('.mw-frame').forEach(f => f.style.setProperty('--mwH', f.clientHeight + 'px'));
-    fit(); addEventListener('resize', fit);
 
     // reveal + play only while on screen
     const vis = new IntersectionObserver(es => es.forEach(e => {
