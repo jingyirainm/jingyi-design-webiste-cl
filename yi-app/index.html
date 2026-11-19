@@ -392,6 +392,9 @@ body.bare .app{border-radius:0}
 <script>
 /* ================= DATA ================= */
 const DEMO_ON = /^#demo-/.test(location.hash);
+/* A #demo-* URL only ever belongs inside a mockup frame. If a browser ever opens one as the page itself
+   (some in-app WebViews promote a frame's navigation to the top level), send the visitor to the Yi case study. */
+if (DEMO_ON && window.self === window.top) { try { location.replace('../yi-daily-guidance/'); } catch (e) { location.href = '../yi-daily-guidance/'; } }
 const A = '../assets/projects/yi/';
 const TRI = {
   qian:{zh:'乾',py:'Qian',el:'Heaven',n:1,l:[1,1,1],sym:'☰',vis:'A slow drift of stars across an open field.',snd:'High, open air'},
@@ -679,10 +682,12 @@ if(SHOT && Q.get('shot')==='onboard') obGo(+Q.get('i')||0);
 if(SHOT && Q.get('shot')==='mini'){ P.n=37; P.playing=true; syncPP(); }
 /* ================= AUTO DEMOS (used by the animated mockups) ================= */
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-function centerChip(box, chip){ box.scrollTo({left: chip.offsetLeft - box.clientWidth/2 + chip.offsetWidth/2, behavior:'smooth'}); }
+/* horizontal glides drive scrollLeft by hand: smooth element.scrollTo inside nested frames can pull the outer page along on iOS */
+function glideX(el, to, ms=600){ const from=el.scrollLeft, t0=performance.now(); return new Promise(res=>{ (function f(now){ const t=Math.min(1,(now-t0)/ms), e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2; el.scrollLeft=from+(to-from)*e; if(t<1) requestAnimationFrame(f); else res(); })(performance.now()); }); }
+function centerChip(box, chip){ glideX(box, chip.offsetLeft - box.clientWidth/2 + chip.offsetWidth/2); }
 async function smoothScroll(el, to, ms){ const from=el.scrollTop, t0=performance.now(); while(true){ const t=Math.min(1,(performance.now()-t0)/ms), e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2; el.scrollTop=from+(to-from)*e; if(t>=1) break; await sleep(16);} }
 const DEMOS = {
-  async today(){ go('today'); await sleep(1600); const sc=$('#scenes'); for(const x of [262,524,786,0]){ sc.scrollTo({left:x,behavior:'smooth'}); await sleep(2400); } await smoothScroll($('#s-today'),260,1800); await sleep(1400); await smoothScroll($('#s-today'),0,1500); },
+  async today(){ go('today'); await sleep(1600); const sc=$('#scenes'); for(const x of [262,524,786,0]){ glideX(sc,x,700); await sleep(2400); } await smoothScroll($('#s-today'),260,1800); await sleep(1400); await smoothScroll($('#s-today'),0,1500); },
   async reading(){ go('result/demo'); await sleep(2600); await smoothScroll($('#s-result'),400,2600); await sleep(1800); await smoothScroll($('#s-result'),0,2000); await sleep(1400); },
   async cast(){ go('cast'); await sleep(900); for(let i=0;i<6;i++){ $('#tossbtn').click(); await sleep(1450); } await sleep(300); $('#tossbtn').click(); await sleep(3200); await smoothScroll($('#s-result'),380,1800); await sleep(2200); },
   async compose(){ go('compose'); const pairs=[['kun','qian'],['xun','li'],['dui','gen'],['zhen','kan'],['li','kan'],['kan','li'],['gen','kun'],['qian','qian']];

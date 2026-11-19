@@ -20,17 +20,26 @@ html,body{width:100%;height:100%;overflow:hidden;background:linear-gradient(180d
 </style></head>
 <body>
 <div class="stage" id="stage">
-  <div class="ph" style="left:88px;top:165px"><div class="scr"><iframe data-src="index.html#demo-onboard" title="Onboarding" tabindex="-1"></iframe></div></div>
-  <div class="ph" style="left:410px;top:108px"><div class="scr"><iframe data-src="index.html#demo-today" title="Today" tabindex="-1"></iframe></div></div>
-  <div class="ph" style="left:730px;top:165px"><div class="scr"><iframe data-src="index.html#demo-reading" title="Reading" tabindex="-1"></iframe></div></div>
-  <div class="ph" style="left:1052px;top:108px"><div class="scr"><iframe data-src="index.html#demo-compose" title="Compose" tabindex="-1"></iframe></div></div>
-  <div class="ph" style="left:1372px;top:165px"><div class="scr"><iframe data-src="index.html#demo-player" title="Player" tabindex="-1"></iframe></div></div>
+  <div class="ph" style="left:88px;top:165px"><div class="scr"><iframe data-src="index.html?v=20261118y#demo-onboard" title="Onboarding" tabindex="-1"></iframe></div></div>
+  <div class="ph" style="left:410px;top:108px"><div class="scr"><iframe data-src="index.html?v=20261118y#demo-today" title="Today" tabindex="-1"></iframe></div></div>
+  <div class="ph" style="left:730px;top:165px"><div class="scr"><iframe data-src="index.html?v=20261118y#demo-reading" title="Reading" tabindex="-1"></iframe></div></div>
+  <div class="ph" style="left:1052px;top:108px"><div class="scr"><iframe data-src="index.html?v=20261118y#demo-compose" title="Compose" tabindex="-1"></iframe></div></div>
+  <div class="ph" style="left:1372px;top:165px"><div class="scr"><iframe data-src="index.html?v=20261118y#demo-player" title="Player" tabindex="-1"></iframe></div></div>
 </div>
 <script>
 const st=document.getElementById('stage');
 function fit(){ {const k=Math.min(innerWidth/1730,innerHeight/900),dx=(innerWidth-1730*k)/2,dy=(innerHeight-900*k)/2;st.style.transform=`translate(${dx}px,${dy}px) scale(${k})`;} document.querySelectorAll('.scr').forEach(s=>s.querySelector('iframe').style.transform=`scale(${s.clientWidth/390})`); }
 addEventListener('resize',fit); fit();
 // stagger loading so five app instances don't start at once
-document.querySelectorAll('iframe[data-src]').forEach((f,i)=>setTimeout(()=>{ f.src=f.dataset.src; },i*250));
+// Touch devices get still screens: live nested frames there can hijack the page (some in-app WebViews open a
+// frame's navigation as the page itself, and iOS can scroll the outer page from inside a frame).
+const STILL = matchMedia('(hover: none), (pointer: coarse)').matches || /iPhone|iPad|iPod|Android|MicroMessenger|Weibo|XHS|Instagram|FBAN|FBAV|Line\//i.test(navigator.userAgent);
+const SHOT = {onboard:'01_onboard_1.png',today:'04_today.webp',reading:'06_result.webp',compose:'09_compose.webp',player:'11_player_xie.webp',bagua:'07_bagua.webp',cast:'05_cast.png',library:'10_library.png'};
+document.querySelectorAll('iframe[data-src]').forEach((f,i)=>{
+  if (STILL) { const k=(f.dataset.src.match(/#demo-(\w+)/)||[])[1], im=document.createElement('img');
+    im.src='../assets/projects/yi/screens/'+(SHOT[k]||SHOT.today); im.alt=f.title||''; im.decoding='async';
+    im.style.cssText='position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block'; f.replaceWith(im); return; }
+  setTimeout(()=>{ f.src=f.dataset.src; },i*250);
+});
 </script>
 </body></html>

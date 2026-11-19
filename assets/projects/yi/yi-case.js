@@ -8,8 +8,16 @@
   new ResizeObserver(fit).observe(document.body); fit();
 
   // load prototype frames as they approach the viewport
+  // touch devices: auto-demo frames become still screens (live nested demo frames can hijack the page in some in-app WebViews)
+  const STILL = matchMedia('(hover: none), (pointer: coarse)').matches || /iPhone|iPad|iPod|Android|MicroMessenger|Weibo|XHS|Instagram|FBAN|FBAV|Line\//i.test(navigator.userAgent);
+  const SHOT = {onboard:'01_onboard_1.png',today:'04_today.webp',reading:'06_result.webp',compose:'09_compose.webp',player:'11_player_xie.webp',bagua:'07_bagua.webp',cast:'05_cast.png',library:'10_library.png'};
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const f = e.target; if (!f.src) f.src = f.dataset.src; io.unobserve(f); } }), { rootMargin: '400px' });
-  $$('.yx-scr iframe[data-src]').forEach(f => io.observe(f));
+  $$('.yx-scr iframe[data-src]').forEach(f => {
+    const k = (f.dataset.src.match(/#demo-(\w+)/) || [])[1];
+    if (STILL && k) { const im = document.createElement('img'); im.src = IMG + 'screens/' + (SHOT[k] || SHOT.today); im.alt = f.title || ''; im.loading = 'lazy'; im.decoding = 'async';
+      im.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block'; f.replaceWith(im); return; }
+    io.observe(f);
+  });
 
   // trigram marquee
   const T = [['乾','Qian','Heaven'],['坤','Kun','Earth'],['巽','Xun','Wind'],['离','Li','Fire'],['兑','Dui','Rain'],['坎','Kan','Water'],['艮','Gen','Mountain'],['震','Zhen','Thunder']];

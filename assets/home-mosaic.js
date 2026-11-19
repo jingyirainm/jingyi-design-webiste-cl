@@ -27,7 +27,7 @@
     { re: /star-chair/i, n: 'Selection 3', m: 'AIGC Key Visual · Product', href: 'selection-3.html',
       html: '<img class="media" src="assets/media/star-chair.jpg" alt="Brushed-aluminium chair with a star cut-out" width="1000" height="1328">' },
     { re: /knot-?agent/i, n: 'Yi', m: 'Consumer Mobile App', href: 'yi-daily-guidance.html',
-      html: '<div class="hm-embed"><iframe src="yi-app/board.html" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
+      html: '<div class="hm-embed"><iframe src="yi-app/board.html?v=20261118y" title="Yi — five screens running" loading="lazy" tabindex="-1"></iframe></div>' },
     { re: /vibe_painting/i, n: 'A Meditation Practice', m: 'Video Art / AI Generation', href: 'a-meditation-practice.html',
       html: '<video class="media" src="assets/media/314f6ba6360a_rainmelonzjy_72706_httpss.mj.runjAVvjQTTUvc_no_camera_moveme.mp4" poster="assets/media/2d52531b2869_rainmelonzjy_72706_httpss.webp" autoplay muted loop playsinline width="1168" height="784"></video>' }
   ];
