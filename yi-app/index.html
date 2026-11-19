@@ -392,9 +392,6 @@ body.bare .app{border-radius:0}
 <script>
 /* ================= DATA ================= */
 const DEMO_ON = /^#demo-/.test(location.hash);
-/* A #demo-* URL only ever belongs inside a mockup frame. If a browser ever opens one as the page itself
-   (some in-app WebViews promote a frame's navigation to the top level), send the visitor to the Yi case study. */
-if (DEMO_ON && window.self === window.top) { try { location.replace('../yi-daily-guidance/'); } catch (e) { location.href = '../yi-daily-guidance/'; } }
 const A = '../assets/projects/yi/';
 const TRI = {
   qian:{zh:'乾',py:'Qian',el:'Heaven',n:1,l:[1,1,1],sym:'☰',vis:'A slow drift of stars across an open field.',snd:'High, open air'},
