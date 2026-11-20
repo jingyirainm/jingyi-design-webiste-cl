@@ -35,6 +35,9 @@
   // preview only (/?preview=mosaic): 07 becomes Cresvane, Brand Identity Design, with its logo motion (no case page yet, so no link)
   if (/[?&]preview=mosaic(&|$)/.test(location.search)) {
     const yi = SWAP.find(sw => sw.n === 'Yi');
+    // and Cresvane trades places with 05 (Addendum): Cresvane takes slot 05, Addendum slot 07
+    const iA = LAYOUT.findIndex(l => String(l[0]) === String(/addendum/i)), iK = LAYOUT.findIndex(l => String(l[0]) === String(/knot-?agent/i));
+    if (iA > -1 && iK > -1) { const t = LAYOUT[iA][0]; LAYOUT[iA][0] = LAYOUT[iK][0]; LAYOUT[iK][0] = t; }
     Object.assign(yi, { n: 'Cresvane', m: 'Brand Identity Design', href: null,
       html: '<video class="media" src="assets/projects/cresvane/cresvane_card.mp4?v=1" poster="assets/projects/cresvane/cresvane_card_poster.jpg?v=1" autoplay muted loop playsinline width="1280" height="720" aria-label="Cresvane logo motion"></video>' });
   }

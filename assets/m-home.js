@@ -232,18 +232,13 @@
 
     const list = document.createElement('section');
     list.className = 'mw'; list.setAttribute('aria-label', 'Selected work');
-    // preview only (/?preview=mosaic): card 07 becomes Cresvane, Brand Identity Design, with its motion loop
-    const PREV = /[?&]preview=mosaic(&|$)/.test(location.search);
-    const CRES = (() => { const v = document.createElement('video');
-      v.src = 'assets/projects/cresvane/cresvane_card.mp4?v=1'; v.poster = 'assets/projects/cresvane/cresvane_card_poster.jpg?v=1';
-      v.width = 1280; v.height = 720; v.loop = true; v.setAttribute('loop', ''); v.setAttribute('aria-label', 'Cresvane logo motion'); return v; })();
     items.forEach((mi, i) => {
       const a = mi.querySelector('a.ic-link'), cap = mi.querySelector('.ic-cap');
-      const cres = PREV && i === 6;
-      const t = cres ? 'Cresvane' : (cap && cap.querySelector('b') ? cap.querySelector('b').textContent : ''), m = cres ? 'Brand Identity Design' : (cap && cap.querySelector('i') ? cap.querySelector('i').textContent : '');
-      const src = cres ? CRES : mi.querySelector('.mi-frame > video, .mi-frame > img, .mi-frame .hm-embed img, .mi-frame .hm-embed iframe');
-      const card = document.createElement(cres ? 'div' : 'a');
-      card.className = 'mw-card'; if (!cres) card.href = a ? a.getAttribute('href') : '#';
+      const t = cap && cap.querySelector('b') ? cap.querySelector('b').textContent : '', m = cap && cap.querySelector('i') ? cap.querySelector('i').textContent : '';
+      const src = mi.querySelector('.mi-frame > video, .mi-frame > img, .mi-frame .hm-embed img, .mi-frame .hm-embed iframe');
+      const href = a && a.getAttribute('href');
+      const card = document.createElement(href ? 'a' : 'div');
+      card.className = 'mw-card'; if (href) card.href = href;
       card.setAttribute('aria-label', t + (m ? ', ' + m : ''));
       const frame = document.createElement('div'); frame.className = 'mw-frame';
       const media = document.createElement('div'); media.className = 'mw-media';
