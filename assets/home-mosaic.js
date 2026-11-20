@@ -32,6 +32,13 @@
       html: '<video class="media" src="assets/media/314f6ba6360a_rainmelonzjy_72706_httpss.mj.runjAVvjQTTUvc_no_camera_moveme.mp4" poster="assets/media/2d52531b2869_rainmelonzjy_72706_httpss.webp" autoplay muted loop playsinline width="1168" height="784"></video>' }
   ];
 
+  // preview only (/?preview=mosaic): 07 becomes Cresvane, Brand Identity Design, with its logo motion (no case page yet, so no link)
+  if (/[?&]preview=mosaic(&|$)/.test(location.search)) {
+    const yi = SWAP.find(sw => sw.n === 'Yi');
+    Object.assign(yi, { n: 'Cresvane', m: 'Brand Identity Design', href: null,
+      html: '<video class="media" src="assets/projects/cresvane/cresvane_card.mp4?v=1" poster="assets/projects/cresvane/cresvane_card_poster.jpg?v=1" autoplay muted loop playsinline width="1280" height="720" aria-label="Cresvane logo motion"></video>' });
+  }
+
   const css = `
   body:not(.mobile) gallery-columnized.hm{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr));
     grid-template-rows:var(--hm-rows,none);gap:${GAP}px!important;height:auto!important}
@@ -84,7 +91,8 @@
     const cap = mi.querySelector('.ic-cap');
     if (cap) cap.innerHTML = `<b>${esc(sw.n)}</b><i>${esc(sw.m)}</i>`;
     const link = mi.querySelector('.ic-link');
-    if (link) { link.setAttribute('href', sw.href); link.setAttribute('aria-label', `${sw.n}, ${sw.m}`); }
+    if (link && sw.href) { link.setAttribute('href', sw.href); link.setAttribute('aria-label', `${sw.n}, ${sw.m}`); }
+    else if (link) { link.removeAttribute('href'); link.setAttribute('aria-label', `${sw.n}, ${sw.m}`); link.style.cursor = 'default'; link.addEventListener('click', e => e.preventDefault()); }
   });
 
   placed.forEach(mi => gal.appendChild(mi)); // reading / tab order follows the mosaic
