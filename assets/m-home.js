@@ -1,4 +1,4 @@
-/* Mobile home v2 (live on phones since 2026-11-19) — from Frame 39, refined.
+/* Mobile home v2 (live on phones since 2026-11-19; the iPod page 1 is preview-only since 2026-11-23) — from Frame 39, refined.
    Page 1: the Design Spark iPod. Page 2: a full-bleed gradient panel with the intro, the spark flower and the copy.
    Refinements over the frame: symmetric 32px margins, an 8pt spacing rhythm, body copy at 14/21 (1.5) instead of 14/16.6,
    a slightly deeper gradient so white copy reaches ~4.5:1 contrast, the flower centred, lines that wrap to any phone width.
@@ -9,6 +9,8 @@
   const old = document.querySelector('.m-splash');
   if (!old) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // the Design Spark iPod (page 1) shows only in the preview (/?preview=mosaic); the live site opens on the intro panel
+  const POD = /[?&]preview=mosaic(&|$)/.test(location.search);
 
   const FLOWER = '<path class="mh-st" d="M110.131 853.652C108.014 857.468 113.66 867.641 127.068 882.266C141.183 897.527 163.766 916.603 182.114 927.413" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M110.578 853.652C118.369 856.196 136.785 873.369 153.077 889.905C167.243 903.897 181.409 915.346 190.617 925.522" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M146.64 889.902C160.81 891.175 178.523 898.173 189.151 913.44C192.693 918.53 193.402 922.347 191.985 924.891" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M148.105 892.424C160.178 897.525 171.54 907.089 180.062 920.478" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M193.256 920.472C203.16 907.146 221.555 891.916 239.949 888.109C244.901 887.474 246.316 890.013 244.194 893.82C237.827 905.877 220.847 919.203 207.405 923.645C201.038 925.866 196.086 926.184 193.256 925.549" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M201.758 933.402C210.943 946.106 227.193 965.797 242.029 983.583C244.856 986.124 244.856 984.218 244.856 981.677" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M209.674 933.402C224.45 940.385 239.227 958.158 244.856 979.739" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M179.29 925.521C163.754 927.431 139.745 936.343 128.446 945.89C125.621 949.073 126.328 950.983 129.858 949.71C146.1 945.254 166.579 936.979 182.114 931.887" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M184.931 934.662C175.691 939.727 169.294 951.757 167.162 961.254C167.162 963.154 169.294 962.521 171.427 960.621C179.955 954.29 187.063 946.059 190.617 938.461" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M199.705 927.625C211.725 921.82 225.866 919.885 233.643 921.175C236.471 922.465 232.936 925.045 223.745 926.98C214.553 928.916 206.068 930.851 200.412 932.141" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M188.289 924.917C190.478 919.981 199.236 919.981 200.331 925.904C201.426 931.827 192.668 934.789 188.289 930.84C185.004 927.385 189.383 922.943 194.857 923.93C199.236 924.917 198.141 929.853 193.762 929.853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M200.331 922.943C206.9 918.994 213.468 918.007 220.037 919.981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M198.142 932.814C203.615 936.763 209.089 941.699 211.279 947.622" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M190.478 932.814C187.194 938.738 186.099 944.661 188.289 951.571" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M187.194 925.904C181.72 923.93 177.341 924.917 172.962 927.879" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M192.668 919.981C191.573 915.045 193.762 911.096 197.047 908.135" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M182.815 932.814C179.531 937.75 178.436 942.686 179.531 946.635" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-st" d="M195.952 934.789C197.047 941.699 197.047 948.61 199.236 955.52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/><path class="mh-fl" d="M217.338 922.587C218.366 922.587 219.199 921.836 219.199 920.909C219.199 919.982 218.366 919.23 217.338 919.23C216.31 919.23 215.477 919.982 215.477 920.909C215.477 921.836 216.31 922.587 217.338 922.587Z" fill="currentColor"/><path class="mh-fl" d="M208.58 951.116C209.547 951.116 210.331 950.409 210.331 949.537C210.331 948.664 209.547 947.957 208.58 947.957C207.612 947.957 206.828 948.664 206.828 949.537C206.828 950.409 207.612 951.116 208.58 951.116Z" fill="currentColor"/><path class="mh-fl" d="M185.043 954.967C185.949 954.967 186.685 954.304 186.685 953.487C186.685 952.669 185.949 952.006 185.043 952.006C184.136 952.006 183.4 952.669 183.4 953.487C183.4 954.304 184.136 954.967 185.043 954.967Z" fill="currentColor"/><path class="mh-fl" d="M169.168 930.682C170.015 930.682 170.701 930.063 170.701 929.3C170.701 928.537 170.015 927.918 169.168 927.918C168.322 927.918 167.636 928.537 167.636 929.3C167.636 930.063 168.322 930.682 169.168 930.682Z" fill="currentColor"/><path class="mh-fl" d="M194.348 909.457C195.195 909.457 195.881 908.839 195.881 908.075C195.881 907.312 195.195 906.693 194.348 906.693C193.502 906.693 192.815 907.312 192.815 908.075C192.815 908.839 193.502 909.457 194.348 909.457Z" fill="currentColor"/><path class="mh-fl" d="M196.538 958.817C197.384 958.817 198.07 958.198 198.07 957.435C198.07 956.672 197.384 956.053 196.538 956.053C195.691 956.053 195.005 956.672 195.005 957.435C195.005 958.198 195.691 958.817 196.538 958.817Z" fill="currentColor"/>';
   const css = `
@@ -88,12 +90,12 @@
   const st = document.createElement('style'); st.textContent = css; document.head.appendChild(st);
 
   const sec = document.createElement('section');
-  sec.className = 'mh';
+  sec.className = 'mh' + (POD ? '' : ' nopod');
   sec.setAttribute('aria-label', 'Introduction');
-  sec.innerHTML =
+  sec.innerHTML = (POD ?
     '<div class="mh-p1"><div class="mh-ipod"><div class="mh-ipod-in">' +
       '<iframe src="assets/design-spark-card.html?layout=portrait&v=20261118g" title="Jingyi Zhang — Design Spark. An interactive iPod with my intro, about and contact." loading="eager" allow="autoplay"></iframe>' +
-      '</div><div class="mh-floor"></div></div></div>' +
+      '</div><div class="mh-floor"></div></div></div>' : '') +
     '<div class="mh-p2"><div class="mh-bg"></div><div class="mh-sheen"></div><div class="mh-grain"></div>' +
       '<h1 class="mh-hi" data-split data-d0=".7" data-step=".2">Hi, I am Jingyi</h1>' +
       '<p class="mh-h" data-split data-d0="1.05" data-step=".2">A Product Designer who believes in usefulness, efficiency and simplicity.</p>' +
@@ -143,15 +145,18 @@
 
   const p2 = sec.querySelector('.mh-p2'), frame = sec.querySelector('iframe');
 
+  // no iPod: the intro panel starts right under the header
+  if (!POD) { const hd = document.querySelector('.pin-mtop'); const gap = sec.getBoundingClientRect().top + scrollY - (hd ? hd.getBoundingClientRect().height : 48); if (gap > 0) sec.style.marginTop = (-gap) + 'px'; }
+
   // page 1 entrance waits for the iPod to render
   let started = false;
   const go = () => { if (started) return; started = true; requestAnimationFrame(() => sec.classList.add('go')); };
-  frame.addEventListener('load', go); setTimeout(go, 2200);
+  if (frame) { frame.addEventListener('load', go); setTimeout(go, 2200); } else go();
 
   // page 2 reveals when it comes into view
   // (if the panel already peeks in on load, it waits until the iPod has risen, so the order stays iPod → text)
   const t0 = performance.now();
-  const reveal = () => { const wait = Math.max(0, (started ? 1100 : 1800) - (performance.now() - t0)); setTimeout(() => p2.classList.add('in'), wait); };
+  const reveal = () => { const wait = POD ? Math.max(0, (started ? 1100 : 1800) - (performance.now() - t0)) : 150; setTimeout(() => p2.classList.add('in'), wait); };
   if ('IntersectionObserver' in window && !reduce) {
     const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { reveal(); io.disconnect(); } }), { threshold: 0, rootMargin: '0px 0px -52% 0px' });
     io.observe(p2);
@@ -163,7 +168,7 @@
   const upd = () => {
     tick = false;
     const vh = innerHeight, r = p2.getBoundingClientRect(), hh = head ? head.getBoundingClientRect().height : 48;
-    const k = Math.min(1, Math.max(0, scrollY / Math.max(1, p2Top0 - hh)));
+    const k = POD ? Math.min(1, Math.max(0, scrollY / Math.max(1, p2Top0 - hh))) : 1;
     sec.style.setProperty('--k', k.toFixed(3));
     const q = Math.min(1, Math.max(-1, (r.top - hh) / vh));
     sec.style.setProperty('--q', (-q).toFixed(3));
@@ -172,7 +177,7 @@
     sec.style.setProperty('--k2', k2.toFixed(3));
     sec.style.setProperty('--p2top', Math.min(hh, vh - p2.offsetHeight) + 'px');
     document.body.classList.toggle('mh-dark-head', r.top <= hh * .5 && r.bottom > hh && mt > hh * .5);
-    try { frame.contentWindow.__idcPaused = k > .98; } catch (_) {}
+    if (frame) try { frame.contentWindow.__idcPaused = k > .98; } catch (_) {}
   };
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true });
   addEventListener('resize', () => { p2Top0 = p2.getBoundingClientRect().top + scrollY; upd(); });

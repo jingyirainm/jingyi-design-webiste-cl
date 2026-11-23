@@ -5,8 +5,8 @@
   const grid = document.querySelector('main .desk-only gallery-columnized');
   if (!grid || document.querySelector('.idc-card') || document.body.classList.contains('mobile')) return;
 
-  // the Design Spark iPod intro card is the home card (live since 2026-11-18); the old ID card stays in assets/id-card.html
-  const PREVIEW = true;
+  // the Design Spark iPod card shows only in the preview (/?preview=mosaic); the live home shows the ID card (assets/id-card.html)
+  const PREVIEW = /[?&]preview=mosaic(&|$)/.test(location.search);
   const sec = document.createElement('section');
   sec.className = 'idc-card' + (PREVIEW ? ' ds-card' : '');
   sec.innerHTML = PREVIEW
