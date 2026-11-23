@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+<head><base data-clean-root href="../"><meta name="robots" content="noindex,nofollow"><script>!function(d){var h=d.documentElement,c=h.classList;c.add('rs-boot');var f=function(){c.remove('rs-boot')},t=setTimeout(f,1500);d.addEventListener('DOMContentLoaded',function(){requestAnimationFrame(function(){requestAnimationFrame(function(){clearTimeout(t);f()})})})}(document)</script><script src="assets/clean-routing.js?v=20261027e"></script><script defer src="assets/yi-board.js?v=20261118z"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ReelShort Casting System — Jingyi Zhang Design</title>
+<meta name="description" content="Redesigned and launched an internal casting platform for ReelShort, with a talent database and project dashboard that speeds up production decisions at 230M+ view scale.">
+<link rel="icon" href="assets/favicon-32.png">
+<link rel="stylesheet" href="assets/base.css?v=20261027e">
+<link rel="stylesheet" href="assets/site.css?v=20261027e">
+<link rel="stylesheet" href="assets/theme.css?v=20261028d">
+<link rel="stylesheet" href="assets/dissolve.css?v=20261027e">
+<script src="assets/theme.js?v=20261028c"></script>
+<script src="assets/cursor.js?v=20261027e"></script>
+<script defer src="assets/site.js?v=20261027e"></script>
+<script defer src="assets/mobile.js?v=20261027e"></script>
+<script defer src="reelshort-casting-system-preview/case-preview.js?v=1"></script>
+<script defer src="assets/preview-frame.js?v=20261118a"></script>
+<script src="assets/social.js?v=20261027e" defer></script>
+<script src="assets/nav-glow.js?v=20261027e" defer></script>
+<script src="assets/dissolve.js?v=20261027e" defer></script>
+
+<link rel="stylesheet" href="assets/case.css?v=20261027e">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="assets/type-scale.css?v=20261027e">
+<link rel="stylesheet" href="assets/mobile.css?v=20261027e">
+<link rel="stylesheet" href="assets/boot.css?v=20261027e">
+<link rel="canonical" href="https://jingyizhang.design/reelshort-casting-system/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Jingyi Zhang Design">
+<meta property="og:title" content="ReelShort Casting System — Jingyi Zhang Design">
+<meta property="og:description" content="Redesigned and launched an internal casting platform for ReelShort, with a talent database and project dashboard that speeds up production decisions at 230M+ view scale.">
+<meta property="og:url" content="https://jingyizhang.design/reelshort-casting-system/">
+<meta property="og:image" content="https://jingyizhang.design/assets/media/3c32b2754922_1.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ReelShort Casting System — Jingyi Zhang Design">
+<meta name="twitter:description" content="Redesigned and launched an internal casting platform for ReelShort, with a talent database and project dashboard that speeds up production decisions at 230M+ view scale.">
+<meta name="twitter:image" content="https://jingyizhang.design/assets/media/3c32b2754922_1.png">
+<link rel="stylesheet" href="assets/sidebar-dark.css?v=4">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+<style id="cs2-style">
+.cs2{--bg:#fff;--fg:rgba(0,0,0,.8);--ink:#111;--mute:rgba(0,0,0,.55);--hair:rgba(17,17,17,.1);--fill:#f5f5f7;--green:#5e9c00;--greenbg:rgba(94,156,0,.1);--red:#c0392b;--frame:#f5f5f7;
+--body:"Diatype Variable",Inter,system-ui,sans-serif;--glass:rgba(255,255,255,.74);--ease:cubic-bezier(.22,.8,.2,1);--sheet:#fff;--sheeton:#f2f2f2;--mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;--pillbg:#000;--pilltx:#fff;--pillsh:rgba(0,0,0,.22);--cvgreen:#3f8f5c;--cvglow:rgba(94,156,0,.10);--k:1}
+.cs2 *{box-sizing:border-box}
+.cs2 .w{max-width:1054px;margin:0 auto;padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .n{max-width:calc(46*var(--r))}
+.cs2 h1,.cs2 h2,.cs2 h3,.cs2 h4,.cs2 p{margin:0}
+.cs2 h1{font-weight:500;font-size:calc(1.53*var(--r));line-height:1.25;letter-spacing:-.01em;text-wrap:balance}
+.cs2 h2{font-weight:400;font-size:calc(1.3*var(--r));line-height:1.3;letter-spacing:-.005em;text-wrap:balance}
+.cs2 h3{font-weight:500;font-size:calc(1.05*var(--r));line-height:1.35}
+.cs2 strong,.cs2 b{font-weight:500}
+.cs2 .top{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap;font-size:calc(.956*var(--r));color:var(--mute);margin-bottom:28px}
+.cs2 .top .no{color:var(--fg)}
+.cs2 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.cs2 .tag{font-size:calc(.765*var(--r));padding:4px 12px;border:1px solid var(--hair);border-radius:99px;color:var(--mute)}
+.cs2 .tag.on{color:var(--green);border-color:var(--green);background:var(--greenbg)}
+.cs2 .lede{font-size:calc(.956*var(--r));line-height:1.7;margin-top:28px}
+.cs2 .hero{margin-top:40px}
+.cs2 figure{margin:0}
+.cs2 .fr{background:var(--frame);border-radius:14px;overflow:hidden;line-height:0}
+.cs2 .fr img{width:100%;height:auto;display:block}
+.cs2 figcaption{font-size:calc(.765*var(--r));color:var(--mute);margin-top:10px;line-height:1.5}
+.cs2 .glance{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(11*var(--r)),1fr));gap:0;margin-top:40px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.cs2 .glance div{padding:18px 16px 18px 0}
+.cs2 .glance dt{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
+.cs2 .glance dd{margin:0;font-size:calc(.956*var(--r));font-weight:300}
+.cs2 .sec{margin-top:112px}
+.cs2 .pill{display:inline-block;font-size:calc(.74*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--greenbg);padding:4px 12px;border-radius:99px;margin-bottom:20px;font-weight:500}
+.cs2 .sec>h2{margin-bottom:20px}
+.cs2 .sec p+p{margin-top:16px}
+.cs2 .sec .n p{color:var(--fg)}
+.cs2 .conf{font-size:calc(.765*var(--r));color:var(--mute);margin-top:20px;max-width:calc(46*var(--r))}
+.cs2 .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(calc(13*var(--r)),1fr));gap:12px;margin-top:32px}
+.cs2 .stat{background:var(--fill);border-radius:14px;padding:20px}
+.cs2 .stat b{display:block;font-size:calc(2.3*var(--r));font-weight:300;letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums}
+.cs2 .stat span{display:block;font-size:calc(.765*var(--r));color:var(--mute);margin-top:6px;line-height:1.45}
+.cs2 .pair{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs2 .pair>*{min-width:0}
+.cs2 .cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:28px}
+.cs2 .cols3>*{min-width:0}
+.cs2 .k{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);font-weight:500;margin-bottom:6px;display:block}
+.cs2 .needs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.cs2 .need{background:var(--fill);border-radius:14px;padding:22px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.cs2 .need h3{display:flex;gap:10px;align-items:baseline}
+.cs2 .need h3 i{font-style:normal;color:var(--green);font-size:calc(.765*var(--r));font-weight:500}
+.cs2 .need>p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .need blockquote{margin:6px 0 0;padding:12px 0 0;border-top:1px solid var(--hair);font-size:calc(.85*var(--r));line-height:1.5;font-style:italic}
+.cs2 .need details summary{cursor:pointer;font-size:calc(.765*var(--r));color:var(--green);margin-top:6px;list-style:none;font-style:normal}
+.cs2 .need details summary::-webkit-details-marker{display:none}
+.cs2 .need details[open] summary{margin-bottom:8px}
+.cs2 .dec{margin-top:96px;padding-top:32px;border-top:1px solid var(--hair)}
+.cs2 .dec:first-of-type{margin-top:48px}
+.cs2 .dec .h{display:flex;gap:14px;align-items:baseline;margin-bottom:24px}
+.cs2 .dec .h i{font-style:normal;font-size:calc(.765*var(--r));color:var(--green);font-weight:500;letter-spacing:.06em}
+.cs2 .dec .h h3{font-size:calc(1.2*var(--r));font-weight:400;letter-spacing:-.01em;text-wrap:balance}
+.cs2 .dec figure{margin-top:28px}
+.cs2 .dec .cols3 p{font-size:calc(.956*var(--r));line-height:1.5}
+.cs2 .dec .cols3 .prob .k{color:var(--red)}
+.cs2 .prio{background:var(--fill);border-radius:14px;padding:22px 24px;margin-top:24px;font-size:calc(.956*var(--r))}
+.cs2 .phases{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:2px solid var(--ink)}
+.cs2 .phases>div{padding:16px 16px 0 0;min-width:0}
+.cs2 .phases small{display:block;font-size:calc(.68*var(--r));letter-spacing:.1em;color:var(--green);font-weight:500}
+.cs2 .phases b{display:block;font-size:calc(1.1*var(--r));font-weight:400;margin:2px 0 4px}
+.cs2 .phases span{font-size:calc(.765*var(--r));color:var(--mute);line-height:1.5;display:block}
+.cs2 .hold{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cs2 .hold>div{border:1px solid var(--hair);border-radius:14px;padding:20px;min-width:0}
+.cs2 .hold h4{font-size:calc(.956*var(--r));font-weight:500;margin-bottom:6px}
+.cs2 .hold p{font-size:calc(.88*var(--r));color:var(--mute);line-height:1.5}
+.cs2 .sub{font-size:calc(.765*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin:48px 0 4px;font-weight:500}
+.cs2 .nm{border-left:2px solid var(--green);padding:2px 0 2px 16px;margin-top:28px;font-size:calc(.88*var(--r));color:var(--mute);max-width:calc(46*var(--r))}
+.cs2 .refl{font-size:calc(1.3*var(--r));line-height:1.5;max-width:calc(46*var(--r))}
+.cs2 .refl p+p{margin-top:20px}
+.cs2 .refl em{color:var(--green);font-style:normal;font-weight:400}
+@media (max-width:760px){.cs2 .pair,.cs2 .cols3,.cs2 .needs,.cs2 .hold{grid-template-columns:1fr}
+.cs2 .phases{grid-template-columns:1fr 1fr}
+.cs2 .phases>div{padding-bottom:16px}
+.cs2 .sec{margin-top:80px}
+.cs2 .dec{margin-top:64px}}
+@media (prefers-reduced-motion:no-preference){.cs2 .fr img{transition:transform .6s cubic-bezier(.22,.8,.2,1)}}
+.cs2 a:focus-visible,.cs2 summary:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+.cs2 .sec{scroll-margin-top:90px}
+.cs2 .pill{font-family:var(--body);font-size:calc(1.2*var(--r));line-height:1;letter-spacing:0;text-transform:none;font-weight:500;color:var(--pilltx);background:var(--pillbg);padding:.55em 1.05em .6em;border-radius:99px;box-shadow:0 14px 28px -10px var(--pillsh);margin-bottom:28px}
+.cs2 .sec>h2{font-size:calc(1.15*var(--r));font-weight:300;line-height:1.45;color:var(--fg);max-width:calc(40*var(--r));margin-bottom:24px}
+.cs2 .opill{display:inline-block;font-size:calc(1.05*var(--r));font-weight:500;line-height:1.1;letter-spacing:0;color:var(--fg);border:calc(.1*var(--r)) solid var(--ink);border-radius:99px;padding:.5em 1em .55em;margin:0;text-wrap:balance;max-width:100%}
+.cs2 .dec .h{margin-bottom:28px}
+.cs2 .top,.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-family:var(--mono);letter-spacing:.04em;font-weight:400}
+.cs2 .glance dt,.cs2 .k,.cs2 .phases small,.cs2 .sub{font-size:calc(.64*var(--r));letter-spacing:.1em}
+.cs2 .fr{border-radius:22px;box-shadow:0 0 0 1px var(--hair)}
+.cs2 .fr.v{border-radius:28px;background:#f0efe9}
+.cs2 .fr video{width:100%;height:auto;display:block}
+.cs2 .vids{margin-top:0}
+.cs2 .stat{background:none;border-radius:0;border-top:1px solid var(--ink);padding:14px 8px 0 0}
+.cs2 .stat b{font-weight:300}
+.cs2 .stat span{font-family:var(--mono);font-size:calc(.66*var(--r));letter-spacing:.02em;line-height:1.55}
+.cs2 .need{background:none;border:1px solid var(--hair)}
+.cs2 .dec{border-top:1px solid var(--hair)}
+@media (max-width:760px){.cs2 .vids{grid-template-columns:1fr}
+.cs2 .pill{font-size:calc(1.1*var(--r))}}
+.cs2 .cv{position:relative;overflow:hidden;isolation:isolate;padding-block:clamp(88px,10vw,150px) clamp(48px,6vw,96px);padding-inline:max(clamp(20px,5vw,72px),env(safe-area-inset-left,0px)) max(clamp(20px,5vw,72px),env(safe-area-inset-right,0px))}
+.cs2 .cv::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(70% 60% at 8% 0%,var(--cvglow),transparent 70%)}
+.cs2 .cv-in{max-width:910px;margin:0 auto}
+.cs2 .cv .ph{position:absolute;z-index:-1;top:8%;left:50%;margin-left:clamp(-20px,3vw,70px);width:clamp(220px,23vw,340px);aspect-ratio:520/920;border-radius:clamp(26px,3vw,40px);overflow:hidden;opacity:.17;filter:blur(.8px)}
+.cs2 .cv .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cs2 .cv .ph .pb{opacity:0}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv .ph .pa{animation:swapa 10s ease-in-out infinite}
+.cs2 .cv .ph .pb{animation:swapb 10s ease-in-out infinite}
+@keyframes swapa{0%,40%{opacity:1}50%,90%{opacity:0}100%{opacity:1}}
+@keyframes swapb{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}}
+.cs2 .cv .tags{margin:0 0 30px;gap:10px}
+.cs2 .cv .tag{font-size:calc(.74*var(--r));letter-spacing:.12em;text-transform:uppercase;padding:.55em 1.25em;border:1px solid var(--hair);color:var(--mute);background:transparent}
+.cs2 .cv .tag.on{color:var(--cvgreen);border-color:var(--cvgreen);background:none;display:inline-flex;align-items:center;gap:.6em}
+.cs2 .cv .tag.on::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--cvgreen)}
+.cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)));line-height:.98;letter-spacing:-.015em;margin:0;color:var(--fg);text-wrap:balance}
+.cs2 .cv h1 span{display:block}
+.cs2 .cv h1 em{font-style:italic;color:var(--cvgreen)}
+.cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)));line-height:1.55;color:var(--mute);max-width:36em;margin-top:clamp(24px,2.6vw,44px)}
+.cs2 .cv .sc{display:flex;gap:12px;align-items:center;margin-top:clamp(40px,4vw,72px);font-family:var(--mono);font-size:calc(.7*var(--r));letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
+.cs2 .cv .sc i{display:block;width:1px;height:30px;background:linear-gradient(var(--cvgreen),transparent)}
+@media (prefers-reduced-motion:no-preference){.cs2 .cv-in>*{animation:cvup .9s var(--ease) backwards}
+.cs2 .cv-in>*:nth-child(2){animation-delay:.08s}
+.cs2 .cv-in>*:nth-child(3){animation-delay:.16s}
+.cs2 .cv-in>*:nth-child(4){animation-delay:.24s}
+@keyframes cvup{from{opacity:0;transform:translateY(14px)}}}
+@media (max-width:760px){.cs2 .cv .ph{left:auto;right:-70px;margin-left:0;top:6%;opacity:.12}
+.cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))}}
+.cs2 .n,.cs2 .cap,.cs2 .impact,.cs2 .conf,.cs2 .nm,.cs2 .refl,.cs2 .sec>h2,.cs2 .lead,.cs2 .dec p,.cs2 figcaption{max-width:none}
+.cs2 .sec>h2,.cs2 .opill,.cs2 .pill,.cs2 .dec .h h3,.cs2 .refl .rh{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em}
+.cs2 .sec>h2{font-size:calc(2.1*var(--r));line-height:1.15;margin-bottom:28px}
+.cs2 .opill{font-size:calc(1.6*var(--r));line-height:1.1;padding:.35em 1em .4em}
+.cs2 .pill{font-size:calc(1.7*var(--r));line-height:1;padding:.4em 1em .45em}
+.cs2 .dec .h h3{font-size:calc(1.7*var(--r));line-height:1.15}
+@media (max-width:760px){.cs2 .sec>h2{font-size:calc(1.8*var(--r))}
+.cs2 .pill{font-size:calc(1.5*var(--r))}
+.cs2 .opill{font-size:calc(1.35*var(--r))}
+.cs2 .dec .h h3{font-size:calc(1.45*var(--r))}}
+.cs2 h3,.cs2 h4,.cs2 .need h3,.cs2 .sub{font-family:"Instrument Serif","Times New Roman",serif;font-style:normal;font-weight:400;letter-spacing:-.005em;text-transform:none;color:var(--fg)}
+.cs2 h3:not(.opill),.cs2 h4{font-size:calc(1.45*var(--r));line-height:1.2}
+.cs2 .sub{font-size:calc(1.6*var(--r));line-height:1.2;margin:48px 0 8px}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h1{font-weight:500!important;font-size:calc(1.53*var(--r))!important;line-height:1.25!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h2{font-weight:400!important;font-size:calc(1.3*var(--r))!important;line-height:1.3!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3{font-weight:500!important;font-size:calc(1.05*var(--r))!important;line-height:1.35!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 strong,body.mobile.case-mode .main .cs2 b{font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .tag{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .lede{font-size:calc(.956*var(--r))!important;line-height:1.7!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .fr{line-height:0!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 figcaption{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt{font-size:calc(.68*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dd{font-size:calc(.956*var(--r))!important;font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(.74*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .conf{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-size:calc(2.3*var(--r))!important;font-weight:300!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-size:calc(.765*var(--r))!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .k{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need h3 i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need>p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need blockquote{font-size:calc(.85*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .need details summary{font-size:calc(.765*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h i{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.2*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .cols3 p{font-size:calc(.956*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .prio{font-size:calc(.956*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases small{font-size:calc(.68*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases b{font-size:calc(1.1*var(--r))!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .phases span{font-size:calc(.765*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold h4{font-size:calc(.956*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .hold p{font-size:calc(.88*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(.765*var(--r))!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .nm{font-size:calc(.88*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl{font-size:calc(1.3*var(--r))!important;line-height:1.5!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .refl em{font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-family:var(--body)!important;font-size:calc(1.2*var(--r))!important;line-height:1!important;font-weight:500!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.15*var(--r))!important;font-weight:300!important;line-height:1.45!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.05*var(--r))!important;font-weight:500!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .top,body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-family:var(--mono)!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .glance dt,body.mobile.case-mode .main .cs2 .k,body.mobile.case-mode .main .cs2 .phases small,body.mobile.case-mode .main .cs2 .sub{font-size:calc(.64*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat b{font-weight:300!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .stat span{font-family:var(--mono)!important;font-size:calc(.66*var(--r))!important;line-height:1.55!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.1*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .tag{font-size:calc(.74*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important;font-size:calc(var(--k)*(clamp(40px,5.7vw,110px)))!important;line-height:.98!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .lede{font-size:calc(var(--k)*(clamp(15px,1.45vw,26px)))!important;line-height:1.55!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .cv .sc{font-family:var(--mono)!important;font-size:calc(.7*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .cv h1{font-size:calc(var(--k)*(clamp(36px,11vw,56px)))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2,body.mobile.case-mode .main .cs2 .opill,body.mobile.case-mode .main .cs2 .pill,body.mobile.case-mode .main .cs2 .dec .h h3,body.mobile.case-mode .main .cs2 .refl .rh{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(2.1*var(--r))!important;line-height:1.15!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.6*var(--r))!important;line-height:1.1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.7*var(--r))!important;line-height:1!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.7*var(--r))!important;line-height:1.15!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .sec>h2{font-size:calc(1.8*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .pill{font-size:calc(1.5*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .opill{font-size:calc(1.35*var(--r))!important}}
+@media (max-width:760px) and (max-width:767px){body.mobile.case-mode .main .cs2 .dec .h h3{font-size:calc(1.45*var(--r))!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3,body.mobile.case-mode .main .cs2 h4,body.mobile.case-mode .main .cs2 .need h3,body.mobile.case-mode .main .cs2 .sub{font-family:"Instrument Serif","Times New Roman",serif!important;font-weight:400!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 h3:not(.opill),body.mobile.case-mode .main .cs2 h4{font-size:calc(1.45*var(--r))!important;line-height:1.2!important}}
+@media (max-width:767px){body.mobile.case-mode .main .cs2 .sub{font-size:calc(1.6*var(--r))!important;line-height:1.2!important}}
+body.case-mode{overflow-x:clip}
+.cs2{--r:max(.9vw,10px);width:100vw;margin-left:calc(50% - 50vw);margin-top:calc(-1*clamp(56px,5vw,84px));margin-bottom:0;color:var(--fg);font-family:var(--body);font-weight:300;font-size:calc(.956*var(--r));line-height:1.5;text-align:left;letter-spacing:normal}
+.cs2 .w{padding-bottom:40px}
+@media (max-width:767px){.cs2{--r:14.64px;margin-top:-124px}}
+html.js .cs2 .rv{opacity:0;transition:opacity 1.15s ease}
+html.js .cs2 .rv.in{opacity:1}
+@media (prefers-reduced-motion:reduce){html.js .cs2 .rv{opacity:1;transition:none}}
+</style>
+<style>
+.pv-pts{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.pv-pts li{position:relative;padding-left:18px}
+.pv-pts li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.35}
+.pv-brief{margin:18px 0 28px;display:grid;gap:0;border-top:1px solid rgba(0,0,0,.1)}
+.pv-brief>div{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.1)}
+.pv-brief dt{font:500 12px/1.6 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.06em;text-transform:uppercase;opacity:.5}
+.pv-brief dd{margin:0}
+html.dark .pv-brief,html.dark .pv-brief>div{border-color:rgba(255,255,255,.14)}
+@media (max-width:640px){.pv-brief>div{grid-template-columns:1fr;gap:2px}}
+</style>
+</head>
+<body class="page-reelshort-casting-system case-mode">
+<script>document.body.classList.toggle('mobile',matchMedia('(max-width:767px)').matches)</script>
+<div class="pin pin-left"><div class="page pinned" id="L1192837497"><div class="page-layout"><div class="page-content"><bodycopy><span style="color: rgba(0, 0, 0, 0.6);"><a class="text-title" href="jingyizhang-design.html" style="color: rgba(0, 0, 0, 0.8);"></a><media-item class="linked" style="--scale:71.8%"><div class="mi-frame"><a class="mi-link" href="jingyizhang-design.html"><img class="media" src="assets/media/JingyiZhang_logo_flower_transparent.gif" alt="Jingyi Zhang" width="1983" height="793" loading="lazy" decoding="async" style=""></a></div></media-item><br>
+</span><br>
+&#x3E; <a href="jingyizhang-design.html">Home</a><br>
+<span style="color: rgba(7, 0, 0, 0.8);"><a href="work.html">
+&#x3E; </a><a href="work.html">Product Design</a><br>
+<span style="color: rgba(7, 0, 0, 0.8);"><a href="menu.html">&#x3E; </a><a href="menu.html">Visual Design</a></span><br>
+<br>
+<a href="about.html">&#x3E; About</a><b><br></b></span>
+
+<br>
+<div class="side-intro" style="display:flex;flex-direction:column;gap:.7em"><span>I’m a product designer who believes in <span class="si-hl">Usefulness, Efficiency and Simplicity</span>.</span><span>I design and ship <span style="white-space:nowrap">AI-powered</span> <span class="si-hl">B2B/B2C SaaS Tools</span>. I am also a <span class="si-hl">Visual Designer</span> through my studio practice @ <a href="https://rainmelonstudio.com" target="_blank" rel="noopener">Rainmelon Studio</a>.</span><span>Currently at <a href="https://www.reelshort.com/" target="_blank" rel="noopener">@ReelShort</a>.</span></div>
+<br>
+<br>
+<br>
+<span class="description" style="color: rgba(24, 28, 38, 0.6);"></span><br>
+<column-set class="cs mstack" style="--gap:2rem;--mgap:1rem"><div class="cu" style="--span:8"><i><span class="jingyi-nametag" style="color: rgba(0, 0, 0, 0.8);"><span style="line-height: 1.7;">© 2026</span><br>
+</span></i></div><div class="cu" style="--span:2"><span class="bottom-word"></span><div style="text-align: right"><span class="bottom-word"></span></div></div><div class="cu" style="--span:1"></div><div class="cu" style="--span:1"></div></column-set><span style="color: rgba(0, 0, 0, 0.6);"><a class="text-title" href="jingyizhang-design.html" style="color: rgba(0, 0, 0, 0.8);"></a><b>
+</b></span></bodycopy></div></div></div></div><div class="pin pin-mtop"><div class="page pinned" id="P0247037352"><div class="page-layout"><div class="page-content"><bodycopy><br>
+<br><column-set class="cs" style="--gap:2rem;--mgap:2rem"><div class="cu" style="--span:12"><span class="nametag" style="line-height: 1.7;"><a href="#"></a> <media-item class="zoomable" style="--scale:27.9%" data-full="assets/media/JingyiZhang_logo_flower_transparent.gif" data-video="false"><div class="mi-frame"><img class="media" src="assets/media/JingyiZhang_logo_flower_transparent.gif" alt="Jingyi Zhang" width="1983" height="793" loading="lazy" decoding="async" style=""></div></media-item> <a href="menu.html">grid</a> |<a href="list.html"> list</a> | <a href="about.html">about</a> <br>
+<br>
+</span></div></column-set></bodycopy></div></div></div></div><div class="pin pin-mbottom"><div class="page pinned" id="B1072365829"><div class="page-layout"><div class="page-content"><bodycopy><column-set class="cs" style="--gap:2rem;--mgap:2rem"><div class="cu" style="--span:6"><span class="page-nav" style="line-height: 1.7;">         <br>         
+ © 2026</span></div><div class="cu" style="--span:6"></div></column-set><span style="font-size: 7.4028px; letter-spacing: 0em;"><br>
+</span></bodycopy></div></div></div></div>
+<main class="main"><div class="page " id="O4158167021"><div class="page-layout"><div class="page-content"><bodycopy><div class="cs2">
+
+<header class="cv" id="top"><div class="ph" aria-hidden="true"><img class="pa" src="assets/projects/casting/casting-ph1.jpg" alt=""><img class="pb" src="assets/projects/casting/casting-ph2.jpg" alt=""></div>
+<div class="cv-in">
+<div class="tags"><span class="tag">ReelShort · Crazy Maple Studio</span><span class="tag">Internal platform · B2B SaaS</span><span class="tag">2026</span><span class="tag on">Shipped · In Active Use</span></div>
+<h1><span>Casting at scale:</span><span>from a talent database</span><span>to a <em>decision tool</em></span></h1>
+<p class="lede">ReelShort ships 400+ vertical drama series a year, and each one starts with casting. I redesigned and built its internal casting system so the team can decide from the grid, not hunt for information.</p>
+<div class="sc"><i></i>Scroll</div>
+</div></header>
+<div class="w">
+<figure class="hero" style="margin-top:0"><div class="fr"><img src="assets/projects/casting/casting-1.jpg" alt="ReelShort brand cover over a wall of vertical drama posters"></div></figure>
+
+<dl class="glance">
+<div><dt>Role</dt><dd>Product Designer &amp; Front-End Developer</dd></div>
+<div><dt>Timeline</dt><dd>Jul – Oct 2026</dd></div>
+<div><dt>Platform</dt><dd>Internal web app</dd></div>
+<div><dt>Outcome</dt><dd>+28% profile completeness</dd></div>
+<div><dt>Scale</dt><dd>600+ actors · 130+ agencies · 60+ productions in one system</dd></div>
+</dl>
+<p class="conf">All talent names, photos and agency data on this page are fictional demo data. The real platform is internal and confidential.</p>
+
+<!-- CONTEXT -->
+<section class="sec" id="sec-1" data-l="Context">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Context</span>
+<h2>A high-volume studio that ships series every single day</h2>
+<div class="n"><p>ReelShort is the leading global short-drama platform. Casting sits on the critical path of every series: one role can mean hundreds of candidates, each with photos, an agency, consent limits and a schedule.</p></div>
+<figure style="margin-top:32px"><div class="fr"><img src="assets/projects/casting/casting-2.jpg" alt="ReelShort Casting System overview: structure and clarity across every casting decision"></div></figure>
+<div class="stats">
+<div class="stat"><b>500K+</b><span>App Store ratings, 4.7 average</span></div>
+<div class="stat"><b>400+</b><span>Vertical drama series produced every year</span></div>
+<div class="stat"><b>#1</b><span>Once ranked 1st in the App Store</span></div>
+<div class="stat"><b>#17</b><span>Entertainment chart, US App Store</span></div>
+</div>
+<figure style="margin-top:24px"><div class="fr"><img src="assets/projects/casting/casting-5.jpg" alt="ReelShort app home screen"></div><figcaption>ReelShort, the product the casting team serves.</figcaption></figure>
+<figure style="margin-top:24px"><div class="fr"><img src="assets/projects/casting/casting-4.jpg" alt="ReelShort App Store listing: 4.7 rating, 500K+ ratings, #17 in Entertainment"></div><figcaption>App Store listing.</figcaption></figure>
+</section>
+
+<!-- WHERE THIS STARTED -->
+<section class="sec" id="sec-2" data-l="Where this started">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Where This Started</span>
+<h2>I was the user before I was the designer</h2>
+<div class="n">
+<p>Before this project I spent a year in ReelShort's production operations, across 40+ productions. That gave me two things:</p>
+<ul class="pv-pts"><li><strong>The workflow, first-hand.</strong> I had been the one opening a profile for a second photo and chasing a missing consent field.</li><li><strong>A network.</strong> The people I had worked with became my stakeholders, interviewees and first users.</li></ul>
+</div>
+<figure style="margin-top:40px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Illustration of casting information scattered across IMDb, Instagram, an internal database and agency sites"><source src="assets/projects/casting/casting-chaos.webm" type="video/webm"><source src="assets/projects/casting/casting-chaos.mp4" type="video/mp4"></video></div><figcaption>Where a casting decision's information lived before the redesign.</figcaption></figure>
+<div class="n" style="margin-top:40px">
+<h3>The problem was not the database. It was everything around it.</h3>
+<p style="margin-top:12px">A decision still meant leaving the system: photos on Instagram, availability in email, agency history in someone's memory. The goal was to turn a place that stores records into a place where decisions are made.</p>
+
+</div>
+</section>
+
+<!-- WHERE IT NEEDS ITERATION -->
+<section class="sec" id="sec-3" data-l="The problem">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">The Problem</span>
+<h2>Leading the next evolution of the ReelShort Casting System</h2>
+<div class="n">
+<p>I was asked to lead the redesign around two goals: fill the gaps in talent profiles, and make the system useful in the daily casting workflow.</p>
+</div>
+<div class="cols3">
+<div><span class="k">Missing information</span><p style="font-size:.956rem">Audited which fields teams rely on, and where profiles were empty.</p></div>
+<div><span class="k">Workflow friction</span><p style="font-size:.956rem">Traced how producers search, compare and shortlist, and every needless step.</p></div>
+<div><span class="k">A better experience</span><p style="font-size:.956rem">Explored concepts that bring key information into the grid itself.</p></div>
+</div>
+<div class="n"><p style="margin-top:32px"><strong>Less time searching for information, more time making casting decisions.</strong></p></div>
+<figure style="margin-top:32px"><div class="fr"><img src="assets/projects/casting/casting-3.jpg" alt="The existing Talent Library grid"></div><figcaption>The Talent Library grid, the surface most of the work centres on.</figcaption></figure>
+</section>
+
+<!-- USER RESEARCH -->
+<section class="sec" id="sec-4" data-l="User research">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">User Research</span>
+<h2>What casting teams told me</h2>
+<div class="n"><p>I interviewed five producers and casting directors, 30 minutes each, about how they source, compare and shortlist talent. Four needs came up again and again.</p></div>
+<figure style="margin-top:32px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Illustration of four needs: visual fit, chemistry, complete information, agency network"><source src="assets/projects/casting/casting-needs.webm" type="video/webm"><source src="assets/projects/casting/casting-needs.mp4" type="video/mp4"></video></div></figure>
+<div class="needs">
+<div class="need"><h3><i>01</i>Visual fit</h3><p>Multiple angles and looks, not a single headshot. The face is always the first filter.</p>
+<details><summary>Read the quote</summary><blockquote>“When we and the client choose the talent, their profile picture is always the most important first impression. You immediately know whether the talent's look meets the character's needs or whether they should go into the candidate pool. The profile photo is their kind of resume.”</blockquote></details></div>
+<div class="need"><h3><i>02</i>Complete information</h3><p>Height, consent limits, agency, location. A profile missing any of these is skipped rather than investigated.</p>
+<details><summary>Read the quote</summary><blockquote>“When we select some talents and want to move forward, we spend a long time checking whether their schedule, location and consent fit the production. A complete profile with clear information right in our hand saves tons of time. Every piece of information matters in choosing the right person.”</blockquote></details></div>
+<div class="need"><h3><i>03</i>Chemistry</h3><p>Casting happens in pairs and ensembles. Teams want to see two faces side by side.</p>
+<details><summary>Read the quote</summary><blockquote>“For a vertical romance drama, the chemistry between the two leads is everything. It's one of the biggest things that can make a show go viral. Sometimes two actors are perfect for their roles separately, but together the chemistry just isn't there. It's whether they work as a couple.”</blockquote></details></div>
+<div class="need"><h3><i>04</i>Agency network</h3><p>The deal is with the agency. Who represents whom, and who actually responds, shapes the shortlist.</p>
+<details><summary>Read the quote</summary><blockquote>“Agencies usually hold a lot of talent, and it's much easier to book several talents from the same agency together. I would love to see the agency info when I look at a talent's profile.”</blockquote></details></div>
+</div>
+</section>
+
+<!-- DECISIONS -->
+<section class="sec" id="sec-5" data-l="Key design decisions">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Key Design Decisions</span>
+<h2>Five decisions, prioritized against four needs and two sprints</h2>
+<div class="n"><p>More problems than two sprints could hold, so I committed to five changes for phase one, weighed against the four needs and the engineering budget.</p></div>
+
+<article class="dec">
+<div class="h"><h3 class="opill">01 · Make Talent Card More Visual</h3></div>
+<dl class="pv-brief"><div><dt>Problem</dt><dd>One photo per card; too many tags buried what mattered.</dd></div><div><dt>Change</dt><dd>A photo carousel, and tags cut back to color-coded consent labels.</dd></div><div><dt>Why</dt><dd>Teams scan dozens of faces at once. Nothing should slow the scan.</dd></div></dl>
+<figure><div class="fr"><img src="assets/projects/casting/casting-10.jpg" alt="Original talent card with single photo and cluttered tags"></div><figcaption>Before: one photo, cluttered tags.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-11.jpg" alt="Redesigned talent cards with photo carousel, simplified tags and completeness"></div><figcaption>After: photo carousel, simplified tags, profile completeness.</figcaption></figure>
+<figure><div class="pair vids"><div class="fr v"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Talent card carousel: browsing photos of Ashley Brent"><source src="assets/projects/casting/casting-card_a.webm" type="video/webm"><source src="assets/projects/casting/casting-card_a.mp4" type="video/mp4"></video></div><div class="fr v"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Talent card carousel: browsing photos of Niki Mar"><source src="assets/projects/casting/casting-card_b.webm" type="video/webm"><source src="assets/projects/casting/casting-card_b.mp4" type="video/mp4"></video></div></div><figcaption>The new card in use: browse photos in place, with completeness and consent tags always in view.</figcaption></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">02 · Surface Information Completeness</h3></div>
+<dl class="pv-brief"><div><dt>Problem</dt><dd>No way to tell a complete profile without opening it; gaps surfaced late.</dd></div><div><dt>Change</dt><dd>A completeness indicator on every card, built on the 12 fields teams need most, with filters.</dd></div><div><dt>Why</dt><dd>Gaps show up before anyone moves forward, not after the call.</dd></div></dl>
+<figure><div class="fr"><img src="assets/projects/casting/casting-12.jpg" alt="Profile completeness system: 12 states from low to high"></div><figcaption>Twelve states, one per filled checkpoint. Missing items appear as tags and disappear as they are filled.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-13.jpg" alt="Completeness progress from 0 to 100 percent with missing-field tags"></div></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">03 · Rebuild Agency Library Page</h3></div>
+<dl class="pv-brief"><div><dt>Problem</dt><dd>Every cell editable, emoji status, a delete on every row; agencies cut off from talent.</dd></div><div><dt>Change</dt><dd>One Add Agency flow, clear status labels, links, and actor photo stacks that open the roster.</dd></div><div><dt>Why</dt><dd>Who an agency represents is now one glance away, with less risk of accidental edits.</dd></div></dl>
+<figure><div class="fr"><img src="assets/projects/casting/casting-14.jpg" alt="Previous agency table with editable cells and emoji status"></div><figcaption>Before: every cell editable, emoji status, delete on every row.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-15.jpg" alt="Redesigned agency directory with photo stacks and status labels"></div><figcaption>After: actor photo stacks, clear status, one Add Agency flow.</figcaption></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">04 · Change the Filter's Information Architecture</h3></div>
+<dl class="pv-brief"><div><dt>Problem</dt><dd>Thirteen single-select controls; two age ranges could not be viewed together.</dd></div><div><dt>Change</dt><dd>A regrouped hierarchy with merged criteria and multi-select.</dd></div><div><dt>Why</dt><dd>Teams explore several options at once; search now works the same way.</dd></div></dl>
+<figure><div class="fr"><img src="assets/projects/casting/casting-16.jpg" alt="Original filter bar: too many filters, single-select only"></div><figcaption>Before: thirteen single-select controls.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-17.jpg" alt="Redesigned filter information architecture"></div></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-18.jpg" alt="Inside the filters: gender, age ranges, appearance panel, consent"></div><figcaption>After: multi-select, age ranges, one appearance panel, grouped consent.</figcaption></figure>
+</article>
+
+<article class="dec">
+<div class="h"><h3 class="opill">05 · Update VFX Information UI System</h3></div>
+<dl class="pv-brief"><div><dt>Problem</dt><dd>A full-width grading table (D to S+) pushed the project list down.</dd></div><div><dt>Change</dt><dd>A collapsible reference with grade chips; the project list moves to the top.</dd></div><div><dt>Why</dt><dd>Most visits are about projects. The standards stay one click away.</dd></div></dl>
+<figure><div class="fr"><img src="assets/projects/casting/casting-19.jpg" alt="Original VFX grade standards full-width table"></div><figcaption>Before: a full-width table pushing the project list down.</figcaption></figure>
+<figure><div class="fr"><img src="assets/projects/casting/casting-20.jpg" alt="Redesigned VFX grade reference as a collapsible card"></div><figcaption>After: collapsible reference, grade chips, project list first.</figcaption></figure>
+</article>
+</section>
+
+<!-- SHIPPING -->
+<section class="sec" id="sec-6" data-l="Shipping it">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Shipping It</span>
+<h2>From research to rollout in about three months</h2>
+<div class="phases">
+<div><small>PHASE 0</small><b>Research</b><span>1.5 weeks · interviews, field inventory, pitch</span></div>
+<div><small>PHASE 1</small><b>Design</b><span>3 weeks · IA, flows, specs, working prototype</span></div>
+<div><small>PHASE 2</small><b>Build</b><span>2 sprints · card and filters first, agency directory next</span></div>
+<div><small>RELEASE</small><b>Rollout</b><span>1 month · walkthrough, feedback round, phase-two backlog</span></div>
+</div>
+<p class="sub">What we tested, what we put on hold</p>
+<div class="n"><p>Two ideas were tested and held back:</p></div>
+<div class="hold">
+<div><h4>AI-powered talent attributes</h4><p>Detecting hair and eye color from photos was not reliable across lighting and quality, so we did not ship inaccurate data.</p></div>
+<div><h4>IMDb and Instagram integration</h4><p>API and data restrictions made syncing photos and details impractical for now.</p></div>
+</div>
+<p class="sub">Shipping and next steps</p>
+<div class="n"><p>Phase one launched with a 20-minute team walkthrough. Availability sync and side-by-side comparison are next.</p></div>
+</section>
+
+<!-- OUTCOME -->
+<section class="sec" id="sec-7" data-l="Outcome">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Outcome</span>
+<h2>Used by the casting team every day, now part of a larger internal system</h2>
+<div class="stats">
+<div class="stat"><b>+28%</b><span>Profile completeness</span></div>
+<div class="stat"><b>67%</b><span>Actor profiles updated</span></div>
+<div class="stat"><b>600+</b><span>Actor profiles, searchable by look, location, agreement and consent</span></div>
+<div class="stat"><b>130+</b><span>Agencies with verified profiles and linked rosters</span></div>
+<div class="stat"><b>60+</b><span>Productions with casting, VFX grade and budget in one place</span></div>
+</div>
+<div class="n" style="margin-top:32px">
+<p><strong>For the team.</strong> Shortlisting happens in the grid, decision-ready profiles are visible, and an agency's roster is one click away.</p>
+<p><strong>For the company.</strong> The system is now the base of a wider internal production platform, supporting 60+ productions in its first quarter.</p>
+</div>
+
+<figure style="margin-top:40px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Four outcomes illustrated: clearer actor cards, better data, smarter search, agencies and VFX"><source src="assets/projects/casting/casting-illus.webm" type="video/webm"><source src="assets/projects/casting/casting-illus.mp4" type="video/mp4"></video></div></figure>
+<figure style="margin-top:24px"><div class="fr"><video autoplay muted loop playsinline preload="auto" disablepictureinpicture aria-label="Outcome metrics: profile completeness, profiles updated, actor profiles, agencies, productions"><source src="assets/projects/casting/casting-icons.webm" type="video/webm"><source src="assets/projects/casting/casting-icons.mp4" type="video/mp4"></video></div><figcaption>Used by the casting team every day.</figcaption></figure>
+<p class="nm"><strong style="color:var(--fg);font-weight:500">Not yet measured.</strong> Counts come from the database; time savings are observed, not logged. Analytics is first on the phase-two list.</p>
+</section>
+
+<!-- REFLECTION -->
+<section class="sec" id="sec-8" data-l="Reflection">
+<span class="pill" style="border-radius:99px;border-width:0.1rem">Reflection</span>
+<div class="refl">
+<p>Casting looks like choosing faces, but most of it is managing information. The old tool made the team pay for it twice: once to find it, once to re-check it. <em>The redesign removed the second payment.</em></p>
+<p>Having been the user was the method. Good design here was less about adding features and more about removing friction.</p>
+
+</div>
+</section>
+
+</div>
+</div></bodycopy></div></div></div></main>
+<div class="lightbox" hidden><button class="lb-close" aria-label="Close">×</button><div class="lb-stage"></div></div>
+
+
+
+<script>
+(function(){document.documentElement.classList.add("js");
+var els=[].slice.call(document.querySelectorAll(".sec>*,.dec>*,figure,.stat,.need,.hold>div,.phases"));els.forEach(function(e){e.classList.add("rv")});
+function inview(e){return e.getBoundingClientRect().top<innerHeight*.96}
+els.forEach(function(e){if(inview(e))e.classList.add("in")});
+if("IntersectionObserver" in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{rootMargin:"0px 0px -6% 0px"});els.forEach(function(e){if(!e.classList.contains("in"))io.observe(e)})}else{els.forEach(function(e){e.classList.add("in")})}
+setTimeout(function(){els.forEach(function(e){if(inview(e))e.classList.add("in")})},2500);
+var vs=[].slice.call(document.querySelectorAll("video"));
+if(matchMedia("(prefers-reduced-motion: reduce)").matches){vs.forEach(function(v){v.removeAttribute("autoplay");v.pause()})}
+else if("IntersectionObserver" in window){var vo=new IntersectionObserver(function(es){es.forEach(function(x){var v=x.target;if(x.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.25});vs.forEach(function(v){vo.observe(v)})}
+})();
+</script>
+</body>
+</html>
