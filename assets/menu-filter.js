@@ -1,9 +1,9 @@
 /* Project page: a floating category bar (same look as the case-study guide bar).
-   All / Product Design / Visual Design / AIGC Art / Photography & Creative Direction */
+   All / Design Engineering / Graphic & Motion / AIGC Art / Photography & Creative Direction (no tab repeats the Product Design / Visual Design page titles) */
 (function () {
   const bc = document.querySelector('.main bodycopy');
   if (!bc || bc.querySelector('.mf-bar')) return;
-  const CATS = [['all', 'All'], ['product', 'Product Design'], ['visual', 'Visual Design'], ['aigc', 'AIGC Art'], ['photo', 'Photography & Creative Direction']];
+  const CATS = [['all', 'All'], ['product', 'Design Engineering'], ['visual', 'Graphic & Motion'], ['aigc', 'AIGC Art'], ['photo', 'Photography & Creative Direction']];
   const KEY = t => /aigc/i.test(t) ? 'aigc' : /product|playground|engineer/i.test(t) ? 'product' : /graphic|motion/i.test(t) ? 'visual' : /photo|art direction/i.test(t) ? 'photo' : null;
 
   if (!document.getElementById('mf-css')) {
