@@ -14,6 +14,8 @@
   if(!isWork){
     if(new URLSearchParams(location.search).get('embedded')==='1'){
       document.body.classList.add('project-embedded');
+      // Visual Design shared template: preview only (outer page carries ?preview=mosaic)
+      try{const pv=/[?&]preview=mosaic(&|$)/;if(pv.test(location.search)||pv.test(parent.location.search)){const vs=document.createElement('script');vs.src='assets/visual-unify.js?v=20261125a';document.head.appendChild(vs);}}catch(e){}
       const style=document.createElement('style');style.textContent=`html,body{min-height:0!important;height:auto!important;overflow:hidden!important}.pin,.cm-back,.cm-nav,.cm-sheet,.cm-next,.cm-progress{display:none!important}body .main{padding:0!important;margin:0!important;min-height:0!important}body .main>.page{min-height:0!important;justify-content:center!important}body .main .page-layout{width:100%!important;max-width:1054px!important;padding:12px!important;margin:0 auto!important;min-height:0!important}body .main .page-content{width:100%!important;padding:0!important}body .main :is(.dz,.cm-r){opacity:1!important;filter:none!important;transform:none!important}`;document.head.appendChild(style);
       document.documentElement.style.setProperty('font-size','16px','important');
       const force=(selector,styles)=>document.querySelectorAll(selector).forEach(el=>Object.entries(styles).forEach(([k,v])=>el.style.setProperty(k,v,'important')));
