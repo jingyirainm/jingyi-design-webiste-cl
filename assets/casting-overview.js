@@ -57,6 +57,12 @@
   .co-ctabs.paused button.on::after{transition:none}
   /* actor card wall (full-bleed, parallax) */
   .cs2{overflow-x:clip}
+  .co-fin{margin-top:clamp(72px,10vw,130px);display:flex;flex-direction:column;align-items:center}
+  .co-fin .lg{width:clamp(56px,6vw,84px);height:auto;border-radius:22.5%;box-shadow:0 16px 36px -14px rgba(200,20,70,.5)}
+  .co-fin .shot{width:100%;margin-top:clamp(28px,4vw,48px);border-radius:26px;overflow:hidden;background:#fff;box-shadow:0 36px 90px -36px rgba(30,40,30,.4),0 0 0 1px rgba(17,17,17,.07)}
+  .co-fin .shot img{display:block;width:100%;height:auto}
+  @media (min-width:1000px){.co-fin .shot{width:120%}}
+  @media (max-width:560px){.co-fin .shot{border-radius:14px}}
   .co-wall{position:relative;width:min(100vw,1240px);margin-left:calc(50% - min(50vw,620px));margin-top:clamp(56px,8vw,110px);height:max(220px,33vw);background:#0f130d;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);mask-composite:intersect}
   .co-wall .wl{position:absolute;left:50%;top:50%;width:max(100%,560px);max-width:none;height:auto;transform:translate(-50%,calc(-50% + var(--py,0px)));will-change:transform;opacity:.96}
   .co-wall .fl{position:absolute;z-index:3;width:clamp(96px,14vw,210px);border-radius:clamp(12px,1.6vw,22px);box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform:translateY(var(--py,0px)) rotate(var(--r,0deg));will-change:transform}
@@ -215,7 +221,7 @@
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment; it removed the second payment.</p>
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
-   <div class="co-wall co-r" aria-hidden="true"><img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="" width="1900" height="852" decoding="async"></div>
+   <div class="co-fin co-r"><img class="lg" src="assets/projects/casting/hd/reelshort-logo.png" alt="ReelShort" width="299" height="297"><div class="shot"><img src="assets/projects/casting/hd/casting-valueprop-full.webp" alt="ReelShort Casting Hub, Value prop: structure and clarity across every casting decision" width="2602" height="1496" loading="lazy" decoding="async"></div></div>
   </div>`;
   conf.after(co);
 
