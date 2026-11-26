@@ -39,6 +39,9 @@
   .co-stage{position:relative;margin-top:36px;border-radius:30px;overflow:hidden;background:#e9efe6;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
   .co-stage video,.co-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .co-fict{margin-top:12px;font-size:12px;color:var(--mute)}
+  .co-mframe{border-radius:30px;overflow:hidden;background:#eef0ea;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
+  .co-mframe img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.32);transform-origin:50% 46%}
+  .co-cap{margin-top:12px;font-size:13px;color:var(--mute)}
   /* numbers */
   .co-nums{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:56px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
   .co-num{padding:26px 18px 26px 0}
@@ -115,7 +118,7 @@
     .co-t1 .m{flex-direction:column}.co-t1 .m video{width:100%}
     .co h1{font-size:clamp(36px,11vw,56px)}
     .co-t1,.co-t2,.co-t3,.co-t4,.co-t5{grid-column:1/-1;grid-row:auto}
-    .co-stage{border-radius:20px}.co-pane,.co-tile,.co-rs .vid{border-radius:20px}.co-out{border-radius:24px}
+    .co-stage{border-radius:20px}.co-mframe{border-radius:20px}.co-pane,.co-tile,.co-rs .vid{border-radius:20px}.co-out{border-radius:24px}
   }`;
   document.head.appendChild(css);
 
@@ -126,7 +129,21 @@
   co.innerHTML = `
   <div class="co-switch"><div class="co-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full<span class="x"> case study</span></button></div></div>
   <div class="co-body">
-   <div class="co-nums co-r" style="margin-top:clamp(40px,5vw,64px)">
+   <div class="co-motion co-r" style="margin-top:clamp(40px,5vw,64px)"><div class="co-mframe"><img src="assets/media/878a8fe2da87_CastPool_Hero_3x2_.webp" alt="ReelShort Casting Hub: the workspaces switching into one another" width="1600" height="1066"></div><p class="co-cap">The Casting Hub in use, switching between its workspaces.</p></div>
+
+   <section class="co-sec">
+    <div class="co-k co-r">What changed</div>
+    <h2 class="co-r">Five decisions, two sprints</h2>
+    <div class="co-bento">
+     ${tile('co-t1', '', '01 · Talent card', 'Browse every photo in place', 'A photo carousel and short colour-coded consent tags replace one photo and a wall of labels.', vid('casting-card_a', 'autoplay') + vid('casting-card_b', 'autoplay'))}
+     ${tile('co-t2', 'casting-13.jpg', '02 · Completeness', 'See what is decision-ready', 'Twelve checkpoints, one score on every card, filters for what is missing.')}
+     ${tile('co-t3', 'casting-15.jpg', '03 · Agency library', 'Know who represents whom', 'Actor photo stacks, office locations, one Add Agency flow.')}
+     ${tile('co-t4', 'casting-18.jpg', '04 · Filters', 'Search several options at once', 'Thirteen single-select controls became grouped multi-select panels.')}
+     ${tile('co-t5', 'casting-20.jpg', '05 · VFX reference', 'Projects first, standards on demand', 'A collapsible card with D to S+ grade chips.')}
+    </div>
+   </section>
+
+   <div class="co-nums co-r" style="margin-top:clamp(56px,8vw,112px)">
     <div class="co-num"><b data-n="28" data-p="+" data-s="%">+28%</b><span>Profile completeness</span></div>
     <div class="co-num"><b data-n="67" data-s="%">67%</b><span>Actor profiles updated</span></div>
     <div class="co-num"><b data-n="600" data-s="+">600+</b><span>Actors, searchable by look, location and consent</span></div>
@@ -143,17 +160,6 @@
     </div>
    </section>
 
-   <section class="co-sec">
-    <div class="co-k co-r">What changed</div>
-    <h2 class="co-r">Five decisions, two sprints</h2>
-    <div class="co-bento">
-     ${tile('co-t1', '', '01 · Talent card', 'Browse every photo in place', 'A photo carousel and short colour-coded consent tags replace one photo and a wall of labels.', vid('casting-card_a', 'autoplay') + vid('casting-card_b', 'autoplay'))}
-     ${tile('co-t2', 'casting-13.jpg', '02 · Completeness', 'See what is decision-ready', 'Twelve checkpoints, one score on every card, filters for what is missing.')}
-     ${tile('co-t3', 'casting-15.jpg', '03 · Agency library', 'Know who represents whom', 'Actor photo stacks, office locations, one Add Agency flow.')}
-     ${tile('co-t4', 'casting-18.jpg', '04 · Filters', 'Search several options at once', 'Thirteen single-select controls became grouped multi-select panels.')}
-     ${tile('co-t5', 'casting-20.jpg', '05 · VFX reference', 'Projects first, standards on demand', 'A collapsible card with D to S+ grade chips.')}
-    </div>
-   </section>
 
    <section class="co-sec">
     <div class="co-k co-r">Research</div>
