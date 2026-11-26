@@ -193,15 +193,6 @@
     </div>
    </section>
 
-   <section class="co-sec">
-    <div class="co-k co-r">The shift</div>
-    <h2 class="co-r">From a place where records are stored to a place where decisions are made</h2>
-    <div class="co-ba">
-     <div class="co-pane before co-r"><span class="m">${vid('casting-chaos', 'autoplay')}</span><div class="c"><b>Before</b>A second photo on Instagram, availability in email, the agency relationship in someone's memory.</div></div>
-     <div class="co-pane after co-r"><span class="m"><img src="${P}casting-3.jpg" alt="The new Talent Library grid" loading="lazy"></span><div class="c"><b>After</b>One grid: several photos per card, completeness, consent and agency, all in view.</div></div>
-    </div>
-   </section>
-
 
    <section class="co-sec">
     <div class="co-k co-r">Research</div>
