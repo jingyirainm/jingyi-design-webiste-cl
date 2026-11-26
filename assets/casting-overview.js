@@ -39,6 +39,20 @@
   .co-stage{position:relative;margin-top:36px;border-radius:30px;overflow:hidden;background:#e9efe6;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
   .co-stage video,.co-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .co-fict{margin-top:12px;font-size:12px;color:var(--mute)}
+  /* HD carousel: screens slide into one another */
+  .co-car{position:relative}
+  .co-cstage{position:relative;aspect-ratio:2/1;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#eef1ea,#e6ebe2);box-shadow:0 30px 80px -34px rgba(40,60,30,.35);touch-action:pan-y;user-select:none}
+  .co-sl{position:absolute;left:50%;top:50%;width:73%;aspect-ratio:1.75;border-radius:16px;overflow:hidden;background:#fff;
+    box-shadow:0 26px 60px -24px rgba(0,0,0,.4),0 0 0 1px rgba(17,17,17,.06);cursor:pointer;
+    transform:translate(calc(-50% + var(--x,0)*74%),-50%) scale(var(--s,1));opacity:var(--o,1);z-index:var(--z,1);
+    transition:transform .9s var(--ease),opacity .9s var(--ease),filter .9s var(--ease);filter:blur(var(--b,0px));will-change:transform,opacity}
+  .co-sl img,.co-sl video{display:block;width:100%;height:100%;object-fit:cover}
+  .co-ctabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:18px}
+  .co-ctabs button{all:unset;cursor:pointer;position:relative;padding:6px 0;font:500 13px/1 Inter,sans-serif;color:var(--mute);transition:color .3s}
+  .co-ctabs button::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:#111;transition:right 0s}
+  .co-ctabs button.on{color:#111}
+  .co-ctabs button.on::after{right:0;transition:right var(--dur,3.6s) linear}
+  .co-ctabs.paused button.on::after{transition:none}
   .co-mframe{border-radius:30px;overflow:hidden;background:#eef0ea;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
   .co-mframe img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.32);transform-origin:50% 46%}
   .co-cap{margin-top:12px;font-size:13px;color:var(--mute)}
@@ -118,7 +132,7 @@
     .co-t1 .m{flex-direction:column}.co-t1 .m video{width:100%}
     .co h1{font-size:clamp(36px,11vw,56px)}
     .co-t1,.co-t2,.co-t3,.co-t4,.co-t5{grid-column:1/-1;grid-row:auto}
-    .co-stage{border-radius:20px}.co-mframe{border-radius:20px}.co-pane,.co-tile,.co-rs .vid{border-radius:20px}.co-out{border-radius:24px}
+    .co-stage{border-radius:20px}.co-cstage{border-radius:20px;aspect-ratio:1.55/1}.co-sl{width:80%;border-radius:10px}.co-pane,.co-tile,.co-rs .vid{border-radius:20px}.co-out{border-radius:24px}
   }`;
   document.head.appendChild(css);
 
@@ -129,7 +143,16 @@
   co.innerHTML = `
   <div class="co-switch"><div class="co-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full<span class="x"> case study</span></button></div></div>
   <div class="co-body">
-   <div class="co-motion co-r" style="margin-top:clamp(40px,5vw,64px)"><div class="co-mframe"><img src="assets/media/878a8fe2da87_CastPool_Hero_3x2_.webp" alt="ReelShort Casting Hub: the workspaces switching into one another" width="1600" height="1066"></div><p class="co-cap">The Casting Hub in use, switching between its workspaces.</p></div>
+   <div class="co-car co-r" style="margin-top:clamp(40px,5vw,64px)" aria-roledescription="carousel" aria-label="ReelShort Casting Hub, in high resolution">
+    <div class="co-cstage">
+     <div class="co-sl" data-i="0"><img src="assets/projects/casting/hd/casting-hd-0-splash.webp" alt="ReelShort" width="2400" height="1380" decoding="async" fetchpriority="high"></div>
+     <div class="co-sl" data-i="1"><img src="assets/projects/casting/hd/casting-hd-1-valueprop.webp" alt="Structure and clarity across every casting decision" width="2400" height="1380" decoding="async" loading="lazy"></div>
+     <div class="co-sl" data-i="2"><img src="assets/projects/casting/hd/casting-hd-2-talent.webp" alt="Talent Library with photo-carousel cards" width="2400" height="1380" decoding="async" loading="lazy"></div>
+     <div class="co-sl" data-i="3"><img src="assets/projects/casting/hd/casting-hd-3-agency.webp" alt="Agency Directory with actor photo stacks" width="2400" height="1380" decoding="async" loading="lazy"></div>
+     <div class="co-sl" data-i="4"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
+    </div>
+    <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button><button role="tab" data-i="4">Outcome</button></div>
+   </div>
 
    <section class="co-sec">
     <div class="co-k co-r">What changed</div>
@@ -217,6 +240,36 @@
   const vio = new IntersectionObserver(es => es.forEach(en => { const v = en.target; if (en.isIntersecting) { v.play && v.play().catch(() => {}); } else v.pause && v.pause(); }), { threshold: .15 });
   function observeVideos() { co.querySelectorAll('video').forEach(v => { v.muted = true; vio.unobserve(v); vio.observe(v); }); }
   observeVideos();
+
+  /* ---- HD carousel ---- */
+  (function () {
+    const car = co.querySelector('.co-car'); if (!car) return;
+    const st = car.querySelector('.co-cstage'), sl = [...st.querySelectorAll('.co-sl')], tabs = [...car.querySelectorAll('.co-ctabs button')], tb = car.querySelector('.co-ctabs'), n = sl.length, DELAY = 3600;
+    let cur = 0, timer = null, hover = false, vis = false;
+    st.style.setProperty('--dur', DELAY + 'ms'); tb.style.setProperty('--dur', DELAY + 'ms');
+    function layout() {
+      sl.forEach((el, i) => {
+        let d = i - cur; if (d > n / 2) d -= n; if (d < -n / 2) d += n;
+        const a = Math.abs(d);
+        el.style.setProperty('--x', d); el.style.setProperty('--s', d === 0 ? 1 : a === 1 ? .84 : .7);
+        el.style.setProperty('--o', d === 0 ? 1 : a === 1 ? .55 : 0); el.style.setProperty('--b', d === 0 ? '0px' : '1.5px');
+        el.style.setProperty('--z', 10 - a); el.style.pointerEvents = a <= 1 ? 'auto' : 'none';
+        const v = el.querySelector('video'); if (v) { if (d === 0) v.play && v.play().catch(() => {}); else v.pause && v.pause(); }
+      });
+      tabs.forEach((t, i) => t.classList.toggle('on', i === cur));
+      tb.classList.remove('paused'); void tb.offsetWidth;
+    }
+    function go(i, user) { cur = (i + n) % n; layout(); if (user) restart(); }
+    function restart() { clearInterval(timer); if (reduce || !vis) return; timer = setInterval(() => { if (!hover) go(cur + 1); }, DELAY); }
+    sl.forEach((el, i) => el.addEventListener('click', () => { if (i !== cur) go(i, true); }));
+    tabs.forEach((t, i) => t.addEventListener('click', () => go(i, true)));
+    car.addEventListener('mouseenter', () => { hover = true; tb.classList.add('paused'); });
+    car.addEventListener('mouseleave', () => { hover = false; tb.classList.remove('paused'); restart(); });
+    let x0 = null; st.addEventListener('pointerdown', e => { x0 = e.clientX; });
+    addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), true); });
+    new IntersectionObserver(es => es.forEach(en => { vis = en.isIntersecting; if (vis) restart(); else clearInterval(timer); }), { threshold: .3 }).observe(car);
+    layout();
+  })();
 
   const q = new URLSearchParams(location.search).get('view');
   setView(q === 'full' ? 'full' : 'ov', false, false);
