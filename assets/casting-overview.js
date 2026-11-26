@@ -1,9 +1,9 @@
 /* ReelShort Casting System — Overview (PREVIEW ONLY, loaded by preview-frame.js on ?preview=mosaic).
    Two versions of one case study: "Overview" (visual first: motion, interface, results) and "Full case study" (the page as it is).
-   Default in preview = Overview; ?view=full opens the full page. The switch sits at the top of the page. */
+   Default in preview = Overview; ?view=full opens the full page. The top of the page (hero, glance row) is shared; the switch sits right under it and chooses what follows. */
 (function () {
-  const bc = document.querySelector('main bodycopy'); const cs = bc && bc.querySelector('.cs2');
-  if (!bc || !cs || bc.dataset.co) return; bc.dataset.co = '1';
+  const bc = document.querySelector('main bodycopy'); const cs = bc && bc.querySelector('.cs2'); const conf = cs && cs.querySelector('.w > .conf');
+  if (!bc || !cs || !conf || bc.dataset.co) return; bc.dataset.co = '1';
   const P = 'assets/projects/casting/';
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const vid = (n, extra = '') => `<video class="co-v" ${extra} muted loop playsinline preload="metadata"><source src="${P}${n}.webm" type="video/webm"><source src="${P}${n}.mp4" type="video/mp4"></video>`;
@@ -15,13 +15,13 @@
   .co *{box-sizing:border-box}
   .co h1,.co h2,.co h3,.co p{margin:0}
   /* switch */
-  .co-switch{position:absolute;right:0;top:var(--co-sw,-58px);z-index:40;margin:0}
+  .co-switch{display:flex;justify-content:center;margin:clamp(40px,5vw,64px) 0 0}
   .co-seg{position:relative;display:inline-flex;padding:4px;border-radius:99px;background:rgba(255,255,255,.78);border:1px solid rgba(17,17,17,.1);
     backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 6px 24px rgba(0,0,0,.06)}
   .co-seg button{all:unset;cursor:pointer;position:relative;z-index:1;padding:8px 18px;border-radius:99px;font:500 13px/1 Inter,system-ui,sans-serif;color:rgba(17,17,17,.5);transition:color .35s var(--ease);white-space:nowrap}
   .co-seg button.on{color:#fff}
   .co-seg i{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;border-radius:99px;background:#111;transition:transform .45s var(--ease),width .45s var(--ease)}
-  body.co-ov .cs2,body.co-ov .cm-nav,body.co-ov .cm-sheet,body.co-ov .cm-progress{display:none!important}
+  body.co-ov .cs2 .w>.sec,body.co-ov .cm-nav,body.co-ov .cm-sheet,body.co-ov .cm-progress{display:none!important}
   body.co-full .co-body{display:none}
   /* reveal */
   .co-r{opacity:0;transform:translateY(34px);filter:blur(12px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.2s var(--ease)}
@@ -126,15 +126,7 @@
   co.innerHTML = `
   <div class="co-switch"><div class="co-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full<span class="x"> case study</span></button></div></div>
   <div class="co-body">
-   <header class="co-hero">
-    <div class="co-tags co-r"><span class="co-tag">ReelShort · Crazy Maple Studio</span><span class="co-tag">Internal platform · B2B SaaS</span><span class="co-tag">2026</span><span class="co-tag on">Shipped · In active use</span></div>
-    <h1 class="co-r"><span>Casting at scale:</span><span>from a talent database</span><span>to a <em>decision tool</em></span></h1>
-    <p class="co-sum co-r">I redesigned and built the company's internal ReelShort Casting System so the team can evaluate talent directly from the grid, with complete information and the agency behind each actor in view.</p>
-    <div class="co-stage co-r" aria-label="Casting Hub: add talent to a selection">${vid('castingpool_motion_v8', 'autoplay poster="' + P + 'castingpool_motion_v8_poster.jpg"')}</div>
-    <p class="co-fict">All talent names, photos and agency data are fictional demo data. The real platform is internal and confidential.</p>
-   </header>
-
-   <div class="co-nums co-r">
+   <div class="co-nums co-r" style="margin-top:clamp(40px,5vw,64px)">
     <div class="co-num"><b data-n="28" data-p="+" data-s="%">+28%</b><span>Profile completeness</span></div>
     <div class="co-num"><b data-n="67" data-s="%">67%</b><span>Actor profiles updated</span></div>
     <div class="co-num"><b data-n="600" data-s="+">600+</b><span>Actors, searchable by look, location and consent</span></div>
@@ -191,7 +183,7 @@
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
   </div>`;
-  bc.prepend(co);
+  conf.after(co);
 
   /* ---- switch ---- */
   const seg = co.querySelector('.co-seg'), thumb = seg.querySelector('i'), btns = [...seg.querySelectorAll('button')];
@@ -200,9 +192,9 @@
     document.body.classList.toggle('co-ov', v === 'ov'); document.body.classList.toggle('co-full', v === 'full');
     btns.forEach(b => b.classList.toggle('on', b.dataset.v === v)); place();
     if (push) { const u = new URL(location.href); u.searchParams.set('view', v); history.replaceState(null, '', u); }
-    if (scrollTop) window.scrollTo({ top: 0, behavior: 'auto' });
+    if (scrollTop) { const t = seg.getBoundingClientRect().top + scrollY - 80; if (scrollY > t) window.scrollTo({ top: t, behavior: 'auto' }); }
     window.dispatchEvent(new Event('resize'));
-    setTimeout(() => { observeVideos(); }, 50);
+    setTimeout(() => { observeVideos(); window.dispatchEvent(new Event('scroll')); }, 60);
   }
   co.addEventListener('click', e => {
     const b = e.target.closest('[data-v]'); if (b) { setView(b.dataset.v); return; }
@@ -222,8 +214,5 @@
 
   const q = new URLSearchParams(location.search).get('view');
   setView(q === 'full' ? 'full' : 'ov', false, false);
-  /* sit on the top bar, level with the Back pill, at the right of the content column (overlaid, no row of its own) */
-  const alignSwitch = () => { const back = document.querySelector('.cm-back') || document.querySelector('main a[href*="menu"], main a[href*="work"]'); if (!back) return; const br = back.getBoundingClientRect(), cr = co.getBoundingClientRect(), sh = seg.offsetHeight || 40; co.style.setProperty('--co-sw', Math.round(br.top - cr.top + br.height / 2 - sh / 2) + 'px'); };
-  alignSwitch(); addEventListener('load', alignSwitch); setTimeout(alignSwitch, 600); addEventListener('resize', alignSwitch);
   addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
 })();
