@@ -167,14 +167,6 @@
     </div>
    </section>
 
-   <div class="co-nums co-r" style="margin-top:clamp(56px,8vw,112px)">
-    <div class="co-num"><b data-n="28" data-p="+" data-s="%">+28%</b><span>Profile completeness</span></div>
-    <div class="co-num"><b data-n="67" data-s="%">67%</b><span>Actor profiles updated</span></div>
-    <div class="co-num"><b data-n="600" data-s="+">600+</b><span>Actors, searchable by look, location and consent</span></div>
-    <div class="co-num"><b data-n="130" data-s="+">130+</b><span>Agencies with linked rosters</span></div>
-    <div class="co-num"><b data-n="60" data-s="+">60+</b><span>Productions in one system</span></div>
-   </div>
-
    <section class="co-sec">
     <div class="co-k co-r">The shift</div>
     <h2 class="co-r">From a place where records are stored to a place where decisions are made</h2>
