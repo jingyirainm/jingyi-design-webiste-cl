@@ -54,6 +54,27 @@
   .co-ctabs button.on{color:#111}
   .co-ctabs button.on::after{right:0;transition:right var(--dur,3.6s) linear}
   .co-ctabs.paused button.on::after{transition:none}
+  /* actor card wall (full-bleed, parallax) */
+  .cs2{overflow-x:clip}
+  .co-wall{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-top:clamp(56px,8vw,110px);height:max(240px,40vw);background:#0f130d;overflow:hidden}
+  .co-wall .wl{position:absolute;left:50%;top:50%;width:max(118vw,600px);max-width:none;height:auto;transform:translate(-50%,calc(-50% + var(--py,0px)));will-change:transform;opacity:.96}
+  .co-wall::before,.co-wall::after{content:"";position:absolute;left:0;right:0;height:28%;z-index:2;pointer-events:none}
+  .co-wall::before{top:0;background:linear-gradient(#0f130d,rgba(15,19,13,0))}
+  .co-wall::after{bottom:0;background:linear-gradient(rgba(15,19,13,0),#0f130d 92%)}
+  .co-wall .fl{position:absolute;z-index:3;width:clamp(96px,14vw,210px);border-radius:clamp(12px,1.6vw,22px);box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform:translateY(var(--py,0px)) rotate(var(--r,0deg));will-change:transform}
+  .co-wall .f1{left:max(6%,calc(50% - 560px));top:18%;--r:-5deg}
+  .co-wall .f2{right:max(6%,calc(50% - 560px));top:30%;--r:4deg}
+  .co-wall .cap{position:absolute;z-index:4;left:50%;bottom:clamp(18px,4vw,52px);transform:translateX(-50%);width:min(910px,calc(100% - 32px));color:#fff}
+  .co-wall .cap small{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
+  .co-wall .cap b{display:block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(26px,4vw,56px);line-height:1.05;letter-spacing:-.01em;max-width:18em}
+  /* five decision tiles: slide in, lift on hover */
+  @keyframes coTileIn{from{opacity:0;transform:translate(var(--sx,-60px),56px) scale(.955);filter:blur(10px)}}
+  .co-tile.co-r.in{animation:coTileIn 1.15s var(--ease) backwards}
+  .co-tile:nth-child(even){--sx:60px}
+  .co-tile:hover{transform:translateY(-10px);box-shadow:0 34px 70px -26px rgba(0,0,0,.34)}
+  .co-tile:hover .m img,.co-tile:hover .m video{transform:scale(1.045)}
+  .co-tile .m video{transition:transform 1.2s var(--ease)}
+  @media (prefers-reduced-motion:reduce){.co-tile.co-r.in{animation:none}.co-wall .wl,.co-wall .fl{transform:translate(-50%,-50%)}}
   .co-mframe{border-radius:30px;overflow:hidden;background:#eef0ea;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
   .co-mframe img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.32);transform-origin:50% 46%}
   .co-cap{margin-top:12px;font-size:13px;color:var(--mute)}
@@ -153,6 +174,11 @@
      <div class="co-sl" data-i="3"><img src="assets/projects/casting/hd/casting-hd-3-agency.webp" alt="Agency Directory with actor photo stacks" width="2400" height="1380" decoding="async" loading="lazy"></div>
     </div>
     <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button></div>
+   </div>
+
+   <div class="co-wall co-r" aria-label="Talent Library, every actor card at a glance">
+    <img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="Talent Library grid of actor cards" width="1900" height="852" loading="lazy" decoding="async">
+    <div class="cap"><small>Talent Library</small><b>600+ actors, every photo, one glance.</b></div>
    </div>
 
    <section class="co-sec">
@@ -263,6 +289,15 @@
     addEventListener('pointerup', e => { if (x0 === null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) go(cur + (dx < 0 ? 1 : -1), true); });
     new IntersectionObserver(es => es.forEach(en => { vis = en.isIntersecting; if (vis) restart(); else clearInterval(timer); }), { threshold: .3 }).observe(car);
     layout();
+  })();
+
+  /* ---- parallax for the card wall ---- */
+  (function () {
+    const wall = co.querySelector('.co-wall'); if (!wall || reduce) return;
+    const els = [...wall.querySelectorAll('[data-sp]')]; let tick = false;
+    function upd() { tick = false; const r = wall.getBoundingClientRect(), vh = innerHeight; if (r.bottom < -100 || r.top > vh + 100) return;
+      const p = ((r.top + r.height / 2) - vh / 2) / vh; els.forEach(el => el.style.setProperty('--py', (-p * el.dataset.sp).toFixed(1) + 'px')); }
+    addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(upd); } }, { passive: true }); addEventListener('resize', upd); upd();
   })();
 
   const q = new URLSearchParams(location.search).get('view');
