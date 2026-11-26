@@ -41,6 +41,7 @@
   .co-fict{margin-top:12px;font-size:12px;color:var(--mute)}
   /* HD carousel: screens slide into one another */
   .co-car{position:relative}
+  @media (min-width:1000px){.co-car{width:120%;margin-left:-10%}}
   .co-cstage{position:relative;aspect-ratio:2/1;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#eef1ea,#e6ebe2);box-shadow:0 30px 80px -34px rgba(40,60,30,.35);touch-action:pan-y;user-select:none}
   .co-sl{position:absolute;left:50%;top:50%;width:73%;aspect-ratio:1.75;border-radius:16px;overflow:hidden;background:#fff;
     box-shadow:0 26px 60px -24px rgba(0,0,0,.4),0 0 0 1px rgba(17,17,17,.06);cursor:pointer;
