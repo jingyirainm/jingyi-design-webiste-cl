@@ -175,19 +175,6 @@
    </div>
 
    <section class="co-sec">
-    <div class="co-k co-r">What changed</div>
-    <h2 class="co-r">Five decisions, two sprints</h2>
-    <div class="co-bento">
-     ${tile('co-t1', '', '01 · Talent card', 'Browse every photo in place', 'A photo carousel and short colour-coded consent tags replace one photo and a wall of labels.', vid('casting-card_a', 'autoplay') + vid('casting-card_b', 'autoplay'))}
-     ${tile('co-t2', 'casting-13.jpg', '02 · Completeness', 'See what is decision-ready', 'Twelve checkpoints, one score on every card, filters for what is missing.')}
-     ${tile('co-t3', 'casting-15.jpg', '03 · Agency library', 'Know who represents whom', 'Actor photo stacks, office locations, one Add Agency flow.')}
-     ${tile('co-t4', 'casting-18.jpg', '04 · Filters', 'Search several options at once', 'Thirteen single-select controls became grouped multi-select panels.')}
-     ${tile('co-t5', 'casting-20.jpg', '05 · VFX reference', 'Projects first, standards on demand', 'A collapsible card with D to S+ grade chips.')}
-    </div>
-   </section>
-
-
-   <section class="co-sec">
     <div class="co-k co-r">Research</div>
     <h2 class="co-r">Five interviews, four needs</h2>
     <div class="co-rs">
@@ -198,6 +185,19 @@
       <li><i>03</i><div><b>Chemistry</b><span>Casting happens in pairs. Teams want two faces side by side.</span></div></li>
       <li><i>04</i><div><b>Agency network</b><span>The deal is with the agency. Who represents whom shapes the shortlist.</span></div></li>
      </ol>
+    </div>
+   </section>
+
+
+   <section class="co-sec">
+    <div class="co-k co-r">What changed</div>
+    <h2 class="co-r">Five decisions, two sprints</h2>
+    <div class="co-bento">
+     ${tile('co-t1', '', '01 · Talent card', 'Browse every photo in place', 'A photo carousel and short colour-coded consent tags replace one photo and a wall of labels.', vid('casting-card_a', 'autoplay') + vid('casting-card_b', 'autoplay'))}
+     ${tile('co-t2', 'casting-13.jpg', '02 · Completeness', 'See what is decision-ready', 'Twelve checkpoints, one score on every card, filters for what is missing.')}
+     ${tile('co-t3', 'casting-15.jpg', '03 · Agency library', 'Know who represents whom', 'Actor photo stacks, office locations, one Add Agency flow.')}
+     ${tile('co-t4', 'casting-18.jpg', '04 · Filters', 'Search several options at once', 'Thirteen single-select controls became grouped multi-select panels.')}
+     ${tile('co-t5', 'casting-20.jpg', '05 · VFX reference', 'Projects first, standards on demand', 'A collapsible card with D to S+ grade chips.')}
     </div>
    </section>
 
