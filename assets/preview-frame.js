@@ -35,9 +35,9 @@
     hero.replaceWith(v); v.play && v.play().catch(() => {});
   }
 
-  // ReelShort Casting System: Overview + Full case study switch (preview only)
-  if (PREVIEW && /reelshort-casting-system/.test(location.pathname)) {
-    const cs = document.createElement('script'); cs.src = 'assets/casting-overview.js?v=20261125j'; cs.defer = true; document.body.appendChild(cs);
+  // ReelShort Casting System: Overview + Full case study switch (live)
+  if (/reelshort-casting-system/.test(location.pathname)) {
+    const cs = document.createElement('script'); cs.src = 'assets/casting-overview.js?v=20261125k'; cs.defer = true; document.body.appendChild(cs);
   }
 
   // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)

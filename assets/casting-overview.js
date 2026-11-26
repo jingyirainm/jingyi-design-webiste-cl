@@ -1,4 +1,4 @@
-/* ReelShort Casting System — Overview (PREVIEW ONLY, loaded by preview-frame.js on ?preview=mosaic).
+/* ReelShort Casting System — Overview (loaded by preview-frame.js).
    Two versions of one case study: "Overview" (visual first: motion, interface, results) and "Full case study" (the page as it is).
    Default in preview = Overview; ?view=full opens the full page. The top of the page (hero, glance row) is shared; the switch sits right under it and chooses what follows. */
 (function () {
@@ -153,7 +153,6 @@
     </div>
     <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button></div>
    </div>
-   <div class="co-res co-r" style="margin-top:clamp(28px,3.5vw,48px)"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
 
    <section class="co-sec">
     <div class="co-k co-r">What changed</div>
@@ -212,6 +211,7 @@
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment. It removed the second payment.</p>
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
+   <div class="co-res co-r" style="margin-top:clamp(56px,7vw,96px)"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
   </div>`;
   conf.after(co);
 
