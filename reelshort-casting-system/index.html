@@ -15,7 +15,7 @@
 <script defer src="assets/site.js?v=20261027e"></script>
 <script defer src="assets/mobile.js?v=20261027e"></script>
 <script defer src="assets/case.js?v=20261125a"></script>
-<script defer src="assets/preview-frame.js?v=20261126c"></script>
+<script defer src="assets/preview-frame.js?v=20261126e"></script>
 <script src="assets/social.js?v=20261027e" defer></script>
 <script src="assets/nav-glow.js?v=20261027e" defer></script>
 <script src="assets/dissolve.js?v=20261027e" defer></script>
@@ -65,6 +65,15 @@
 .cs2 .glance div{padding:18px 16px 18px 0}
 .cs2 .glance dt{font-size:calc(.68*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:4px}
 .cs2 .glance dd{margin:0;font-size:calc(.956*var(--r));font-weight:300}
+.cs2 .glance.g5{grid-template-columns:1.45fr 1fr 1fr 1.2fr 1.3fr;align-items:stretch}
+.cs2 .glance.g5 div{min-width:0;padding:22px 18px 24px 22px;border-left:1px solid var(--hair)}
+.cs2 .glance.g5 div:first-child{padding-left:0;border-left:0}
+.cs2 .glance.g5 dt{margin-bottom:10px}
+.cs2 .glance.g5 dd{line-height:1.38;text-wrap:balance;hyphens:none}
+.cs2 .glance.g5 dd span{white-space:nowrap}
+.cs2 .glance.g5 dd span.hl{color:#3f8f5c;font-weight:400}
+.cs2 .glance.g5 dd.sc{display:flex;flex-direction:column}
+@media (max-width:900px){.cs2 .glance.g5{grid-template-columns:1fr 1fr}.cs2 .glance.g5 div:nth-child(odd){padding-left:0;border-left:0}.cs2 .glance.g5 div{border-top:1px solid var(--hair)}.cs2 .glance.g5 div:nth-child(-n+2){border-top:0}.cs2 .glance.g5 .wide{grid-column:1/-1}}
 .cs2 .sec{margin-top:112px}
 .cs2 .pill{display:inline-block;font-size:calc(.74*var(--r));letter-spacing:.08em;text-transform:uppercase;color:var(--green);background:var(--greenbg);padding:4px 12px;border-radius:99px;margin-bottom:20px;font-weight:500}
 .cs2 .sec>h2{margin-bottom:20px}
@@ -281,12 +290,12 @@ html.js .cs2 .rv.in{opacity:1}
 <div class="w">
 <figure class="hero" style="margin-top:0"><div class="fr"><img src="assets/projects/casting/casting-1.jpg" alt="ReelShort brand cover over a wall of vertical drama posters"></div></figure>
 
-<dl class="glance">
-<div><dt>Role</dt><dd>Product Designer &amp; Front-End Developer</dd></div>
+<dl class="glance g5">
+<div><dt>Role</dt><dd><span>Product Designer</span> <span>&amp; Front-End Developer</span></dd></div>
 <div><dt>Timeline</dt><dd>Jul – Oct 2026</dd></div>
 <div><dt>Platform</dt><dd>Internal web app</dd></div>
-<div><dt>Outcome</dt><dd>+28% profile completeness</dd></div>
-<div><dt>Scale</dt><dd>600+ actors · 130+ agencies · 60+ productions in one system</dd></div>
+<div><dt>Outcome</dt><dd><span class="hl">+28%</span> <span>profile completeness</span></dd></div>
+<div class="wide"><dt>Scale</dt><dd class="sc"><span>600+ actors</span><span>130+ agencies</span><span>60+ productions</span></dd></div>
 </dl>
 <p class="conf">All talent names, photos and agency data on this page are fictional demo data. The real platform is internal and confidential.</p>
 
