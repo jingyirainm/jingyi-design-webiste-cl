@@ -47,6 +47,7 @@
     transform:translate(calc(-50% + var(--x,0)*74%),-50%) scale(var(--s,1));opacity:var(--o,1);z-index:var(--z,1);
     transition:transform .9s var(--ease),opacity .9s var(--ease),filter .9s var(--ease);filter:blur(var(--b,0px));will-change:transform,opacity}
   .co-sl img,.co-sl video{display:block;width:100%;height:100%;object-fit:cover}
+  .co-res{border-radius:30px;overflow:hidden;box-shadow:0 30px 80px -34px rgba(40,60,30,.35);background:#eef1ea}.co-res video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}@media(max-width:560px){.co-res{border-radius:20px}}
   .co-ctabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 22px;margin-top:18px}
   .co-ctabs button{all:unset;cursor:pointer;position:relative;padding:6px 0;font:500 13px/1 Inter,sans-serif;color:var(--mute);transition:color .3s}
   .co-ctabs button::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:#111;transition:right 0s}
@@ -149,10 +150,10 @@
      <div class="co-sl" data-i="1"><img src="assets/projects/casting/hd/casting-hd-1-valueprop.webp" alt="Structure and clarity across every casting decision" width="2400" height="1380" decoding="async" loading="lazy"></div>
      <div class="co-sl" data-i="2"><img src="assets/projects/casting/hd/casting-hd-2-talent.webp" alt="Talent Library with photo-carousel cards" width="2400" height="1380" decoding="async" loading="lazy"></div>
      <div class="co-sl" data-i="3"><img src="assets/projects/casting/hd/casting-hd-3-agency.webp" alt="Agency Directory with actor photo stacks" width="2400" height="1380" decoding="async" loading="lazy"></div>
-     <div class="co-sl" data-i="4"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
     </div>
-    <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button><button role="tab" data-i="4">Outcome</button></div>
+    <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button></div>
    </div>
+   <div class="co-res co-r" style="margin-top:clamp(28px,3.5vw,48px)"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
 
    <section class="co-sec">
     <div class="co-k co-r">What changed</div>
