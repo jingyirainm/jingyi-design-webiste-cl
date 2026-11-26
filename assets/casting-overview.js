@@ -56,17 +56,14 @@
   .co-ctabs.paused button.on::after{transition:none}
   /* actor card wall (full-bleed, parallax) */
   .cs2{overflow-x:clip}
-  .co-wall{position:relative;width:100vw;margin-left:calc(50% - 50vw);margin-top:clamp(56px,8vw,110px);height:max(240px,40vw);background:#0f130d;overflow:hidden}
-  .co-wall .wl{position:absolute;left:50%;top:50%;width:max(118vw,600px);max-width:none;height:auto;transform:translate(-50%,calc(-50% + var(--py,0px)));will-change:transform;opacity:.96}
-  .co-wall::before,.co-wall::after{content:"";position:absolute;left:0;right:0;height:28%;z-index:2;pointer-events:none}
-  .co-wall::before{top:0;background:linear-gradient(#0f130d,rgba(15,19,13,0))}
-  .co-wall::after{bottom:0;background:linear-gradient(rgba(15,19,13,0),#0f130d 92%)}
+  .co-wall{position:relative;width:min(100vw,1240px);margin-left:calc(50% - min(50vw,620px));margin-top:clamp(56px,8vw,110px);height:max(220px,33vw);background:#0f130d;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent),linear-gradient(180deg,transparent,#000 14%,#000 80%,transparent);mask-composite:intersect}
+  .co-wall .wl{position:absolute;left:50%;top:50%;width:max(100%,560px);max-width:none;height:auto;transform:translate(-50%,calc(-50% + var(--py,0px)));will-change:transform;opacity:.96}
   .co-wall .fl{position:absolute;z-index:3;width:clamp(96px,14vw,210px);border-radius:clamp(12px,1.6vw,22px);box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.08);transform:translateY(var(--py,0px)) rotate(var(--r,0deg));will-change:transform}
   .co-wall .f1{left:max(6%,calc(50% - 560px));top:18%;--r:-5deg}
   .co-wall .f2{right:max(6%,calc(50% - 560px));top:30%;--r:4deg}
-  .co-wall .cap{position:absolute;z-index:4;left:50%;bottom:clamp(18px,4vw,52px);transform:translateX(-50%);width:min(910px,calc(100% - 32px));color:#fff}
-  .co-wall .cap small{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:10px}
-  .co-wall .cap b{display:block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(26px,4vw,56px);line-height:1.05;letter-spacing:-.01em;max-width:18em}
+  .co-wcap{text-align:center;margin:10px auto 0;max-width:34rem}
+  .co-wcap small{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+  .co-wcap b{display:block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(28px,3.4vw,48px);line-height:1.08;letter-spacing:-.01em;color:var(--fg)}
   /* five decision tiles: slide in, lift on hover */
   @keyframes coTileIn{from{opacity:0;transform:translate(var(--sx,-60px),56px) scale(.955);filter:blur(10px)}}
   .co-tile.co-r.in{animation:coTileIn 1.15s var(--ease) backwards}
@@ -177,9 +174,9 @@
    </div>
 
    <div class="co-wall co-r" aria-label="Talent Library, every actor card at a glance">
-    <img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="Talent Library grid of actor cards" width="1900" height="852" loading="lazy" decoding="async">
-    <div class="cap"><small>Talent Library</small><b>600+ actors, every photo, one glance.</b></div>
+    <img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="Talent Library grid of actor cards" width="1900" height="852" decoding="async">
    </div>
+   <div class="co-wcap co-r"><small>Talent Library</small><b>600+ actors, every photo, one glance.</b></div>
 
    <section class="co-sec">
     <div class="co-k co-r">What changed</div>
