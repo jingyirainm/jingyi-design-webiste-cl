@@ -211,7 +211,7 @@
    </section>
 
    <div class="co-q co-r">
-    <p>Good design is sometimes just removing the friction that gets in the way of people doing their jobs.</p>
+    <p>Good design is sometimes just removing the friction.</p>
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment; it removed the second payment.</p>
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
