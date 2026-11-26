@@ -32,9 +32,10 @@
   .co-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
   .co-tag{font-size:12.5px;padding:4px 12px;border:1px solid var(--hair);border-radius:99px;color:var(--mute)}
   .co-tag.on{color:var(--green);border-color:var(--green);background:var(--greenbg)}
-  .co h1{font-weight:400;font-size:clamp(2rem,5.2vw,3.9rem);line-height:1.06;letter-spacing:-.03em;color:var(--ink);text-wrap:balance}
-  .co h1 em{font-style:normal;color:var(--green)}
-  .co-sum{max-width:44rem;margin-top:22px;font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.6}
+  .co h1{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(40px,5.7vw,110px);line-height:.98;letter-spacing:-.015em;color:var(--fg);text-wrap:balance}
+  .co h1 span{display:block}
+  .co h1 em{font-style:italic;color:#3f8f5c}
+  .co-sum{max-width:36em;margin-top:clamp(24px,2.6vw,44px);font-size:clamp(15px,1.45vw,26px);line-height:1.55;color:var(--mute)}
   .co-stage{position:relative;margin-top:36px;border-radius:30px;overflow:hidden;background:#e9efe6;aspect-ratio:16/9;box-shadow:0 30px 80px -30px rgba(40,60,30,.35)}
   .co-stage video,.co-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
   .co-fict{margin-top:12px;font-size:12px;color:var(--mute)}
@@ -51,41 +52,40 @@
   .co h2{font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1;letter-spacing:-.025em;color:var(--ink);text-wrap:balance;max-width:40rem}
   .co-lead{margin-top:14px;max-width:38rem;font-size:15.5px;line-height:1.6;color:var(--mute)}
   /* before / after */
-  .co-ba{display:grid;grid-template-columns:1fr 1.25fr;gap:16px;margin-top:34px;align-items:stretch}
+  .co-ba{display:grid;grid-template-columns:1fr;gap:20px;margin-top:34px;align-items:stretch}
   .co-pane{position:relative;border-radius:26px;overflow:hidden;background:var(--fill);display:flex;flex-direction:column}
-  .co-pane .m{flex:1;min-height:0;display:block;position:relative;aspect-ratio:1774/888}
-  .co-pane.after .m{aspect-ratio:auto}
+  .co-pane .m{display:block;position:relative;aspect-ratio:1774/888}
+  .co-pane.after .m{aspect-ratio:1600/915}
   .co-pane video,.co-pane img{display:block;width:100%;height:100%;object-fit:cover}
-  .co-pane .c{padding:16px 20px 20px;font-size:14px;line-height:1.5}
+  .co-pane .c{padding:20px 28px 26px;font-size:16px;line-height:1.55}
   .co-pane .c b{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px;color:var(--mute)}
   .co-pane.after .c b{color:var(--green)}
   /* bento */
-  .co-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:34px}
+  .co-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:20px;margin-top:34px}
   .co-tile{position:relative;display:flex;flex-direction:column;background:var(--fill);border-radius:28px;overflow:hidden;color:inherit;text-decoration:none;cursor:pointer;
     transition:transform .6s var(--ease),box-shadow .6s var(--ease)}
   .co-tile:hover{transform:translateY(-4px);box-shadow:0 26px 60px -28px rgba(0,0,0,.28)}
-  .co-tile .m{flex:1;display:flex;align-items:center;justify-content:center;padding:20px 20px 0;min-height:0;overflow:hidden}
-  .co-tile .m img{display:block;width:100%;height:auto;border-radius:14px;transition:transform 1.2s var(--ease)}
+  .co-tile .m{display:flex;align-items:center;justify-content:center;padding:clamp(16px,3vw,40px) clamp(16px,3vw,40px) 0;overflow:hidden}
+  .co-tile .m img{display:block;width:100%;height:auto;border-radius:18px;transition:transform 1.2s var(--ease)}
   .co-tile:hover .m img{transform:scale(1.025)}
-  .co-tile .t{padding:18px 22px 22px}
+  .co-tile .t{padding:22px clamp(20px,3vw,40px) 30px}
   .co-tile .t small{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:9px}
-  .co-tile .t b{display:block;font-weight:500;font-size:clamp(1.05rem,1.5vw,1.3rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
-  .co-tile .t span{display:block;margin-top:7px;font-size:13.5px;line-height:1.5;color:var(--mute)}
-  .co-t1{grid-column:span 7;grid-row:span 2}
+  .co-tile .t b{display:block;font-weight:500;font-size:clamp(1.2rem,2vw,1.7rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
+  .co-tile .t span{display:block;margin-top:8px;max-width:44rem;font-size:15.5px;line-height:1.5;color:var(--mute)}
+  .co-t1{grid-column:1/-1}
   .co-t1 .m{padding:28px;gap:14px;align-items:center;background:linear-gradient(180deg,#eef2ea,#e3eadc)}
-  .co-t1 .m video{width:calc(50% - 7px);aspect-ratio:1440/1080;object-fit:cover;border-radius:18px;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
-  .co-t1 .m video+video{margin-top:56px}
-  .co-t2,.co-t3{grid-column:span 5}.co-t4,.co-t5{grid-column:span 6}
+  .co-t1 .m video{width:calc(50% - 7px);aspect-ratio:1440/1080;object-fit:cover;border-radius:20px;box-shadow:0 18px 40px -18px rgba(0,0,0,.35)}
+  .co-t1 .m video+video{margin-top:0}
+  .co-t2,.co-t3,.co-t4,.co-t5{grid-column:1/-1}
   /* research */
-  .co-rs{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;margin-top:34px;align-items:center}
+  .co-rs{display:grid;grid-template-columns:1fr;gap:28px;margin-top:34px}
   .co-rs .vid{border-radius:26px;overflow:hidden;background:var(--fill);aspect-ratio:2400/1216}
   .co-rs .vid video{display:block;width:100%;height:100%;object-fit:cover}
-  .co-needs{display:grid;gap:0;margin:0;padding:0;list-style:none}
-  .co-needs li{display:grid;grid-template-columns:2.2rem 1fr;padding:14px 0;border-top:1px solid var(--hair)}
-  .co-needs li:last-child{border-bottom:1px solid var(--hair)}
-  .co-needs i{font:500 12px/1.6 Inter,sans-serif;font-style:normal;color:var(--green)}
-  .co-needs b{display:block;font-weight:500;font-size:15.5px;color:var(--ink)}
-  .co-needs span{display:block;margin-top:3px;font-size:13.5px;line-height:1.5;color:var(--mute)}
+  .co-needs{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px;margin:0;padding:0;list-style:none}
+  .co-needs li{display:block;padding:16px 0 0;border-top:1px solid var(--hair)}
+  .co-needs i{display:block;margin-bottom:10px;font:500 12px/1 Inter,sans-serif;font-style:normal;color:var(--green)}
+  .co-needs b{display:block;font-weight:500;font-size:17px;color:var(--ink)}
+  .co-needs span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--mute)}
   /* outcome */
   .co-out{background:#0f130d;color:rgba(255,255,255,.82);border-radius:34px;padding:clamp(28px,5vw,64px);margin-top:clamp(72px,10vw,128px);overflow:hidden}
   .co-out .co-k{color:rgba(255,255,255,.5)}
@@ -110,6 +110,9 @@
     .co-num:nth-child(n+3){border-top:1px solid var(--hair)}
     .co-num:last-child{grid-column:1/-1;border-left:0;padding-left:0}
     .co-ba,.co-rs,.co-out .pair,.co-out .cols{grid-template-columns:1fr}
+    .co-needs{grid-template-columns:1fr 1fr;gap:0 20px}
+    .co-t1 .m{flex-direction:column}.co-t1 .m video{width:100%}
+    .co h1{font-size:clamp(36px,11vw,56px)}
     .co-t1,.co-t2,.co-t3,.co-t4,.co-t5{grid-column:1/-1;grid-row:auto}
     .co-stage{border-radius:20px}.co-pane,.co-tile,.co-rs .vid{border-radius:20px}.co-out{border-radius:24px}
   }`;
@@ -124,8 +127,8 @@
   <div class="co-body">
    <header class="co-hero">
     <div class="co-tags co-r"><span class="co-tag">ReelShort · Crazy Maple Studio</span><span class="co-tag">Internal platform · B2B SaaS</span><span class="co-tag">2026</span><span class="co-tag on">Shipped · In active use</span></div>
-    <h1 class="co-r">Casting at scale: from a talent database to a <em>decision tool</em></h1>
-    <p class="co-sum co-r">I redesigned and built ReelShort's internal casting system, so producers decide straight from the grid, with every photo, the consent limits and the agency in view. Product Designer &amp; Front-End Developer, Jul–Oct 2026.</p>
+    <h1 class="co-r"><span>Casting at scale:</span><span>from a talent database</span><span>to a <em>decision tool</em></span></h1>
+    <p class="co-sum co-r">I redesigned and built the company's internal ReelShort Casting System so the team can evaluate talent directly from the grid, with complete information and the agency behind each actor in view.</p>
     <div class="co-stage co-r" aria-label="Casting Hub: add talent to a selection">${vid('castingpool_motion_v8', 'autoplay poster="' + P + 'castingpool_motion_v8_poster.jpg"')}</div>
     <p class="co-fict">All talent names, photos and agency data are fictional demo data. The real platform is internal and confidential.</p>
    </header>
@@ -175,7 +178,7 @@
 
    <section class="co-out co-r">
     <div class="co-k">Outcome</div>
-    <h2>Used by the casting team every day</h2>
+    <h2>In active use, making real change</h2>
     <div class="pair"><div>${vid('casting-illus', 'autoplay')}</div></div>
     <div class="cols"><p><b>For the team</b>Shortlist without leaving the grid, see which profiles are decision-ready, reach an agency's roster in one click.</p><p><b>For the company</b>Casting sits on the critical path of every production. The system is now the base of a broader internal production platform.</p></div>
     <p class="note">Counts come from the database. The platform has no event analytics yet, so time savings are observed, not logged; instrumenting it is first on the phase-two list.</p>
