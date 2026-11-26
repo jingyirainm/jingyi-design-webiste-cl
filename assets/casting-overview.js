@@ -219,9 +219,9 @@
    <div class="co-q co-r">
     <p>Good design is sometimes just removing the friction.</p>
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment; it removed the second payment.</p>
-    <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
    <div class="co-fin co-r"><div class="shot"><img src="assets/projects/casting/hd/casting-valueprop-full.webp" alt="ReelShort Casting Hub, Value prop: structure and clarity across every casting decision" width="2602" height="1496" loading="lazy" decoding="async"></div></div>
+   <div class="co-cta co-r" style="margin-top:clamp(28px,4vw,44px)"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
   </div>`;
   conf.after(co);
 
