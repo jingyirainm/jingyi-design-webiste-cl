@@ -11,12 +11,12 @@
   const css = document.createElement('style'); css.id = 'co-css';
   css.textContent = `
   .co{--ink:#111;--fg:rgba(0,0,0,.8);--mute:rgba(0,0,0,.55);--hair:rgba(17,17,17,.1);--fill:#f5f5f7;--green:#5e9c00;--greenbg:rgba(94,156,0,.1);--ease:cubic-bezier(.22,.8,.2,1);
-    font-family:"Diatype Variable",Inter,system-ui,sans-serif;color:var(--fg);padding-bottom:6rem}
+    font-family:"Diatype Variable",Inter,system-ui,sans-serif;color:var(--fg);padding-bottom:6rem;position:relative}
   .co *{box-sizing:border-box}
   .co h1,.co h2,.co h3,.co p{margin:0}
   /* switch */
-  .co-switch{position:sticky;top:12px;z-index:30;display:flex;justify-content:center;margin:0 0 28px;pointer-events:none}
-  .co-seg{pointer-events:auto;position:relative;display:inline-flex;padding:4px;border-radius:99px;background:rgba(255,255,255,.78);border:1px solid rgba(17,17,17,.1);
+  .co-switch{position:absolute;right:0;top:var(--co-sw,-58px);z-index:40;margin:0}
+  .co-seg{position:relative;display:inline-flex;padding:4px;border-radius:99px;background:rgba(255,255,255,.78);border:1px solid rgba(17,17,17,.1);
     backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 6px 24px rgba(0,0,0,.06)}
   .co-seg button{all:unset;cursor:pointer;position:relative;z-index:1;padding:8px 18px;border-radius:99px;font:500 13px/1 Inter,system-ui,sans-serif;color:rgba(17,17,17,.5);transition:color .35s var(--ease);white-space:nowrap}
   .co-seg button.on{color:#fff}
@@ -104,6 +104,7 @@
   .co-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:99px;background:#111;color:#fff;font:500 14px/1 Inter,sans-serif;transition:transform .4s var(--ease),background .3s}
   .co-btn:hover{transform:translateY(-2px);background:#000}
   .co-btn svg{transition:transform .4s var(--ease)}.co-btn:hover svg{transform:translateX(4px)}
+  @media (max-width:560px){.co-seg button{padding:8px 13px;font-size:12.5px}.co-seg .x{display:none}}
   @media (max-width:860px){
     .co-nums{grid-template-columns:repeat(2,1fr)}
     .co-num:nth-child(odd){padding-left:0;border-left:0}.co-num:nth-child(even){padding-left:20px;border-left:1px solid var(--hair)}
@@ -123,7 +124,7 @@
 
   const co = document.createElement('div'); co.className = 'co';
   co.innerHTML = `
-  <div class="co-switch"><div class="co-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full case study</button></div></div>
+  <div class="co-switch"><div class="co-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full<span class="x"> case study</span></button></div></div>
   <div class="co-body">
    <header class="co-hero">
     <div class="co-tags co-r"><span class="co-tag">ReelShort · Crazy Maple Studio</span><span class="co-tag">Internal platform · B2B SaaS</span><span class="co-tag">2026</span><span class="co-tag on">Shipped · In active use</span></div>
@@ -221,5 +222,8 @@
 
   const q = new URLSearchParams(location.search).get('view');
   setView(q === 'full' ? 'full' : 'ov', false, false);
+  /* sit on the top bar, level with the Back pill, at the right of the content column (overlaid, no row of its own) */
+  const alignSwitch = () => { const back = document.querySelector('.cm-back') || document.querySelector('main a[href*="menu"], main a[href*="work"]'); if (!back) return; const br = back.getBoundingClientRect(), cr = co.getBoundingClientRect(), sh = seg.offsetHeight || 40; co.style.setProperty('--co-sw', Math.round(br.top - cr.top + br.height / 2 - sh / 2) + 'px'); };
+  alignSwitch(); addEventListener('load', alignSwitch); setTimeout(alignSwitch, 600); addEventListener('resize', alignSwitch);
   addEventListener('resize', place); document.fonts && document.fonts.ready.then(place);
 })();
