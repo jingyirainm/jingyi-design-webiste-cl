@@ -174,11 +174,6 @@
     <div class="co-ctabs" role="tablist"><button role="tab" data-i="0" class="on">ReelShort</button><button role="tab" data-i="1">Value prop</button><button role="tab" data-i="2">Talent Library</button><button role="tab" data-i="3">Agency Directory</button></div>
    </div>
 
-   <div class="co-wall co-r" aria-label="Talent Library, every actor card at a glance">
-    <img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="Talent Library grid of actor cards" width="1900" height="852" decoding="async">
-   </div>
-   <div class="co-wcap co-r"><small>Talent Library</small><b>600+ actors, every photo, one glance.</b></div>
-
    <section class="co-sec">
     <div class="co-k co-r">What changed</div>
     <h2 class="co-r">Five decisions, two sprints</h2>
