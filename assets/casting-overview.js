@@ -23,6 +23,8 @@
   .co-seg i{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;border-radius:99px;background:#111;transition:transform .45s var(--ease),width .45s var(--ease)}
   body.co-ov .cs2 .w>.sec,body.co-ov .cm-nav,body.co-ov .cm-sheet,body.co-ov .cm-progress{display:none!important}
   body.co-full .co-body{display:none}
+  body.co-full .co{padding-bottom:0}
+  body.co-full .cs2 .w>.sec#sec-1{margin-top:clamp(28px,3.5vw,48px)}
   /* reveal */
   .co-r{opacity:0;transform:translateY(34px);filter:blur(12px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease),filter 1.2s var(--ease)}
   .co-r.in{opacity:1;transform:none;filter:none}
