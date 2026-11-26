@@ -215,6 +215,7 @@
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment; it removed the second payment.</p>
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
+   <div class="co-wall co-r" aria-hidden="true"><img class="wl" data-sp="40" src="assets/projects/casting/hd/casting-wall.webp" alt="" width="1900" height="852" decoding="async"></div>
   </div>`;
   conf.after(co);
 
