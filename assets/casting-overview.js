@@ -108,6 +108,7 @@
   .co-out{background:#0f130d;color:rgba(255,255,255,.82);border-radius:34px;padding:clamp(28px,5vw,64px);margin-top:clamp(72px,10vw,128px);overflow:hidden}
   .co-out .co-k{background:#fff;color:#000}
   .co-out h2{color:#fff}
+  .co-out .res{margin-top:34px;border-radius:22px;overflow:hidden;background:#f4f3ef}.co-out .res video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
   .co-out .pair{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
   .co-out .pair div{border-radius:22px;overflow:hidden;background:#1b2118;aspect-ratio:1776/900}
   .co-out .pair video{display:block;width:100%;height:100%;object-fit:cover}
@@ -201,6 +202,7 @@
    <section class="co-out co-r">
     <div class="co-k">Outcome</div>
     <h2>In active use, making real change</h2>
+    <div class="res"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
     <div class="pair"><div>${vid('casting-illus', 'autoplay')}</div></div>
     <div class="cols"><p><b>For the team</b>Shortlist without leaving the grid, see which profiles are decision-ready, reach an agency's roster in one click.</p><p><b>For the company</b>Casting sits on the critical path of every production. The system is now the base of a broader internal production platform.</p></div>
     <p class="note">Counts come from the database. The platform has no event analytics yet, so time savings are observed, not logged; instrumenting it is first on the phase-two list.</p>
@@ -211,7 +213,6 @@
     <p>The old tool made the team pay for the same information twice, once to find it and once to re-verify it. The redesign did not replace anyone's judgment. It removed the second payment.</p>
     <div class="co-cta"><button class="co-btn" data-v="full">Read the full case study ${arrow}</button></div>
    </div>
-   <div class="co-res co-r" style="margin-top:clamp(56px,7vw,96px)"><video class="co-v" muted loop playsinline preload="metadata" poster="assets/projects/casting/hd/casting-hd-4-outcome-poster.jpg" aria-label="Outcome: profile completeness, profiles updated, actors, agencies, projects"><source src="assets/projects/casting/hd/casting-hd-4-outcome.webm" type="video/webm"><source src="assets/projects/casting/hd/casting-hd-4-outcome.mp4" type="video/mp4"></video></div>
   </div>`;
   conf.after(co);
 
