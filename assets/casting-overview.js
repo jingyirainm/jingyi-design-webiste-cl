@@ -48,8 +48,8 @@
   .co-num span{display:block;margin-top:10px;font-size:13px;line-height:1.35;color:var(--mute)}
   /* section heads */
   .co-sec{margin-top:clamp(72px,10vw,128px)}
-  .co-k{font:500 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
-  .co h2{font-weight:400;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.1;letter-spacing:-.025em;color:var(--ink);text-wrap:balance;max-width:40rem}
+  .co-k{display:inline-block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:max(1.53vw,17px);line-height:1;letter-spacing:-.005em;color:#fff;background:#000;padding:.4em 1em .45em;border-radius:99px;box-shadow:0 14px 28px -10px rgba(0,0,0,.22);margin-bottom:24px}
+  .co h2{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(34px,3.9vw,58px);line-height:1.1;letter-spacing:-.005em;color:var(--fg);text-wrap:balance;max-width:min(100%,62rem)}
   .co-lead{margin-top:14px;max-width:38rem;font-size:15.5px;line-height:1.6;color:var(--mute)}
   /* before / after */
   .co-ba{display:grid;grid-template-columns:1fr;gap:20px;margin-top:34px;align-items:stretch}
@@ -70,7 +70,7 @@
   .co-tile:hover .m img{transform:scale(1.025)}
   .co-tile .t{padding:22px clamp(20px,3vw,40px) 30px}
   .co-tile .t small{display:block;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--green);margin-bottom:9px}
-  .co-tile .t b{display:block;font-weight:500;font-size:clamp(1.2rem,2vw,1.7rem);line-height:1.2;letter-spacing:-.01em;color:var(--ink)}
+  .co-tile .t b{display:block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(28px,2.6vw,40px);line-height:1.12;letter-spacing:-.005em;color:var(--fg)}
   .co-tile .t span{display:block;margin-top:8px;max-width:44rem;font-size:15.5px;line-height:1.5;color:var(--mute)}
   .co-t1{grid-column:1/-1}
   .co-t1 .m{padding:28px;gap:14px;align-items:center;background:linear-gradient(180deg,#eef2ea,#e3eadc)}
@@ -84,11 +84,11 @@
   .co-needs{display:grid;grid-template-columns:repeat(4,1fr);gap:0 28px;margin:0;padding:0;list-style:none}
   .co-needs li{display:block;padding:16px 0 0;border-top:1px solid var(--hair)}
   .co-needs i{display:block;margin-bottom:10px;font:500 12px/1 Inter,sans-serif;font-style:normal;color:var(--green)}
-  .co-needs b{display:block;font-weight:500;font-size:17px;color:var(--ink)}
+  .co-needs b{display:block;font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:26px;line-height:1.15;color:var(--fg)}
   .co-needs span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--mute)}
   /* outcome */
   .co-out{background:#0f130d;color:rgba(255,255,255,.82);border-radius:34px;padding:clamp(28px,5vw,64px);margin-top:clamp(72px,10vw,128px);overflow:hidden}
-  .co-out .co-k{color:rgba(255,255,255,.5)}
+  .co-out .co-k{background:#fff;color:#000}
   .co-out h2{color:#fff}
   .co-out .pair{display:grid;grid-template-columns:1fr;gap:16px;margin-top:34px}
   .co-out .pair div{border-radius:22px;overflow:hidden;background:#1b2118;aspect-ratio:1776/900}
@@ -98,8 +98,8 @@
   .co-out .cols b{display:block;color:#fff;font-weight:500;margin-bottom:6px}
   .co-out .note{margin-top:26px;font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.45)}
   .co-q{margin-top:clamp(64px,9vw,110px);max-width:46rem}
-  .co-q p{font-weight:300;font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.18;letter-spacing:-.025em;color:var(--ink);text-wrap:balance}
-  .co-q p+p{margin-top:18px;font-size:15.5px;font-weight:400;letter-spacing:0;line-height:1.6;color:var(--mute)}
+  .co-q p{font-family:"Instrument Serif","Times New Roman",serif;font-weight:400;font-size:clamp(30px,3.6vw,54px);line-height:1.1;letter-spacing:-.005em;color:var(--fg);text-wrap:balance}
+  .co-q p+p{margin-top:18px;font-family:inherit;font-size:15.5px;font-weight:300;letter-spacing:0;line-height:1.6;color:var(--mute)}
   .co-cta{margin-top:38px;display:flex;flex-wrap:wrap;gap:12px}
   .co-btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:99px;background:#111;color:#fff;font:500 14px/1 Inter,sans-serif;transition:transform .4s var(--ease),background .3s}
   .co-btn:hover{transform:translateY(-2px);background:#000}
