@@ -37,7 +37,7 @@
 
   // ReelShort Casting System: Overview + Full case study switch (live)
   if (/reelshort-casting-system/.test(location.pathname)) {
-    const cs = document.createElement('script'); cs.src = 'assets/casting-overview.js?v=20261125v'; cs.defer = true; document.body.appendChild(cs);
+    const cs = document.createElement('script'); cs.src = 'assets/casting-overview.js?v=20261125w'; cs.defer = true; document.body.appendChild(cs);
   }
 
   // shared frame only on Home / Product Design / Visual Design (case studies keep their own layout)
