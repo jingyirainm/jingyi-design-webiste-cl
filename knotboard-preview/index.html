@@ -657,15 +657,15 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">05 · Knot Agent</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">AI that already knows <em>what you’re working on</em>.</h2></div>
-<div class="rv"><p class="body">Not a chatbot on the side. Knot Agent reads your references, tasks and history, so its suggestions fit the work.</p>
+<div class="rv"><p class="body">Knot Agent isn’t a chatbot bolted onto the side. It reads the workspace around it: saved references, unfinished tasks, priorities, dates and review history. Its suggestions are useful because Knotboard kept the context.</p>
 <div class="chips"><span>Context-aware</span><span>Inline, not a tab</span><span class="on">Approval first</span></div></div>
 </div>
 <figure class="rv"><div class="fr"><video autoplay muted loop playsinline preload="metadata" aria-label="Knot Agent drafting a reflection in the review view"><source src="assets/projects/knotboard-v2/agent.webm" type="video/webm"><source src="assets/projects/knotboard-v2/agent.mp4" type="video/mp4"></video></div><figcaption>Review view: the agent turns recent activity into a reflection you can use or dismiss.</figcaption></figure>
 
-<div class="levels shots">
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-workspace.jpg" alt="Knot Agent workspace summary beside a project" loading="lazy"></div><small>01 · Workspace</small><h4>Global</h4><p>Asks across everything: what’s at risk, where to focus.</p></figure>
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-plan-close.jpg" alt="Knot Agent balanced plan in the Planner" loading="lazy"></div><small>02 · Current page</small><h4>Page level</h4><p>Reads the page in view, like scheduling this week’s backlog.</p></figure>
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/25841b4945f0_111111_1600.jpg" alt="Ask AI on a saved note" loading="lazy"></div><small>03 · Single item</small><h4>Object level</h4><p>Ask AI on one reference: summarize, tag, outline.</p></figure>
+<div class="levels">
+<div class="rv"><small>01 · Workspace</small><h4>Global</h4><p>A movable Agent button opens a side panel for questions across the workspace: workload, priorities, history.</p></div>
+<div class="rv" style="--d:80ms"><small>02 · Current page</small><h4>Page level</h4><p>Planner, Project and Dashboard offer suggestions from what’s on screen, like scheduling the backlog or drafting a review.</p></div>
+<div class="rv" style="--d:160ms"><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></div>
 </div>
 
 <div class="aflow">
@@ -674,7 +674,12 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <figure class="rv"><span class="st">03 · Approve</span><h4>Nothing changes without your yes</h4><div class="fr tile"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft ready" loading="lazy"></div><figcaption>Every action arrives as a draft: use it, or dismiss it.</figcaption></figure>
 </div>
 
-<figure class="rv" style="margin-top:14px"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-applied.jpg" alt="Agent shows tasks scheduled after approval" loading="lazy"></div><figcaption>After approval: “1 task scheduled”, with an undo path right in the panel.</figcaption></figure>
+<div class="skills">
+<div class="rv"><small>Plan</small><b>Schedules unscheduled tasks by priority, deadline and workload.</b></div>
+<div class="rv" style="--d:60ms"><small>Projects</small><b>Breaks a goal into clear, manageable next steps.</b></div>
+<div class="rv" style="--d:120ms"><small>Review</small><b>Turns recent activity into an actionable reflection.</b></div>
+<div class="rv" style="--d:180ms"><small>Attention</small><b>Flags at-risk projects and tasks that need action now.</b></div>
+</div>
 </div>
 </section>
 
@@ -770,7 +775,7 @@ $$(".kb .d1,.kb .d2,.kb .mf").forEach(function(h){var n=0;
    c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)walk(c)})})(h);
  h.classList.add("split");var host=h.closest(".rv");if(host&&host!==h){host.classList.remove("rv");[].slice.call(host.children).forEach(function(c,i){if(c!==h&&!c.contains(h)){c.classList.add("rv");c.style.setProperty("--d",(90+i*60)+"ms")}})}h.classList.add("rv")});
 /* 2. stagger children of groups so they surface layer by layer */
-var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .shots2,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .wk,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
+var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .shots2,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .wk,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
 $$(groups).forEach(function(g){var host=g.classList.contains("rv")?g:null;if(host)host.classList.remove("rv");
  [].slice.call(g.children).forEach(function(c,i){c.classList.add("rv");c.style.setProperty("--d",Math.min(i*60,420)+(host?60:0)+"ms")})});
 /* masonry: stagger by column position */
