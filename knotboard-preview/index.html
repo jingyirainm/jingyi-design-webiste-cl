@@ -196,6 +196,53 @@ html.kb-js .kb .wk .rv.on .ln{stroke-dashoffset:0}
 .kb .levels.lv-img .tile{aspect-ratio:1/1;border-radius:14px;background:#f4f4f1;display:grid;place-items:center;padding:14px;margin-bottom:18px;overflow:hidden}
 .kb .levels.lv-img .tile img{width:100%;height:100%;object-fit:contain;border-radius:8px}
 .kb .levels.lv-img small,.kb .levels.lv-img h4,.kb .levels.lv-img p{padding-inline:8px}
+/* skills animations */
+.kb .skills>div{transition:border-color .5s,background .5s,transform .5s var(--ease)}
+.kb .skills>div.act{border-color:rgba(216,242,126,.7);background:rgba(216,242,126,.06);transform:translateY(-4px)}
+.kb .skills>div.act small{color:var(--lime)}
+.kb .vg{position:relative;height:120px;border-radius:14px;background:rgba(255,255,255,.04);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);margin-bottom:20px;overflow:hidden}
+.kb .skills>div:not(.on) .vg *{animation-play-state:paused!important}
+/* plan: backlog chips fly into the week */
+.kb .vg-plan .bl{position:absolute;left:10px;top:12px;bottom:12px;width:26%;border-radius:8px;background:rgba(255,255,255,.05)}
+.kb .vg-plan .bl i{display:block;height:12px;margin:8px 6px;border-radius:4px;background:rgba(255,255,255,.14)}
+.kb .vg-plan .days{position:absolute;left:34%;right:10px;top:12px;bottom:12px;display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.kb .vg-plan .days span{border-radius:8px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.kb .vg-plan .c{position:absolute;height:12px;width:20%;border-radius:4px;background:var(--lime);left:12%;opacity:0;animation:kbfly 6s var(--ease) infinite}
+.kb .vg-plan .c1{top:20px;--tx:128%;--ty:8px}
+.kb .vg-plan .c2{top:40px;--tx:216%;--ty:22px;animation-delay:.5s}
+.kb .vg-plan .c3{top:60px;--tx:300%;--ty:-8px;animation-delay:1s}
+@keyframes kbfly{0%,8%{opacity:1;transform:translateX(-30%)}30%,85%{opacity:1;transform:translate(var(--tx),var(--ty))}100%{opacity:0;transform:translate(var(--tx),var(--ty))}}
+/* projects: goal splits into steps that get checked */
+.kb .vg-proj{padding:12px 14px}
+.kb .vg-proj .goal{display:inline-block;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--lime);padding:6px 10px;border-radius:6px;margin-bottom:8px}
+.kb .vg-proj .st{display:flex;align-items:center;gap:8px;height:18px;margin-left:14px;opacity:0;transform:translateX(-10px);animation:kbstep 6s var(--ease) infinite}
+.kb .vg-proj .st i{width:12px;height:12px;border-radius:3px;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.5);position:relative;animation:kbcheck 6s var(--ease) infinite;animation-delay:inherit}
+.kb .vg-proj .st span{height:6px;border-radius:3px;background:rgba(255,255,255,.22);width:60%}
+.kb .vg-proj .s2{animation-delay:.4s}.kb .vg-proj .s2 span{width:48%}
+.kb .vg-proj .s3{animation-delay:.8s}.kb .vg-proj .s3 span{width:70%}
+@keyframes kbstep{0%,10%{opacity:0;transform:translateX(-10px)}22%,88%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes kbcheck{0%,40%{background:transparent}50%,100%{background:var(--lime);box-shadow:none}}
+/* review: bars grow, reflection lines write */
+.kb .vg-rev .bars{position:absolute;left:14px;right:14px;top:14px;height:54px;display:flex;align-items:flex-end;gap:6px}
+.kb .vg-rev .bars i{flex:1;border-radius:3px 3px 0 0;background:rgba(255,255,255,.2);height:10%;animation:kbbar 6s var(--ease) infinite}
+.kb .vg-rev .bars i:nth-child(1){--h:40%}.kb .vg-rev .bars i:nth-child(2){--h:70%;animation-delay:.1s}.kb .vg-rev .bars i:nth-child(3){--h:30%;animation-delay:.2s}.kb .vg-rev .bars i:nth-child(4){--h:85%;animation-delay:.3s}.kb .vg-rev .bars i:nth-child(5){--h:55%;animation-delay:.4s}.kb .vg-rev .bars i:nth-child(6){--h:100%;animation-delay:.5s;background:var(--lime)}
+@keyframes kbbar{0%{height:10%}25%,85%{height:var(--h)}100%{height:10%}}
+.kb .vg-rev .note{position:absolute;left:14px;right:14px;bottom:14px;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,.06)}
+.kb .vg-rev .note span{display:block;height:6px;border-radius:3px;background:rgba(255,255,255,.4);width:0;animation:kbwrite 6s steps(14) infinite}
+.kb .vg-rev .note span+span{margin-top:6px;animation-delay:.6s;--w:55%}
+@keyframes kbwrite{0%,35%{width:0}60%,90%{width:var(--w,85%)}100%{width:0}}
+/* attention: one row gets flagged */
+.kb .vg-att{padding:12px 14px;display:grid;gap:7px}
+.kb .vg-att .row{display:flex;align-items:center;gap:8px;height:16px}
+.kb .vg-att .row i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3)}
+.kb .vg-att .row span{height:6px;border-radius:3px;background:rgba(255,255,255,.2);flex:1;max-width:60%}
+.kb .vg-att .risk i{animation:kbrisk 6s ease infinite}
+.kb .vg-att .risk span{animation:kbriskbar 6s ease infinite}
+.kb .vg-att .risk em{font:500 9px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#fff;background:#d9583f;padding:4px 6px;border-radius:4px;opacity:0;transform:scale(.6);animation:kbtag 6s var(--ease) infinite}
+@keyframes kbrisk{0%,25%{background:rgba(255,255,255,.3);box-shadow:none}35%,90%{background:#d9583f;box-shadow:0 0 0 5px rgba(217,88,63,.25)}100%{background:rgba(255,255,255,.3)}}
+@keyframes kbriskbar{0%,25%{background:rgba(255,255,255,.2)}35%,90%{background:rgba(217,88,63,.6)}100%{background:rgba(255,255,255,.2)}}
+@keyframes kbtag{0%,30%{opacity:0;transform:scale(.6)}40%,90%{opacity:1;transform:none}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.kb .vg *{animation:none!important;opacity:1!important}}
 /* LOOP / stats */
 .kb .loop{padding-top:clamp(80px,9vw,140px)}
 .kb .loop .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
@@ -673,10 +720,10 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <figure class="rv"><div class="tile"><img src="assets/projects/knotboard-v2/c34541ed9129_2026-09-28-11.10.30_1200.jpg" alt="Ask AI on a saved inspiration item" loading="lazy"></div><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></figure>
 </div>
 <div class="skills">
-<div class="rv"><small>Plan</small><b>Schedules unscheduled tasks by priority, deadline and workload.</b></div>
-<div class="rv" style="--d:60ms"><small>Projects</small><b>Breaks a goal into clear, manageable next steps.</b></div>
-<div class="rv" style="--d:120ms"><small>Review</small><b>Turns recent activity into an actionable reflection.</b></div>
-<div class="rv" style="--d:180ms"><small>Attention</small><b>Flags at-risk projects and tasks that need action now.</b></div>
+<div class="rv"><div class="vg vg-plan" aria-hidden="true"><div class="bl"><i></i><i></i><i></i></div><div class="days"><span></span><span></span><span></span></div><b class="c c1"></b><b class="c c2"></b><b class="c c3"></b></div><small>Plan</small><b>Schedules unscheduled tasks by priority, deadline and workload.</b></div>
+<div class="rv" style="--d:60ms"><div class="vg vg-proj" aria-hidden="true"><div class="goal">Goal</div><div class="st s1"><i></i><span></span></div><div class="st s2"><i></i><span></span></div><div class="st s3"><i></i><span></span></div></div><small>Projects</small><b>Breaks a goal into clear, manageable next steps.</b></div>
+<div class="rv" style="--d:120ms"><div class="vg vg-rev" aria-hidden="true"><div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="note"><span></span><span></span></div></div><small>Review</small><b>Turns recent activity into an actionable reflection.</b></div>
+<div class="rv" style="--d:180ms"><div class="vg vg-att" aria-hidden="true"><div class="row"><i></i><span></span></div><div class="row"><i></i><span></span></div><div class="row risk"><i></i><span></span><em>At risk</em></div><div class="row"><i></i><span></span></div></div><small>Attention</small><b>Flags at-risk projects and tasks that need action now.</b></div>
 </div>
 <div class="approve rv"><h3 class="d3">Nothing changes without your yes.</h3><span>Every agent action is a draft first: Use this draft, or Dismiss. The user’s judgment stays visible.</span></div>
 </div>
@@ -797,6 +844,8 @@ function frame(){tick=false;var vh=innerHeight;
  if(flt){flt.style.setProperty("--fy",(-scrollY*.18).toFixed(1)+"px")}
  panels.forEach(function(el){var r=el.getBoundingClientRect(),p=clamp((vh-r.top)/(vh*.7),0,1);el.style.setProperty("--ps",(.93+.07*p).toFixed(4))})}
 if(!reduce){addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});addEventListener("resize",frame);frame()}
+/* skills: cycle highlight */
+var sk=$$(".kb .skills>div"),si=0;if(sk.length&&!reduce){setInterval(function(){sk.forEach(function(e,i){e.classList.toggle("act",i===si)});si=(si+1)%sk.length},2200)}
 /* plan view switcher */
 var seg=d.querySelector(".kb .seg"),figs=$$(".kb .vstack>figure");
 if(seg)seg.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var i=+b.dataset.v;[].forEach.call(seg.children,function(x){x.setAttribute("aria-selected",x===b)});figs.forEach(function(f,j){f.classList.toggle("on",j===i)})});
