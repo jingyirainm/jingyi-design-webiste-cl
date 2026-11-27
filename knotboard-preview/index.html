@@ -192,6 +192,10 @@ html.kb-js .kb .wk .rv.on .ln{stroke-dashoffset:0}
 .kb .pp-r:hover .ic-g{transform:rotate(-6deg) scale(1.06)}
 .kb .ic-g{transition:transform .35s var(--ease)}
 @media (max-width:760px){.kb .pp-r{grid-template-columns:44px minmax(0,1fr)!important;row-gap:10px!important}.kb .pp-r small{display:none}.kb .pp-r .ic-p{grid-row:1}.kb .pp-r .pain{grid-column:2}.kb .pp-r .ic-g{grid-column:1}.kb .pp-r div{grid-column:2}.kb .pp-r em{grid-column:2}.kb .ic{width:44px;height:44px;border-radius:13px}.kb .ic svg{width:26px}}
+.kb .levels.lv-img figure{border-radius:20px;padding:14px 14px 22px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);display:flex;flex-direction:column}
+.kb .levels.lv-img .tile{aspect-ratio:1/1;border-radius:14px;background:#f4f4f1;display:grid;place-items:center;padding:14px;margin-bottom:18px;overflow:hidden}
+.kb .levels.lv-img .tile img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.kb .levels.lv-img small,.kb .levels.lv-img h4,.kb .levels.lv-img p{padding-inline:8px}
 /* LOOP / stats */
 .kb .loop{padding-top:clamp(80px,9vw,140px)}
 .kb .loop .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
@@ -662,20 +666,11 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 </div>
 <figure class="rv"><div class="fr"><video autoplay muted loop playsinline preload="metadata" aria-label="Knot Agent drafting a reflection in the review view"><source src="assets/projects/knotboard-v2/agent.webm" type="video/webm"><source src="assets/projects/knotboard-v2/agent.mp4" type="video/mp4"></video></div><figcaption>Review view: the agent turns recent activity into a reflection you can use or dismiss.</figcaption></figure>
 
-<div class="levels">
-<div class="rv"><small>01 · Workspace</small><h4>Global</h4><p>A movable Agent button opens a side panel for questions across the workspace: workload, priorities, history.</p></div>
-<div class="rv" style="--d:80ms"><small>02 · Current page</small><h4>Page level</h4><p>Planner, Project and Dashboard offer suggestions from what’s on screen, like scheduling the backlog or drafting a review.</p></div>
-<div class="rv" style="--d:160ms"><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></div>
+<div class="levels lv-img">
+<figure class="rv"><div class="tile"><img src="assets/projects/knotboard-v2/98c4ed059562_2026-10-06-12.35.21_800.jpg" alt="Knot Agent side panel" loading="lazy"></div><small>01 · Workspace</small><h4>Global</h4><p>A movable Agent button opens a side panel for questions across the workspace: workload, priorities, history.</p></figure>
+<figure class="rv"><div class="tile"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft on the Dashboard" loading="lazy"></div><small>02 · Current page</small><h4>Page level</h4><p>Planner, Project and Dashboard offer suggestions from what’s on screen, like scheduling the backlog or drafting a review.</p></figure>
+<figure class="rv"><div class="tile"><img src="assets/projects/knotboard-v2/c34541ed9129_2026-09-28-11.10.30_1200.jpg" alt="Ask AI on a saved inspiration item" loading="lazy"></div><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></figure>
 </div>
-
-<div class="agrid">
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/98c4ed059562_2026-10-06-12.35.21_800.jpg" alt="Knot Agent panel: what would you like to move forward?" loading="lazy"></div><figcaption>Ask about the work in view. Changes are prepared, then approved.</figcaption></figure>
-<div class="stack">
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft ready" loading="lazy"></div><figcaption>A review draft built from the dashboard period you’re looking at.</figcaption></figure>
-<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/4438cde19e76_knot-agent-button.gif" alt="Knot Agent floating button" loading="lazy"></div><figcaption>The agent lives one tap from where the work is.</figcaption></figure>
-</div>
-</div>
-
 <div class="skills">
 <div class="rv"><small>Plan</small><b>Schedules unscheduled tasks by priority, deadline and workload.</b></div>
 <div class="rv" style="--d:60ms"><small>Projects</small><b>Breaks a goal into clear, manageable next steps.</b></div>
