@@ -826,7 +826,7 @@ $$(".kb .d1,.kb .d2,.kb .mf").forEach(function(h){var n=0;
    parts.forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){fr.appendChild(d.createTextNode(p));return}
     var o=d.createElement("span");o.className="sw";var i=d.createElement("span");i.textContent=p;i.style.setProperty("--wd",(n++*30)+"ms");o.appendChild(i);fr.appendChild(o)});
    var pv=c.previousSibling,first=fr.firstChild;
-   if(pv&&pv.nodeType===1&&first&&first.nodeType===1&&/^[,.;:!?\u2019)]/.test(first.textContent)){var nw=d.createElement("span");nw.style.whiteSpace="nowrap";c.parentNode.insertBefore(nw,pv);nw.appendChild(pv);nw.appendChild(first)}
+   if(pv&&pv.nodeType===1&&first&&first.nodeType===1&&/^[,.;:!?\u2019)]/.test(first.textContent)){var lw=pv.classList.contains("sw")?null:pv.querySelector(".sw:last-child");if(lw){var tail=d.createElement("span");tail.className="sw";tail.appendChild(first.firstChild);first=tail;lw.appendChild(d.createTextNode(""));lw.firstChild.appendChild(tail.firstChild)}else{var nw=d.createElement("span");nw.style.whiteSpace="nowrap";c.parentNode.insertBefore(nw,pv);nw.appendChild(pv);nw.appendChild(first)}}
    c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)walk(c)})})(h);
  h.classList.add("split");var host=h.closest(".rv");if(host&&host!==h){host.classList.remove("rv");[].slice.call(host.children).forEach(function(c,i){if(c!==h&&!c.contains(h)){c.classList.add("rv");c.style.setProperty("--d",(90+i*60)+"ms")}})}h.classList.add("rv")});
 /* 2. stagger children of groups so they surface layer by layer */
