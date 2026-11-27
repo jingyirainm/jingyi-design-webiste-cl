@@ -119,6 +119,34 @@ html:has(body.page-knotboard),body.page-knotboard{overflow-x:clip}
 .kb .promise li b s{text-decoration-thickness:2px;text-decoration-color:var(--leaf)}
 .kb .promise li span{font-size:15px;line-height:1.5;color:var(--mute)}
 
+.kb .maya2{margin-top:clamp(56px,6vw,96px);background:#fff;border-radius:24px;padding:clamp(22px,2.8vw,40px);box-shadow:0 0 0 1px var(--hair);display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(20px,3vw,48px);align-items:center}
+.kb .maya2 .d3{margin-top:10px}
+.kb .tl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
+.kb .tl li{padding:14px 14px 0 0;position:relative}
+.kb .tl li::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ink)}
+.kb .tl li.bad::before{background:#b0412e}
+.kb .tl small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin:6px 0 6px}
+.kb .tl p{font-size:15px;line-height:1.45;color:var(--ink)}
+.kb .tl li.bad p{color:#b0412e}
+.kb .research{margin-top:clamp(56px,6vw,96px);max-width:640px}
+.kb .research .body{margin-top:10px}
+.kb .insight{margin-top:clamp(28px,3vw,44px);max-width:15em}
+.kb .pp{margin-top:clamp(36px,4vw,60px)}
+.kb .pp-h,.kb .pp-r{display:grid;grid-template-columns:44px minmax(0,1fr) 40px minmax(0,1.25fr) 90px;gap:16px;align-items:baseline}
+.kb .pp-h{padding-bottom:12px;border-bottom:1px solid var(--ink)}
+.kb .pp-h .tiny:first-child{grid-column:2}
+.kb .pp-h span:last-child{grid-column:4}
+.kb .pp-r{padding:22px 0;border-bottom:1px solid var(--hair);text-decoration:none;transition:background .3s,padding .3s var(--ease)}
+.kb .pp-r:hover{background:rgba(216,242,126,.35);padding-inline:12px;border-radius:14px}
+.kb .pp-r small{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--leaf)}
+.kb .pp-r .pain{font-family:var(--serif);font-size:clamp(20px,1.8vw,26px);line-height:1.15;color:rgba(20,20,20,.42)}
+.kb .pp-r i{font-style:normal;color:var(--leaf);font-size:20px}
+.kb .pp-r b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(22px,2vw,30px);line-height:1.1;color:var(--ink)}
+.kb .pp-r div span{display:block;margin-top:6px;font-size:14px;line-height:1.5;color:var(--mute)}
+.kb .pp-r em{font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);text-align:right}
+.kb .pp-r em::after{content:" ↓"}
+@media (max-width:760px){.kb .maya2{grid-template-columns:1fr}.kb .tl{grid-template-columns:1fr;row-gap:16px;border-top:0;border-left:1px solid var(--ink);margin-left:4px}.kb .tl li{padding:0 0 0 18px}.kb .tl li::before{top:8px;left:-5px}.kb .tl small{margin-top:0}
+.kb .pp-h{display:none}.kb .pp-r{grid-template-columns:32px minmax(0,1fr);row-gap:8px}.kb .pp-r i{display:none}.kb .pp-r div,.kb .pp-r em{grid-column:2}.kb .pp-r em{text-align:left}}
 /* LOOP / stats */
 .kb .loop{padding-top:clamp(80px,9vw,140px)}
 .kb .loop .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
@@ -306,6 +334,8 @@ body.mobile.case-mode .main .kb .eb{font-family:var(--mono)!important;font-size:
 body.mobile.case-mode .main .kb figcaption{font-size:12px!important}
 body.mobile.case-mode .main .kb :is(.mf,.d1,.d2,.d3,h4) *{font-size:inherit!important;font-family:inherit!important;line-height:inherit!important}
 body.mobile.case-mode .main .kb .mood .act{display:none}
+body.mobile.case-mode .main .kb .pp-r b{font-family:var(--serif)!important;font-weight:400!important;font-size:24px!important;line-height:1.1!important}
+body.mobile.case-mode .main .kb .pp-r .pain{font-family:var(--serif)!important;font-size:20px!important;line-height:1.15!important}
 body.mobile.case-mode .main .kb .promise li b{font-family:var(--serif)!important;font-weight:400!important;font-size:24px!important;line-height:1.1!important}
 body.mobile.case-mode .main .kb .kick{font-size:10px!important;letter-spacing:.08em}
 body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!important;font-size:24px!important;line-height:1.15!important}}
@@ -403,32 +433,29 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <p class="mf rv">Your best idea is already saved. <span class="ghost">Somewhere.</span></p>
 <p class="mf mf-s rv">A poster on Instagram. A thought in Notes. A plan in your calendar. A file called <em>final_v3</em>. <span class="ghost">Every tool works on its own. The problem lives in between: each handoff drops the reason the idea mattered.</span></p>
 
-<div class="maya">
-<div class="card rv">
-<span class="tiny">A week in Maya’s life · design student</span>
-<h3 class="d3">She remembers finding it. Not where, and not why.</h3>
-<dl class="days">
-<dt>Mon</dt><dd>Saves a typographic poster for its unusual grid.</dd>
-<dt>Tue</dt><dd>Finds a material experiment in a gallery archive.</dd>
-<dt>Fri</dt><dd class="bad">Both are buried under newer images.</dd>
-<dt>Next week</dt><dd class="bad">Starts her project from memory.</dd>
-</dl>
-</div>
-<figure class="rv"><div class="fr flat"><img src="assets/projects/knotboard-v2/c74b1a358889_User_Pain_Points_v2_2.svg" alt="Four user pain points: saved content is easy to lose, work depends on motivation, tools give little feedback, reflection is disconnected from daily work" loading="lazy"></div><figcaption>What research kept surfacing: every handoff between tools drops context.</figcaption></figure>
+<div class="maya2 rv">
+<div class="mh"><span class="tiny">A week in Maya’s life · design student</span><h3 class="d3">She remembers finding it. Not where, and not why.</h3></div>
+<ol class="tl">
+<li><small>Mon</small><p>Saves a typographic poster for its unusual grid.</p></li>
+<li><small>Tue</small><p>Finds a material experiment in a gallery archive.</p></li>
+<li class="bad"><small>Fri</small><p>Both are buried under newer images.</p></li>
+<li class="bad"><small>Next week</small><p>Starts her project from memory.</p></li>
+</ol>
 </div>
 
-<div class="promise">
-<div class="rv">
-<h2 class="d2">Maya doesn’t need another bookmark. She needs a <em>path</em> from idea to action.</h2>
-<p class="body mute" style="margin-top:20px">So Knotboard makes a few promises.</p>
+<div class="research">
+<span class="tiny">What research found</span>
+<p class="body rv">It isn’t just Maya. Across three creative roles (design students, content creators and design teams), the same four breaks kept showing up between tools.</p>
 </div>
-<ul class="rv">
-<li><b><s>Filing</s> before saving</b><span>Capture first. Organize when the idea has a future.</span></li>
-<li><b><s>Duplicate</s> tasks</b><span>One record behind the Planner, Calendar, Tasks and Projects.</span></li>
-<li><b><s>Forced</s> deliverables</b><span>Learning, deciding and exploring count as progress too.</span></li>
-<li><b><s>Scores</s> that grade taste</b><span>Points reward effort. They never judge quality.</span></li>
-<li><b><s>AI</s> that acts alone</b><span>The agent suggests. Nothing changes without your approval.</span></li>
-</ul>
+
+<h2 class="d2 insight rv">She doesn’t need another bookmark. She needs a <em>path</em> from idea to action.</h2>
+
+<div class="pp">
+<div class="pp-h"><span class="tiny">What breaks</span><span></span><span class="tiny">What Knotboard promises</span></div>
+<a class="pp-r rv" href="#sec-2"><small>01</small><p class="pain">Saved content is easy to lose</p><i>→</i><div><b>Save first, keep the why.</b><span>Organize later, when the idea has a future.</span></div><em>Capture</em></a>
+<a class="pp-r rv" href="#sec-3"><small>02</small><p class="pain">Ideas have no clear path to action</p><i>→</i><div><b>One tap to a task.</b><span>Every view reads the same record, with no copies to keep in sync.</span></div><em>Plan</em></a>
+<a class="pp-r rv" href="#sec-4"><small>03</small><p class="pain">Effort gets no feedback or reward</p><i>→</i><div><b>Points reward effort, not taste.</b><span>Deliverables make progress visible, and learning counts too.</span></div><em>Projects</em></a>
+<a class="pp-r rv" href="#sec-5"><small>04</small><p class="pain">Reflection is split from daily work</p><i>→</i><div><b>Done becomes the next plan.</b><span>Finished work turns into evidence for what to do next.</span></div><em>Review</em></a>
 </div>
 </div>
 </section>
@@ -631,6 +658,7 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <div class="rv" style="--d:120ms"><small>06</small><h4>Keep AI contextual</h4><p>Suggestions are useful when they can reference the object, page and project already in view.</p></div>
 </div>
 <div class="artifacts">
+<figure class="rv"><div class="fr flat"><img src="assets/projects/knotboard-v2/c74b1a358889_User_Pain_Points_v2_2.svg" alt="Four user pain points" loading="lazy"></div><figcaption>Research synthesis: four breaks in the creative workflow.</figcaption></figure>
 <figure class="rv"><div class="fr flat"><img src="assets/projects/knotboard-v2/587d4ed9f9f7_Frame-29.svg" alt="Knotboard product map: five connected functions" loading="lazy"></div><figcaption>Product map: five connected functions share one underlying record.</figcaption></figure>
 <div class="two">
 <figure class="rv"><div class="fr flat"><img src="assets/projects/knotboard-v2/a7538b09b7fe_Knotboard-User-Journey-and-Flow-Redesigned-Final_.pptx.svg" alt="Personas: design student, content creator, design team member" loading="lazy"></div><figcaption>Personas: three creative roles, the same broken handoffs.</figcaption></figure>
@@ -676,7 +704,7 @@ $$(".kb .d1,.kb .d2,.kb .mf").forEach(function(h){var n=0;
    c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)walk(c)})})(h);
  h.classList.add("split");var host=h.closest(".rv");if(host&&host!==h){host.classList.remove("rv");[].slice.call(host.children).forEach(function(c,i){if(c!==h&&!c.contains(h)){c.classList.add("rv");c.style.setProperty("--d",(90+i*60)+"ms")}})}h.classList.add("rv")});
 /* 2. stagger children of groups so they surface layer by layer */
-var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .days,.kb .chips,.kb .credits,.kb .agrid .stack,.kb .artifacts .two,.kb .panel ul,.kb .btns";
+var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .tl,.kb .chips,.kb .credits,.kb .agrid .stack,.kb .artifacts .two,.kb .panel ul,.kb .btns";
 $$(groups).forEach(function(g){var host=g.classList.contains("rv")?g:null;if(host)host.classList.remove("rv");
  [].slice.call(g.children).forEach(function(c,i){c.classList.add("rv");c.style.setProperty("--d",Math.min(i*60,420)+(host?60:0)+"ms")})});
 /* masonry: stagger by column position */
