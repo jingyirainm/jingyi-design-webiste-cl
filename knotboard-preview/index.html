@@ -147,6 +147,22 @@ html:has(body.page-knotboard),body.page-knotboard{overflow-x:clip}
 .kb .pp-r em::after{content:" ↓"}
 @media (max-width:760px){.kb .maya2{grid-template-columns:1fr}.kb .tl{grid-template-columns:1fr;row-gap:16px;border-top:0;border-left:1px solid var(--ink);margin-left:4px}.kb .tl li{padding:0 0 0 18px}.kb .tl li::before{top:8px;left:-5px}.kb .tl small{margin-top:0}
 .kb .pp-h{display:none}.kb .pp-r{grid-template-columns:32px minmax(0,1fr);row-gap:8px}.kb .pp-r i{display:none}.kb .pp-r div,.kb .pp-r em{grid-column:2}.kb .pp-r em{text-align:left}}
+.kb .device .fr{background:#0e0f12}
+.kb .shots2{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:clamp(28px,3vw,44px);align-items:start}
+.kb .levels.shots figure{border-radius:20px;padding:14px 14px 20px;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.kb .levels.shots .fr{aspect-ratio:16/10;margin-bottom:16px;border-radius:14px}
+.kb .levels.shots .fr img{width:100%;height:100%;object-fit:cover;object-position:right top}
+.kb .levels.shots small,.kb .levels.shots h4,.kb .levels.shots p{padding-inline:6px}
+.kb .mq{display:grid;gap:14px;padding-inline:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.kb .mq-row{overflow:hidden}
+.kb .mq-t{display:flex;gap:14px;width:max-content;animation:kbmq 60s linear infinite}
+.kb .mq-row.r .mq-t{animation-direction:reverse;animation-duration:70s}
+.kb .mq:hover .mq-t{animation-play-state:paused}
+.kb .mq-i{flex:none;height:clamp(170px,20vw,300px);aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--hair),0 20px 40px -24px rgba(20,30,10,.35)}
+.kb .mq-i img{width:100%;height:100%;object-fit:cover;object-position:left top}
+@keyframes kbmq{to{transform:translateX(calc(-50% - 7px))}}
+@media (prefers-reduced-motion:reduce){.kb .mq-t{animation:none}}
+@media (max-width:760px){.kb .shots2{grid-template-columns:1fr}.kb .mq-i{height:150px}}
 /* LOOP / stats */
 .kb .loop{padding-top:clamp(80px,9vw,140px)}
 .kb .loop .head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(32px,4vw,56px)}
@@ -195,6 +211,7 @@ html:has(body.page-knotboard),body.page-knotboard{overflow-x:clip}
 /* projects bento */
 .kb .bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .kb .bento .wide{grid-column:1/-1}
+.kb .bento .tile .fr{aspect-ratio:16/9}.kb .bento .tile .fr img{width:100%;height:100%;object-fit:cover;object-position:left top}
 .kb .bento .tile{border-radius:22px;background:var(--cream);padding:clamp(14px,1.6vw,22px);display:flex;flex-direction:column;gap:14px;min-width:0}
 .kb .bento .tile .fr{box-shadow:0 0 0 1px var(--hair)}
 .kb .bento .tile h4{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2vw,28px);line-height:1.1;color:var(--ink)}
@@ -474,9 +491,10 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <section class="loop">
 <div class="head">
 <h2 class="d2 rv">One thread. <em>Five moves.</em></h2>
-<p class="body mute rv">A reference becomes a task. The task joins a project, lands in the weekly plan, produces a deliverable, and comes back to the dashboard as evidence for the next plan. Knotboard keeps the source, action, output and learning connected.</p>
+<p class="body mute rv">A reference becomes a task, the task becomes work, the work becomes evidence for the next plan.</p>
 </div>
-<figure class="rv"><div class="fr flat"><img src="assets/projects/knotboard-v2/3c07ece1b37a_01_core_loop-2.svg" alt="The core loop: Capture, Connect, Schedule, Make, Review, repeated weekly" loading="lazy"></div></figure>
+<figure class="device rv"><div class="fr"><video autoplay muted loop playsinline preload="metadata" poster="assets/projects/knotboard-v2/stills/mac-poster.jpg" aria-label="Knotboard Inspiration library on a laptop"><source src="assets/projects/knotboard/knotboard_intro_mac.mp4" type="video/mp4"></video></div></figure>
+<figure class="rv" style="margin-top:14px"><div class="fr flat"><img src="assets/projects/knotboard-v2/3c07ece1b37a_01_core_loop-2.svg" alt="The core loop: Capture, Connect, Schedule, Make, Review, repeated weekly" loading="lazy"></div></figure>
 <div class="stats">
 <div class="stat on rv"><b>5</b><span>connected modules: Inspiration, Planner, Projects, Dashboard, Agent</span></div>
 <div class="stat rv" style="--d:80ms"><b>1</b><span>task record behind every view</span></div>
@@ -490,7 +508,7 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">01 · Capture</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">Save it now. <em>Give it a future</em> later.</h2></div>
-<div class="rv"><p class="body">Ideas arrive messy: a URL, an image, a sentence, a PDF. The capture field stays light because saving a reference shouldn’t require a filing decision first. Every card keeps <i>why</i> it mattered, and one tap turns it into a task or project.</p>
+<div class="rv"><p class="body">Links, images, notes, PDFs: save first, decide later. Every card keeps <i>why</i> it mattered.</p>
 <div class="chips"><span>Links</span><span>Images</span><span>Notes</span><span>PDFs</span><span>Tags &amp; collections</span><span class="on">→ To Task</span></div></div>
 </div>
 
@@ -516,11 +534,11 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 </div>
 
 <figure class="collage rv">
-<div class="main fr"><img src="assets/projects/knotboard-v2/6f3af695d450_2026-09-25-2.50.36_1600.jpg" alt="Knotboard Inspiration library" loading="lazy"></div>
-<div class="f1"><div class="fr"><img src="assets/projects/knotboard-v2/c34541ed9129_2026-09-28-11.10.30_1200.jpg" alt="Inspiration detail with Edit, Create project, Create task and Ask AI" loading="lazy"></div></div>
-<div class="f2"><div class="fr"><img src="assets/projects/knotboard-v2/25841b4945f0_111111_1600.jpg" alt="Note card with Edit, To Task and Ask AI" loading="lazy"></div></div>
+<div class="main fr"><img src="assets/projects/knotboard-v2/stills/library-aasignals.jpg" alt="Knotboard Inspiration library" loading="lazy"></div>
+<div class="f1"><div class="fr"><img src="assets/projects/knotboard-v2/6a0f16f1e190_2026-09-28-11.00.16_1200.jpg" alt="Inspiration detail with Edit, Create project, Create task and Ask AI" loading="lazy"></div></div>
+<div class="f2"><div class="fr"><img src="assets/projects/knotboard-v2/c34541ed9129_2026-09-28-11.10.30_1200.jpg" alt="Inspiration detail: Second Skin" loading="lazy"></div></div>
 </figure>
-<p class="note rv"><i>Detail</i><span><b>Why it isn’t a folder.</b> Compact URL cards, image-first cards and hidden drag handles keep the library calm, while each item can still link to a project, a research topic, or a task.</span></p>
+<div class="shots2 rv"><figure><div class="fr"><img src="assets/projects/knotboard-v2/6f3af695d450_2026-09-25-2.50.36_1600.jpg" alt="Inspiration library with link, image and note cards" loading="lazy"></div><figcaption>Link, image and note cards share one calm grid.</figcaption></figure><figure><div class="fr"><img src="assets/projects/knotboard-v2/25841b4945f0_111111_1600.jpg" alt="Note card with Edit, To Task and Ask AI" loading="lazy"></div><figcaption>Every card: Edit, To Task, Ask AI.</figcaption></figure></div>
 </section>
 
 <!-- 02 PLAN -->
@@ -528,24 +546,20 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">02 · Plan</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">Plan with <em>shape</em>, not certainty.</h2></div>
-<div class="rv"><p class="body">Some creative tasks are routine. Others are exploration, where you’re still learning what the problem is. Priority, difficulty, output value and time roll up into an XP estimate, so the week has shape without pretending to be precise.</p>
+<div class="rv"><p class="body">Priority, difficulty, value and time roll up into an XP estimate: a week with shape, without fake precision.</p>
 <div class="chips"><span>Weekly intent</span><span>Backlog</span><span>Drag to schedule</span><span class="on">XP estimate</span></div></div>
 </div>
 <div class="views rv">
 <div class="seg" role="tablist" aria-label="Task views">
-<button role="tab" aria-selected="true" data-v="0">Planner</button><button role="tab" aria-selected="false" data-v="1">Calendar</button><button role="tab" aria-selected="false" data-v="2">Tasks</button>
+<button role="tab" aria-selected="true" data-v="0">Planner</button><button role="tab" aria-selected="false" data-v="1">Calendar</button><button role="tab" aria-selected="false" data-v="2">Tasks</button><button role="tab" aria-selected="false" data-v="3">✦ Agent plan</button>
 </div>
-<span class="vcap">One task. Three views. Zero copies.</span>
+<span class="vcap">One task. Every view. Zero copies.</span>
 </div>
 <div class="vstack rv">
 <figure class="on"><div class="fr"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="Planner weekly overview" loading="lazy"></div><figcaption>Planner: weekly intent per channel, with task cards and clear visual states.</figcaption></figure>
 <figure><div class="fr"><img src="assets/projects/knotboard-v2/386d9d024ce1_03-Calendar-Month-View-01_1200.jpg" alt="Calendar month view with backlog" loading="lazy"></div><figcaption>Calendar: drag unscheduled work from the Backlog onto day, week or month.</figcaption></figure>
 <figure><div class="fr"><img src="assets/projects/knotboard-v2/99eb3ec26469_04-Tasks-All-Tasks-02_1200.jpg" alt="All tasks list" loading="lazy"></div><figcaption>Tasks: every task across channels, filterable by status, project, priority or date.</figcaption></figure>
-</div>
-<div class="trio">
-<div class="rv"><h4>Exploration has a home</h4><p>Undated work lives in the Backlog: visible, without false urgency.</p></div>
-<div class="rv" style="--d:80ms"><h4>Edit once</h4><p>Change status, date or estimate anywhere and every view updates, because there’s only one record.</p></div>
-<div class="rv" style="--d:160ms"><h4>Effort you can see</h4><p>XP makes a heavy week visible before it happens, not after.</p></div>
+<figure><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-planner.jpg" alt="Planner with Knot Agent proposing a balanced week" loading="lazy"></div><figcaption>Agent plan: Knot Agent proposes a balanced week from the backlog, then waits for approval.</figcaption></figure>
 </div>
 </section>
 
@@ -554,13 +568,13 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">03 · Projects</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">Your work, with <em>its receipts</em>.</h2></div>
-<div class="rv"><p class="body">A creative project has a reason, a body of research, a changing plan, and the things it produced. Channels map the big areas of a practice; projects hold the tasks, references and outputs, so you can zoom from “Portfolio” to the one task due today.</p></div>
+<div class="rv"><p class="body">Channels map a creative practice; projects hold the tasks, references and outputs. Zoom from “Portfolio” to the one task due today.</p></div>
 </div>
 <div class="bento">
-<div class="tile rv"><div class="fr"><img src="assets/projects/knotboard-v2/aa8f179d520a_2026-09-28-2.14.10_1200.jpg" alt="Channels overview" loading="lazy"></div><div><h4>Channels make a stable map</h4><p>Learning, Practice, Networking, Portfolio: each with its own cover and projects.</p></div></div>
-<div class="tile rv" style="--d:80ms"><div class="fr"><img src="assets/projects/knotboard-v2/1d76bb5e9c58_2026-09-28-2.13.30_1200.jpg" alt="Project page" loading="lazy"></div><div><h4>Projects keep context</h4><p>Details, tasks, references, progress and outputs on one page.</p></div></div>
-<div class="tile wide rv"><div class="fr"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="Deliverables gallery" loading="lazy"></div><div><h4>Deliverables make progress visible</h4><p>When a task produces an image, a document or a link, it lands in the project’s gallery: a record of work that would otherwise vanish into folders. Deliverables stay optional, so learning and deciding still count.</p></div></div>
-<div class="tile wide lime rv"><div class="fr"><img src="assets/projects/knotboard-v2/e4457aa0bab8_2026-10-06-10.17.14_1600.jpg" alt="XP board and tasks record" loading="lazy"></div><div><h4>Points reward effort. They never grade taste.</h4><p>XP turns difficulty, importance, output value and time into a light signal for comparing commitments. It’s always shown next to the real deliverable and a written reflection, so progress is never reduced to a number.</p></div></div>
+<div class="tile rv"><div class="fr"><img src="assets/projects/knotboard-v2/1c63b65e2a07_2026-10-06-10.18.14_1600.jpg" alt="Channels overview" loading="lazy"></div><div><h4>Channels make a stable map</h4><p>Learning, Practice, Portfolio: each area of practice gets a channel.</p></div></div>
+<div class="tile rv" style="--d:80ms"><div class="fr"><img src="assets/projects/knotboard-v2/1d76bb5e9c58_2026-09-28-2.13.30_1200.jpg" alt="Project page" loading="lazy"></div><div><h4>Projects keep context</h4><p>Tasks, references and outputs on one page.</p></div></div>
+<div class="tile rv"><div class="fr"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="Deliverables gallery" loading="lazy"></div><div><h4>Deliverables make progress visible</h4><p>Outputs collect on the project they came from.</p></div></div>
+<div class="tile lime rv"><div class="fr"><img src="assets/projects/knotboard-v2/e4457aa0bab8_2026-10-06-10.17.14_1600.jpg" alt="XP board and tasks record" loading="lazy"></div><div><h4>Points reward effort, never taste</h4><p>XP sits next to the real deliverable, never alone.</p></div></div>
 </div>
 </section>
 
@@ -570,7 +584,7 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">04 · Review</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">Done isn’t the end. <em>It’s evidence.</em></h2></div>
-<div class="rv"><p class="body">Most tools stop at the checkbox. Knotboard collects completed tasks, focused hours, points, project status and deliverables into one dashboard, with one time filter across every chart, so the next plan starts from what actually happened.</p>
+<div class="rv"><p class="body">Tasks, hours, points and deliverables in one dashboard, with one time filter across every chart.</p>
 <div class="chips"><span>Completed tasks</span><span>Hours</span><span>XP trend</span><span>Focus distribution</span><span class="on">One time filter</span></div></div>
 </div>
 <figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="Dashboard performance overview" loading="lazy"></div></figure>
@@ -583,15 +597,15 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <span class="eb" style="border-radius:0;border-width:0.1rem">05 · Knot Agent</span>
 <div class="fh">
 <div class="rv"><h2 class="d2">AI that already knows <em>what you’re working on</em>.</h2></div>
-<div class="rv"><p class="body">Knot Agent isn’t a chatbot bolted onto the side. It reads the workspace around it: saved references, unfinished tasks, priorities, dates and review history. Its suggestions are useful because Knotboard kept the context.</p>
+<div class="rv"><p class="body">Not a chatbot on the side. Knot Agent reads your references, tasks and history, so its suggestions fit the work.</p>
 <div class="chips"><span>Context-aware</span><span>Inline, not a tab</span><span class="on">Approval first</span></div></div>
 </div>
 <figure class="rv"><div class="fr"><video autoplay muted loop playsinline preload="metadata" aria-label="Knot Agent drafting a reflection in the review view"><source src="assets/projects/knotboard-v2/agent.webm" type="video/webm"><source src="assets/projects/knotboard-v2/agent.mp4" type="video/mp4"></video></div><figcaption>Review view: the agent turns recent activity into a reflection you can use or dismiss.</figcaption></figure>
 
-<div class="levels">
-<div class="rv"><small>01 · Workspace</small><h4>Global</h4><p>A movable Agent button opens a side panel for questions across the workspace: workload, priorities, history.</p></div>
-<div class="rv" style="--d:80ms"><small>02 · Current page</small><h4>Page level</h4><p>Planner, Project and Dashboard offer suggestions from what’s on screen, like scheduling the backlog or drafting a review.</p></div>
-<div class="rv" style="--d:160ms"><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></div>
+<div class="levels shots">
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-workspace.jpg" alt="Knot Agent workspace summary beside a project" loading="lazy"></div><small>01 · Workspace</small><h4>Global</h4><p>Asks across everything: what’s at risk, where to focus.</p></figure>
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-plan-close.jpg" alt="Knot Agent balanced plan in the Planner" loading="lazy"></div><small>02 · Current page</small><h4>Page level</h4><p>Reads the page in view, like scheduling this week’s backlog.</p></figure>
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/25841b4945f0_111111_1600.jpg" alt="Ask AI on a saved note" loading="lazy"></div><small>03 · Single item</small><h4>Object level</h4><p>Ask AI on one reference: summarize, tag, outline.</p></figure>
 </div>
 
 <div class="aflow">
@@ -600,28 +614,14 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <figure class="rv"><span class="st">03 · Approve</span><h4>Nothing changes without your yes</h4><div class="fr tile"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft ready" loading="lazy"></div><figcaption>Every action arrives as a draft: use it, or dismiss it.</figcaption></figure>
 </div>
 
-<div class="skills">
-<div class="rv"><small>Plan</small><b>Schedules unscheduled tasks by priority, deadline and workload.</b></div>
-<div class="rv" style="--d:60ms"><small>Projects</small><b>Breaks a goal into clear, manageable next steps.</b></div>
-<div class="rv" style="--d:120ms"><small>Review</small><b>Turns recent activity into an actionable reflection.</b></div>
-<div class="rv" style="--d:180ms"><small>Attention</small><b>Flags at-risk projects and tasks that need action now.</b></div>
-</div>
+<figure class="rv" style="margin-top:14px"><div class="fr"><img src="assets/projects/knotboard-v2/stills/agent-applied.jpg" alt="Agent shows tasks scheduled after approval" loading="lazy"></div><figcaption>After approval: “1 task scheduled”, with an undo path right in the panel.</figcaption></figure>
 </div>
 </section>
 
-<!-- DETAILS GRID -->
-<section class="sec">
-<div class="ghead"><h2 class="d2 rv">Every detail, <em>on the same thread</em>.</h2></div>
-<div class="grid8">
-<div class="rv"><i>⌁</i><h4>Capture anything</h4><p>Links, images, notes, PDFs and files share one field.</p></div>
-<div class="rv" style="--d:50ms"><i>✦</i><h4>Ask AI on any card</h4><p>Sits next to Edit and To Task on every saved reference.</p></div>
-<div class="rv" style="--d:100ms"><i>↳</i><h4>Reference → task</h4><p>Turn an idea into work without retyping it.</p></div>
-<div class="rv" style="--d:150ms"><i>◫</i><h4>Backlog to calendar</h4><p>Drag undated tasks onto day, week or month.</p></div>
-<div class="rv"><i>≡</i><h4>One source of truth</h4><p>Planner, Calendar, Tasks and Projects read one record.</p></div>
-<div class="rv" style="--d:50ms"><i>◎</i><h4>XP estimates</h4><p>Priority, difficulty, value and time in one signal.</p></div>
-<div class="rv" style="--d:100ms"><i>▦</i><h4>Deliverables gallery</h4><p>Outputs collect on the project they came from.</p></div>
-<div class="rv" style="--d:150ms"><i>◷</i><h4>One time filter</h4><p>Every dashboard chart answers the same period.</p></div>
-</div>
+<!-- SCREENS -->
+<section class="sec screens">
+<div class="ghead"><h2 class="d2 rv">Every screen, <em>on the same thread</em>.</h2></div>
+<div class="mq bleed"><div class="mq-row l" aria-hidden="true"><div class="mq-t"><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/library-aasignals.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/1c63b65e2a07_2026-10-06-10.18.14_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/386d9d024ce1_03-Calendar-Month-View-01_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/agent-workspace.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/library-aasignals.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/1c63b65e2a07_2026-10-06-10.18.14_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/386d9d024ce1_03-Calendar-Month-View-01_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/agent-workspace.jpg" alt="" loading="lazy"></div></div></div><div class="mq-row r" aria-hidden="true"><div class="mq-t"><div class="mq-i"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/99eb3ec26469_04-Tasks-All-Tasks-02_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/agent-planner.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/1d76bb5e9c58_2026-09-28-2.13.30_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/e4457aa0bab8_2026-10-06-10.17.14_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/6a0f16f1e190_2026-09-28-11.00.16_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/99eb3ec26469_04-Tasks-All-Tasks-02_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/stills/agent-planner.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/1d76bb5e9c58_2026-09-28-2.13.30_1200.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/e4457aa0bab8_2026-10-06-10.17.14_1600.jpg" alt="" loading="lazy"></div><div class="mq-i"><img src="assets/projects/knotboard-v2/6a0f16f1e190_2026-09-28-11.00.16_1200.jpg" alt="" loading="lazy"></div></div></div></div>
 </section>
 
 <!-- WHO -->
@@ -708,10 +708,12 @@ $$(".kb .d1,.kb .d2,.kb .mf").forEach(function(h){var n=0;
   if(c.nodeType===3){var parts=c.textContent.split(/(\s+)/),fr=d.createDocumentFragment();
    parts.forEach(function(p){if(!p)return;if(/^\s+$/.test(p)){fr.appendChild(d.createTextNode(p));return}
     var o=d.createElement("span");o.className="sw";var i=d.createElement("span");i.textContent=p;i.style.setProperty("--wd",(n++*30)+"ms");o.appendChild(i);fr.appendChild(o)});
+   var pv=c.previousSibling,first=fr.firstChild;
+   if(pv&&pv.nodeType===1&&first&&first.nodeType===1&&/^[,.;:!?\u2019)]/.test(first.textContent)){var nw=d.createElement("span");nw.style.whiteSpace="nowrap";c.parentNode.insertBefore(nw,pv);nw.appendChild(pv);nw.appendChild(first)}
    c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)walk(c)})})(h);
  h.classList.add("split");var host=h.closest(".rv");if(host&&host!==h){host.classList.remove("rv");[].slice.call(host.children).forEach(function(c,i){if(c!==h&&!c.contains(h)){c.classList.add("rv");c.style.setProperty("--d",(90+i*60)+"ms")}})}h.classList.add("rv")});
 /* 2. stagger children of groups so they surface layer by layer */
-var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .tl,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
+var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .shots2,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .tl,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
 $$(groups).forEach(function(g){var host=g.classList.contains("rv")?g:null;if(host)host.classList.remove("rv");
  [].slice.call(g.children).forEach(function(c,i){c.classList.add("rv");c.style.setProperty("--d",Math.min(i*60,420)+(host?60:0)+"ms")})});
 /* masonry: stagger by column position */
