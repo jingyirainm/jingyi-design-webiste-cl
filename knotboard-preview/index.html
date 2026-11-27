@@ -104,6 +104,77 @@ html:has(body.page-knotboard),body.page-knotboard{overflow-x:clip}
 .kb .kbtags .live{color:var(--leaf);border-color:var(--leaf);border-width:1.5px}
 .kb .kbtags .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf)}
 @media (max-width:760px){.kb .kbtags span{font-size:10px;padding:.8em 1.1em}}
+/* ===== Overview (recruiter) ===== */
+.kb .ov-switch{display:flex;flex-direction:column;align-items:center;gap:10px;margin:clamp(8px,1.5vw,20px) 0 0}
+.kb .ov-seg{position:relative;display:inline-flex;padding:4px;border-radius:99px;background:rgba(255,255,255,.8);border:1px solid var(--hair);backdrop-filter:blur(14px);box-shadow:0 8px 24px -12px rgba(0,0,0,.18)}
+.kb .ov-seg button{all:unset;cursor:pointer;position:relative;z-index:1;padding:11px 22px;border-radius:99px;font:500 14px/1 var(--sans);color:var(--mute);transition:color .35s var(--ease);white-space:nowrap}
+.kb .ov-seg button.on{color:#fff}
+.kb .ov-seg button:focus-visible{outline:2px solid var(--leaf);outline-offset:2px}
+.kb .ov-seg i{position:absolute;z-index:0;top:4px;bottom:4px;left:4px;border-radius:99px;background:var(--ink);transition:transform .45s var(--ease),width .45s var(--ease)}
+.kb .ov-time{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+body.kb-full .kb .ov-time{display:none}
+body.kb-ov .kb>section:not(.ov):not(.close),body.kb-ov .cm-nav,body.kb-ov .cm-sheet,body.kb-ov .cm-progress{display:none!important}
+body.kb-full .kb .ov{display:none}
+.kb .ov{padding-top:clamp(40px,5vw,72px)}
+.kb .ov-k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin-bottom:14px}
+.kb .ov-sec{padding-top:clamp(80px,9vw,140px)}
+.kb .ov-sec>.d2{max-width:16em}
+.kb .ov-lead{max-width:36em;margin-top:18px}
+.kb .ov-wide{margin-top:clamp(28px,3vw,44px)}
+/* carousel */
+.kb .ov-stage{position:relative;aspect-ratio:16/9;border-radius:clamp(20px,2.4vw,32px);overflow:hidden;background:linear-gradient(135deg,#eef9c8,#cfee7a 55%,#a9da54);box-shadow:0 40px 90px -40px rgba(80,130,20,.55)}
+.kb .ov-sl{position:absolute;left:50%;top:50%;width:84%;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 30px 60px -24px rgba(20,40,0,.45);transform:translate(-50%,-46%) scale(.94);opacity:0;transition:transform .9s var(--ease),opacity .7s var(--ease)}
+.kb .ov-sl.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.kb .ov-sl img{width:100%;height:100%;object-fit:cover;object-position:left top}
+.kb .ov-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 24px;margin-top:18px}
+.kb .ov-tabs button{all:unset;cursor:pointer;position:relative;padding:7px 0;font:500 14px/1 var(--sans);color:var(--mute);transition:color .3s}
+.kb .ov-tabs button::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1.5px;background:var(--ink)}
+.kb .ov-tabs button.on{color:var(--ink)}
+.kb .ov-tabs button.on::after{right:0;transition:right 3.6s linear}
+.kb .ov-tabs.paused button.on::after{transition:none}
+.kb .ov-tabs button:focus-visible{outline:2px solid var(--leaf);outline-offset:3px}
+/* numbers */
+.kb .ov-nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin-top:clamp(48px,5vw,80px);border-top:1px solid var(--ink)}
+.kb .ov-nums div{padding:22px 18px 0 0}
+.kb .ov-nums b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(46px,5vw,76px);line-height:.95;color:var(--ink)}
+.kb .ov-nums span{display:block;margin-top:10px;font-size:14px;line-height:1.45;color:var(--mute)}
+/* bento */
+.kb .ov-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:clamp(28px,3vw,44px)}
+.kb .ov-tile{display:flex;flex-direction:column;border-radius:24px;background:var(--cream);overflow:hidden;text-decoration:none;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.kb .ov-tile:hover{transform:translateY(-6px);box-shadow:0 30px 60px -30px rgba(20,30,10,.35)}
+.kb .ov-tile .m{margin:14px 14px 0;aspect-ratio:16/10;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 0 0 1px var(--hair)}
+.kb .ov-tile .m img{width:100%;height:100%;object-fit:cover;object-position:left top;transition:transform 1s var(--ease)}
+.kb .ov-tile:hover .m img{transform:scale(1.04)}
+.kb .ov-tile .t{padding:20px 22px 24px}
+.kb .ov-tile small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px}
+.kb .ov-tile b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.2vw,32px);line-height:1.08;color:var(--ink)}
+.kb .ov-tile span{display:block;margin-top:8px;font-size:15px;line-height:1.5;color:var(--mute)}
+.kb .ov-tile .t::after{content:"Read more →";display:block;margin-top:14px;font:500 13px/1 var(--sans);color:var(--ink);opacity:0;transform:translateX(-6px);transition:opacity .35s,transform .35s var(--ease)}
+.kb .ov-tile:hover .t::after{opacity:1;transform:none}
+/* AI band */
+.kb .ov-ai{margin-top:clamp(80px,9vw,140px);background:var(--night);color:var(--nightfg);border-radius:clamp(28px,3vw,44px);width:calc(100vw - 2*clamp(8px,1.2vw,18px));margin-left:calc(50% - 50vw + clamp(8px,1.2vw,18px));padding-block:clamp(64px,8vw,120px)}
+.kb .ov-ai .d2{color:#fff;max-width:14em}
+.kb .ov-ai .d2 em{color:var(--lime)}
+.kb .ov-ai .body{color:var(--nightmute);max-width:34em;margin-top:18px}
+.kb .ov-aiv{margin-top:clamp(32px,3.6vw,52px);box-shadow:0 40px 80px -30px rgba(0,0,0,.8)}
+.kb .ov-ai3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.kb .ov-ai3 div{border-radius:18px;padding:20px 22px;border:1px solid rgba(255,255,255,.12)}
+.kb .ov-ai3 small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin-bottom:10px}
+.kb .ov-ai3 b{display:block;font-weight:400;font-size:17px;line-height:1.35;color:#fff}
+/* role */
+.kb .ov-role{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(28px,3vw,44px)}
+.kb .ov-role div{border-radius:20px;padding:22px;background:var(--cream)}
+.kb .ov-role div:last-child{background:var(--lime)}
+.kb .ov-role small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:26px}
+.kb .ov-role b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1;color:var(--ink)}
+.kb .ov-role span{display:block;margin-top:8px;font-size:14px;line-height:1.5;color:var(--mute)}
+.kb .ov-role div:last-child span{color:rgba(20,20,20,.7)}
+.kb .ov-cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;padding:clamp(64px,7vw,110px) 0 clamp(40px,5vw,72px)}
+.kb .ov-cta button.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:.5em;font:500 15px/1 var(--sans);padding:15px 24px;border-radius:99px;background:var(--ink);color:#fff;box-shadow:0 12px 28px -12px rgba(0,0,0,.45);transition:transform .3s var(--ease)}
+.kb .ov-cta button.btn:hover{transform:translateY(-2px)}
+@media (max-width:900px){.kb .ov-nums,.kb .ov-role{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:22px}}
+@media (max-width:760px){.kb .ov-bento,.kb .ov-ai3{grid-template-columns:1fr}.kb .ov-sl{width:92%}.kb .ov-seg .x{display:none}.kb .ov-tile .t::after{opacity:1;transform:none}}
+@media (max-width:767px){body.mobile.case-mode .main .kb .ov-tile b,body.mobile.case-mode .main .kb .ov-role b{font-family:var(--serif)!important;font-weight:400!important;font-size:24px!important;line-height:1.1!important}body.mobile.case-mode .main .kb .ov-nums b{font-family:var(--serif)!important;font-size:44px!important}}
 /* MANIFESTO */
 .kb .sec{padding-block:clamp(80px,10vw,150px);scroll-margin-top:90px}
 .kb .manifesto{background:var(--cream)}
@@ -557,6 +628,69 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 </dl>
 </header>
 
+
+<!-- OVERVIEW (recruiter version) -->
+<div class="ov-switch"><div class="ov-seg" role="tablist" aria-label="Case study version"><i></i><button role="tab" data-v="ov" class="on">Overview</button><button role="tab" data-v="full">Full<span class="x"> case study</span></button></div><span class="ov-time">3-min read</span></div>
+<section class="ov">
+
+<div class="ov-car rv" aria-roledescription="carousel" aria-label="Knotboard screens">
+<div class="ov-stage"><div class="ov-sl on" data-i="0"><img src="assets/projects/knotboard-v2/stills/library-aasignals.jpg" alt="Knotboard Inspiration" ></div><div class="ov-sl" data-i="1"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="Knotboard Planner" loading="lazy"></div><div class="ov-sl" data-i="2"><img src="assets/projects/knotboard-v2/1c63b65e2a07_2026-10-06-10.18.14_1600.jpg" alt="Knotboard Channels" loading="lazy"></div><div class="ov-sl" data-i="3"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="Knotboard Deliverables" loading="lazy"></div><div class="ov-sl" data-i="4"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="Knotboard Dashboard" loading="lazy"></div><div class="ov-sl" data-i="5"><img src="assets/projects/knotboard-v2/stills/agent-planner.jpg" alt="Knotboard Knot Agent" loading="lazy"></div></div>
+<div class="ov-tabs" role="tablist"><button role="tab" data-i="0" class="on">Inspiration</button><button role="tab" data-i="1">Planner</button><button role="tab" data-i="2">Channels</button><button role="tab" data-i="3">Deliverables</button><button role="tab" data-i="4">Dashboard</button><button role="tab" data-i="5">Knot Agent</button></div>
+</div>
+
+<div class="ov-nums rv">
+<div><b>0→1</b><span>Concept to launched MVP</span></div>
+<div><b>5</b><span>Connected modules, designed end to end</span></div>
+<div><b>1</b><span>Task record behind every view</span></div>
+<div><b>4</b><span>Hats: product, UX/UI, brand, front end</span></div>
+</div>
+
+<div class="ov-sec">
+<div class="ov-k rv">The problem</div>
+<h2 class="d2 rv">Creatives save everything and <em>lose the thread</em>.</h2>
+<p class="body mute ov-lead rv">References live in one app, plans in another, finished work in a folder. Interviews across three creative roles showed the same break: the reason an idea mattered gets lost between tools.</p>
+<figure class="ov-wide rv"><div class="fr"><img src="assets/projects/knotboard-v2/3c07ece1b37a_01_core_loop-2.svg" alt="Knotboard core loop: capture, connect, schedule, make, review" loading="lazy"></div><figcaption>My answer: one loop where a saved idea becomes a task, the task becomes work, and the work informs the next plan.</figcaption></figure>
+</div>
+
+<div class="ov-sec">
+<div class="ov-k rv">What I designed</div>
+<h2 class="d2 rv">Five modules, <em>one thread</em>.</h2>
+<div class="ov-bento">
+<a class="ov-tile rv t1" href="#sec-2" data-go="sec-2"><div class="m"><img src="assets/projects/knotboard-v2/stills/library-aasignals.jpg" alt="Save first, decide later" loading="lazy"></div><div class="t"><small>01 · Capture</small><b>Save first, decide later</b><span>Links, images and notes in one calm library. Every card keeps why it mattered.</span></div></a>
+<a class="ov-tile rv t2" href="#sec-3" data-go="sec-3"><div class="m"><img src="assets/projects/knotboard-v2/911b5a8d8583_02-Planner-Weekly-Overview-01_1600.jpg" alt="A week with shape" loading="lazy"></div><div class="t"><small>02 · Plan</small><b>A week with shape</b><span>XP estimates turn priority, effort and value into a plan you can see.</span></div></a>
+<a class="ov-tile rv t3" href="#sec-4" data-go="sec-4"><div class="m"><img src="assets/projects/knotboard-v2/4100f29aedc2_2026-10-06-10.19.22_1600.jpg" alt="Work with its receipts" loading="lazy"></div><div class="t"><small>03 · Projects</small><b>Work with its receipts</b><span>Tasks, references and deliverables live on one project page.</span></div></a>
+<a class="ov-tile rv t4" href="#sec-5" data-go="sec-5"><div class="m"><img src="assets/projects/knotboard-v2/19be8d280465_07-Dashboard-Performance-Overview-05_1600.jpg" alt="Done becomes evidence" loading="lazy"></div><div class="t"><small>04 · Review</small><b>Done becomes evidence</b><span>One dashboard, one time filter, feeding the next plan.</span></div></a>
+</div>
+</div>
+
+<div class="ov-ai bleed rv">
+<div class="in">
+<div class="ov-k" style="color:var(--lime)">05 · Knot Agent</div>
+<h2 class="d2">AI that knows <em>the work in view</em>.</h2>
+<p class="body">It reads references, tasks and history, drafts a plan or a review, and changes nothing without approval.</p>
+<div class="fr ov-aiv"><video muted loop playsinline preload="metadata" aria-label="Knot Agent working inside Knotboard"><source src="assets/projects/knotboard-v2/agent.webm" type="video/webm"><source src="assets/projects/knotboard-v2/agent.mp4" type="video/mp4"></video></div>
+<div class="ov-ai3">
+<div><small>Workspace</small><b>Ask across everything</b></div>
+<div><small>Page</small><b>Suggestions from the screen in view</b></div>
+<div><small>Item</small><b>Ask AI on any card</b></div>
+</div>
+</div>
+</div>
+
+<div class="ov-sec">
+<div class="ov-k rv">My role</div>
+<h2 class="d2 rv">Designed it, branded it, <em>shipped it</em>.</h2>
+<div class="ov-role">
+<div class="rv"><small>Strategy</small><b>Research &amp; product framing</b><span>Interviews, personas, the pain → promise map.</span></div>
+<div class="rv"><small>UX</small><b>Information architecture</b><span>One record behind Planner, Calendar, Tasks and Projects.</span></div>
+<div class="rv"><small>UI &amp; brand</small><b>Visual system</b><span>Calm, editorial UI and the Knotboard identity.</span></div>
+<div class="rv"><small>Build</small><b>Front end &amp; launch</b><span>Coded and shipped the MVP at knotboard.app.</span></div>
+</div>
+</div>
+
+<div class="ov-cta rv"><button class="btn dark" data-v="full">Read the full case study <span class="ar">→</span></button><a class="btn ghost" href="https://knotboard.app/" target="_blank" rel="noopener">Try Knotboard ↗</a></div>
+</section>
+
 <!-- MANIFESTO -->
 <section class="sec manifesto bleed" data-l="Why">
 <div class="in">
@@ -866,6 +1000,26 @@ function frame(){tick=false;var vh=innerHeight;
 if(!reduce){addEventListener("scroll",function(){if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});addEventListener("resize",frame);frame()}
 /* skills: cycle highlight */
 var sk=$$(".kb .skills>div"),si=0;if(sk.length&&!reduce){setInterval(function(){sk.forEach(function(e,i){e.classList.toggle("act",i===si)});si=(si+1)%sk.length},2200)}
+/* overview / full switch */
+(function(){var B=d.body,seg=d.querySelector(".kb .ov-seg");if(!seg)return;var th=seg.querySelector("i"),bs=[].slice.call(seg.querySelectorAll("button"));
+function place(){var b=bs.filter(function(x){return x.classList.contains("on")})[0];th.style.width=b.offsetWidth+"px";th.style.transform="translateX("+(b.offsetLeft-4)+"px)"}
+function setV(v,sc,go){B.classList.toggle("kb-ov",v==="ov");B.classList.toggle("kb-full",v==="full");bs.forEach(function(b){b.classList.toggle("on",b.dataset.v===v)});place();
+ try{var u=new URL(location.href);u.searchParams.set("view",v);if(!go)u.hash="";history.replaceState(null,"",u)}catch(e){}
+ if(go){setTimeout(function(){var t=d.getElementById(go);if(t)scrollTo({top:t.getBoundingClientRect().top+scrollY-90,behavior:"auto"})},80)}
+ else if(sc){var t=seg.getBoundingClientRect().top+scrollY-90;if(scrollY>t)scrollTo({top:t,behavior:"auto"})}
+ setTimeout(function(){dispatchEvent(new Event("resize"));dispatchEvent(new Event("scroll"));$$(".kb .rv").forEach(function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)e.classList.add("on")})},60)}
+var q=new URLSearchParams(location.search).get("view"),init=(q==="full"||/^#sec-/.test(location.hash))?"full":"ov";setV(init,false);addEventListener("resize",place);
+d.querySelector(".kb").addEventListener("click",function(e){var b=e.target.closest("[data-v]");if(b&&b.closest(".kb .ov-seg,.kb .ov-cta")){setV(b.dataset.v,true);return}
+ var g=e.target.closest("[data-go]");if(g){e.preventDefault();setV("full",false,g.dataset.go)}});
+/* carousel */
+var st=d.querySelector(".kb .ov-stage");if(st){var sl=[].slice.call(st.children),tb=d.querySelector(".kb .ov-tabs"),tabs=[].slice.call(tb.children),cur=0,tm=null;
+ function show(i){cur=(i+sl.length)%sl.length;sl.forEach(function(x,j){x.classList.toggle("on",j===cur)});tabs.forEach(function(x,j){x.classList.remove("on")});void tb.offsetWidth;tabs[cur].classList.add("on")}
+ function run(){clearInterval(tm);if(!reduce)tm=setInterval(function(){show(cur+1)},3600)}
+ tb.addEventListener("click",function(e){var b=e.target.closest("button");if(b){show(+b.dataset.i);run()}});
+ st.addEventListener("click",function(){show(cur+1);run()});
+ [st,tb].forEach(function(el){el.addEventListener("mouseenter",function(){clearInterval(tm);tb.classList.add("paused")});el.addEventListener("mouseleave",function(){tb.classList.remove("paused");run()})});
+ run()}
+})();
 /* plan view switcher */
 var seg=d.querySelector(".kb .seg"),figs=$$(".kb .vstack>figure");
 if(seg)seg.addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var i=+b.dataset.v;[].forEach.call(seg.children,function(x){x.setAttribute("aria-selected",x===b)});figs.forEach(function(f,j){f.classList.toggle("on",j===i)})});
