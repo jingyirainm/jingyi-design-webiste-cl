@@ -99,6 +99,11 @@ html:has(body.page-knotboard),body.page-knotboard{overflow-x:clip}
 .kb .credits dd{font-size:15px;line-height:1.4;color:var(--ink)}
 .kb .credits dd b{font-weight:500;color:var(--leaf)}
 
+.kb .kbtags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:0 0 clamp(24px,3vw,40px)}
+.kb .kbtags span{display:inline-flex;align-items:center;gap:.6em;font:400 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;padding:.85em 1.4em;border:1px solid rgba(20,20,20,.16);border-radius:99px;color:var(--mute);background:rgba(255,255,255,.6)}
+.kb .kbtags .live{color:var(--leaf);border-color:var(--leaf);border-width:1.5px}
+.kb .kbtags .live::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf)}
+@media (max-width:760px){.kb .kbtags span{font-size:10px;padding:.8em 1.1em}}
 /* MANIFESTO */
 .kb .sec{padding-block:clamp(80px,10vw,150px);scroll-margin-top:90px}
 .kb .manifesto{background:var(--cream)}
@@ -538,7 +543,7 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <figure class="c"><img src="assets/projects/knotboard-v2/mood/aasignals-pink.jpg" alt=""><span>Poster · to task</span></figure>
 <figure class="d"><img src="assets/projects/knotboard-v2/mood/silver-bloom.jpg" alt=""><span>Image · reference</span></figure>
 </div>
-<p class="kick rv"><i></i>Case study · AI SaaS · 0 → 1 · MVP live</p>
+<div class="kbtags btns rv"><span>Rainmelon Studio</span><span>AI SaaS · Creative Workflow · 0-to-1</span><span>2026</span><span class="live">MVP Launched</span></div>
 <h1 class="d1 rv">Connect what you <em>learn</em> with what you <em>make</em>.</h1>
 <p class="sub rv">Knotboard is an AI-powered workspace that keeps a creative’s references, plans, projects and progress on one thread. I designed it from zero to one: product, brand and front end.</p>
 <div class="btns rv"><a class="btn dark" href="https://knotboard.app/" target="_blank" rel="noopener">Try Knotboard <span class="ar">↗</span></a><a class="btn ghost" href="#sec-1">Read the story ↓</a></div>
