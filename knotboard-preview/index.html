@@ -668,10 +668,12 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <div class="rv" style="--d:160ms"><small>03 · Single item</small><h4>Object level</h4><p>Any reference or project can call AI with its own context: summarize, propose categories, outline a plan.</p></div>
 </div>
 
-<div class="aflow">
-<figure class="rv"><span class="st">01 · Open</span><h4>One tap from the work</h4><div class="fr tile"><img src="assets/projects/knotboard-v2/4438cde19e76_knot-agent-button.gif" alt="Knot Agent floating button" loading="lazy"></div><figcaption>A movable button lives on every page, so the agent is always next to the work in view.</figcaption></figure>
-<figure class="rv"><span class="st">02 · Ask</span><h4>It already knows the context</h4><div class="fr tile"><img src="assets/projects/knotboard-v2/98c4ed059562_2026-10-06-12.35.21_800.jpg" alt="Knot Agent panel: what would you like to move forward?" loading="lazy"></div><figcaption>Suggestions come from the page you’re on: plan, review, projects, attention.</figcaption></figure>
-<figure class="rv"><span class="st">03 · Approve</span><h4>Nothing changes without your yes</h4><div class="fr tile"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft ready" loading="lazy"></div><figcaption>Every action arrives as a draft: use it, or dismiss it.</figcaption></figure>
+<div class="agrid">
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/98c4ed059562_2026-10-06-12.35.21_800.jpg" alt="Knot Agent panel: what would you like to move forward?" loading="lazy"></div><figcaption>Ask about the work in view. Changes are prepared, then approved.</figcaption></figure>
+<div class="stack">
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/13475c91bb37_2026-10-06-10.21.35_900.jpg" alt="Knot Agent review draft ready" loading="lazy"></div><figcaption>A review draft built from the dashboard period you’re looking at.</figcaption></figure>
+<figure class="rv"><div class="fr"><img src="assets/projects/knotboard-v2/4438cde19e76_knot-agent-button.gif" alt="Knot Agent floating button" loading="lazy"></div><figcaption>The agent lives one tap from where the work is.</figcaption></figure>
+</div>
 </div>
 
 <div class="skills">
@@ -680,6 +682,7 @@ body.mobile.case-mode .main .kb .panel .need p{font-family:var(--serif)!importan
 <div class="rv" style="--d:120ms"><small>Review</small><b>Turns recent activity into an actionable reflection.</b></div>
 <div class="rv" style="--d:180ms"><small>Attention</small><b>Flags at-risk projects and tasks that need action now.</b></div>
 </div>
+<div class="approve rv"><h3 class="d3">Nothing changes without your yes.</h3><span>Every agent action is a draft first: Use this draft, or Dismiss. The user’s judgment stays visible.</span></div>
 </div>
 </section>
 
@@ -775,7 +778,7 @@ $$(".kb .d1,.kb .d2,.kb .mf").forEach(function(h){var n=0;
    c.parentNode.replaceChild(fr,c)}else if(c.nodeType===1)walk(c)})})(h);
  h.classList.add("split");var host=h.closest(".rv");if(host&&host!==h){host.classList.remove("rv");[].slice.call(host.children).forEach(function(c,i){if(c!==h&&!c.contains(h)){c.classList.add("rv");c.style.setProperty("--d",(90+i*60)+"ms")}})}h.classList.add("rv")});
 /* 2. stagger children of groups so they surface layer by layer */
-var groups=".kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .shots2,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .wk,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
+var groups=".kb .agrid .stack,.kb .stats,.kb .grid8,.kb .trio,.kb .levels,.kb .skills,.kb .shots2,.kb .choices,.kb .pillars,.kb .bento,.kb .promise ul,.kb .wk,.kb .chips,.kb .credits,.kb .aflow,.kb .artifacts .two,.kb .panel ul,.kb .btns";
 $$(groups).forEach(function(g){var host=g.classList.contains("rv")?g:null;if(host)host.classList.remove("rv");
  [].slice.call(g.children).forEach(function(c,i){c.classList.add("rv");c.style.setProperty("--d",Math.min(i*60,420)+(host?60:0)+"ms")})});
 /* masonry: stagger by column position */
